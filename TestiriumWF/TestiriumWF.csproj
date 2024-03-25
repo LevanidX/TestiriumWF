@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +47,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseQuestionType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseQuestionType.Designer.cs">
+      <DependentUpon>ChooseQuestionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomAnswerTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomAnswerTextBox.Designer.cs">
+      <DependentUpon>CustomAnswerTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControlsFunctions.cs" />
+    <Compile Include="CustomQuestionTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomQuestionTextBox.Designer.cs">
+      <DependentUpon>CustomQuestionTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OneQuestionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OneQuestionPanel.Designer.cs">
+      <DependentUpon>OneQuestionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,8 +86,26 @@
     <Compile Include="TestCreating.Designer.cs">
       <DependentUpon>TestCreating.cs</DependentUpon>
     </Compile>
+    <Compile Include="WelcomeScreenPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WelcomeScreenPanel.Designer.cs">
+      <DependentUpon>WelcomeScreenPanel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChooseQuestionType.resx">
+      <DependentUpon>ChooseQuestionType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomAnswerTextBox.resx">
+      <DependentUpon>CustomAnswerTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomQuestionTextBox.resx">
+      <DependentUpon>CustomQuestionTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OneQuestionPanel.resx">
+      <DependentUpon>OneQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -75,6 +119,9 @@
     </Compile>
     <EmbeddedResource Include="TestCreating.resx">
       <DependentUpon>TestCreating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeScreenPanel.resx">
+      <DependentUpon>WelcomeScreenPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

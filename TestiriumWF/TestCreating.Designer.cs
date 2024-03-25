@@ -35,17 +35,12 @@
             this.btnWelcomeScreen = new System.Windows.Forms.Button();
             this.btnCreateQuestion = new System.Windows.Forms.Button();
             this.btnOneQuestionAnswer = new System.Windows.Forms.Button();
-            this.welcomeScreenPanel = new System.Windows.Forms.Panel();
-            this.lblWelcomeScreenTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.containerPanel = new System.Windows.Forms.Panel();
+            this.welcomeScreenPanel1 = new TestiriumWF.WelcomeScreenPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.questionsFlowLayoutPanel.SuspendLayout();
-            this.welcomeScreenPanel.SuspendLayout();
+            this.containerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblProgrammTitle
@@ -118,10 +113,11 @@
             this.btnCreateQuestion.ForeColor = System.Drawing.Color.White;
             this.btnCreateQuestion.Location = new System.Drawing.Point(12, 19);
             this.btnCreateQuestion.Name = "btnCreateQuestion";
-            this.btnCreateQuestion.Size = new System.Drawing.Size(200, 50);
+            this.btnCreateQuestion.Size = new System.Drawing.Size(222, 50);
             this.btnCreateQuestion.TabIndex = 1;
             this.btnCreateQuestion.Text = "Добавить вопрос";
             this.btnCreateQuestion.UseVisualStyleBackColor = false;
+            this.btnCreateQuestion.Click += new System.EventHandler(this.btnCreateQuestion_Click);
             // 
             // btnOneQuestionAnswer
             // 
@@ -137,92 +133,20 @@
             this.btnOneQuestionAnswer.Text = "Вопрос с одним ответом";
             this.btnOneQuestionAnswer.UseVisualStyleBackColor = false;
             // 
-            // welcomeScreenPanel
+            // containerPanel
             // 
-            this.welcomeScreenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            this.welcomeScreenPanel.Controls.Add(this.linkLabel1);
-            this.welcomeScreenPanel.Controls.Add(this.textBox2);
-            this.welcomeScreenPanel.Controls.Add(this.label2);
-            this.welcomeScreenPanel.Controls.Add(this.textBox1);
-            this.welcomeScreenPanel.Controls.Add(this.label1);
-            this.welcomeScreenPanel.Controls.Add(this.lblWelcomeScreenTitle);
-            this.welcomeScreenPanel.Location = new System.Drawing.Point(265, 94);
-            this.welcomeScreenPanel.Name = "welcomeScreenPanel";
-            this.welcomeScreenPanel.Size = new System.Drawing.Size(807, 518);
-            this.welcomeScreenPanel.TabIndex = 4;
+            this.containerPanel.Controls.Add(this.welcomeScreenPanel1);
+            this.containerPanel.Location = new System.Drawing.Point(246, 77);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Size = new System.Drawing.Size(838, 554);
+            this.containerPanel.TabIndex = 4;
             // 
-            // lblWelcomeScreenTitle
+            // welcomeScreenPanel1
             // 
-            this.lblWelcomeScreenTitle.AutoSize = true;
-            this.lblWelcomeScreenTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWelcomeScreenTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblWelcomeScreenTitle.Location = new System.Drawing.Point(24, 25);
-            this.lblWelcomeScreenTitle.Name = "lblWelcomeScreenTitle";
-            this.lblWelcomeScreenTitle.Size = new System.Drawing.Size(153, 25);
-            this.lblWelcomeScreenTitle.TabIndex = 0;
-            this.lblWelcomeScreenTitle.Text = "Титульный экран";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(26, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Название";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
-            this.textBox1.Location = new System.Drawing.Point(29, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(746, 27);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Введите название теста";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
-            this.textBox2.Location = new System.Drawing.Point(29, 175);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(746, 257);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.Text = "Введите описание для теста (здесь может быть краткая информация, необходимая обуч" +
-    "ающемуся до тестирования)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(26, 156);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Описание для теста";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.White;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(26, 435);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(176, 14);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Добавить картинку или видео";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
+            this.welcomeScreenPanel1.Location = new System.Drawing.Point(18, 18);
+            this.welcomeScreenPanel1.Name = "welcomeScreenPanel1";
+            this.welcomeScreenPanel1.Size = new System.Drawing.Size(800, 520);
+            this.welcomeScreenPanel1.TabIndex = 0;
             // 
             // TestCreating
             // 
@@ -230,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(1084, 632);
-            this.Controls.Add(this.welcomeScreenPanel);
+            this.Controls.Add(this.containerPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -241,8 +165,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.questionsFlowLayoutPanel.ResumeLayout(false);
-            this.welcomeScreenPanel.ResumeLayout(false);
-            this.welcomeScreenPanel.PerformLayout();
+            this.containerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -256,12 +179,7 @@
         private System.Windows.Forms.Button btnWelcomeScreen;
         private System.Windows.Forms.FlowLayoutPanel questionsFlowLayoutPanel;
         private System.Windows.Forms.Button btnOneQuestionAnswer;
-        private System.Windows.Forms.Panel welcomeScreenPanel;
-        private System.Windows.Forms.Label lblWelcomeScreenTitle;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Panel containerPanel;
+        private WelcomeScreenPanel welcomeScreenPanel1;
     }
 }
