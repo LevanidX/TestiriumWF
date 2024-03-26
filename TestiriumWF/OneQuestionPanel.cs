@@ -12,7 +12,7 @@ namespace TestiriumWF
 {
     public partial class OneQuestionPanel : UserControl
     {
-        private int _count = 2;
+        private int _count;
 
         public OneQuestionPanel()
         {
@@ -21,8 +21,14 @@ namespace TestiriumWF
 
         private void btnAddAnswer_Click(object sender, EventArgs e)
         {
+            AddAnswerRow();
+        }
+
+        private void AddAnswerRow()
+        {
             RadioButton radioButton = new RadioButton();
             CustomAnswerTextBox customAnswerTextBox = new CustomAnswerTextBox();
+            CustomClearRowButton clearRowButton = new CustomClearRowButton(answersTableLayoutPanel);
 
             radioButton.Text = String.Empty;
             radioButton.Size = new Size(14, 14);
@@ -31,13 +37,20 @@ namespace TestiriumWF
 
             answersTableLayoutPanel.Controls.Add(radioButton, 0, _count);
             answersTableLayoutPanel.Controls.Add(customAnswerTextBox, 1, _count);
+            answersTableLayoutPanel.Controls.Add(clearRowButton, 2, _count);
 
             _count++;
         }
 
         private void OneQuestionPanel_Load(object sender, EventArgs e)
         {
+            AddAnswerRow();
+            AddAnswerRow();
 
+            //Займись добавлением datagrid вмето table layout, а то не работает ни черта
+            //Надо как-то заменить радиобаттонами, это делается картинками
+            //Сделать другие виды вопросов
+            //запоминание в xml (хотя-бы частично)
         }
     }
 }

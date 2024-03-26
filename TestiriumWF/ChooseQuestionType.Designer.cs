@@ -28,41 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnRightOrderQuestion = new System.Windows.Forms.Button();
+            this.btnMatchAnswerQuestion = new System.Windows.Forms.Button();
+            this.btnRightOrderAnswerQuestion = new System.Windows.Forms.Button();
             this.btnTextAnswerQuestion = new System.Windows.Forms.Button();
             this.btnMultipleAnswerQuestion = new System.Windows.Forms.Button();
             this.btnOneAnswerQuestion = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button4
+            // btnMatchAnswerQuestion
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(0, 192);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 48);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Соответствие";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnMatchAnswerQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnMatchAnswerQuestion.FlatAppearance.BorderSize = 0;
+            this.btnMatchAnswerQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMatchAnswerQuestion.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMatchAnswerQuestion.ForeColor = System.Drawing.Color.White;
+            this.btnMatchAnswerQuestion.Location = new System.Drawing.Point(0, 192);
+            this.btnMatchAnswerQuestion.Name = "btnMatchAnswerQuestion";
+            this.btnMatchAnswerQuestion.Size = new System.Drawing.Size(200, 48);
+            this.btnMatchAnswerQuestion.TabIndex = 18;
+            this.btnMatchAnswerQuestion.Text = "Соответствие";
+            this.btnMatchAnswerQuestion.UseVisualStyleBackColor = false;
             // 
-            // btnRightOrderQuestion
+            // btnRightOrderAnswerQuestion
             // 
-            this.btnRightOrderQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.btnRightOrderQuestion.FlatAppearance.BorderSize = 0;
-            this.btnRightOrderQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRightOrderQuestion.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRightOrderQuestion.ForeColor = System.Drawing.Color.White;
-            this.btnRightOrderQuestion.Location = new System.Drawing.Point(0, 144);
-            this.btnRightOrderQuestion.Name = "btnRightOrderQuestion";
-            this.btnRightOrderQuestion.Size = new System.Drawing.Size(200, 48);
-            this.btnRightOrderQuestion.TabIndex = 17;
-            this.btnRightOrderQuestion.Text = "Последовательность";
-            this.btnRightOrderQuestion.UseVisualStyleBackColor = false;
+            this.btnRightOrderAnswerQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnRightOrderAnswerQuestion.FlatAppearance.BorderSize = 0;
+            this.btnRightOrderAnswerQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRightOrderAnswerQuestion.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnRightOrderAnswerQuestion.ForeColor = System.Drawing.Color.White;
+            this.btnRightOrderAnswerQuestion.Location = new System.Drawing.Point(0, 144);
+            this.btnRightOrderAnswerQuestion.Name = "btnRightOrderAnswerQuestion";
+            this.btnRightOrderAnswerQuestion.Size = new System.Drawing.Size(200, 48);
+            this.btnRightOrderAnswerQuestion.TabIndex = 17;
+            this.btnRightOrderAnswerQuestion.Text = "Последовательность";
+            this.btnRightOrderAnswerQuestion.UseVisualStyleBackColor = false;
             // 
             // btnTextAnswerQuestion
             // 
@@ -128,8 +128,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(200, 288);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.btnRightOrderQuestion);
+            this.Controls.Add(this.btnMatchAnswerQuestion);
+            this.Controls.Add(this.btnRightOrderAnswerQuestion);
             this.Controls.Add(this.btnTextAnswerQuestion);
             this.Controls.Add(this.btnMultipleAnswerQuestion);
             this.Controls.Add(this.btnOneAnswerQuestion);
@@ -144,8 +144,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnRightOrderQuestion;
+        private System.Windows.Forms.Button btnMatchAnswerQuestion;
+        private System.Windows.Forms.Button btnRightOrderAnswerQuestion;
         private System.Windows.Forms.Button btnTextAnswerQuestion;
         private System.Windows.Forms.Button btnMultipleAnswerQuestion;
         private System.Windows.Forms.Button btnOneAnswerQuestion;

@@ -59,12 +59,24 @@
     <Compile Include="CustomAnswerTextBox.Designer.cs">
       <DependentUpon>CustomAnswerTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomClearRowButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomClearRowButton.Designer.cs">
+      <DependentUpon>CustomClearRowButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControlsFunctions.cs" />
     <Compile Include="CustomQuestionTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomQuestionTextBox.Designer.cs">
       <DependentUpon>CustomQuestionTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTestCreatingButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomTestCreatingButton.Designer.cs">
+      <DependentUpon>CustomTestCreatingButton.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -98,8 +110,14 @@
     <EmbeddedResource Include="CustomAnswerTextBox.resx">
       <DependentUpon>CustomAnswerTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomClearRowButton.resx">
+      <DependentUpon>CustomClearRowButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomQuestionTextBox.resx">
       <DependentUpon>CustomQuestionTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomTestCreatingButton.resx">
+      <DependentUpon>CustomTestCreatingButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

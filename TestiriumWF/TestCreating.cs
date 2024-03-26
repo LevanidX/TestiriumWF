@@ -24,9 +24,16 @@ namespace TestiriumWF
 
         private void btnCreateQuestion_Click(object sender, EventArgs e)
         {
-            ChooseQuestionType chooseQuestionType = new ChooseQuestionType(this, containerPanel);
+            ChooseQuestionType chooseQuestionType = new ChooseQuestionType(this, 
+                questionsContainerPanel, buttonsContainerPanel);
+
             chooseQuestionType.Show();
             this.Enabled = false;
+        }
+
+        private void btnWelcomeScreen_Click(object sender, EventArgs e)
+        {
+            welcomeScreenPanel1.BringToFront();
         }
     }
 }

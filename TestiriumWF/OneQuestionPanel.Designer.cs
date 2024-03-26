@@ -36,12 +36,7 @@
             this.lblQuestionAnswerVariants = new System.Windows.Forms.Label();
             this.lblQuestionTitle = new System.Windows.Forms.Label();
             this.lblWelcomeScreenTitle = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.customAnswerTextBox1 = new TestiriumWF.CustomAnswerTextBox();
-            this.customAnswerTextBox2 = new TestiriumWF.CustomAnswerTextBox();
             this.welcomeScreenPanel.SuspendLayout();
-            this.answersTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // welcomeScreenPanel
@@ -68,15 +63,11 @@
             // 
             // answersTableLayoutPanel
             // 
-            this.answersTableLayoutPanel.AutoScroll = true;
             this.answersTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.answersTableLayoutPanel.ColumnCount = 2;
+            this.answersTableLayoutPanel.ColumnCount = 3;
             this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.answersTableLayoutPanel.Controls.Add(this.radioButton1, 0, 0);
-            this.answersTableLayoutPanel.Controls.Add(this.radioButton2, 0, 1);
-            this.answersTableLayoutPanel.Controls.Add(this.customAnswerTextBox1, 1, 0);
-            this.answersTableLayoutPanel.Controls.Add(this.customAnswerTextBox2, 1, 1);
+            this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.answersTableLayoutPanel.Location = new System.Drawing.Point(32, 208);
             this.answersTableLayoutPanel.Name = "answersTableLayoutPanel";
             this.answersTableLayoutPanel.RowCount = 3;
@@ -148,40 +139,6 @@
             this.lblWelcomeScreenTitle.TabIndex = 0;
             this.lblWelcomeScreenTitle.Text = "Вопрос с одним ответом";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 32);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // customAnswerTextBox1
-            // 
-            this.customAnswerTextBox1.Location = new System.Drawing.Point(23, 3);
-            this.customAnswerTextBox1.Name = "customAnswerTextBox1";
-            this.customAnswerTextBox1.Size = new System.Drawing.Size(688, 23);
-            this.customAnswerTextBox1.TabIndex = 12;
-            // 
-            // customAnswerTextBox2
-            // 
-            this.customAnswerTextBox2.Location = new System.Drawing.Point(23, 32);
-            this.customAnswerTextBox2.Name = "customAnswerTextBox2";
-            this.customAnswerTextBox2.Size = new System.Drawing.Size(688, 23);
-            this.customAnswerTextBox2.TabIndex = 13;
-            // 
             // OneQuestionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,8 +149,6 @@
             this.Load += new System.EventHandler(this.OneQuestionPanel_Load);
             this.welcomeScreenPanel.ResumeLayout(false);
             this.welcomeScreenPanel.PerformLayout();
-            this.answersTableLayoutPanel.ResumeLayout(false);
-            this.answersTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -208,9 +163,5 @@
         private System.Windows.Forms.Button btnAddAnswer;
         private System.Windows.Forms.TableLayoutPanel answersTableLayoutPanel;
         private CustomQuestionTextBox customQuestionTextBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private CustomAnswerTextBox customAnswerTextBox1;
-        private CustomAnswerTextBox customAnswerTextBox2;
     }
 }
