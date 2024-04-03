@@ -124,6 +124,9 @@
   <data name="Container" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="free-icon-close-1828666" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-icon-close-1828666.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="person" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\person.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -144,5 +147,8 @@
   </data>
   <data name="exam" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exam.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="free-icon-close-1828666 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-icon-close-1828666 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

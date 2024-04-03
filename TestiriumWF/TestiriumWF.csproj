@@ -37,9 +37,6 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
-    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -64,6 +61,7 @@
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -221,6 +219,7 @@
     </Compile>
     <Compile Include="TestCreatingFunctions\AnswersGetting.cs" />
     <Compile Include="TestCreator.cs" />
+    <Compile Include="UserConfig.cs" />
     <EmbeddedResource Include="CustomControls\CustomMinuteTextBox.resx">
       <DependentUpon>CustomMinuteTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +315,8 @@
     <None Include="Resources\statistic.png" />
     <None Include="Resources\user-group.png" />
     <None Include="Resources\exam.png" />
+    <None Include="Resources\free-icon-close-1828666.png" />
+    <None Include="Resources\free-icon-close-1828666 %281%29.png" />
     <Content Include="TestsXML\ExampleTest.xml" />
   </ItemGroup>
   <ItemGroup>

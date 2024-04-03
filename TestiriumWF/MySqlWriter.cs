@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
-using ZstdSharp.Unsafe;
 using static Mysqlx.Datatypes.Scalar.Types;
 
 namespace TestiriumWF
 {
     internal class MySqlWriter
     {
+        delegate string GetValues(MySqlDataReader sqlDataReader);
+
         private string GetConnectionString()
         {
             ConnectionStringSettings settings = new ConnectionStringSettings();
@@ -35,7 +36,7 @@ namespace TestiriumWF
                 {
                     MessageBox.Show("Не удалось подключиться!");
                 }
-                
+
             }
         }
 
@@ -53,6 +54,54 @@ namespace TestiriumWF
 
                 sqlConnection.Close();
             }
+        }
+
+        public List<List<string>> ExecuteSelectCommand(string sqlCommand, Func<MySqlDataReader, List<string>> action)
+        {
+            List<List<string>> items = new List<List<string>>();
+
+            using (var sqlConnection = new MySqlConnection(GetConnectionString()))
+            {
+                sqlConnection.Open();
+
+                using (var command = sqlConnection.CreateCommand())
+                {
+                    command.CommandText = sqlCommand;
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            items.Add(action(reader));
+                        }
+                    }
+                }
+
+                sqlConnection.Close();
+            }
+
+            return items;
+        }
+
+        public string ExecuteSelectScalarCommand(string sqlCommand)
+        {
+            object reader = new object();
+
+            using (var sqlConnection = new MySqlConnection(GetConnectionString()))
+            {
+                sqlConnection.Open();
+
+                using (var command = sqlConnection.CreateCommand())
+                {
+                    command.CommandText = sqlCommand;
+
+                    reader = command.ExecuteScalar();
+                }
+
+                sqlConnection.Close();
+            }
+
+            return reader.ToString();
         }
 
         public bool ExecuteCheckSqlCommand(string sqlCommand)

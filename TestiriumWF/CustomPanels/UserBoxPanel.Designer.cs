@@ -41,11 +41,11 @@
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblUserName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUserName.Location = new System.Drawing.Point(188, 18);
+            this.lblUserName.Location = new System.Drawing.Point(210, 18);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(113, 19);
+            this.lblUserName.Size = new System.Drawing.Size(91, 19);
             this.lblUserName.TabIndex = 0;
-            this.lblUserName.Text = "Леонид Плетнев";
+            this.lblUserName.Text = "Иванов Иван";
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // userBoxTableLayoutPanel
@@ -82,6 +82,7 @@
             this.Controls.Add(this.userBoxTableLayoutPanel);
             this.Name = "UserBoxPanel";
             this.Size = new System.Drawing.Size(358, 56);
+            this.Load += new System.EventHandler(this.UserBoxPanel_Load);
             this.userBoxTableLayoutPanel.ResumeLayout(false);
             this.userBoxTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage)).EndInit();

@@ -16,5 +16,10 @@ namespace TestiriumWF.CustomPanels
         {
             InitializeComponent();
         }
+
+        private void UserBoxPanel_Load(object sender, EventArgs e)
+        {
+            lblUserName.Text = UserConfig.PersonName;
+        }
     }
 }
