@@ -97,6 +97,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\CustomDataGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomDataGridView.Designer.cs">
+      <DependentUpon>CustomDataGridView.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CustomMinuteTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     <Compile Include="TestCreatingFunctions\AnswersGetting.cs" />
     <Compile Include="TestCreator.cs" />
     <Compile Include="UserConfig.cs" />
+    <EmbeddedResource Include="CustomControls\CustomDataGridView.resx">
+      <DependentUpon>CustomDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomMinuteTextBox.resx">
       <DependentUpon>CustomMinuteTextBox.cs</DependentUpon>
     </EmbeddedResource>

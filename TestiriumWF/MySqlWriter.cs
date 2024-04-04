@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,6 +127,31 @@ namespace TestiriumWF
                 sqlConnection.Close();
 
                 return false;
+            }
+        }
+
+        public BindingSource ExecuteFillData(string sqlCommand)
+        {
+            var bindingSource = new BindingSource();
+
+            using (var sqlConnection = new MySqlConnection(GetConnectionString()))
+            {
+                sqlConnection.Open();
+
+                using (var dataAdapter = new MySqlDataAdapter())
+                {
+                    dataAdapter.SelectCommand = new MySqlCommand(sqlCommand, sqlConnection);
+                    
+                    using (var dataTable = new DataTable())
+                    {
+                        dataAdapter.Fill(dataTable);
+                        bindingSource.DataSource = dataTable;
+                    }
+                }
+
+                sqlConnection.Close();
+
+                return bindingSource;
             }
         }
     }
