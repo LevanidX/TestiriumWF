@@ -1,6 +1,6 @@
-﻿namespace TestiriumWF
+﻿namespace TestiriumWF.CustomPanels
 {
-    partial class OneQuestionPanel
+    partial class TextQuestionPanel
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,47 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.oneQuestionScreenPanel = new System.Windows.Forms.Panel();
+            this.multipleQuestionScreenPanel = new System.Windows.Forms.Panel();
+            this.caseSensitivityCheckBox = new System.Windows.Forms.CheckBox();
+            this.customQuestionTextBox = new TestiriumWF.CustomQuestionTextBox();
             this.answersTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddAnswer = new System.Windows.Forms.Button();
             this.btnAddPhotoVideo = new System.Windows.Forms.LinkLabel();
             this.lblQuestionAnswerVariants = new System.Windows.Forms.Label();
             this.lblQuestionTitle = new System.Windows.Forms.Label();
-            this.lblOneQuestionPanelTitle = new System.Windows.Forms.Label();
-            this.questionTextBox = new TestiriumWF.CustomQuestionTextBox();
-            this.oneQuestionScreenPanel.SuspendLayout();
+            this.lblMultipleQuestionTitle = new System.Windows.Forms.Label();
+            this.multipleQuestionScreenPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // oneQuestionScreenPanel
+            // multipleQuestionScreenPanel
             // 
-            this.oneQuestionScreenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            this.oneQuestionScreenPanel.Controls.Add(this.questionTextBox);
-            this.oneQuestionScreenPanel.Controls.Add(this.answersTableLayoutPanel);
-            this.oneQuestionScreenPanel.Controls.Add(this.btnAddAnswer);
-            this.oneQuestionScreenPanel.Controls.Add(this.btnAddPhotoVideo);
-            this.oneQuestionScreenPanel.Controls.Add(this.lblQuestionAnswerVariants);
-            this.oneQuestionScreenPanel.Controls.Add(this.lblQuestionTitle);
-            this.oneQuestionScreenPanel.Controls.Add(this.lblOneQuestionPanelTitle);
-            this.oneQuestionScreenPanel.Location = new System.Drawing.Point(0, 0);
-            this.oneQuestionScreenPanel.Name = "oneQuestionScreenPanel";
-            this.oneQuestionScreenPanel.Size = new System.Drawing.Size(800, 520);
-            this.oneQuestionScreenPanel.TabIndex = 5;
+            this.multipleQuestionScreenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            this.multipleQuestionScreenPanel.Controls.Add(this.caseSensitivityCheckBox);
+            this.multipleQuestionScreenPanel.Controls.Add(this.customQuestionTextBox);
+            this.multipleQuestionScreenPanel.Controls.Add(this.answersTableLayoutPanel);
+            this.multipleQuestionScreenPanel.Controls.Add(this.btnAddAnswer);
+            this.multipleQuestionScreenPanel.Controls.Add(this.btnAddPhotoVideo);
+            this.multipleQuestionScreenPanel.Controls.Add(this.lblQuestionAnswerVariants);
+            this.multipleQuestionScreenPanel.Controls.Add(this.lblQuestionTitle);
+            this.multipleQuestionScreenPanel.Controls.Add(this.lblMultipleQuestionTitle);
+            this.multipleQuestionScreenPanel.Location = new System.Drawing.Point(0, 0);
+            this.multipleQuestionScreenPanel.Name = "multipleQuestionScreenPanel";
+            this.multipleQuestionScreenPanel.Size = new System.Drawing.Size(784, 496);
+            this.multipleQuestionScreenPanel.TabIndex = 7;
+            // 
+            // caseSensitivityCheckBox
+            // 
+            this.caseSensitivityCheckBox.AutoSize = true;
+            this.caseSensitivityCheckBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.caseSensitivityCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.caseSensitivityCheckBox.Location = new System.Drawing.Point(552, 197);
+            this.caseSensitivityCheckBox.Name = "caseSensitivityCheckBox";
+            this.caseSensitivityCheckBox.Size = new System.Drawing.Size(199, 20);
+            this.caseSensitivityCheckBox.TabIndex = 11;
+            this.caseSensitivityCheckBox.Text = "Чувствительность к регистру";
+            this.caseSensitivityCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // customQuestionTextBox
+            // 
+            this.customQuestionTextBox.Location = new System.Drawing.Point(32, 112);
+            this.customQuestionTextBox.Name = "customQuestionTextBox";
+            this.customQuestionTextBox.Size = new System.Drawing.Size(720, 64);
+            this.customQuestionTextBox.TabIndex = 10;
             // 
             // answersTableLayoutPanel
             // 
             this.answersTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.answersTableLayoutPanel.ColumnCount = 3;
+            this.answersTableLayoutPanel.ColumnCount = 5;
             this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 736F));
-            this.answersTableLayoutPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.answersTableLayoutPanel.Location = new System.Drawing.Point(32, 208);
+            this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.answersTableLayoutPanel.Location = new System.Drawing.Point(32, 216);
             this.answersTableLayoutPanel.Name = "answersTableLayoutPanel";
             this.answersTableLayoutPanel.RowCount = 3;
             this.answersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.answersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.answersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.answersTableLayoutPanel.Size = new System.Drawing.Size(736, 216);
+            this.answersTableLayoutPanel.Size = new System.Drawing.Size(720, 208);
             this.answersTableLayoutPanel.TabIndex = 9;
             // 
             // btnAddAnswer
@@ -80,7 +102,7 @@
             this.btnAddAnswer.ForeColor = System.Drawing.Color.White;
             this.btnAddAnswer.Location = new System.Drawing.Point(32, 432);
             this.btnAddAnswer.Name = "btnAddAnswer";
-            this.btnAddAnswer.Size = new System.Drawing.Size(736, 56);
+            this.btnAddAnswer.Size = new System.Drawing.Size(720, 32);
             this.btnAddAnswer.TabIndex = 8;
             this.btnAddAnswer.Text = "Добавить вариант ответа";
             this.btnAddAnswer.UseVisualStyleBackColor = false;
@@ -92,7 +114,7 @@
             this.btnAddPhotoVideo.AutoSize = true;
             this.btnAddPhotoVideo.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddPhotoVideo.LinkColor = System.Drawing.Color.White;
-            this.btnAddPhotoVideo.Location = new System.Drawing.Point(592, 176);
+            this.btnAddPhotoVideo.Location = new System.Drawing.Point(576, 176);
             this.btnAddPhotoVideo.Name = "btnAddPhotoVideo";
             this.btnAddPhotoVideo.Size = new System.Drawing.Size(176, 14);
             this.btnAddPhotoVideo.TabIndex = 6;
@@ -105,7 +127,7 @@
             this.lblQuestionAnswerVariants.AutoSize = true;
             this.lblQuestionAnswerVariants.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblQuestionAnswerVariants.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblQuestionAnswerVariants.Location = new System.Drawing.Point(32, 192);
+            this.lblQuestionAnswerVariants.Location = new System.Drawing.Point(32, 200);
             this.lblQuestionAnswerVariants.Name = "lblQuestionAnswerVariants";
             this.lblQuestionAnswerVariants.Size = new System.Drawing.Size(109, 16);
             this.lblQuestionAnswerVariants.TabIndex = 3;
@@ -122,47 +144,41 @@
             this.lblQuestionTitle.TabIndex = 1;
             this.lblQuestionTitle.Text = "Текст вопроса";
             // 
-            // lblOneQuestionPanelTitle
+            // lblMultipleQuestionTitle
             // 
-            this.lblOneQuestionPanelTitle.AutoSize = true;
-            this.lblOneQuestionPanelTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblOneQuestionPanelTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblOneQuestionPanelTitle.Location = new System.Drawing.Point(32, 40);
-            this.lblOneQuestionPanelTitle.Name = "lblOneQuestionPanelTitle";
-            this.lblOneQuestionPanelTitle.Size = new System.Drawing.Size(213, 25);
-            this.lblOneQuestionPanelTitle.TabIndex = 0;
-            this.lblOneQuestionPanelTitle.Text = "Вопрос с одним ответом";
+            this.lblMultipleQuestionTitle.AutoSize = true;
+            this.lblMultipleQuestionTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMultipleQuestionTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblMultipleQuestionTitle.Location = new System.Drawing.Point(32, 40);
+            this.lblMultipleQuestionTitle.Name = "lblMultipleQuestionTitle";
+            this.lblMultipleQuestionTitle.Size = new System.Drawing.Size(291, 25);
+            this.lblMultipleQuestionTitle.TabIndex = 0;
+            this.lblMultipleQuestionTitle.Text = "Вопрос с вводом краткого ответа";
             // 
-            // questionTextBox
-            // 
-            this.questionTextBox.Location = new System.Drawing.Point(32, 112);
-            this.questionTextBox.Name = "questionTextBox";
-            this.questionTextBox.Size = new System.Drawing.Size(736, 64);
-            this.questionTextBox.TabIndex = 10;
-            // 
-            // OneQuestionPanel
+            // TextQuestionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.oneQuestionScreenPanel);
-            this.Name = "OneQuestionPanel";
-            this.Size = new System.Drawing.Size(800, 520);
-            this.Load += new System.EventHandler(this.OneQuestionPanel_Load);
-            this.oneQuestionScreenPanel.ResumeLayout(false);
-            this.oneQuestionScreenPanel.PerformLayout();
+            this.Controls.Add(this.multipleQuestionScreenPanel);
+            this.Name = "TextQuestionPanel";
+            this.Size = new System.Drawing.Size(784, 496);
+            this.Load += new System.EventHandler(this.TextQuestionPanel_Load);
+            this.multipleQuestionScreenPanel.ResumeLayout(false);
+            this.multipleQuestionScreenPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel oneQuestionScreenPanel;
+        private System.Windows.Forms.Panel multipleQuestionScreenPanel;
+        private CustomQuestionTextBox customQuestionTextBox;
+        private System.Windows.Forms.TableLayoutPanel answersTableLayoutPanel;
+        private System.Windows.Forms.Button btnAddAnswer;
         private System.Windows.Forms.LinkLabel btnAddPhotoVideo;
         private System.Windows.Forms.Label lblQuestionAnswerVariants;
         private System.Windows.Forms.Label lblQuestionTitle;
-        private System.Windows.Forms.Label lblOneQuestionPanelTitle;
-        private System.Windows.Forms.Button btnAddAnswer;
-        private CustomQuestionTextBox questionTextBox;
-        private System.Windows.Forms.TableLayoutPanel answersTableLayoutPanel;
+        private System.Windows.Forms.Label lblMultipleQuestionTitle;
+        private System.Windows.Forms.CheckBox caseSensitivityCheckBox;
     }
 }

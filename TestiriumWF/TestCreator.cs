@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -29,17 +30,21 @@ namespace TestiriumWF
         /// Создает тестирование и записывает в базу данных
         /// </summary>
         /// <param name="courseNumber">Номер предмета (курса)</param>
-        /// <param name="teacherUserNumber">Номер пользователя (учителя)</param>
+        /// <param name="userTeacherId">Номер пользователя (учителя)</param>
         /// <param name="testSettings">Настройки тестирования</param>
-        public void Create(int courseNumber, int teacherUserNumber, TestSettings testSettings)
+        public void Create(int courseNumber, int userTeacherId, TestSettings testSettings)
         {
             SerializeWelcomeScreen();
             SerializeQuestions();
 
             studentsTest.TestSettings = testSettings;
 
-            mySqlWriter.ExecuteInsertSqlCommand($"INSERT INTO tests(test_name, test_course_number, test_user_teacher_number, test_file, test_password) " +
-                $"VALUES('{studentsTest.Name}', {courseNumber}, {teacherUserNumber}, '{SerializeTestIntoXml()}', '{studentsTest.TestSettings.TestPassword.Password}')");
+            mySqlWriter.ExecuteInsertSqlCommand($"INSERT INTO tests(test_name, test_course_number, " +
+                $"test_user_teacher_number, test_file, test_password, test_creation_date) " +
+                $"VALUES('{studentsTest.Name}', {courseNumber}, {userTeacherId}, " +
+                $"'{SerializeTestIntoXml()}', " +
+                $"'{studentsTest.TestSettings.TestPassword.Password}', " +
+                $"'{DateTime.Now.ToString("yyyy-MM-dd")}')");
         }
 
         /// <summary>

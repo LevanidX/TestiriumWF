@@ -54,15 +54,7 @@ namespace TestiriumWF
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //var items = _mySqlWriter.ExecuteSelectCommand("SELECT user_teacher_login, user_teacher_number FROM users_teachers", GetValue);
 
-            //foreach (var item in items)
-            //{
-            //    foreach (var item2 in item)
-            //    {
-            //        Console.WriteLine(item2);
-            //    }
-            //}
 
             try
             {
@@ -70,17 +62,15 @@ namespace TestiriumWF
                 {
                     if (CheckTeacherLogin())
                     {
-                        var teacherNumber = Convert.ToInt32(_mySqlWriter.ExecuteSelectScalarCommand($"SELECT user_teacher_number " +
+                        UserConfig.UserId = Convert.ToInt32(_mySqlWriter.ExecuteSelectScalarCommand($"SELECT user_teacher_id " +
                             $"FROM users_teachers " +
                             $"WHERE user_teacher_login='{loginTextBox.Text}' AND user_teacher_password='{passwordTextBox.Text}'"));
-                        
-                        UserConfig.PersonName = _mySqlWriter.ExecuteSelectScalarCommand($"SELECT CONCAT(teacher_surname, ' ', teacher_name) " +
-                            $"FROM users_teachers, teachers " +
-                            $"WHERE {teacherNumber} = teacher_id");
+
+                        UserConfig.PersonName = "Плетнев Леонид"; //пока происходит вход только под одним аккаунтом, при входе на главное меню обработать вставку ника в юсер контроле клиент бокса
 
                         UserConfig.IsTeacher = true;
 
-                        TestiriumMainMenu testiriumMainMenu = new TestiriumMainMenu(teacherNumber);
+                        TestiriumMainMenu testiriumMainMenu = new TestiriumMainMenu();
                         testiriumMainMenu.Show();
                         this.Hide();
                     }

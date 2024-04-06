@@ -83,7 +83,7 @@
             this.EndPanel.Controls.Add(this.lblWelcomeScreenTitle);
             this.EndPanel.Location = new System.Drawing.Point(0, 0);
             this.EndPanel.Name = "EndPanel";
-            this.EndPanel.Size = new System.Drawing.Size(800, 520);
+            this.EndPanel.Size = new System.Drawing.Size(784, 496);
             this.EndPanel.TabIndex = 6;
             // 
             // btnEndTestCreation
@@ -93,9 +93,9 @@
             this.btnEndTestCreation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEndTestCreation.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnEndTestCreation.ForeColor = System.Drawing.Color.White;
-            this.btnEndTestCreation.Location = new System.Drawing.Point(32, 432);
+            this.btnEndTestCreation.Location = new System.Drawing.Point(32, 400);
             this.btnEndTestCreation.Name = "btnEndTestCreation";
-            this.btnEndTestCreation.Size = new System.Drawing.Size(736, 56);
+            this.btnEndTestCreation.Size = new System.Drawing.Size(720, 56);
             this.btnEndTestCreation.TabIndex = 14;
             this.btnEndTestCreation.Text = "Завершить создание тестирования";
             this.btnEndTestCreation.UseVisualStyleBackColor = false;
@@ -119,7 +119,7 @@
             this.panel4.Controls.Add(this.panel1);
             this.panel4.Location = new System.Drawing.Point(32, 120);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(736, 272);
+            this.panel4.Size = new System.Drawing.Size(720, 272);
             this.panel4.TabIndex = 12;
             // 
             // panel8
@@ -295,7 +295,7 @@
             this.panel7.Controls.Add(this.noTimeLimitedRadioButton);
             this.panel7.Location = new System.Drawing.Point(296, 8);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(440, 120);
+            this.panel7.Size = new System.Drawing.Size(424, 120);
             this.panel7.TabIndex = 19;
             // 
             // label8
@@ -371,7 +371,7 @@
             this.panel1.Controls.Add(this.noPasswordRadioButton);
             this.panel1.Location = new System.Drawing.Point(296, 136);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(440, 128);
+            this.panel1.Size = new System.Drawing.Size(424, 128);
             this.panel1.TabIndex = 18;
             // 
             // label9
@@ -391,7 +391,7 @@
             this.panel6.Controls.Add(this.label10);
             this.panel6.Location = new System.Drawing.Point(8, 72);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(424, 48);
+            this.panel6.Size = new System.Drawing.Size(408, 48);
             this.panel6.TabIndex = 15;
             // 
             // passwordTextBox
@@ -455,7 +455,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.EndPanel);
             this.Name = "EndScreenPanel";
-            this.Size = new System.Drawing.Size(800, 520);
+            this.Size = new System.Drawing.Size(784, 496);
             this.EndPanel.ResumeLayout(false);
             this.EndPanel.PerformLayout();
             this.panel4.ResumeLayout(false);

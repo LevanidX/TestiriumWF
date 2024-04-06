@@ -1,29 +1,24 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using TestiriumWF.CustomPanels;
 
-namespace TestiriumWF
+namespace TestiriumWF.CustomPanels
 {
-    public partial class TestCreating : Form
+    public partial class TestCreatingControl : UserControl
     {
-        public TestCreating()
+        private string _currentCourse;
+
+        public TestCreatingControl(string currentCourse)
         {
             InitializeComponent();
-        }
-
-        private void TestCreating_Load(object sender, EventArgs e)
-        {
-
+            _currentCourse = currentCourse;
         }
 
         private void btnCreateQuestion_Click(object sender, EventArgs e)
         {
-            ChooseQuestionType chooseQuestionType = new ChooseQuestionType(this, 
-                questionsContainerPanel, buttonsContainerPanel);
+            var chooseQuestionType = new ChooseQuestionType(questionsContainerPanel, buttonsContainerPanel);
 
             chooseQuestionType.Show();
-            this.Enabled = false;
         }
 
         private void btnWelcomeScreen_Click(object sender, EventArgs e)
@@ -39,9 +34,9 @@ namespace TestiriumWF
 
         private void btnEndCreation_Click(object sender, EventArgs e)
         {
-            EndScreenPanel endScreenPanel = new EndScreenPanel(questionsContainerPanel, welcomeScreenPanel);
+            EndScreenPanel endScreenPanel = new EndScreenPanel(questionsContainerPanel, welcomeScreenPanel, _currentCourse);
             questionsContainerPanel.Controls.Add(endScreenPanel);
-            endScreenPanel.Location = new Point(18, 18);
+            endScreenPanel.Location = new Point(16, 16);
             endScreenPanel.BringToFront();
             btnCreateQuestion.Enabled = false;
             btnDeleteQuestion.Enabled = false;

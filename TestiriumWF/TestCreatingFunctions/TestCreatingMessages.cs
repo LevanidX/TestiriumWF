@@ -10,7 +10,6 @@ namespace TestiriumWF
 {
     internal class TestCreatingMessages
     {
-
         /// <summary>
         /// Показывает сообщение с предупреждением об удалении крайних двух ответов
         /// </summary>

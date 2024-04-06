@@ -49,7 +49,7 @@
             this.panel1.Controls.Add(this.lblWelcomeScreenTitle);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 520);
+            this.panel1.Size = new System.Drawing.Size(784, 496);
             this.panel1.TabIndex = 5;
             // 
             // btnAddPhotoVideo
@@ -58,7 +58,7 @@
             this.btnAddPhotoVideo.AutoSize = true;
             this.btnAddPhotoVideo.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddPhotoVideo.LinkColor = System.Drawing.Color.White;
-            this.btnAddPhotoVideo.Location = new System.Drawing.Point(32, 424);
+            this.btnAddPhotoVideo.Location = new System.Drawing.Point(32, 425);
             this.btnAddPhotoVideo.Name = "btnAddPhotoVideo";
             this.btnAddPhotoVideo.Size = new System.Drawing.Size(176, 14);
             this.btnAddPhotoVideo.TabIndex = 6;
@@ -75,7 +75,7 @@
             this.descriptionTestTxtBox.Location = new System.Drawing.Point(32, 168);
             this.descriptionTestTxtBox.Multiline = true;
             this.descriptionTestTxtBox.Name = "descriptionTestTxtBox";
-            this.descriptionTestTxtBox.Size = new System.Drawing.Size(736, 257);
+            this.descriptionTestTxtBox.Size = new System.Drawing.Size(720, 257);
             this.descriptionTestTxtBox.TabIndex = 4;
             this.descriptionTestTxtBox.Text = "Введите описание для теста (здесь может быть краткая информация, необходимая обуч" +
     "ающемуся до тестирования)";
@@ -101,7 +101,7 @@
             this.testTitleTxtBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
             this.testTitleTxtBox.Location = new System.Drawing.Point(32, 112);
             this.testTitleTxtBox.Name = "testTitleTxtBox";
-            this.testTitleTxtBox.Size = new System.Drawing.Size(736, 27);
+            this.testTitleTxtBox.Size = new System.Drawing.Size(720, 27);
             this.testTitleTxtBox.TabIndex = 2;
             this.testTitleTxtBox.Text = "Введите название теста";
             this.testTitleTxtBox.Click += new System.EventHandler(this.testTitleTxtBox_Click);
@@ -123,7 +123,7 @@
             this.lblWelcomeScreenTitle.AutoSize = true;
             this.lblWelcomeScreenTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblWelcomeScreenTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblWelcomeScreenTitle.Location = new System.Drawing.Point(32, 40);
+            this.lblWelcomeScreenTitle.Location = new System.Drawing.Point(32, 32);
             this.lblWelcomeScreenTitle.Name = "lblWelcomeScreenTitle";
             this.lblWelcomeScreenTitle.Size = new System.Drawing.Size(153, 25);
             this.lblWelcomeScreenTitle.TabIndex = 0;
@@ -135,7 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "WelcomeScreenPanel";
-            this.Size = new System.Drawing.Size(800, 520);
+            this.Size = new System.Drawing.Size(784, 496);
             this.Load += new System.EventHandler(this.WelcomeScreenPanel_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

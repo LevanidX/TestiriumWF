@@ -17,7 +17,7 @@ namespace TestiriumWF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TestiriumMainMenu(1));
+            Application.Run(new LoginForm());
         }
     }
 }

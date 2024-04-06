@@ -33,14 +33,19 @@
             // 
             // btnQuestion
             // 
+            this.btnQuestion.AutoSize = true;
+            this.btnQuestion.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
             this.btnQuestion.FlatAppearance.BorderSize = 0;
             this.btnQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuestion.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnQuestion.ForeColor = System.Drawing.Color.White;
             this.btnQuestion.Location = new System.Drawing.Point(0, 0);
+            this.btnQuestion.Margin = new System.Windows.Forms.Padding(0);
+            this.btnQuestion.MaximumSize = new System.Drawing.Size(134, 75);
+            this.btnQuestion.MinimumSize = new System.Drawing.Size(134, 40);
             this.btnQuestion.Name = "btnQuestion";
-            this.btnQuestion.Size = new System.Drawing.Size(190, 40);
+            this.btnQuestion.Size = new System.Drawing.Size(134, 40);
             this.btnQuestion.TabIndex = 5;
             this.btnQuestion.Text = "Вопрос";
             this.btnQuestion.UseVisualStyleBackColor = false;
@@ -50,11 +55,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.btnQuestion);
             this.Name = "CustomTestCreatingButton";
-            this.Size = new System.Drawing.Size(190, 40);
+            this.Size = new System.Drawing.Size(134, 40);
             this.Load += new System.EventHandler(this.CustomTestCreatingButton_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

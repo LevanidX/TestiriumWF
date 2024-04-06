@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Configuration;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomPanels;
 
@@ -14,7 +8,6 @@ namespace TestiriumWF
 {
     public partial class ChooseQuestionType : Form
     {
-        private Form _testCreatingForm = new Form();
         private Panel _questionsContainerPanel = new Panel();
         private Panel _buttonsContainerPanel = new Panel();
 
@@ -24,11 +17,10 @@ namespace TestiriumWF
         private string _sequencingAnswerText;
         private string _matchAnswerText;
 
-        public ChooseQuestionType(Form testCreatingForm, Panel questionsContainerPanel, Panel buttonsContainerPanel)
+        public ChooseQuestionType(Panel questionsContainerPanel, Panel buttonsContainerPanel)
         {
             InitializeComponent();
 
-            _testCreatingForm = testCreatingForm;
             _questionsContainerPanel = questionsContainerPanel;
             _buttonsContainerPanel = buttonsContainerPanel;
         }
@@ -55,24 +47,24 @@ namespace TestiriumWF
 
         private void btnOneAnswerQuestion_Click(object sender, EventArgs e)
         {
-            OneQuestionPanel oneQuestionPanel = new OneQuestionPanel();
-            CustomTestCreatingButton oneQuestionButton = new CustomTestCreatingButton(oneQuestionPanel, _oneAnswerText);
+            var oneQuestionPanel = new OneQuestionPanel();
+            var oneQuestionButton = new CustomTestCreatingButton(oneQuestionPanel, _oneAnswerText);
 
             CreateQuestionPanel(oneQuestionPanel, oneQuestionButton);
         }
 
         private void btnMultipleAnswerQuestion_Click(object sender, EventArgs e)
         {
-            MultipleQuestionPanel multipleQuestionPanel = new MultipleQuestionPanel();
-            CustomTestCreatingButton customTestCreatingButton = new CustomTestCreatingButton(multipleQuestionPanel, _multipleAnswerText);
+            var multipleQuestionPanel = new MultipleQuestionPanel();
+            var customTestCreatingButton = new CustomTestCreatingButton(multipleQuestionPanel, _multipleAnswerText);
         
             CreateQuestionPanel(multipleQuestionPanel, customTestCreatingButton);
         }
 
         private void btnTextAnswerQuestion_Click(object sender, EventArgs e)
         {
-            TextQuestionPanel textQuestionPanel = new TextQuestionPanel();
-            CustomTestCreatingButton customTestCreatingButton = new CustomTestCreatingButton(textQuestionPanel, _textAnswerText);
+            var textQuestionPanel = new TextQuestionPanel();
+            var customTestCreatingButton = new CustomTestCreatingButton(textQuestionPanel, _textAnswerText);
 
             CreateQuestionPanel(textQuestionPanel, customTestCreatingButton);
         }
@@ -82,28 +74,27 @@ namespace TestiriumWF
             _questionsContainerPanel.Controls.Add(questionPanel);
             _buttonsContainerPanel.Controls.Add(questionButton);
             questionPanel.BringToFront();
-            questionPanel.Location = new Point(18, 18);
+            questionPanel.Location = new Point(16, 16);
             EndChoosing();
         }
 
         private void EndChoosing()
         {
-            _testCreatingForm.Enabled = true;
             this.Close();
         }
 
         private void btnRightOrderAnswerQuestion_Click(object sender, EventArgs e)
         {
-            SequencingQuestionPanel sequencingQuestionPanel = new SequencingQuestionPanel();
-            CustomTestCreatingButton customTestCreatingButton = new CustomTestCreatingButton(sequencingQuestionPanel, _sequencingAnswerText);
+            var sequencingQuestionPanel = new SequencingQuestionPanel();
+            var customTestCreatingButton = new CustomTestCreatingButton(sequencingQuestionPanel, _sequencingAnswerText);
 
             CreateQuestionPanel(sequencingQuestionPanel, customTestCreatingButton);
         }
 
         private void btnMatchAnswerQuestion_Click(object sender, EventArgs e)
         {
-            MatchQuestionPanel matchQuestionPanel = new MatchQuestionPanel();
-            CustomTestCreatingButton customTestCreatingButton = new CustomTestCreatingButton(matchQuestionPanel, _matchAnswerText);
+            var matchQuestionPanel = new MatchQuestionPanel();
+            var customTestCreatingButton = new CustomTestCreatingButton(matchQuestionPanel, _matchAnswerText);
 
             CreateQuestionPanel(matchQuestionPanel, customTestCreatingButton);
         }

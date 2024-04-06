@@ -97,11 +97,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\CustomComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomComboBox.Designer.cs">
+      <DependentUpon>CustomComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CustomDataGridView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomControls\CustomDataGridView.Designer.cs">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\CustomLinkLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomLinkLabel.Designer.cs">
+      <DependentUpon>CustomLinkLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\CustomMinuteTextBox.cs">
       <SubType>UserControl</SubType>
@@ -121,28 +133,40 @@
     <Compile Include="CustomControls\CustomPercentageTextBox.Designer.cs">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\EndScreenPanel.cs">
+    <Compile Include="CustomPanels\TestCreatingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\EndScreenPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatingControl.Designer.cs">
+      <DependentUpon>TestCreatingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\TestsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\TestsControl.Designer.cs">
+      <DependentUpon>TestsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\TestSettingPanels\EndScreenPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\TestSettingPanels\EndScreenPanel.Designer.cs">
       <DependentUpon>EndScreenPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\MatchQuestionPanel.cs">
+    <Compile Include="CustomPanels\QuestionPanels\MatchQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\MatchQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\QuestionPanels\MatchQuestionPanel.Designer.cs">
       <DependentUpon>MatchQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\SequencingQuestionPanel.cs">
+    <Compile Include="CustomPanels\QuestionPanels\SequencingQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\SequencingQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\QuestionPanels\SequencingQuestionPanel.Designer.cs">
       <DependentUpon>SequencingQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TextQuestionPanel.cs">
+    <Compile Include="CustomPanels\QuestionPanels\TextQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TextQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\QuestionPanels\TextQuestionPanel.Designer.cs">
       <DependentUpon>TextQuestionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\UserBoxPanel.cs">
@@ -151,6 +175,7 @@
     <Compile Include="CustomPanels\UserBoxPanel.Designer.cs">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsMessages.cs" />
     <Compile Include="MySqlWriter.cs" />
     <Compile Include="ProgrammWindows\ChooseQuestionType.cs">
       <SubType>Form</SubType>
@@ -183,22 +208,28 @@
     <Compile Include="CustomControls\CustomTestCreatingButton.Designer.cs">
       <DependentUpon>CustomTestCreatingButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProgrammWindows\CourseAdding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgrammWindows\CourseAdding.Designer.cs">
+      <DependentUpon>CourseAdding.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProgrammWindows\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProgrammWindows\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\MultipleQuestionPanel.cs">
+    <Compile Include="CustomPanels\QuestionPanels\MultipleQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\MultipleQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\QuestionPanels\MultipleQuestionPanel.Designer.cs">
       <DependentUpon>MultipleQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\OneQuestionPanel.cs">
+    <Compile Include="CustomPanels\QuestionPanels\OneQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\OneQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\QuestionPanels\OneQuestionPanel.Designer.cs">
       <DependentUpon>OneQuestionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -211,23 +242,23 @@
     <Compile Include="TestCreatingFunctions\TestCreatingMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCreatingFunctions\QuestionsCreating.cs" />
-    <Compile Include="ProgrammWindows\TestCreating.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProgrammWindows\TestCreating.Designer.cs">
-      <DependentUpon>TestCreating.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomPanels\WelcomeScreenPanel.cs">
+    <Compile Include="CustomPanels\TestSettingPanels\WelcomeScreenPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\WelcomeScreenPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestSettingPanels\WelcomeScreenPanel.Designer.cs">
       <DependentUpon>WelcomeScreenPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="TestCreatingFunctions\AnswersGetting.cs" />
     <Compile Include="TestCreator.cs" />
     <Compile Include="UserConfig.cs" />
+    <EmbeddedResource Include="CustomControls\CustomComboBox.resx">
+      <DependentUpon>CustomComboBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomDataGridView.resx">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomLinkLabel.resx">
+      <DependentUpon>CustomLinkLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomMinuteTextBox.resx">
       <DependentUpon>CustomMinuteTextBox.cs</DependentUpon>
@@ -238,16 +269,22 @@
     <EmbeddedResource Include="CustomControls\CustomPercentageTextBox.resx">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\EndScreenPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatingControl.resx">
+      <DependentUpon>TestCreatingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\TestsControl.resx">
+      <DependentUpon>TestsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\TestSettingPanels\EndScreenPanel.resx">
       <DependentUpon>EndScreenPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\MatchQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\QuestionPanels\MatchQuestionPanel.resx">
       <DependentUpon>MatchQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\SequencingQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\QuestionPanels\SequencingQuestionPanel.resx">
       <DependentUpon>SequencingQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TextQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\QuestionPanels\TextQuestionPanel.resx">
       <DependentUpon>TextQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\UserBoxPanel.resx">
@@ -268,13 +305,16 @@
     <EmbeddedResource Include="CustomControls\CustomTestCreatingButton.resx">
       <DependentUpon>CustomTestCreatingButton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProgrammWindows\CourseAdding.resx">
+      <DependentUpon>CourseAdding.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\MultipleQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\QuestionPanels\MultipleQuestionPanel.resx">
       <DependentUpon>MultipleQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\OneQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\QuestionPanels\OneQuestionPanel.resx">
       <DependentUpon>OneQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\TestiriumMainMenu.resx">
@@ -290,10 +330,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ProgrammWindows\TestCreating.resx">
-      <DependentUpon>TestCreating.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\WelcomeScreenPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestSettingPanels\WelcomeScreenPanel.resx">
       <DependentUpon>WelcomeScreenPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

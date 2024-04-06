@@ -30,6 +30,7 @@
         {
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnExitProgramm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.isTeacherCheckBox = new System.Windows.Forms.CheckBox();
@@ -37,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.btnExitProgramm = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,22 @@
             this.panel4.Size = new System.Drawing.Size(376, 64);
             this.panel4.TabIndex = 6;
             // 
+            // btnExitProgramm
+            // 
+            this.btnExitProgramm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.btnExitProgramm.BackgroundImage = global::TestiriumWF.Properties.Resources.free_icon_close_1828666__1_;
+            this.btnExitProgramm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExitProgramm.FlatAppearance.BorderSize = 0;
+            this.btnExitProgramm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExitProgramm.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExitProgramm.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExitProgramm.Location = new System.Drawing.Point(344, 8);
+            this.btnExitProgramm.Name = "btnExitProgramm";
+            this.btnExitProgramm.Size = new System.Drawing.Size(24, 24);
+            this.btnExitProgramm.TabIndex = 15;
+            this.btnExitProgramm.UseVisualStyleBackColor = false;
+            this.btnExitProgramm.Click += new System.EventHandler(this.btnExitProgramm_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -95,6 +111,8 @@
             // isTeacherCheckBox
             // 
             this.isTeacherCheckBox.AutoSize = true;
+            this.isTeacherCheckBox.Checked = true;
+            this.isTeacherCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.isTeacherCheckBox.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.isTeacherCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.isTeacherCheckBox.Location = new System.Drawing.Point(168, 152);
@@ -136,6 +154,7 @@
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(344, 40);
             this.loginTextBox.TabIndex = 11;
+            this.loginTextBox.Text = "levashka";
             // 
             // passwordTextBox
             // 
@@ -148,22 +167,7 @@
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(344, 40);
             this.passwordTextBox.TabIndex = 10;
-            // 
-            // btnExitProgramm
-            // 
-            this.btnExitProgramm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
-            this.btnExitProgramm.BackgroundImage = global::TestiriumWF.Properties.Resources.free_icon_close_1828666__1_;
-            this.btnExitProgramm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnExitProgramm.FlatAppearance.BorderSize = 0;
-            this.btnExitProgramm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExitProgramm.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnExitProgramm.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnExitProgramm.Location = new System.Drawing.Point(344, 8);
-            this.btnExitProgramm.Name = "btnExitProgramm";
-            this.btnExitProgramm.Size = new System.Drawing.Size(24, 24);
-            this.btnExitProgramm.TabIndex = 15;
-            this.btnExitProgramm.UseVisualStyleBackColor = false;
-            this.btnExitProgramm.Click += new System.EventHandler(this.btnExitProgramm_Click);
+            this.passwordTextBox.Text = "Rurik123";
             // 
             // LoginForm
             // 

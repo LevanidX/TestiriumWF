@@ -53,7 +53,7 @@
             this.matchQuestionScreenPanel.Controls.Add(this.lblSequencingQuestionTitle);
             this.matchQuestionScreenPanel.Location = new System.Drawing.Point(0, 0);
             this.matchQuestionScreenPanel.Name = "matchQuestionScreenPanel";
-            this.matchQuestionScreenPanel.Size = new System.Drawing.Size(800, 520);
+            this.matchQuestionScreenPanel.Size = new System.Drawing.Size(784, 496);
             this.matchQuestionScreenPanel.TabIndex = 9;
             // 
             // label1
@@ -86,14 +86,14 @@
             this.definitionsAndAlignmentsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.definitionsAndAlignmentsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.definitionsAndAlignmentsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.definitionsAndAlignmentsTableLayoutPanel.Size = new System.Drawing.Size(744, 208);
+            this.definitionsAndAlignmentsTableLayoutPanel.Size = new System.Drawing.Size(720, 208);
             this.definitionsAndAlignmentsTableLayoutPanel.TabIndex = 11;
             // 
             // customQuestionTextBox
             // 
             this.customQuestionTextBox.Location = new System.Drawing.Point(32, 112);
             this.customQuestionTextBox.Name = "customQuestionTextBox";
-            this.customQuestionTextBox.Size = new System.Drawing.Size(736, 64);
+            this.customQuestionTextBox.Size = new System.Drawing.Size(720, 64);
             this.customQuestionTextBox.TabIndex = 10;
             // 
             // btnAddDefinitionAndAlignments
@@ -105,7 +105,7 @@
             this.btnAddDefinitionAndAlignments.ForeColor = System.Drawing.Color.White;
             this.btnAddDefinitionAndAlignments.Location = new System.Drawing.Point(32, 432);
             this.btnAddDefinitionAndAlignments.Name = "btnAddDefinitionAndAlignments";
-            this.btnAddDefinitionAndAlignments.Size = new System.Drawing.Size(744, 56);
+            this.btnAddDefinitionAndAlignments.Size = new System.Drawing.Size(720, 32);
             this.btnAddDefinitionAndAlignments.TabIndex = 8;
             this.btnAddDefinitionAndAlignments.Text = "Добавить вариант";
             this.btnAddDefinitionAndAlignments.UseVisualStyleBackColor = false;
@@ -117,7 +117,7 @@
             this.btnAddPhotoVideo.AutoSize = true;
             this.btnAddPhotoVideo.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddPhotoVideo.LinkColor = System.Drawing.Color.White;
-            this.btnAddPhotoVideo.Location = new System.Drawing.Point(592, 176);
+            this.btnAddPhotoVideo.Location = new System.Drawing.Point(576, 176);
             this.btnAddPhotoVideo.Name = "btnAddPhotoVideo";
             this.btnAddPhotoVideo.Size = new System.Drawing.Size(176, 14);
             this.btnAddPhotoVideo.TabIndex = 6;
@@ -164,7 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.matchQuestionScreenPanel);
             this.Name = "MatchQuestionPanel";
-            this.Size = new System.Drawing.Size(800, 520);
+            this.Size = new System.Drawing.Size(784, 496);
             this.Load += new System.EventHandler(this.MatchQuestionPanel_Load);
             this.matchQuestionScreenPanel.ResumeLayout(false);
             this.matchQuestionScreenPanel.PerformLayout();
