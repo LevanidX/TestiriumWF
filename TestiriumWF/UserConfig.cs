@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TestiriumWF
 {
@@ -12,5 +14,6 @@ namespace TestiriumWF
         public static string Username = "user";
         public static string PersonName = "user userov";       
         public static bool IsTeacher = false;
+        public static Form MainMenu;
     }
 }

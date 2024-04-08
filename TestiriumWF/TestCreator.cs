@@ -227,18 +227,5 @@ namespace TestiriumWF
                 return new TestPassword(false, string.Empty);
             }
         }
-
-        private void Deserialization()
-        {
-            //XmlDocument xmlDocument = new XmlDocument();
-            //xmlDocument.Save("newXML");
-
-            //using (FileStream fs = new FileStream("Resources/ExampleXML.xml", FileMode.Open))
-            //{
-            //    var obj = (Test)xmlSerializer.Deserialize(fs);
-
-            //    Console.WriteLine(obj.Name);
-            //}
-        }
     }
 }

@@ -7,32 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestiriumWF.CustomPanels;
 
 namespace TestiriumWF.CustomControls
 {
     public partial class CustomDataGridView : UserControl
     {
         private MySqlWriter _mySqlWriter = new MySqlWriter();
+        private int _selectedRow;
+        private Panel _container;
 
-        public CustomDataGridView()
+        public CustomDataGridView(Panel container)
         {
             InitializeComponent();
-        }
-
-        private void FillDataGridWithTests(string courseId)
-        {
-            string sqlCommand = "SELECT test_id," +
-                "test_name AS 'Название', " +
-                "CONCAT(teacher_surname, ' ', " +
-                "SUBSTRING(teacher_name, 1, 1), '.', " +
-                "SUBSTRING(teacher_patronymic, 1, 1), '.') AS 'Автор'," +
-                "test_creation_date AS 'Дата создания'" +
-                "FROM tests, users_teachers, teachers " +
-                "WHERE test_user_teacher_number = user_teacher_id " +
-                "AND user_teacher_number = teacher_id " +
-                $"AND test_course_number = {Convert.ToInt32(courseId)}";
-
-            SetFillData(sqlCommand);
+            _container = container;
         }
 
         private void CustomDataGridView_Load(object sender, EventArgs e) => customDataGrid.ClearSelection();
@@ -56,12 +44,27 @@ namespace TestiriumWF.CustomControls
             if (e.Button == MouseButtons.Right && customDataGrid.SelectedRows.Count > 0)
             {
                 dataGridMenuStrip.Show(MousePosition);
+                _selectedRow = e.RowIndex;
             }
         }
 
         private void customDataGrid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             customDataGrid.ClearSelection();
+        }
+
+        private void completeTestAsStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectedTest = customDataGrid.Rows[_selectedRow].Cells[0].Value;
+
+            var sqlCommand = $"SELECT test_file FROM tests WHERE test_id = {selectedTest}";
+
+            var xmlTestFile = _mySqlWriter.ExecuteSelectScalarCommand(sqlCommand);
+
+            var testCompletingControl = new TestCompletingControl(xmlTestFile);
+
+            _container.Controls.Add(testCompletingControl);
+            testCompletingControl.BringToFront();
         }
     }
 }

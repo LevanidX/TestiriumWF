@@ -133,6 +133,18 @@
     <Compile Include="CustomControls\CustomPercentageTextBox.Designer.cs">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.Designer.cs">
+      <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\TestCompletingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\TestCompletingControl.Designer.cs">
+      <DependentUpon>TestCompletingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomPanels\TestCreatingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -250,6 +262,7 @@
     </Compile>
     <Compile Include="TestCreatingFunctions\AnswersGetting.cs" />
     <Compile Include="TestCreator.cs" />
+    <Compile Include="TestDeserializer.cs" />
     <Compile Include="UserConfig.cs" />
     <EmbeddedResource Include="CustomControls\CustomComboBox.resx">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
@@ -268,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomPercentageTextBox.resx">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.resx">
+      <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\TestCompletingControl.resx">
+      <DependentUpon>TestCompletingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\TestCreatingControl.resx">
       <DependentUpon>TestCreatingControl.cs</DependentUpon>

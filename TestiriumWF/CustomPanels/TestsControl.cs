@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
 using TestiriumWF.ProgrammWindows;
@@ -11,16 +12,21 @@ namespace TestiriumWF.CustomPanels
     {
         private MySqlWriter _mySqlWriter = new MySqlWriter();
         private string _currentCourse;
+        CustomDataGridView testsDataGridView;
 
         public TestsControl()
         {
             InitializeComponent();
+            testsDataGridView = new CustomDataGridView(testsPanel);
         }
 
         private void TestsControl_Load(object sender, EventArgs e)
         {
             RefillCoursesPanel();
             btnCreateTest.Enabled = false;
+
+            testsDataGridView.Location = new Point(16, 88);
+            availableTestsPanel.Controls.Add(testsDataGridView);
         }
 
         private void btnAddCourse_Click(object sender, EventArgs e)
