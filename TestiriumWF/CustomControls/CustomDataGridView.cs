@@ -66,5 +66,10 @@ namespace TestiriumWF.CustomControls
             _container.Controls.Add(testCompletingControl);
             testCompletingControl.BringToFront();
         }
+
+        private void customDataGrid_LocationChanged(object sender, EventArgs e)
+        {
+            customDataGrid.ClearSelection();
+        }
     }
 }

@@ -88,6 +88,7 @@
             this.customDataGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customDataGrid_CellMouseDown);
             this.customDataGrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.customDataGrid_CellMouseLeave);
             this.customDataGrid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customDataGrid_CellMouseMove);
+            this.customDataGrid.LocationChanged += new System.EventHandler(this.customDataGrid_LocationChanged);
             // 
             // dataGridMenuStrip
             // 
@@ -98,7 +99,7 @@
             this.dataGridMenuStrip.Name = "availableTestsMenuStrip";
             this.dataGridMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.dataGridMenuStrip.ShowImageMargin = false;
-            this.dataGridMenuStrip.Size = new System.Drawing.Size(196, 92);
+            this.dataGridMenuStrip.Size = new System.Drawing.Size(196, 70);
             this.dataGridMenuStrip.Text = "Настройки";
             // 
             // editTestToolStripMenuItem

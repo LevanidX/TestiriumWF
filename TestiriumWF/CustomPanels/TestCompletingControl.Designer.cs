@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.questionsContainerPanel = new System.Windows.Forms.Panel();
+            this.testWelcomeScreen = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
             this.allCoursesPanel = new System.Windows.Forms.Panel();
             this.btnStartTest = new System.Windows.Forms.Button();
             this.questionsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTests = new System.Windows.Forms.Label();
-            this.testWelcomeScreen1 = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
             this.questionsContainerPanel.SuspendLayout();
             this.allCoursesPanel.SuspendLayout();
             this.SuspendLayout();
@@ -41,11 +41,18 @@
             // questionsContainerPanel
             // 
             this.questionsContainerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.questionsContainerPanel.Controls.Add(this.testWelcomeScreen1);
+            this.questionsContainerPanel.Controls.Add(this.testWelcomeScreen);
             this.questionsContainerPanel.Location = new System.Drawing.Point(184, 0);
             this.questionsContainerPanel.Name = "questionsContainerPanel";
             this.questionsContainerPanel.Size = new System.Drawing.Size(816, 528);
             this.questionsContainerPanel.TabIndex = 7;
+            // 
+            // testWelcomeScreen
+            // 
+            this.testWelcomeScreen.Location = new System.Drawing.Point(16, 16);
+            this.testWelcomeScreen.Name = "testWelcomeScreen";
+            this.testWelcomeScreen.Size = new System.Drawing.Size(784, 496);
+            this.testWelcomeScreen.TabIndex = 0;
             // 
             // allCoursesPanel
             // 
@@ -93,13 +100,6 @@
             this.lblTests.TabIndex = 0;
             this.lblTests.Text = "Вопросы";
             // 
-            // testWelcomeScreen1
-            // 
-            this.testWelcomeScreen1.Location = new System.Drawing.Point(16, 16);
-            this.testWelcomeScreen1.Name = "testWelcomeScreen1";
-            this.testWelcomeScreen1.Size = new System.Drawing.Size(784, 496);
-            this.testWelcomeScreen1.TabIndex = 0;
-            // 
             // TestCompletingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +108,7 @@
             this.Controls.Add(this.questionsContainerPanel);
             this.Name = "TestCompletingControl";
             this.Size = new System.Drawing.Size(1000, 528);
+            this.Load += new System.EventHandler(this.TestCompletingControl_Load);
             this.questionsContainerPanel.ResumeLayout(false);
             this.allCoursesPanel.ResumeLayout(false);
             this.allCoursesPanel.PerformLayout();
@@ -118,7 +119,7 @@
         #endregion
 
         private System.Windows.Forms.Panel questionsContainerPanel;
-        private DeserializedQuestionPanels.TestWelcomeScreen testWelcomeScreen1;
+        private DeserializedQuestionPanels.TestWelcomeScreen testWelcomeScreen;
         private System.Windows.Forms.Panel allCoursesPanel;
         private System.Windows.Forms.Button btnStartTest;
         private System.Windows.Forms.FlowLayoutPanel questionsFlowLayoutPanel;

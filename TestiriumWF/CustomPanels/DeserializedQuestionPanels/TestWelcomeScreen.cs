@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
@@ -15,6 +16,21 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
         public TestWelcomeScreen()
         {
             InitializeComponent();
+        }
+
+        public void SetWelcomeScreenValues(Test test)
+        {
+            lblTestTitle.Text = test.Name;
+            lblTestDescription.Text = test.Description.Text;
+
+            if (test.TestSettings.TimeLimitedTest.Value)
+            {
+                lblTestTimeLimit.Text = test.TestSettings.TimeLimitedTest.TimeLimit.ToString();
+            }
+            else
+            {
+                lblTestTimeLimit.Text = "∞";
+            }
         }
     }
 }

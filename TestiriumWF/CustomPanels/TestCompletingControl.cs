@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestiriumWF.CustomControls;
 using TestStructure;
 
 namespace TestiriumWF.CustomPanels
@@ -29,7 +30,41 @@ namespace TestiriumWF.CustomPanels
 
         private void CreateTest() //здесь нужно продолжить создание теста для прохождения
         {
-            _test = _testDeserializer.DeserializeTest();
+            
         }
+
+        private void TestCompletingControl_Load(object sender, EventArgs e)
+        {
+            _test = _testDeserializer.DeserializeTest();
+            testWelcomeScreen.SetWelcomeScreenValues(_test);
+
+            CreateQuestions();
+        }
+
+        private void CreateQuestions()
+        {
+            int countLinks = 0;
+
+            foreach (var question in _test.Questions)
+            {
+                var customLinkLabel = new CustomLinkLabel();
+
+                customLinkLabel.TextValue = question.QuestionText;
+                customLinkLabel.TagValue = countLinks.ToString(); // вместо тэгов использовать ссылки на панели с вопросами
+                questionsFlowLayoutPanel.Controls.Add(customLinkLabel);
+
+                countLinks++;
+            }
+        }
+
+        //сделали создание вопросов в флоу лайоут панел
+        //сделали заполнение начального экрана
+        
+        //надо сделать
+        //создать 5 панелей для вопросов
+        //заполнить их
+        //запустить тест для учащегося
+        //результат тестирования
+        //как то по красоте результат и запомнить как он отвечал на вопросы для отчета
     }
 }
