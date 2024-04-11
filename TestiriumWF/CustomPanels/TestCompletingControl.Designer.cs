@@ -33,8 +33,9 @@
             this.btnStartTest = new System.Windows.Forms.Button();
             this.questionsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTests = new System.Windows.Forms.Label();
+            this.btnEndTest = new System.Windows.Forms.Button();
+            this.timeControl = new TestiriumWF.CustomPanels.TimeControl();
             this.testWelcomeScreen = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
-            this.timeControl1 = new TestiriumWF.CustomPanels.TimeControl();
             this.questionsContainerPanel.SuspendLayout();
             this.allQuestionsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +52,11 @@
             // allQuestionsPanel
             // 
             this.allQuestionsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.allQuestionsPanel.Controls.Add(this.timeControl1);
-            this.allQuestionsPanel.Controls.Add(this.btnStartTest);
+            this.allQuestionsPanel.Controls.Add(this.timeControl);
             this.allQuestionsPanel.Controls.Add(this.questionsFlowLayoutPanel);
             this.allQuestionsPanel.Controls.Add(this.lblTests);
+            this.allQuestionsPanel.Controls.Add(this.btnStartTest);
+            this.allQuestionsPanel.Controls.Add(this.btnEndTest);
             this.allQuestionsPanel.Location = new System.Drawing.Point(0, 0);
             this.allQuestionsPanel.Name = "allQuestionsPanel";
             this.allQuestionsPanel.Size = new System.Drawing.Size(184, 528);
@@ -95,19 +97,35 @@
             this.lblTests.TabIndex = 0;
             this.lblTests.Text = "Вопросы";
             // 
+            // btnEndTest
+            // 
+            this.btnEndTest.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEndTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEndTest.FlatAppearance.BorderSize = 0;
+            this.btnEndTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEndTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEndTest.Location = new System.Drawing.Point(8, 472);
+            this.btnEndTest.Name = "btnEndTest";
+            this.btnEndTest.Size = new System.Drawing.Size(168, 48);
+            this.btnEndTest.TabIndex = 7;
+            this.btnEndTest.Text = "Завершить тестирование";
+            this.btnEndTest.UseVisualStyleBackColor = false;
+            this.btnEndTest.Click += new System.EventHandler(this.btnEndTest_Click);
+            // 
+            // timeControl
+            // 
+            this.timeControl.Location = new System.Drawing.Point(8, 312);
+            this.timeControl.Name = "timeControl";
+            this.timeControl.Size = new System.Drawing.Size(168, 152);
+            this.timeControl.TabIndex = 6;
+            // 
             // testWelcomeScreen
             // 
             this.testWelcomeScreen.Location = new System.Drawing.Point(16, 16);
             this.testWelcomeScreen.Name = "testWelcomeScreen";
             this.testWelcomeScreen.Size = new System.Drawing.Size(784, 496);
             this.testWelcomeScreen.TabIndex = 0;
-            // 
-            // timeControl1
-            // 
-            this.timeControl1.Location = new System.Drawing.Point(8, 312);
-            this.timeControl1.Name = "timeControl1";
-            this.timeControl1.Size = new System.Drawing.Size(168, 152);
-            this.timeControl1.TabIndex = 6;
             // 
             // TestCompletingControl
             // 
@@ -133,6 +151,7 @@
         private System.Windows.Forms.Button btnStartTest;
         private System.Windows.Forms.FlowLayoutPanel questionsFlowLayoutPanel;
         private System.Windows.Forms.Label lblTests;
-        private TimeControl timeControl1;
+        private TimeControl timeControl;
+        private System.Windows.Forms.Button btnEndTest;
     }
 }

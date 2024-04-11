@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using TestiriumWF.CustomControls;
 using TestiriumWF.CustomPanels;
+using TestiriumWF.ProgrammFunctions;
 using TestStructure;
 
 namespace TestiriumWF
@@ -115,7 +117,7 @@ namespace TestiriumWF
             foreach (var oneQuestionPanel in _questionsContainerPanel.Controls.OfType<OneQuestionPanel>())
             {
                 Question question = new Question();
-                question.QuestionType = "ONE_ANSWER_QUESTION";
+                question.QuestionType = TestTypes.OneAnswerQuestion;
                 question.QuestionText = oneQuestionPanel.GetQuestionText();
                 question.Answers = oneQuestionPanel.GetAnswers();
                 question.RightAnswers = oneQuestionPanel.GetRightAnswers();
@@ -128,7 +130,7 @@ namespace TestiriumWF
             foreach (var multipleQuestionPanel in _questionsContainerPanel.Controls.OfType<MultipleQuestionPanel>())
             {
                 Question question = new Question();
-                question.QuestionType = "MULTIPLE_ANSWER_QUESTION";
+                question.QuestionType = TestTypes.MultipleAnswerQuestion;
                 question.QuestionText = multipleQuestionPanel.GetQuestionText();
                 question.Answers = multipleQuestionPanel.GetAnswers();
                 question.RightAnswers = multipleQuestionPanel.GetRightAnswers();
@@ -141,7 +143,7 @@ namespace TestiriumWF
             foreach (var textQuestionPanel in _questionsContainerPanel.Controls.OfType<TextQuestionPanel>())
             {
                 Question question = new Question();
-                question.QuestionType = "TEXT_ANSWER_QUESTION";
+                question.QuestionType = TestTypes.TextAnswerQuestion;
                 question.QuestionText = textQuestionPanel.GetQuestionText();
                 question.Answers = textQuestionPanel.GetAnswers();
                 question.QuestionSettings = new QuestionSettings(textQuestionPanel.GetQuestionSettings().Checked);
@@ -154,7 +156,7 @@ namespace TestiriumWF
             foreach (var sequenceQuestionPanel in _questionsContainerPanel.Controls.OfType<SequencingQuestionPanel>())
             {
                 Question question = new Question();
-                question.QuestionType = "SEQUENCE_ANSWER_QUESTION";
+                question.QuestionType = TestTypes.SequenceAnswerQuestion;
                 question.QuestionText = sequenceQuestionPanel.GetQuestionText();
                 question.Answers = sequenceQuestionPanel.GetAnswers();
                 questionsList.Add(question);
@@ -166,7 +168,7 @@ namespace TestiriumWF
             foreach (var matchQuestionPanel in _questionsContainerPanel.Controls.OfType<MatchQuestionPanel>())
             {
                 Question question = new Question();
-                question.QuestionType = "MATCH_ANSWER_QUESTION";
+                question.QuestionType = TestTypes.MatchAnswerQuestion;
                 question.QuestionText = matchQuestionPanel.GetQuestionText();
                 question.Answers = matchQuestionPanel.GetDefinitions();
                 question.RightAnswers = matchQuestionPanel.GetAlignments();

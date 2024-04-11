@@ -1,6 +1,6 @@
 ﻿namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
-    partial class TestOneQuestionPanel
+    partial class TestSequenceQuestionPanel
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -44,7 +44,7 @@
             this.oneQuestionScreenPanel.Location = new System.Drawing.Point(0, 0);
             this.oneQuestionScreenPanel.Name = "oneQuestionScreenPanel";
             this.oneQuestionScreenPanel.Size = new System.Drawing.Size(784, 496);
-            this.oneQuestionScreenPanel.TabIndex = 6;
+            this.oneQuestionScreenPanel.TabIndex = 8;
             // 
             // lblTestTitle
             // 
@@ -81,18 +81,18 @@
             this.lblQuestionAnswerVariants.AutoSize = true;
             this.lblQuestionAnswerVariants.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblQuestionAnswerVariants.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblQuestionAnswerVariants.Location = new System.Drawing.Point(32, 128);
+            this.lblQuestionAnswerVariants.Location = new System.Drawing.Point(32, 120);
             this.lblQuestionAnswerVariants.Name = "lblQuestionAnswerVariants";
             this.lblQuestionAnswerVariants.Size = new System.Drawing.Size(161, 16);
             this.lblQuestionAnswerVariants.TabIndex = 3;
             this.lblQuestionAnswerVariants.Text = "Выберите вариант ответа";
             // 
-            // TestOneQuestionPanel
+            // TestSequenceQuestionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.oneQuestionScreenPanel);
-            this.Name = "TestOneQuestionPanel";
+            this.Name = "TestSequenceQuestionPanel";
             this.Size = new System.Drawing.Size(784, 496);
             this.oneQuestionScreenPanel.ResumeLayout(false);
             this.oneQuestionScreenPanel.PerformLayout();
@@ -103,8 +103,8 @@
         #endregion
 
         private System.Windows.Forms.Panel oneQuestionScreenPanel;
+        private System.Windows.Forms.Label lblTestTitle;
         private System.Windows.Forms.TableLayoutPanel answersTableLayoutPanel;
         private System.Windows.Forms.Label lblQuestionAnswerVariants;
-        private System.Windows.Forms.Label lblTestTitle;
     }
 }

@@ -38,9 +38,9 @@
             this.label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label.Location = new System.Drawing.Point(0, 0);
             this.label.MaximumSize = new System.Drawing.Size(685, 40);
-            this.label.MinimumSize = new System.Drawing.Size(685, 23);
+            this.label.MinimumSize = new System.Drawing.Size(342, 23);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(685, 23);
+            this.label.Size = new System.Drawing.Size(342, 23);
             this.label.TabIndex = 0;
             this.label.Text = "Какой-то текст";
             // 
@@ -51,9 +51,9 @@
             this.AutoSize = true;
             this.Controls.Add(this.label);
             this.MaximumSize = new System.Drawing.Size(685, 40);
-            this.MinimumSize = new System.Drawing.Size(685, 23);
+            this.MinimumSize = new System.Drawing.Size(342, 23);
             this.Name = "CustomLabel";
-            this.Size = new System.Drawing.Size(685, 40);
+            this.Size = new System.Drawing.Size(345, 40);
             this.ResumeLayout(false);
             this.PerformLayout();
 

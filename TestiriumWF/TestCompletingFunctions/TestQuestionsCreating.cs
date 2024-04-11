@@ -21,17 +21,17 @@ namespace TestiriumWF
             answersPanel.RowCount++;
         }
 
-        public void AddTextAnswerRow(UserControl textBox, TableLayoutPanel answersPanel)
+        public void AddSequenceAnswerRow(UserControl comboBox, TableLayoutPanel answersPanel)
         {
-            answersPanel.Controls.Add(textBox, 1, answersPanel.RowCount);
+            answersPanel.Controls.Add(comboBox, 0, answersPanel.RowCount);
 
             answersPanel.RowCount++;
         }
 
-        public void AddMatchAnswerRow(UserControl definitionTextBox, UserControl alignmentTextBox, TableLayoutPanel answersPanel)
+        public void AddMatchAnswerRow(UserControl definitionLabel, UserControl allignmentComboBox, TableLayoutPanel answersPanel)
         {
-            answersPanel.Controls.Add(definitionTextBox, 1, answersPanel.RowCount);
-            answersPanel.Controls.Add(alignmentTextBox, 2, answersPanel.RowCount);
+            answersPanel.Controls.Add(definitionLabel, 1, answersPanel.RowCount);
+            answersPanel.Controls.Add(allignmentComboBox, 2, answersPanel.RowCount);
 
             answersPanel.RowCount++;
         }

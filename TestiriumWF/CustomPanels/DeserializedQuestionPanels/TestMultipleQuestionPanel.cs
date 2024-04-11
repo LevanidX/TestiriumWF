@@ -11,11 +11,11 @@ using TestiriumWF.CustomControls;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
-    public partial class TestMatchQuestionPanel : UserControl
+    public partial class TestMultipleQuestionPanel : UserControl
     {
         TestQuestionsCreating questionsCreating = new TestQuestionsCreating();
 
-        public TestMatchQuestionPanel()
+        public TestMultipleQuestionPanel()
         {
             InitializeComponent();
         }
@@ -25,26 +25,18 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             lblTestTitle.Text = questionText;
         }
 
-        public void SetAnswers(List<string> answers, List<string> rightAnswers)
+        public void SetAnswers(List<string> answers)
         {
-            string[] rightAnswersArray = rightAnswers.ToArray();
-
             foreach (var answer in answers)
             {
+                var checkBox = new CheckBox();
+                checkBox.Padding = new Padding(2);
                 var customLabel = new CustomLabel()
                 {
                     TextValue = answer
                 };
-
-                var customComboBox = new CustomComboBox()
-                {
-                    ComboItems = rightAnswersArray
-                };
-
-                customComboBox.Size = new Size(360, 23);
-
-                questionsCreating.AddMatchAnswerRow(customLabel, customComboBox,
-                    definitionsAndAlignmentsTableLayoutPanel);
+                questionsCreating.AddTickAnswerRow(checkBox, customLabel,
+                    answersTableLayoutPanel);
             }
         }
     }

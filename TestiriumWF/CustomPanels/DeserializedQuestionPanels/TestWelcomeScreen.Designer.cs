@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTestTitle = new System.Windows.Forms.Label();
-            this.lblTestDescription = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblTestDescription = new System.Windows.Forms.Label();
+            this.lblTestTitle = new System.Windows.Forms.Label();
             this.lblTestTimeLimit = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -50,18 +50,17 @@
             this.panel1.Size = new System.Drawing.Size(784, 496);
             this.panel1.TabIndex = 0;
             // 
-            // lblTestTitle
+            // label2
             // 
-            this.lblTestTitle.AutoSize = true;
-            this.lblTestTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTestTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTestTitle.Location = new System.Drawing.Point(32, 32);
-            this.lblTestTitle.MaximumSize = new System.Drawing.Size(450, 80);
-            this.lblTestTitle.MinimumSize = new System.Drawing.Size(450, 25);
-            this.lblTestTitle.Name = "lblTestTitle";
-            this.lblTestTitle.Size = new System.Drawing.Size(450, 25);
-            this.lblTestTitle.TabIndex = 1;
-            this.lblTestTitle.Text = "Основы численных методов в математике";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(656, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 38);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Время \r\nтестирования";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTestDescription
             // 
@@ -76,17 +75,18 @@
             this.lblTestDescription.TabIndex = 2;
             this.lblTestDescription.Text = "Описание тестирования";
             // 
-            // label2
+            // lblTestTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(656, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 38);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Время \r\nтестирования";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTestTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTestTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTestTitle.Location = new System.Drawing.Point(32, 32);
+            this.lblTestTitle.MaximumSize = new System.Drawing.Size(450, 80);
+            this.lblTestTitle.MinimumSize = new System.Drawing.Size(450, 25);
+            this.lblTestTitle.Name = "lblTestTitle";
+            this.lblTestTitle.Size = new System.Drawing.Size(450, 80);
+            this.lblTestTitle.TabIndex = 1;
+            this.lblTestTitle.Text = "Основы численных методов в математике";
+            this.lblTestTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTestTimeLimit
             // 

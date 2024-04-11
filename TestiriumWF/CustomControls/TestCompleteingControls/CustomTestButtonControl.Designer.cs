@@ -41,7 +41,7 @@
             this.btnQuestionNumber.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnQuestionNumber.Location = new System.Drawing.Point(0, 0);
             this.btnQuestionNumber.Name = "btnQuestionNumber";
-            this.btnQuestionNumber.Size = new System.Drawing.Size(32, 32);
+            this.btnQuestionNumber.Size = new System.Drawing.Size(36, 36);
             this.btnQuestionNumber.TabIndex = 6;
             this.btnQuestionNumber.Text = "99";
             this.btnQuestionNumber.UseVisualStyleBackColor = false;
@@ -53,7 +53,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnQuestionNumber);
             this.Name = "CustomTestButtonControl";
-            this.Size = new System.Drawing.Size(32, 32);
+            this.Size = new System.Drawing.Size(36, 36);
             this.ResumeLayout(false);
 
         }

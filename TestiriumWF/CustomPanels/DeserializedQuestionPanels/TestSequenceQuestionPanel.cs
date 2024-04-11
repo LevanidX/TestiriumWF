@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,11 @@ using TestiriumWF.CustomControls;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
-    public partial class TestMatchQuestionPanel : UserControl
+    public partial class TestSequenceQuestionPanel : UserControl
     {
         TestQuestionsCreating questionsCreating = new TestQuestionsCreating();
 
-        public TestMatchQuestionPanel()
+        public TestSequenceQuestionPanel()
         {
             InitializeComponent();
         }
@@ -25,26 +26,20 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             lblTestTitle.Text = questionText;
         }
 
-        public void SetAnswers(List<string> answers, List<string> rightAnswers)
+        public void SetAnswers(List<string> answers)
         {
-            string[] rightAnswersArray = rightAnswers.ToArray();
+            string[] answersArray = answers.ToArray();
 
-            foreach (var answer in answers)
+            foreach (var _ in answers)
             {
-                var customLabel = new CustomLabel()
-                {
-                    TextValue = answer
-                };
-
                 var customComboBox = new CustomComboBox()
                 {
-                    ComboItems = rightAnswersArray
+                    ComboItems = answersArray
                 };
+                customComboBox.Size = new Size(717, 25);
 
-                customComboBox.Size = new Size(360, 23);
-
-                questionsCreating.AddMatchAnswerRow(customLabel, customComboBox,
-                    definitionsAndAlignmentsTableLayoutPanel);
+                questionsCreating.AddSequenceAnswerRow(customComboBox, 
+                    answersTableLayoutPanel);
             }
         }
     }

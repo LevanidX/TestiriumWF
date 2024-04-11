@@ -145,17 +145,41 @@
     <Compile Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.Designer.cs">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestEndScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestEndScreen.Designer.cs">
+      <DependentUpon>TestEndScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.Designer.cs">
       <DependentUpon>TestMatchQuestionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.Designer.cs">
+      <DependentUpon>TestMultipleQuestionPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.Designer.cs">
       <DependentUpon>TestOneQuestionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.Designer.cs">
+      <DependentUpon>TestSequenceQuestionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestTextQuestionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestTextQuestionPanel.Designer.cs">
+      <DependentUpon>TestTextQuestionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.cs">
       <SubType>UserControl</SubType>
@@ -218,6 +242,7 @@
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="ProgrammFunctions\FormsMessages.cs" />
+    <Compile Include="ProgrammFunctions\TestTypes.cs" />
     <Compile Include="SqlFunctions\MySqlWriter.cs" />
     <Compile Include="ProgrammWindows\ChooseQuestionType.cs">
       <SubType>Form</SubType>
@@ -281,6 +306,7 @@
     <Compile Include="ProgrammWindows\TestiriumMainMenu.Designer.cs">
       <DependentUpon>TestiriumMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestCompletingFunctions\TestCompletor.cs" />
     <Compile Include="TestCreatingFunctions\TestCreatingMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCreatingFunctions\QuestionsCreating.cs" />
@@ -319,11 +345,23 @@
     <EmbeddedResource Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.resx">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestEndScreen.resx">
+      <DependentUpon>TestEndScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.resx">
       <DependentUpon>TestMatchQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.resx">
+      <DependentUpon>TestMultipleQuestionPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.resx">
       <DependentUpon>TestOneQuestionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.resx">
+      <DependentUpon>TestSequenceQuestionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestTextQuestionPanel.resx">
+      <DependentUpon>TestTextQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.resx">
       <DependentUpon>TestWelcomeScreen.cs</DependentUpon>

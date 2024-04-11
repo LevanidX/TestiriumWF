@@ -1,6 +1,6 @@
 ﻿namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
-    partial class TestOneQuestionPanel
+    partial class TestTextQuestionPanel
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -30,21 +30,21 @@
         {
             this.oneQuestionScreenPanel = new System.Windows.Forms.Panel();
             this.lblTestTitle = new System.Windows.Forms.Label();
-            this.answersTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.lblQuestionAnswerVariants = new System.Windows.Forms.Label();
+            this.answerTextBox = new System.Windows.Forms.TextBox();
             this.oneQuestionScreenPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // oneQuestionScreenPanel
             // 
             this.oneQuestionScreenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            this.oneQuestionScreenPanel.Controls.Add(this.answerTextBox);
             this.oneQuestionScreenPanel.Controls.Add(this.lblTestTitle);
-            this.oneQuestionScreenPanel.Controls.Add(this.answersTableLayoutPanel);
             this.oneQuestionScreenPanel.Controls.Add(this.lblQuestionAnswerVariants);
             this.oneQuestionScreenPanel.Location = new System.Drawing.Point(0, 0);
             this.oneQuestionScreenPanel.Name = "oneQuestionScreenPanel";
             this.oneQuestionScreenPanel.Size = new System.Drawing.Size(784, 496);
-            this.oneQuestionScreenPanel.TabIndex = 6;
+            this.oneQuestionScreenPanel.TabIndex = 8;
             // 
             // lblTestTitle
             // 
@@ -59,23 +59,6 @@
             this.lblTestTitle.Text = "Текст вопроса";
             this.lblTestTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // answersTableLayoutPanel
-            // 
-            this.answersTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.answersTableLayoutPanel.ColumnCount = 2;
-            this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.answersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 736F));
-            this.answersTableLayoutPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.answersTableLayoutPanel.Location = new System.Drawing.Point(32, 144);
-            this.answersTableLayoutPanel.Name = "answersTableLayoutPanel";
-            this.answersTableLayoutPanel.RowCount = 3;
-            this.answersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.answersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.answersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.answersTableLayoutPanel.Size = new System.Drawing.Size(720, 320);
-            this.answersTableLayoutPanel.TabIndex = 9;
-            // 
             // lblQuestionAnswerVariants
             // 
             this.lblQuestionAnswerVariants.AutoSize = true;
@@ -83,16 +66,27 @@
             this.lblQuestionAnswerVariants.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblQuestionAnswerVariants.Location = new System.Drawing.Point(32, 128);
             this.lblQuestionAnswerVariants.Name = "lblQuestionAnswerVariants";
-            this.lblQuestionAnswerVariants.Size = new System.Drawing.Size(161, 16);
+            this.lblQuestionAnswerVariants.Size = new System.Drawing.Size(94, 16);
             this.lblQuestionAnswerVariants.TabIndex = 3;
-            this.lblQuestionAnswerVariants.Text = "Выберите вариант ответа";
+            this.lblQuestionAnswerVariants.Text = "Введите ответ";
             // 
-            // TestOneQuestionPanel
+            // answerTextBox
+            // 
+            this.answerTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.answerTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.answerTextBox.Font = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.answerTextBox.ForeColor = System.Drawing.Color.White;
+            this.answerTextBox.Location = new System.Drawing.Point(32, 152);
+            this.answerTextBox.Name = "answerTextBox";
+            this.answerTextBox.Size = new System.Drawing.Size(720, 36);
+            this.answerTextBox.TabIndex = 12;
+            // 
+            // TestTextQuestionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.oneQuestionScreenPanel);
-            this.Name = "TestOneQuestionPanel";
+            this.Name = "TestTextQuestionPanel";
             this.Size = new System.Drawing.Size(784, 496);
             this.oneQuestionScreenPanel.ResumeLayout(false);
             this.oneQuestionScreenPanel.PerformLayout();
@@ -103,8 +97,8 @@
         #endregion
 
         private System.Windows.Forms.Panel oneQuestionScreenPanel;
-        private System.Windows.Forms.TableLayoutPanel answersTableLayoutPanel;
-        private System.Windows.Forms.Label lblQuestionAnswerVariants;
         private System.Windows.Forms.Label lblTestTitle;
+        private System.Windows.Forms.Label lblQuestionAnswerVariants;
+        private System.Windows.Forms.TextBox answerTextBox;
     }
 }
