@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
+using TestiriumWF.CustomPanels.DeserializedQuestionPanels;
 using TestStructure;
 
 namespace TestiriumWF.CustomPanels
@@ -43,17 +44,24 @@ namespace TestiriumWF.CustomPanels
 
         private void CreateQuestions()
         {
-            int countLinks = 0;
+            int countQuestions = 1;
 
             foreach (var question in _test.Questions)
             {
-                var customLinkLabel = new CustomLinkLabel();
-
-                customLinkLabel.TextValue = question.QuestionText;
-                customLinkLabel.TagValue = countLinks.ToString(); // вместо тэгов использовать ссылки на панели с вопросами
-                questionsFlowLayoutPanel.Controls.Add(customLinkLabel);
-
-                countLinks++;
+                if (question.QuestionType == "ONE_ANSWER_QUESTION")
+                {
+                    var oneQuestionPanel = new TestOneQuestionPanel();
+                    oneQuestionPanel.Location = new Point(16, 16);
+                    oneQuestionPanel.SetQuestionText(question.QuestionText);
+                    oneQuestionPanel.SetAnswers(question.Answers);
+                    questionsContainerPanel.Controls.Add(oneQuestionPanel);
+                    var customTestButtonControl = new CustomTestButtonControl(oneQuestionPanel)
+                    {
+                        TextValue = countQuestions.ToString()
+                    };
+                    questionsFlowLayoutPanel.Controls.Add(customTestButtonControl);
+                    countQuestions++;
+                }
             }
         }
 

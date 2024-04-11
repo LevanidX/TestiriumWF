@@ -109,6 +109,12 @@
     <Compile Include="CustomControls\CustomDataGridView.Designer.cs">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CustomLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomLabel.Designer.cs">
+      <DependentUpon>CustomLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CustomLinkLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,24 @@
     </Compile>
     <Compile Include="CustomControls\CustomPercentageTextBox.Designer.cs">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\CustomTestButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomTestButtonControl.Designer.cs">
+      <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.Designer.cs">
+      <DependentUpon>TestMatchQuestionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.Designer.cs">
+      <DependentUpon>TestOneQuestionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.cs">
       <SubType>UserControl</SubType>
@@ -180,6 +204,12 @@
     </Compile>
     <Compile Include="CustomPanels\QuestionPanels\TextQuestionPanel.Designer.cs">
       <DependentUpon>TextQuestionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\TimeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\TimeControl.Designer.cs">
+      <DependentUpon>TimeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\UserBoxPanel.cs">
       <SubType>UserControl</SubType>
@@ -263,12 +293,16 @@
     <Compile Include="TestCreatingFunctions\AnswersGetting.cs" />
     <Compile Include="TestCreator.cs" />
     <Compile Include="TestDeserializer.cs" />
+    <Compile Include="TestQuestionsCreating.cs" />
     <Compile Include="UserConfig.cs" />
     <EmbeddedResource Include="CustomControls\CustomComboBox.resx">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomDataGridView.resx">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomLabel.resx">
+      <DependentUpon>CustomLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomLinkLabel.resx">
       <DependentUpon>CustomLinkLabel.cs</DependentUpon>
@@ -281,6 +315,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomPercentageTextBox.resx">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomTestButtonControl.resx">
+      <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.resx">
+      <DependentUpon>TestMatchQuestionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.resx">
+      <DependentUpon>TestOneQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.resx">
       <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
@@ -305,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\QuestionPanels\TextQuestionPanel.resx">
       <DependentUpon>TextQuestionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\TimeControl.resx">
+      <DependentUpon>TimeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\UserBoxPanel.resx">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>

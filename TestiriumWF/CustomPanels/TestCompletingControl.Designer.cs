@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.questionsContainerPanel = new System.Windows.Forms.Panel();
-            this.testWelcomeScreen = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
-            this.allCoursesPanel = new System.Windows.Forms.Panel();
+            this.allQuestionsPanel = new System.Windows.Forms.Panel();
             this.btnStartTest = new System.Windows.Forms.Button();
             this.questionsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTests = new System.Windows.Forms.Label();
+            this.testWelcomeScreen = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
+            this.timeControl1 = new TestiriumWF.CustomPanels.TimeControl();
             this.questionsContainerPanel.SuspendLayout();
-            this.allCoursesPanel.SuspendLayout();
+            this.allQuestionsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // questionsContainerPanel
@@ -47,23 +48,17 @@
             this.questionsContainerPanel.Size = new System.Drawing.Size(816, 528);
             this.questionsContainerPanel.TabIndex = 7;
             // 
-            // testWelcomeScreen
+            // allQuestionsPanel
             // 
-            this.testWelcomeScreen.Location = new System.Drawing.Point(16, 16);
-            this.testWelcomeScreen.Name = "testWelcomeScreen";
-            this.testWelcomeScreen.Size = new System.Drawing.Size(784, 496);
-            this.testWelcomeScreen.TabIndex = 0;
-            // 
-            // allCoursesPanel
-            // 
-            this.allCoursesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.allCoursesPanel.Controls.Add(this.btnStartTest);
-            this.allCoursesPanel.Controls.Add(this.questionsFlowLayoutPanel);
-            this.allCoursesPanel.Controls.Add(this.lblTests);
-            this.allCoursesPanel.Location = new System.Drawing.Point(0, 0);
-            this.allCoursesPanel.Name = "allCoursesPanel";
-            this.allCoursesPanel.Size = new System.Drawing.Size(184, 528);
-            this.allCoursesPanel.TabIndex = 9;
+            this.allQuestionsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.allQuestionsPanel.Controls.Add(this.timeControl1);
+            this.allQuestionsPanel.Controls.Add(this.btnStartTest);
+            this.allQuestionsPanel.Controls.Add(this.questionsFlowLayoutPanel);
+            this.allQuestionsPanel.Controls.Add(this.lblTests);
+            this.allQuestionsPanel.Location = new System.Drawing.Point(0, 0);
+            this.allQuestionsPanel.Name = "allQuestionsPanel";
+            this.allQuestionsPanel.Size = new System.Drawing.Size(184, 528);
+            this.allQuestionsPanel.TabIndex = 9;
             // 
             // btnStartTest
             // 
@@ -83,10 +78,10 @@
             // 
             // questionsFlowLayoutPanel
             // 
-            this.questionsFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.questionsFlowLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.questionsFlowLayoutPanel.Location = new System.Drawing.Point(8, 40);
             this.questionsFlowLayoutPanel.Name = "questionsFlowLayoutPanel";
-            this.questionsFlowLayoutPanel.Size = new System.Drawing.Size(168, 424);
+            this.questionsFlowLayoutPanel.Size = new System.Drawing.Size(168, 264);
             this.questionsFlowLayoutPanel.TabIndex = 1;
             // 
             // lblTests
@@ -100,18 +95,32 @@
             this.lblTests.TabIndex = 0;
             this.lblTests.Text = "Вопросы";
             // 
+            // testWelcomeScreen
+            // 
+            this.testWelcomeScreen.Location = new System.Drawing.Point(16, 16);
+            this.testWelcomeScreen.Name = "testWelcomeScreen";
+            this.testWelcomeScreen.Size = new System.Drawing.Size(784, 496);
+            this.testWelcomeScreen.TabIndex = 0;
+            // 
+            // timeControl1
+            // 
+            this.timeControl1.Location = new System.Drawing.Point(8, 312);
+            this.timeControl1.Name = "timeControl1";
+            this.timeControl1.Size = new System.Drawing.Size(168, 152);
+            this.timeControl1.TabIndex = 6;
+            // 
             // TestCompletingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.allCoursesPanel);
+            this.Controls.Add(this.allQuestionsPanel);
             this.Controls.Add(this.questionsContainerPanel);
             this.Name = "TestCompletingControl";
             this.Size = new System.Drawing.Size(1000, 528);
             this.Load += new System.EventHandler(this.TestCompletingControl_Load);
             this.questionsContainerPanel.ResumeLayout(false);
-            this.allCoursesPanel.ResumeLayout(false);
-            this.allCoursesPanel.PerformLayout();
+            this.allQuestionsPanel.ResumeLayout(false);
+            this.allQuestionsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -120,9 +129,10 @@
 
         private System.Windows.Forms.Panel questionsContainerPanel;
         private DeserializedQuestionPanels.TestWelcomeScreen testWelcomeScreen;
-        private System.Windows.Forms.Panel allCoursesPanel;
+        private System.Windows.Forms.Panel allQuestionsPanel;
         private System.Windows.Forms.Button btnStartTest;
         private System.Windows.Forms.FlowLayoutPanel questionsFlowLayoutPanel;
         private System.Windows.Forms.Label lblTests;
+        private TimeControl timeControl1;
     }
 }
