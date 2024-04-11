@@ -97,52 +97,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls\CustomComboBox.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomComboBox.Designer.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomComboBox.Designer.cs">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomDataGridView.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomDataGridView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomDataGridView.Designer.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomDataGridView.Designer.cs">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomLabel.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomLabel.Designer.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomLabel.Designer.cs">
       <DependentUpon>CustomLabel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomLinkLabel.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomLinkLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomLinkLabel.Designer.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomLinkLabel.Designer.cs">
       <DependentUpon>CustomLinkLabel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomMinuteTextBox.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomMinuteTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomMinuteTextBox.Designer.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomMinuteTextBox.Designer.cs">
       <DependentUpon>CustomMinuteTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomPasswordTextBox.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomPasswordTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomPasswordTextBox.Designer.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomPasswordTextBox.Designer.cs">
       <DependentUpon>CustomPasswordTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomPercentageTextBox.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomPercentageTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomPercentageTextBox.Designer.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomPercentageTextBox.Designer.cs">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomTestButtonControl.cs">
+    <Compile Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomTestButtonControl.Designer.cs">
+    <Compile Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.Designer.cs">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.cs">
@@ -217,37 +217,37 @@
     <Compile Include="CustomPanels\UserBoxPanel.Designer.cs">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsMessages.cs" />
-    <Compile Include="MySqlWriter.cs" />
+    <Compile Include="ProgrammFunctions\FormsMessages.cs" />
+    <Compile Include="SqlFunctions\MySqlWriter.cs" />
     <Compile Include="ProgrammWindows\ChooseQuestionType.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProgrammWindows\ChooseQuestionType.Designer.cs">
       <DependentUpon>ChooseQuestionType.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomAnswerTextBox.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomAnswerTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomAnswerTextBox.Designer.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomAnswerTextBox.Designer.cs">
       <DependentUpon>CustomAnswerTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomClearRowButton.cs">
+    <Compile Include="CustomControls\TestControls\CustomClearRowButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomClearRowButton.Designer.cs">
+    <Compile Include="CustomControls\TestControls\CustomClearRowButton.Designer.cs">
       <DependentUpon>CustomClearRowButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControlsFunctions.cs" />
-    <Compile Include="CustomControls\CustomQuestionTextBox.cs">
+    <Compile Include="ProgrammFunctions\CustomControlsFunctions.cs" />
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomQuestionTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomQuestionTextBox.Designer.cs">
+    <Compile Include="CustomControls\CustomControlsForRefactor\CustomQuestionTextBox.Designer.cs">
       <DependentUpon>CustomQuestionTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomTestCreatingButton.cs">
+    <Compile Include="CustomControls\TestControls\CustomTestCreatingButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomTestCreatingButton.Designer.cs">
+    <Compile Include="CustomControls\TestControls\CustomTestCreatingButton.Designer.cs">
       <DependentUpon>CustomTestCreatingButton.cs</DependentUpon>
     </Compile>
     <Compile Include="ProgrammWindows\CourseAdding.cs">
@@ -291,32 +291,32 @@
       <DependentUpon>WelcomeScreenPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="TestCreatingFunctions\AnswersGetting.cs" />
-    <Compile Include="TestCreator.cs" />
-    <Compile Include="TestDeserializer.cs" />
-    <Compile Include="TestQuestionsCreating.cs" />
-    <Compile Include="UserConfig.cs" />
-    <EmbeddedResource Include="CustomControls\CustomComboBox.resx">
+    <Compile Include="TestCreatingFunctions\TestCreator.cs" />
+    <Compile Include="TestCompletingFunctions\TestDeserializer.cs" />
+    <Compile Include="TestCompletingFunctions\TestQuestionsCreating.cs" />
+    <Compile Include="ProgrammFunctions\UserConfig.cs" />
+    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomComboBox.resx">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomDataGridView.resx">
+    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomDataGridView.resx">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomLabel.resx">
+    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomLabel.resx">
       <DependentUpon>CustomLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomLinkLabel.resx">
+    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomLinkLabel.resx">
       <DependentUpon>CustomLinkLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomMinuteTextBox.resx">
+    <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomMinuteTextBox.resx">
       <DependentUpon>CustomMinuteTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomPasswordTextBox.resx">
+    <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomPasswordTextBox.resx">
       <DependentUpon>CustomPasswordTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomPercentageTextBox.resx">
+    <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomPercentageTextBox.resx">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomTestButtonControl.resx">
+    <EmbeddedResource Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.resx">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.resx">
@@ -358,16 +358,16 @@
     <EmbeddedResource Include="ProgrammWindows\ChooseQuestionType.resx">
       <DependentUpon>ChooseQuestionType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomAnswerTextBox.resx">
+    <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomAnswerTextBox.resx">
       <DependentUpon>CustomAnswerTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomClearRowButton.resx">
+    <EmbeddedResource Include="CustomControls\TestControls\CustomClearRowButton.resx">
       <DependentUpon>CustomClearRowButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomQuestionTextBox.resx">
+    <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomQuestionTextBox.resx">
       <DependentUpon>CustomQuestionTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomTestCreatingButton.resx">
+    <EmbeddedResource Include="CustomControls\TestControls\CustomTestCreatingButton.resx">
       <DependentUpon>CustomTestCreatingButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\CourseAdding.resx">
@@ -428,7 +428,6 @@
     <None Include="Resources\exam.png" />
     <None Include="Resources\free-icon-close-1828666.png" />
     <None Include="Resources\free-icon-close-1828666 %281%29.png" />
-    <Content Include="TestsXML\ExampleTest.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestStructure\TestStructure.csproj">
