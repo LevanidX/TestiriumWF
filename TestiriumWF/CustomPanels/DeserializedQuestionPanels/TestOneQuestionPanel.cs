@@ -54,7 +54,6 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                     var row = answersTableLayoutPanel.GetRow(RB);
                     var customLabel = (CustomLabel)answersTableLayoutPanel.GetControlFromPosition(1, row);
                     answer = customLabel.TextValue;
-                    return answer;
                 }
             }
 

@@ -39,5 +39,22 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                     answersTableLayoutPanel);
             }
         }
+
+        public List<string> GetUserAnswers()
+        {
+            List<string> answers = new List<string>();
+
+            foreach (var CB in answersTableLayoutPanel.Controls.OfType<CheckBox>())
+            {
+                if (CB.Checked)
+                {
+                    var row = answersTableLayoutPanel.GetRow(CB);
+                    var customLabel = (CustomLabel)answersTableLayoutPanel.GetControlFromPosition(1, row);
+                    answers.Add(customLabel.TextValue);
+                }
+            }
+
+            return answers;
+        }
     }
 }
