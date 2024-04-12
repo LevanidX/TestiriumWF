@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.oneQuestionScreenPanel = new System.Windows.Forms.Panel();
-            this.lblTestTitle = new System.Windows.Forms.Label();
             this.lblQuestionAnswerVariants = new System.Windows.Forms.Label();
+            this.lblTestTitle = new System.Windows.Forms.Label();
             this.answerTextBox = new System.Windows.Forms.TextBox();
+            this.oneQuestionScreenPanel = new System.Windows.Forms.Panel();
             this.oneQuestionScreenPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // oneQuestionScreenPanel
+            // lblQuestionAnswerVariants
             // 
-            this.oneQuestionScreenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            this.oneQuestionScreenPanel.Controls.Add(this.answerTextBox);
-            this.oneQuestionScreenPanel.Controls.Add(this.lblTestTitle);
-            this.oneQuestionScreenPanel.Controls.Add(this.lblQuestionAnswerVariants);
-            this.oneQuestionScreenPanel.Location = new System.Drawing.Point(0, 0);
-            this.oneQuestionScreenPanel.Name = "oneQuestionScreenPanel";
-            this.oneQuestionScreenPanel.Size = new System.Drawing.Size(784, 496);
-            this.oneQuestionScreenPanel.TabIndex = 8;
+            this.lblQuestionAnswerVariants.AutoSize = true;
+            this.lblQuestionAnswerVariants.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblQuestionAnswerVariants.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblQuestionAnswerVariants.Location = new System.Drawing.Point(32, 128);
+            this.lblQuestionAnswerVariants.Name = "lblQuestionAnswerVariants";
+            this.lblQuestionAnswerVariants.Size = new System.Drawing.Size(94, 16);
+            this.lblQuestionAnswerVariants.TabIndex = 3;
+            this.lblQuestionAnswerVariants.Text = "Введите ответ";
             // 
             // lblTestTitle
             // 
@@ -59,17 +59,6 @@
             this.lblTestTitle.Text = "Текст вопроса";
             this.lblTestTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblQuestionAnswerVariants
-            // 
-            this.lblQuestionAnswerVariants.AutoSize = true;
-            this.lblQuestionAnswerVariants.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblQuestionAnswerVariants.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblQuestionAnswerVariants.Location = new System.Drawing.Point(32, 128);
-            this.lblQuestionAnswerVariants.Name = "lblQuestionAnswerVariants";
-            this.lblQuestionAnswerVariants.Size = new System.Drawing.Size(94, 16);
-            this.lblQuestionAnswerVariants.TabIndex = 3;
-            this.lblQuestionAnswerVariants.Text = "Введите ответ";
-            // 
             // answerTextBox
             // 
             this.answerTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
@@ -80,6 +69,17 @@
             this.answerTextBox.Name = "answerTextBox";
             this.answerTextBox.Size = new System.Drawing.Size(720, 36);
             this.answerTextBox.TabIndex = 12;
+            // 
+            // oneQuestionScreenPanel
+            // 
+            this.oneQuestionScreenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            this.oneQuestionScreenPanel.Controls.Add(this.answerTextBox);
+            this.oneQuestionScreenPanel.Controls.Add(this.lblTestTitle);
+            this.oneQuestionScreenPanel.Controls.Add(this.lblQuestionAnswerVariants);
+            this.oneQuestionScreenPanel.Location = new System.Drawing.Point(0, 0);
+            this.oneQuestionScreenPanel.Name = "oneQuestionScreenPanel";
+            this.oneQuestionScreenPanel.Size = new System.Drawing.Size(784, 496);
+            this.oneQuestionScreenPanel.TabIndex = 8;
             // 
             // TestTextQuestionPanel
             // 
@@ -96,9 +96,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel oneQuestionScreenPanel;
-        private System.Windows.Forms.Label lblTestTitle;
         private System.Windows.Forms.Label lblQuestionAnswerVariants;
+        private System.Windows.Forms.Label lblTestTitle;
         private System.Windows.Forms.TextBox answerTextBox;
+        private System.Windows.Forms.Panel oneQuestionScreenPanel;
     }
 }

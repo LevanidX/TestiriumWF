@@ -28,6 +28,16 @@ namespace TestiriumWF.TestCreatingFunctions
             return _answers;
         }
 
+        public List<string> GetLowerAnswers()
+        {
+            foreach (var answerBox in _answersPanel.Controls.OfType<CustomAnswerTextBox>())
+            {
+                _answers.Add(answerBox.GetAnswerText().ToLower());
+            }
+
+            return _answers;
+        }
+
         public List<string> GetMatchAnswers()
         {
             foreach (var textBox in _answersPanel.Controls.OfType<CustomAnswerTextBox>())

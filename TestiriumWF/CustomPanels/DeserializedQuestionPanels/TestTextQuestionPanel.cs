@@ -21,5 +21,10 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
         {
             lblTestTitle.Text = questionText;
         }
+
+        public string GetTextAnswer()
+        {
+            return answerTextBox.Text;
+        }
     }
 }

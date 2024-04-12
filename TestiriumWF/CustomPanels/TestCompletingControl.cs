@@ -22,7 +22,7 @@ namespace TestiriumWF.CustomPanels
         private void btnStartTest_Click(object sender, EventArgs e)
         {
             questionsFlowLayoutPanel.Enabled = true;
-            testWelcomeScreen.Hide();
+            questionsContainerPanel.Controls.Remove(testWelcomeScreen);
             btnEndTest.BringToFront();
         }
 

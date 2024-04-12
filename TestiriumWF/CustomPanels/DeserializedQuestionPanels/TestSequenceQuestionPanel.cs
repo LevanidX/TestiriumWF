@@ -42,5 +42,17 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                     answersTableLayoutPanel);
             }
         }
+
+        public List<string> GetAnswers()
+        {
+            List<string> userAnswers = new List<string>();
+
+            foreach (var customComboBox in answersTableLayoutPanel.Controls.OfType<CustomComboBox>())
+            {
+                userAnswers.Add(customComboBox.TextValue);
+            }
+
+            return userAnswers;
+        }
     }
 }

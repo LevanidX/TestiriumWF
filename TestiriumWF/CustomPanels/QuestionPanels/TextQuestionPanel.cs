@@ -8,13 +8,13 @@ namespace TestiriumWF.CustomPanels
     public partial class TextQuestionPanel : UserControl
     {
         QuestionsCreating questionsCreating = new QuestionsCreating();
-        AnswersGetting xmlSerialization;
+        private AnswersGetting _answersGetting;
 
         public TextQuestionPanel()
         {
             InitializeComponent();
 
-            xmlSerialization = new AnswersGetting(answersTableLayoutPanel);
+            _answersGetting = new AnswersGetting(answersTableLayoutPanel);
         }
 
         public string GetQuestionText()
@@ -24,7 +24,12 @@ namespace TestiriumWF.CustomPanels
 
         public List<string> GetAnswers()
         {
-            return xmlSerialization.GetAnswers();
+            if (!caseSensitivityCheckBox.Checked)
+            {
+                return _answersGetting.GetLowerAnswers();
+            }
+
+            return _answersGetting.GetAnswers();
         }
 
         public CheckBox GetQuestionSettings()
