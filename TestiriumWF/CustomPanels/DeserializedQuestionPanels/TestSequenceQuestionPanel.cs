@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
+using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
@@ -21,21 +22,19 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             InitializeComponent();
         }
 
-        public void SetQuestionText(string questionText)
+        public void SetQuestionText(Question question)
         {
-            lblTestTitle.Text = questionText;
+            lblTestTitle.Text = question.QuestionText;
         }
 
-        public void SetAnswers(List<string> answers)
+        public void SetAnswers(Question question)
         {
-            string[] answersArray = answers.ToArray();
-
-            foreach (var _ in answers)
+            foreach (var _ in question.Answers)
             {
                 var customComboBox = new CustomComboBox()
                 {
-                    ComboItems = answersArray
-                };
+                    ComboItems = question.Answers.ToArray()
+            };
                 customComboBox.Size = new Size(717, 25);
 
                 questionsCreating.AddSequenceAnswerRow(customComboBox, 
@@ -43,7 +42,7 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             }
         }
 
-        public List<string> GetAnswers()
+        public List<string> GetUserAnswers()
         {
             List<string> userAnswers = new List<string>();
 

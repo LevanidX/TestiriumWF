@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
+using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
@@ -20,14 +21,14 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             InitializeComponent();
         }
 
-        public void SetQuestionText(string questionText)
+        public void SetQuestionText(Question question)
         {
-            lblTestTitle.Text = questionText;
+            lblTestTitle.Text = question.QuestionText;
         }
 
-        public void SetAnswers(List<string> answers)
+        public void SetAnswers(Question question)
         {
-            foreach (var answer in answers)
+            foreach (var answer in question.Answers)
             {
                 var checkBox = new CheckBox();
                 checkBox.Padding = new Padding(2);

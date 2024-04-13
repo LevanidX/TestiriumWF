@@ -30,9 +30,9 @@
         {
             this.questionsContainerPanel = new System.Windows.Forms.Panel();
             this.allQuestionsPanel = new System.Windows.Forms.Panel();
-            this.btnStartTest = new System.Windows.Forms.Button();
             this.questionsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTests = new System.Windows.Forms.Label();
+            this.btnStartTest = new System.Windows.Forms.Button();
             this.btnEndTest = new System.Windows.Forms.Button();
             this.timeControl = new TestiriumWF.CustomPanels.TimeControl();
             this.testWelcomeScreen = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
@@ -62,22 +62,6 @@
             this.allQuestionsPanel.Size = new System.Drawing.Size(184, 528);
             this.allQuestionsPanel.TabIndex = 9;
             // 
-            // btnStartTest
-            // 
-            this.btnStartTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
-            this.btnStartTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnStartTest.FlatAppearance.BorderSize = 0;
-            this.btnStartTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStartTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStartTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStartTest.Location = new System.Drawing.Point(8, 472);
-            this.btnStartTest.Name = "btnStartTest";
-            this.btnStartTest.Size = new System.Drawing.Size(168, 48);
-            this.btnStartTest.TabIndex = 5;
-            this.btnStartTest.Text = "Запустить тестирование";
-            this.btnStartTest.UseVisualStyleBackColor = false;
-            this.btnStartTest.Click += new System.EventHandler(this.btnStartTest_Click);
-            // 
             // questionsFlowLayoutPanel
             // 
             this.questionsFlowLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -96,6 +80,22 @@
             this.lblTests.Size = new System.Drawing.Size(85, 25);
             this.lblTests.TabIndex = 0;
             this.lblTests.Text = "Вопросы";
+            // 
+            // btnStartTest
+            // 
+            this.btnStartTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
+            this.btnStartTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnStartTest.FlatAppearance.BorderSize = 0;
+            this.btnStartTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnStartTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnStartTest.Location = new System.Drawing.Point(8, 472);
+            this.btnStartTest.Name = "btnStartTest";
+            this.btnStartTest.Size = new System.Drawing.Size(168, 48);
+            this.btnStartTest.TabIndex = 5;
+            this.btnStartTest.Text = "Запустить тестирование";
+            this.btnStartTest.UseVisualStyleBackColor = false;
+            this.btnStartTest.Click += new System.EventHandler(this.btnStartTest_Click);
             // 
             // btnEndTest
             // 

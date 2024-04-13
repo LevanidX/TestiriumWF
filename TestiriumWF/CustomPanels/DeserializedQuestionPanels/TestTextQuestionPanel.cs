@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
@@ -17,14 +18,21 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             InitializeComponent();
         }
 
-        public void SetQuestionText(string questionText)
+        public void SetQuestionText(Question question)
         {
-            lblTestTitle.Text = questionText;
+            lblTestTitle.Text = question.QuestionText;
         }
 
-        public string GetTextAnswer()
+        public void SetAnswers(Question question) { } //метод пустышка
+
+        public List<string> GetUserAnswers()
         {
-            return answerTextBox.Text;
+            List<string> userAnswers = new List<string>
+            {
+                answerTextBox.Text
+            };
+
+            return userAnswers;
         }
     }
 }

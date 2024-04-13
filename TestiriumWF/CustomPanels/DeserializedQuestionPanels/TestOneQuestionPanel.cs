@@ -9,28 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
 using TestiriumWF.TestCreatingFunctions;
+using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
     public partial class TestOneQuestionPanel : UserControl
     {
         TestQuestionsCreating questionsCreating = new TestQuestionsCreating();
-        AnswersGetting answersGetting;
 
         public TestOneQuestionPanel()
         {
             InitializeComponent();
-            answersGetting = new AnswersGetting(answersTableLayoutPanel);
         }
 
-        public void SetQuestionText(string questionText)
+        public void SetQuestionText(Question question)
         {
-            lblTestTitle.Text = questionText;
+            lblTestTitle.Text = question.QuestionText;
         }
 
-        public void SetAnswers(List<string> answers)
+        public void SetAnswers(Question question)
         {
-            foreach (var answer in answers)
+            foreach (var answer in question.Answers)
             {
                 var radioButton = new RadioButton();
                 radioButton.Padding = new Padding(2);
@@ -43,9 +42,9 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             }
         }
 
-        public string GetUserAnswer() //остановились на радиобаттонах, тут берутся ответы
+        public List<string> GetUserAnswers() //остановились на радиобаттонах, тут берутся ответы
         {
-            string answer = string.Empty;
+            List<string> userAnswers = new List<string>();
 
             foreach (var RB in answersTableLayoutPanel.Controls.OfType<RadioButton>())
             {
@@ -53,11 +52,11 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                 {
                     var row = answersTableLayoutPanel.GetRow(RB);
                     var customLabel = (CustomLabel)answersTableLayoutPanel.GetControlFromPosition(1, row);
-                    answer = customLabel.TextValue;
+                    userAnswers.Add(customLabel.TextValue);
                 }
             }
 
-            return answer;
+            return userAnswers;
         }
 
         //план такой, для перемешки ответов, будем это делать после десериализации и

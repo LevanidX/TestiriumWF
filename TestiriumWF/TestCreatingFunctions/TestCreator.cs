@@ -195,8 +195,6 @@ namespace TestiriumWF
 
             if (markRadioButton.Checked)
             {
-                
-                
                 return new EstimationMethods("MARK", estimationParametres);
             }
             else

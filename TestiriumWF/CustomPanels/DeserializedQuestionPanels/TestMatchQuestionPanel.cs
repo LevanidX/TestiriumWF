@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
+using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
@@ -20,16 +21,14 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             InitializeComponent();
         }
 
-        public void SetQuestionText(string questionText)
+        public void SetQuestionText(Question question)
         {
-            lblTestTitle.Text = questionText;
+            lblTestTitle.Text = question.QuestionText;
         }
 
-        public void SetAnswers(List<string> answers, List<string> rightAnswers)
+        public void SetAnswers(Question question)
         {
-            string[] rightAnswersArray = rightAnswers.ToArray();
-
-            foreach (var answer in answers)
+            foreach (var answer in question.Answers)
             {
                 var customLabel = new CustomLabel()
                 {
@@ -38,7 +37,7 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 
                 var customComboBox = new CustomComboBox()
                 {
-                    ComboItems = rightAnswersArray
+                    ComboItems = question.RightAnswers.ToArray()
                 };
 
                 customComboBox.Size = new Size(360, 23);
@@ -46,6 +45,18 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                 questionsCreating.AddMatchAnswerRow(customLabel, customComboBox,
                     definitionsAndAlignmentsTableLayoutPanel);
             }
+        }
+
+        public List<string> GetUserAnswers()
+        {
+            List<string> answers = new List<string>();
+
+            foreach (var customComboBox in definitionsAndAlignmentsTableLayoutPanel.Controls.OfType<CustomComboBox>())
+            {
+                answers.Add(customComboBox.TextValue);
+            }
+
+            return answers;
         }
     }
 }
