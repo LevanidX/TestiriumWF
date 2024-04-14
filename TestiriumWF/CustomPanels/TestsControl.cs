@@ -5,26 +5,51 @@ using System.Drawing;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
 using TestiriumWF.ProgrammWindows;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace TestiriumWF.CustomPanels
 {
     public partial class TestsControl : UserControl
     {
         private MySqlWriter _mySqlWriter = new MySqlWriter();
-        private string _currentCourse;
+        private string _currentCourseId;
         CustomDataGridView testsDataGridView;
 
         public TestsControl()
         {
             InitializeComponent();
-            testsDataGridView = new CustomDataGridView(testsPanel);
+
+            testsDataGridView = new CustomDataGridView(testsPanel, this);
         }
 
         private void TestsControl_Load(object sender, EventArgs e)
         {
-            RefillCoursesPanel();
-            btnCreateTest.Enabled = false;
+            if (UserConfig.IsTeacher)
+            {
+                TeacherLoad();
+            }
+            else
+            {
+                StudentLoad();
+            }
 
+            RefillPanels();
+            AddDataGrid();
+        }
+
+        private void TeacherLoad()
+        {
+            btnCreateTest.Enabled = false;
+        }
+
+        private void StudentLoad()
+        {
+            allCoursesPanel.Controls.Remove(btnAddCourse);
+            availableTestsPanel.Controls.Remove(btnCreateTest);
+        }
+
+        private void AddDataGrid()
+        {
             testsDataGridView.Location = new Point(16, 88);
             availableTestsPanel.Controls.Add(testsDataGridView);
         }
@@ -35,30 +60,49 @@ namespace TestiriumWF.CustomPanels
             courseAdding.Show();
         }
 
-        public void RefillCoursesPanel()
+        public void RefillPanels()
         {
+            string selectCoursesTeacherCommand = 
+                $"SELECT course_id, " +
+                $"CONCAT(course_name, ' - ', class, ' класс') " +
+                $"FROM courses " +
+                $"WHERE course_user_teacher_number = {UserConfig.UserId}";
+
+            string selectCoursesStudentCommand = 
+                $"SELECT course_id, CONCAT(course_name, ' - ', class, ' класс') " +
+                $"FROM courses, users_students, students, classes " +
+                $"WHERE user_student_id = {UserConfig.UserId} " +
+                $"AND user_student_number = student_id " +
+                $"AND student_class = class_id " +
+                $"AND SUBSTRING(class_name, 1, 2) = class";
+
             ClearCoursesPanel();
-            FillCoursesPanel();
+
+            if (UserConfig.IsTeacher)
+            {
+                FillCoursesPanel(selectCoursesTeacherCommand);
+            }
+            else
+            {
+                FillCoursesPanel(selectCoursesStudentCommand);
+            }
+            
+            FillDataGridWithTests(_currentCourseId);
         }
 
-        private void ClearCoursesPanel()
+        private void FillCoursesPanel(string sqlCommand)
         {
-            coursesFlowLayoutPanel.Controls.Clear();
-        }
-
-        private void FillCoursesPanel()
-        {
-            string selectCoursesCommand = $"SELECT course_id, " +
-               $"CONCAT(course_name, ' - ', class, ' класс') " +
-               $"FROM courses " +
-               $"WHERE course_user_teacher_number = {UserConfig.UserId}";
-
-            var courses = _mySqlWriter.ExecuteSelectCommand(selectCoursesCommand, GetValue);
+            var courses = _mySqlWriter.ExecuteSelectCommand(sqlCommand, GetValue);
 
             foreach (var course in courses)
             {
                 CreateCustomLinkLabel(course[0], course[1]);
             }
+        }
+
+        private void ClearCoursesPanel()
+        {
+            coursesFlowLayoutPanel.Controls.Clear();
         }
 
         private List<string> GetValue(MySqlDataReader dataReader)
@@ -86,31 +130,51 @@ namespace TestiriumWF.CustomPanels
         private void LinkLabelClick(object sender, EventArgs e)
         {
             var linkLabel = sender as LinkLabel;
-            FillDataGridWithTests(linkLabel.Tag.ToString());
-            _currentCourse = linkLabel.Tag.ToString();
+            _currentCourseId = linkLabel.Tag.ToString();
+            FillDataGridWithTests(_currentCourseId);
             btnCreateTest.Enabled = true;
             lblCurrentCourse.Text = linkLabel.Text;
         }
 
         private void FillDataGridWithTests(string courseId)
         {
-            string sqlCommand = "SELECT test_id," +
+            string sqlTeacherCommand = 
+                "SELECT test_id," +
                 "test_name AS 'Название', " +
                 "CONCAT(teacher_surname, ' ', " +
                 "SUBSTRING(teacher_name, 1, 1), '.', " +
-                "SUBSTRING(teacher_patronymic, 1, 1), '.') AS 'Автор'," +
-                "test_creation_date AS 'Дата создания'" +
+                "SUBSTRING(teacher_patronymic, 1, 1), '.') AS 'Автор', " +
+                "test_creation_date AS 'Дата создания', " +
+                "CASE test_is_opened WHEN 1 THEN 'Да' WHEN 0 THEN 'Нет' END AS 'Открыт' " +
                 "FROM tests, users_teachers, teachers " +
                 "WHERE test_user_teacher_number = user_teacher_id " +
                 "AND user_teacher_number = teacher_id " +
                 $"AND test_course_number = {Convert.ToInt32(courseId)}";
 
-            testsDataGridView.SetFillData(sqlCommand);
+            string sqlStudentCommand =
+                $"SELECT test_id, test_name AS 'Название', " +
+                $"CONCAT(teacher_surname, ' ', " +
+                $"SUBSTRING(teacher_name, 1, 1), '.', " +
+                $"SUBSTRING(teacher_patronymic, 1, 1), '.') AS 'Автор' " +
+                $"FROM tests, users_teachers, teachers " +
+                $"WHERE test_user_teacher_number = user_teacher_id " +
+                $"AND user_teacher_number = teacher_id " +
+                $"AND test_is_opened = 1 " +
+                $"AND test_course_number = {Convert.ToInt32(courseId)}";
+
+            if (UserConfig.IsTeacher)
+            {
+                testsDataGridView.SetFillData(sqlTeacherCommand);
+            }
+            else
+            {
+                testsDataGridView.SetFillData(sqlStudentCommand);
+            }
         }
 
         private void btnCreateTest_Click(object sender, EventArgs e)
         {
-            var testCreatingControl = new TestCreatingControl(_currentCourse);
+            var testCreatingControl = new TestCreatingControl(_currentCourseId);
             this.Controls.Add(testCreatingControl);
             testCreatingControl.BringToFront();
         }

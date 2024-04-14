@@ -82,7 +82,6 @@
             this.Controls.Add(this.userBoxTableLayoutPanel);
             this.Name = "UserBoxPanel";
             this.Size = new System.Drawing.Size(358, 56);
-            this.Load += new System.EventHandler(this.UserBoxPanel_Load);
             this.userBoxTableLayoutPanel.ResumeLayout(false);
             this.userBoxTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage)).EndInit();

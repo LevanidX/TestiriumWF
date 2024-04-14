@@ -15,21 +15,28 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
     public partial class TestOneQuestionPanel : UserControl
     {
-        TestQuestionsCreating questionsCreating = new TestQuestionsCreating();
+        TestRandomiser _testRandomiser = new TestRandomiser();
+        private TestQuestionsCreating _testQuestionsCreating = new TestQuestionsCreating();
+        private Question _question;
 
         public TestOneQuestionPanel()
         {
             InitializeComponent();
         }
 
-        public void SetQuestionText(Question question)
+        public void SetQuestion(Question question)
         {
-            lblTestTitle.Text = question.QuestionText;
+            _question = question;
         }
 
-        public void SetAnswers(Question question)
+        public void SetQuestionText()
         {
-            foreach (var answer in question.Answers)
+            lblTestTitle.Text = _question.QuestionText;
+        }
+
+        public void SetAnswers()
+        {
+            foreach (var answer in _testRandomiser.MixAnswers(_question.Answers))
             {
                 var radioButton = new RadioButton();
                 radioButton.Padding = new Padding(2);
@@ -37,7 +44,7 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                 {
                     TextValue = answer
                 };
-                questionsCreating.AddTickAnswerRow(radioButton, customLabel, 
+                _testQuestionsCreating.AddTickAnswerRow(radioButton, customLabel, 
                     answersTableLayoutPanel);
             }
         }
@@ -57,6 +64,32 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             }
 
             return userAnswers;
+        }
+
+        public void SetQuestionPanelForReview()
+        {
+            foreach (var RB in answersTableLayoutPanel.Controls.OfType<RadioButton>())
+            {
+                if (RB.Checked)
+                {
+                    var row = answersTableLayoutPanel.GetRow(RB);
+                    var customLabel = (CustomLabel)answersTableLayoutPanel.GetControlFromPosition(1, row);
+
+                    if (_question.RightAnswers.Contains(customLabel.TextValue))
+                    {
+                        customLabel.ForeColorValue = Color.Green;
+                    }
+                    else
+                    {
+                        customLabel.ForeColorValue = Color.Red;
+                    }
+                }
+            }
+
+            foreach (var radioButton in answersTableLayoutPanel.Controls.OfType<RadioButton>())
+            {
+                radioButton.Enabled = false;
+            }
         }
 
         //план такой, для перемешки ответов, будем это делать после десериализации и

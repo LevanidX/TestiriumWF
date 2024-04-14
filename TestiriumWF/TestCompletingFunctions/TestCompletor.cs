@@ -15,6 +15,7 @@ namespace TestiriumWF.TestCompletingFunctions
 {
     internal class TestCompletor
     {
+        private TestCreator _testCreator = new TestCreator();
         private Test _studentsTest;
         private Panel _testQuestionPanels;
 
@@ -24,8 +25,8 @@ namespace TestiriumWF.TestCompletingFunctions
         private List<List<string>> _userSequenceAnswers = new List<List<string>>();
         private List<List<string>> _userMatchAnswers = new List<List<string>>();
 
-        private float _overallScore = 0; //итоговый результат (по хорошему бы это все зарефакторить)
-        private float _scoreSummer; //изменяемое значение получаемое путем деления 100 на кол во вопросов
+        private double _overallScore = 0;
+        private double _scoreSummer; //изменяемое значение получаемое путем деления 100 на кол во вопросов
 
         public TestCompletor(Test studentsTest, Panel testQuestionPanels) 
         {
@@ -45,7 +46,7 @@ namespace TestiriumWF.TestCompletingFunctions
 
         private void DefineScoreSummer()
         {
-            _scoreSummer = 100 / (float)_studentsTest.Questions.Count;
+            _scoreSummer = 100 / (double)_studentsTest.Questions.Count;
         }
 
         public void EndTest()
@@ -53,14 +54,11 @@ namespace TestiriumWF.TestCompletingFunctions
             MakeQuestionPanelsSorted();
             DefineScoreSummer();
             CheckAnswers();
+        }
 
-            Console.WriteLine(_overallScore);
-            _overallScore = 0;
-            _userMultipleAnswers.Clear();
-            _userOneQuestionAnswers.Clear();
-            _userTextAnswers.Clear();
-            _userSequenceAnswers.Clear();
-            _userMatchAnswers.Clear();
+        public double GetOverallScore()
+        { 
+            return _overallScore;
         }
 
         /// <summary>
@@ -128,25 +126,30 @@ namespace TestiriumWF.TestCompletingFunctions
 
         private void CheckOneQuestionAnswers(Question question, int currentAnswerNumber)
         {
+            question.UserAnswers = _userOneQuestionAnswers[currentAnswerNumber];
+
             if (question.RightAnswers.Count != _userOneQuestionAnswers[currentAnswerNumber].Count) return;
 
-            if (question.RightAnswers[0] == _userOneQuestionAnswers[currentAnswerNumber][0])
+            if (question.RightAnswers.Contains(_userOneQuestionAnswers[currentAnswerNumber][0]))
             {
                 _overallScore += _scoreSummer;
+                question.HasAnsweredCorrectly = true;
             }
         }
 
         //частично правильный ответ (да/нет)
         private void CheckMultipleAnswers(Question question, int currentListNumber)
         {
+            question.UserAnswers = _userMultipleAnswers[currentListNumber];
+
             int currentMultipleAnswerNumber = 0;
             int countRightAnswers = 0;
 
-            foreach (var answer in question.RightAnswers)
+            foreach (var answerRow in _userMultipleAnswers[currentListNumber])
             {
                 if (question.RightAnswers.Count != _userMultipleAnswers[currentListNumber].Count) return;
 
-                if (answer == _userMultipleAnswers[currentListNumber][currentMultipleAnswerNumber])
+                if (question.RightAnswers.Contains(answerRow))
                 {
                     countRightAnswers++;
                 }
@@ -156,36 +159,36 @@ namespace TestiriumWF.TestCompletingFunctions
             if (countRightAnswers == question.RightAnswers.Count)
             {
                 _overallScore += _scoreSummer;
+                question.HasAnsweredCorrectly = true;
             }
 
         }
 
         private void CheckTextAnswers(Question question, int currentAnswerNumber)
         {
+            question.UserAnswers = _userTextAnswers[currentAnswerNumber];
+
             if (!question.QuestionSettings.IsCaseSensitivityOn)
             {
                 _userTextAnswers[currentAnswerNumber][0] = _userTextAnswers[currentAnswerNumber][0].ToLower(); //отменяем чувствительность к регистру
             }
 
-            foreach (var answer in question.Answers)
+            if (question.Answers.Contains(_userTextAnswers[currentAnswerNumber][0]))
             {
-                if (_userTextAnswers[currentAnswerNumber].Count < 1) return;
-
-                if (answer == _userTextAnswers[currentAnswerNumber][0])
-                {
-                    _overallScore += _scoreSummer;
-                    return;
-                }
+                _overallScore += _scoreSummer;
+                question.HasAnsweredCorrectly = true;
             }
         }
 
         private void CheckSequenceAnswers(Question question, int currentListNumber) //все окей, но нужно добавить перемешку ответов для пользователя
         {
+            question.UserAnswers = _userSequenceAnswers[currentListNumber];
+
             int currentAnswerNumber = 0;
 
-            foreach (var answer in question.Answers)
+            foreach (var answer in question.RightAnswers)
             {
-                if (question.Answers.Count != _userSequenceAnswers[currentListNumber].Count) return;
+                if (question.RightAnswers.Count != _userSequenceAnswers[currentListNumber].Count) return;
 
                 if (answer == _userSequenceAnswers[currentListNumber][currentAnswerNumber])
                 {
@@ -197,15 +200,18 @@ namespace TestiriumWF.TestCompletingFunctions
                 }
             }
 
-            if (question.Answers.Count == currentAnswerNumber)
+            if (question.RightAnswers.Count == currentAnswerNumber)
             {
                 _overallScore += _scoreSummer;
+                question.HasAnsweredCorrectly = true;
             }
         }
 
         //частично правильный ответ (да/нет)
         private void CheckMatchAnswers(Question question, int currentListNumber)
         {
+            question.UserAnswers = _userMatchAnswers[currentListNumber];
+
             int currentAnswerNumber = 0;
 
             foreach (var answer in question.RightAnswers)
@@ -225,6 +231,7 @@ namespace TestiriumWF.TestCompletingFunctions
             if (question.RightAnswers.Count == currentAnswerNumber)
             {
                 _overallScore += _scoreSummer;
+                question.HasAnsweredCorrectly = true;
             }
         }
     }

@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.teacherRB = new System.Windows.Forms.RadioButton();
+            this.studentRB = new System.Windows.Forms.RadioButton();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +99,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.studentRB);
+            this.panel1.Controls.Add(this.teacherRB);
             this.panel1.Controls.Add(this.isTeacherCheckBox);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -111,8 +115,6 @@
             // isTeacherCheckBox
             // 
             this.isTeacherCheckBox.AutoSize = true;
-            this.isTeacherCheckBox.Checked = true;
-            this.isTeacherCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.isTeacherCheckBox.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.isTeacherCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.isTeacherCheckBox.Location = new System.Drawing.Point(168, 152);
@@ -154,7 +156,7 @@
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(344, 40);
             this.loginTextBox.TabIndex = 11;
-            this.loginTextBox.Text = "levashka";
+            this.loginTextBox.Text = "gera45";
             // 
             // passwordTextBox
             // 
@@ -167,7 +169,33 @@
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(344, 40);
             this.passwordTextBox.TabIndex = 10;
-            this.passwordTextBox.Text = "Rurik123";
+            this.passwordTextBox.Text = "Jorik981";
+            // 
+            // teacherRB
+            // 
+            this.teacherRB.AutoSize = true;
+            this.teacherRB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.teacherRB.Location = new System.Drawing.Point(136, 8);
+            this.teacherRB.Name = "teacherRB";
+            this.teacherRB.Size = new System.Drawing.Size(68, 17);
+            this.teacherRB.TabIndex = 15;
+            this.teacherRB.Text = "levashka";
+            this.teacherRB.UseVisualStyleBackColor = true;
+            this.teacherRB.CheckedChanged += new System.EventHandler(this.teacherRB_CheckedChanged);
+            // 
+            // studentRB
+            // 
+            this.studentRB.AutoSize = true;
+            this.studentRB.Checked = true;
+            this.studentRB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.studentRB.Location = new System.Drawing.Point(224, 8);
+            this.studentRB.Name = "studentRB";
+            this.studentRB.Size = new System.Drawing.Size(46, 17);
+            this.studentRB.TabIndex = 16;
+            this.studentRB.TabStop = true;
+            this.studentRB.Text = "gera";
+            this.studentRB.UseVisualStyleBackColor = true;
+            this.studentRB.CheckedChanged += new System.EventHandler(this.studentRB_CheckedChanged);
             // 
             // LoginForm
             // 
@@ -200,6 +228,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox isTeacherCheckBox;
         private System.Windows.Forms.Button btnExitProgramm;
+        private System.Windows.Forms.RadioButton studentRB;
+        private System.Windows.Forms.RadioButton teacherRB;
     }
 }
 

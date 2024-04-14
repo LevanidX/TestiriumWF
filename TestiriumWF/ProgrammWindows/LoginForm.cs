@@ -41,21 +41,8 @@ namespace TestiriumWF
             return _mySqlWriter.ExecuteCheckSqlCommand(studentCommand);
         }
 
-        private List<string> GetValue(MySqlDataReader dataReader)
-        {
-            List<string> items = new List<string>
-            {
-                dataReader.GetString(0),
-                dataReader.GetInt32(1).ToString()
-            };
-            
-            return items;
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (isTeacherCheckBox.Checked)
@@ -65,8 +52,6 @@ namespace TestiriumWF
                         UserConfig.UserId = Convert.ToInt32(_mySqlWriter.ExecuteSelectScalarCommand($"SELECT user_teacher_id " +
                             $"FROM users_teachers " +
                             $"WHERE user_teacher_login='{loginTextBox.Text}' AND user_teacher_password='{passwordTextBox.Text}'"));
-
-                        UserConfig.PersonName = "Плетнев Леонид"; //пока происходит вход только под одним аккаунтом, при входе на главное меню обработать вставку ника в юсер контроле клиент бокса
 
                         UserConfig.IsTeacher = true;
 
@@ -83,13 +68,15 @@ namespace TestiriumWF
                 {
                     if (CheckStudentLogin())
                     {
-                        var studentNumber = Convert.ToInt32(_mySqlWriter.ExecuteSelectScalarCommand($"SELECT user_student_number " +
+                        UserConfig.UserId = Convert.ToInt32(_mySqlWriter.ExecuteSelectScalarCommand($"SELECT user_student_number " +
                             $"FROM users_students " +
                             $"WHERE user_student_login='{loginTextBox.Text}' AND user_student_password='{passwordTextBox.Text}'"));
 
-                        UserConfig.PersonName = _mySqlWriter.ExecuteSelectScalarCommand($"SELECT CONCAT(student_surname, ' ', student_name) " +
-                            $"FROM users_students, students " +
-                            $"WHERE {studentNumber} = student_id");
+                        UserConfig.IsTeacher = false;
+
+                        TestiriumMainMenu testiriumMainMenu = new TestiriumMainMenu();
+                        testiriumMainMenu.Show();
+                        this.Hide();
                     }
                     else
                     {
@@ -106,6 +93,20 @@ namespace TestiriumWF
         private void btnExitProgramm_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void teacherRB_CheckedChanged(object sender, EventArgs e)
+        {
+            loginTextBox.Text = "levashka";
+            passwordTextBox.Text = "Rurik123";
+            isTeacherCheckBox.Checked = true;
+        }
+
+        private void studentRB_CheckedChanged(object sender, EventArgs e)
+        {
+            loginTextBox.Text = "gera45";
+            passwordTextBox.Text = "Jorik981";
+            isTeacherCheckBox.Checked = false;
         }
     }
 }

@@ -61,14 +61,16 @@
             this.lblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTimer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTimer.Location = new System.Drawing.Point(0, 32);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(168, 88);
+            this.lblTimer.Padding = new System.Windows.Forms.Padding(5);
+            this.lblTimer.Size = new System.Drawing.Size(174, 87);
             this.lblTimer.TabIndex = 10;
             this.lblTimer.Text = "00:00";
-            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -88,7 +90,9 @@
             this.Controls.Add(this.timePanel);
             this.Name = "TimeControl";
             this.Size = new System.Drawing.Size(168, 152);
+            this.Load += new System.EventHandler(this.TimeControl_Load);
             this.timePanel.ResumeLayout(false);
+            this.timePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }

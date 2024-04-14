@@ -110,22 +110,26 @@ namespace TestiriumWF
         {
             var questionPanel = (TestQuestionPanel)Activator.CreateInstance(typeof(TestQuestionPanel));
 
+            var SetQuestionMethod = typeof(TestQuestionPanel).GetMethod("SetQuestion",
+                    BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+
             var SetQuestionTextMethod = typeof(TestQuestionPanel).GetMethod("SetQuestionText",
                     BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
 
             var SetAnswersMethod = typeof(TestQuestionPanel).GetMethod("SetAnswers",
                     BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
 
-            SetQuestionTextMethod.Invoke(questionPanel, new object[] { question });
-            SetAnswersMethod.Invoke(questionPanel, new object[] { question });
+            SetQuestionMethod.Invoke(questionPanel, new object[] { question });
+            SetQuestionTextMethod.Invoke(questionPanel, null);
+            SetAnswersMethod.Invoke(questionPanel, null);
 
-            AddButtonToPanel(questionPanel);
+            AddButtonToPanel(questionPanel, question);
         }
 
-        private void AddButtonToPanel(UserControl questionPanel)
+        private void AddButtonToPanel(UserControl questionPanel, Question question)
         {
             _testQuestionPanels.Controls.Add(questionPanel);
-            var customTestButtonControl = new CustomTestButtonControl(questionPanel)
+            var customTestButtonControl = new CustomTestButtonControl(questionPanel, question)
             {
                 TextValue = _questionsCount.ToString()
             };

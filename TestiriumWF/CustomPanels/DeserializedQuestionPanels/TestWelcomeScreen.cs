@@ -32,5 +32,10 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                 lblTestTimeLimit.Text = "∞";
             }
         }
+
+        public string GetTime()
+        {
+            return lblTestTimeLimit.Text;
+        }
     }
 }

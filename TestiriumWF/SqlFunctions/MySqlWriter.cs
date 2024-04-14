@@ -20,28 +20,12 @@ namespace TestiriumWF
         {
             ConnectionStringSettings settings = new ConnectionStringSettings();
             settings = ConfigurationManager.ConnectionStrings["TestingSystemDBConnection"];
+
+
             return settings.ConnectionString;
         }
 
-        public void ConnectToDatabase()
-        {
-            using (var con = new MySqlConnection(GetConnectionString()))
-            {
-                try
-                {
-                    con.Open();
-                    MessageBox.Show("Подключение открыто!");
-                    con.Close();
-                }
-                catch
-                {
-                    MessageBox.Show("Не удалось подключиться!");
-                }
-
-            }
-        }
-
-        public void ExecuteInsertSqlCommand(string sqlCommand)
+        public void ExecuteNotReadableSqlCommand(string sqlCommand)
         {
             using (var sqlConnection = new MySqlConnection(GetConnectionString()))
             {

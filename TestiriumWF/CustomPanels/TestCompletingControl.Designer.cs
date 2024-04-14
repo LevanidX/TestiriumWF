@@ -29,19 +29,22 @@
         private void InitializeComponent()
         {
             this.questionsContainerPanel = new System.Windows.Forms.Panel();
+            this.testWelcomeScreen = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
             this.allQuestionsPanel = new System.Windows.Forms.Panel();
             this.questionsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTests = new System.Windows.Forms.Label();
             this.btnStartTest = new System.Windows.Forms.Button();
             this.btnEndTest = new System.Windows.Forms.Button();
-            this.timeControl = new TestiriumWF.CustomPanels.TimeControl();
-            this.testWelcomeScreen = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
+            this.btnExitTest = new System.Windows.Forms.Button();
             this.questionsContainerPanel.SuspendLayout();
             this.allQuestionsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // questionsContainerPanel
             // 
+            this.questionsContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.questionsContainerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.questionsContainerPanel.Controls.Add(this.testWelcomeScreen);
             this.questionsContainerPanel.Location = new System.Drawing.Point(184, 0);
@@ -49,14 +52,24 @@
             this.questionsContainerPanel.Size = new System.Drawing.Size(816, 528);
             this.questionsContainerPanel.TabIndex = 7;
             // 
+            // testWelcomeScreen
+            // 
+            this.testWelcomeScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.testWelcomeScreen.Location = new System.Drawing.Point(16, 16);
+            this.testWelcomeScreen.Name = "testWelcomeScreen";
+            this.testWelcomeScreen.Size = new System.Drawing.Size(784, 496);
+            this.testWelcomeScreen.TabIndex = 0;
+            // 
             // allQuestionsPanel
             // 
             this.allQuestionsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.allQuestionsPanel.Controls.Add(this.timeControl);
             this.allQuestionsPanel.Controls.Add(this.questionsFlowLayoutPanel);
             this.allQuestionsPanel.Controls.Add(this.lblTests);
             this.allQuestionsPanel.Controls.Add(this.btnStartTest);
             this.allQuestionsPanel.Controls.Add(this.btnEndTest);
+            this.allQuestionsPanel.Controls.Add(this.btnExitTest);
             this.allQuestionsPanel.Location = new System.Drawing.Point(0, 0);
             this.allQuestionsPanel.Name = "allQuestionsPanel";
             this.allQuestionsPanel.Size = new System.Drawing.Size(184, 528);
@@ -113,19 +126,21 @@
             this.btnEndTest.UseVisualStyleBackColor = false;
             this.btnEndTest.Click += new System.EventHandler(this.btnEndTest_Click);
             // 
-            // timeControl
+            // btnExitTest
             // 
-            this.timeControl.Location = new System.Drawing.Point(8, 312);
-            this.timeControl.Name = "timeControl";
-            this.timeControl.Size = new System.Drawing.Size(168, 152);
-            this.timeControl.TabIndex = 6;
-            // 
-            // testWelcomeScreen
-            // 
-            this.testWelcomeScreen.Location = new System.Drawing.Point(16, 16);
-            this.testWelcomeScreen.Name = "testWelcomeScreen";
-            this.testWelcomeScreen.Size = new System.Drawing.Size(784, 496);
-            this.testWelcomeScreen.TabIndex = 0;
+            this.btnExitTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.btnExitTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExitTest.FlatAppearance.BorderSize = 0;
+            this.btnExitTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExitTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExitTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExitTest.Location = new System.Drawing.Point(8, 472);
+            this.btnExitTest.Name = "btnExitTest";
+            this.btnExitTest.Size = new System.Drawing.Size(168, 48);
+            this.btnExitTest.TabIndex = 8;
+            this.btnExitTest.Text = "Выход из тестирования";
+            this.btnExitTest.UseVisualStyleBackColor = false;
+            this.btnExitTest.Click += new System.EventHandler(this.btnExitTest_Click);
             // 
             // TestCompletingControl
             // 
@@ -151,7 +166,7 @@
         private System.Windows.Forms.Button btnStartTest;
         private System.Windows.Forms.FlowLayoutPanel questionsFlowLayoutPanel;
         private System.Windows.Forms.Label lblTests;
-        private TimeControl timeControl;
         private System.Windows.Forms.Button btnEndTest;
+        private System.Windows.Forms.Button btnExitTest;
     }
 }

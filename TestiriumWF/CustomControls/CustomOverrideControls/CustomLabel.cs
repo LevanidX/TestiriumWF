@@ -23,5 +23,12 @@ namespace TestiriumWF.CustomControls
             get { return label.Text; }
             set { label.Text = value; }
         }
+
+        [Description("Sets fore color"), Category("Drawing")]
+        public Color ForeColorValue
+        {
+            get { return label.ForeColor; }
+            set { label.ForeColor = value; }
+        }
     }
 }

@@ -35,8 +35,8 @@
             this.dataGridMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.completeTestAsStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.закрытьДляПрохожденияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьТестированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.endOrOpenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid)).BeginInit();
             this.dataGridMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -98,13 +98,14 @@
             this.dataGridMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editTestToolStripMenuItem,
             this.completeTestAsStudentToolStripMenuItem,
-            this.закрытьДляПрохожденияToolStripMenuItem,
-            this.удалитьТестированиеToolStripMenuItem});
+            this.endOrOpenTestToolStripMenuItem,
+            this.deleteTestToolStripMenuItem});
             this.dataGridMenuStrip.Name = "availableTestsMenuStrip";
             this.dataGridMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.dataGridMenuStrip.ShowImageMargin = false;
-            this.dataGridMenuStrip.Size = new System.Drawing.Size(188, 92);
+            this.dataGridMenuStrip.Size = new System.Drawing.Size(188, 114);
             this.dataGridMenuStrip.Text = "Настройки";
+            this.dataGridMenuStrip.Click += new System.EventHandler(this.dataGridMenuStrip_Click);
             // 
             // editTestToolStripMenuItem
             // 
@@ -121,19 +122,21 @@
             this.completeTestAsStudentToolStripMenuItem.Text = "Пройти как студент";
             this.completeTestAsStudentToolStripMenuItem.Click += new System.EventHandler(this.completeTestAsStudentToolStripMenuItem_Click);
             // 
-            // закрытьДляПрохожденияToolStripMenuItem
+            // endOrOpenTestToolStripMenuItem
             // 
-            this.закрытьДляПрохожденияToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.закрытьДляПрохожденияToolStripMenuItem.Name = "закрытьДляПрохожденияToolStripMenuItem";
-            this.закрытьДляПрохожденияToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.закрытьДляПрохожденияToolStripMenuItem.Text = "Закрыть для прохождения";
+            this.endOrOpenTestToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.endOrOpenTestToolStripMenuItem.Name = "endOrOpenTestToolStripMenuItem";
+            this.endOrOpenTestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.endOrOpenTestToolStripMenuItem.Text = "Закрыть для прохождения";
+            this.endOrOpenTestToolStripMenuItem.Click += new System.EventHandler(this.endOrOpenTestToolStripMenuItem_Click);
             // 
-            // удалитьТестированиеToolStripMenuItem
+            // deleteTestToolStripMenuItem
             // 
-            this.удалитьТестированиеToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.удалитьТестированиеToolStripMenuItem.Name = "удалитьТестированиеToolStripMenuItem";
-            this.удалитьТестированиеToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.удалитьТестированиеToolStripMenuItem.Text = "Удалить тестирование";
+            this.deleteTestToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.deleteTestToolStripMenuItem.Name = "deleteTestToolStripMenuItem";
+            this.deleteTestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.deleteTestToolStripMenuItem.Text = "Удалить тестирование";
+            this.deleteTestToolStripMenuItem.Click += new System.EventHandler(this.deleteTestToolStripMenuItem_Click);
             // 
             // CustomDataGridView
             // 
@@ -142,7 +145,6 @@
             this.Controls.Add(this.customDataGrid);
             this.Name = "CustomDataGridView";
             this.Size = new System.Drawing.Size(736, 392);
-            this.Load += new System.EventHandler(this.CustomDataGridView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid)).EndInit();
             this.dataGridMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -155,7 +157,7 @@
         private System.Windows.Forms.ContextMenuStrip dataGridMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem editTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem completeTestAsStudentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem закрытьДляПрохожденияToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьТестированиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem endOrOpenTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteTestToolStripMenuItem;
     }
 }

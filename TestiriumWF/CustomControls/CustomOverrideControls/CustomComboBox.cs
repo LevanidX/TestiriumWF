@@ -40,9 +40,22 @@ namespace TestiriumWF.CustomControls
             set { comboBox.Text = value; }
         }
 
+        [Description("Sets back color"), Category("Data")]
+        public Color BackColorValue
+        {
+            get { return comboBox.BackColor; }
+            set { comboBox.BackColor = value; }
+        }
+
         private void CustomComboBox_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox.Enabled = false;
+            comboBox.Enabled = true;
         }
     }
 }

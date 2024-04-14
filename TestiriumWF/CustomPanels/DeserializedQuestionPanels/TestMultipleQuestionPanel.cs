@@ -8,27 +8,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
+using TestiriumWF.TestCreatingFunctions;
 using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
     public partial class TestMultipleQuestionPanel : UserControl
     {
-        TestQuestionsCreating questionsCreating = new TestQuestionsCreating();
+        TestRandomiser _testRandomiser = new TestRandomiser();
+        TestQuestionsCreating _testQuestionsCreating = new TestQuestionsCreating();
+        private Question _question;
 
         public TestMultipleQuestionPanel()
         {
             InitializeComponent();
         }
 
-        public void SetQuestionText(Question question)
+        public void SetQuestion(Question question)
         {
-            lblTestTitle.Text = question.QuestionText;
+            _question = question;
+        }
+        public void SetQuestionText()
+        {
+            lblTestTitle.Text = _question.QuestionText;
         }
 
-        public void SetAnswers(Question question)
+        public void SetAnswers()
         {
-            foreach (var answer in question.Answers)
+            foreach (var answer in _testRandomiser.MixAnswers(_question.Answers))
             {
                 var checkBox = new CheckBox();
                 checkBox.Padding = new Padding(2);
@@ -36,7 +43,7 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                 {
                     TextValue = answer
                 };
-                questionsCreating.AddTickAnswerRow(checkBox, customLabel,
+                _testQuestionsCreating.AddTickAnswerRow(checkBox, customLabel,
                     answersTableLayoutPanel);
             }
         }
@@ -56,6 +63,32 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             }
 
             return answers;
+        }
+
+        public void SetQuestionPanelForReview()
+        {
+            foreach (var CB in answersTableLayoutPanel.Controls.OfType<CheckBox>())
+            {
+                if (CB.Checked)
+                {
+                    var row = answersTableLayoutPanel.GetRow(CB);
+                    var customLabel = (CustomLabel)answersTableLayoutPanel.GetControlFromPosition(1, row);
+
+                    if (_question.RightAnswers.Contains(customLabel.TextValue))
+                    {
+                        customLabel.ForeColorValue = Color.Green;
+                    }
+                    else
+                    {
+                        customLabel.ForeColorValue = Color.Red;
+                    }
+                }
+            }
+
+            foreach (var checkBox in answersTableLayoutPanel.Controls.OfType<CheckBox>())
+            {
+                checkBox.Enabled = false;
+            }
         }
     }
 }

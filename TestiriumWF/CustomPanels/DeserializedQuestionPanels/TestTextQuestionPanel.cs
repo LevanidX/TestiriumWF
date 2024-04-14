@@ -7,23 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestiriumWF.CustomControls;
 using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
     public partial class TestTextQuestionPanel : UserControl
     {
+        private Question _question;
+
         public TestTextQuestionPanel()
         {
             InitializeComponent();
         }
-
-        public void SetQuestionText(Question question)
+        public void SetQuestion(Question question)
         {
-            lblTestTitle.Text = question.QuestionText;
+            _question = question;
         }
 
-        public void SetAnswers(Question question) { } //метод пустышка
+        public void SetQuestionText()
+        {
+            lblTestTitle.Text = _question.QuestionText;
+        }
+
+        public void SetAnswers() { } //метод пустышка
 
         public List<string> GetUserAnswers()
         {
@@ -33,6 +40,27 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             };
 
             return userAnswers;
+        }
+
+        public void SetQuestionPanelForReview()
+        {
+            answerTextBox.Enabled = false;
+
+            if (!_question.QuestionSettings.IsCaseSensitivityOn)
+            {
+                answerTextBox.Text = answerTextBox.Text.ToLower();
+            }
+
+            if (_question.Answers.Contains(answerTextBox.Text))
+            {
+                answerTextBox.BackColor = Color.PaleGreen;
+                answerTextBox.ForeColor = Color.ForestGreen;
+            }
+            else
+            {
+                answerTextBox.BackColor = Color.Salmon;
+                answerTextBox.ForeColor = Color.Red;
+            }
         }
     }
 }

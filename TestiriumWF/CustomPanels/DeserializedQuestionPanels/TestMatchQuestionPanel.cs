@@ -8,27 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
+using TestiriumWF.TestCreatingFunctions;
 using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
     public partial class TestMatchQuestionPanel : UserControl
     {
-        TestQuestionsCreating questionsCreating = new TestQuestionsCreating();
+        TestQuestionsCreating _testQuestionsCreating = new TestQuestionsCreating();
+        TestRandomiser _testRandomiser = new TestRandomiser();
+        private Question _question;
 
         public TestMatchQuestionPanel()
         {
             InitializeComponent();
         }
 
-        public void SetQuestionText(Question question)
+        public void SetQuestion(Question question)
         {
-            lblTestTitle.Text = question.QuestionText;
+            _question = question;
         }
 
-        public void SetAnswers(Question question)
+        public void SetQuestionText()
         {
-            foreach (var answer in question.Answers)
+            lblTestTitle.Text = _question.QuestionText;
+        }
+
+        public void SetAnswers()
+        {
+            foreach (var answer in _question.Answers)
             {
                 var customLabel = new CustomLabel()
                 {
@@ -37,12 +45,12 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 
                 var customComboBox = new CustomComboBox()
                 {
-                    ComboItems = question.RightAnswers.ToArray()
+                    ComboItems = _testRandomiser.MixAnswers(_question.RightAnswers).ToArray()
                 };
 
                 customComboBox.Size = new Size(360, 23);
 
-                questionsCreating.AddMatchAnswerRow(customLabel, customComboBox,
+                _testQuestionsCreating.AddMatchAnswerRow(customLabel, customComboBox,
                     definitionsAndAlignmentsTableLayoutPanel);
             }
         }
@@ -57,6 +65,26 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             }
 
             return answers;
+        }
+
+        public void SetQuestionPanelForReview()
+        {
+            var curIndex = 0;
+
+            foreach (var CB in definitionsAndAlignmentsTableLayoutPanel.Controls.OfType<CustomComboBox>())
+            {
+                if (CB.TextValue == _question.RightAnswers[curIndex])
+                {
+                    CB.BackColorValue = Color.PaleGreen;
+                }
+                else
+                {
+                    CB.BackColorValue = Color.Salmon;
+                }
+                curIndex++;
+
+                CB.Enabled = false;
+            }
         }
     }
 }

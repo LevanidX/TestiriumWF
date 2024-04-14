@@ -37,7 +37,9 @@ namespace TestStructure
         public string QuestionText;
         [XmlArrayItem(ElementName = "AnswerText")] public List<string> Answers;
         [XmlArrayItem(ElementName = "RightAnswerText")] public List<string> RightAnswers;
+        [XmlArrayItem(ElementName = "UserAnswers")] public List<string> UserAnswers;
         [XmlArrayItem(ElementName = "QuestionImageNumber")] public List<int> QuestionImages;
+        public bool HasAnsweredCorrectly = false;
         public QuestionSettings QuestionSettings;
 
         public Question() { }

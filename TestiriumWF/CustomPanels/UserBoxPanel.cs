@@ -12,14 +12,29 @@ namespace TestiriumWF.CustomPanels
 {
     public partial class UserBoxPanel : UserControl
     {
+        private MySqlWriter _mySqlWriter = new MySqlWriter();
+
         public UserBoxPanel()
         {
             InitializeComponent();
         }
 
-        private void UserBoxPanel_Load(object sender, EventArgs e)
+        public void SetValues()
         {
-            lblUserName.Text = UserConfig.PersonName;
+            if (UserConfig.IsTeacher)
+            {
+                lblUserName.Text = _mySqlWriter.ExecuteSelectScalarCommand(
+                    $"SELECT CONCAT(teacher_surname, ' ', teacher_name) " +
+                    $"FROM users_teachers, teachers " +
+                    $"WHERE {UserConfig.UserId} = teacher_id");
+            }
+            else
+            {
+                lblUserName.Text = _mySqlWriter.ExecuteSelectScalarCommand(
+                    $"SELECT CONCAT(student_surname, ' ', student_name) " +
+                    $"FROM users_students, students " +
+                    $"WHERE {UserConfig.UserId} = student_id");
+            }
         }
     }
 }

@@ -39,16 +39,19 @@
             this.comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.comboBox.DropDownHeight = 85;
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox.ForeColor = System.Drawing.SystemColors.Window;
             this.comboBox.FormattingEnabled = true;
+            this.comboBox.IntegralHeight = false;
             this.comboBox.Location = new System.Drawing.Point(-1, -1);
             this.comboBox.MaxDropDownItems = 3;
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(86, 27);
             this.comboBox.TabIndex = 0;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // CustomComboBox
             // 

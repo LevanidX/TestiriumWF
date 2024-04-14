@@ -20,7 +20,7 @@ namespace TestiriumWF.ProgrammWindows
         {
             try
             {
-                _mySqlWriter.ExecuteInsertSqlCommand($"" +
+                _mySqlWriter.ExecuteNotReadableSqlCommand($"" +
                     $"INSERT INTO courses(course_name, course_user_teacher_number, class) " +
                     $"VALUES('{courseNameTextBox.Text}', " +
                     $"{UserConfig.UserId}, " +
@@ -50,7 +50,7 @@ namespace TestiriumWF.ProgrammWindows
         private void ExitThisForm()
         {
             this.Close();
-            _testsControl.RefillCoursesPanel();
+            _testsControl.RefillPanels();
         }
     }
 }

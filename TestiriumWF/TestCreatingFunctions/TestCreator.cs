@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,6 +11,7 @@ using TestiriumWF.CustomControls;
 using TestiriumWF.CustomPanels;
 using TestiriumWF.ProgrammFunctions;
 using TestStructure;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace TestiriumWF
 {
@@ -16,7 +19,7 @@ namespace TestiriumWF
     {
         MySqlWriter mySqlWriter = new MySqlWriter();
 
-        Test studentsTest = new Test();
+        Test _studentsTest = new Test();
         List<Question> questionsList = new List<Question>();
 
         private Panel _questionsContainerPanel;
@@ -27,6 +30,8 @@ namespace TestiriumWF
             _questionsContainerPanel = questionsContainerPanel;
             _welcomeScreenPanel = welcomeScreenPanel;
         }
+
+        public TestCreator() { }
 
         /// <summary>
         /// Создает тестирование и записывает в базу данных
@@ -39,21 +44,34 @@ namespace TestiriumWF
             SerializeWelcomeScreen();
             SerializeQuestions();
 
-            studentsTest.TestSettings = testSettings;
+            _studentsTest.TestSettings = testSettings;
 
-            mySqlWriter.ExecuteInsertSqlCommand($"INSERT INTO tests(test_name, test_course_number, " +
+            mySqlWriter.ExecuteNotReadableSqlCommand($"INSERT INTO tests(test_name, test_course_number, " +
                 $"test_user_teacher_number, test_file, test_password, test_creation_date) " +
-                $"VALUES('{studentsTest.Name}', {courseNumber}, {userTeacherId}, " +
-                $"'{SerializeTestIntoXml()}', " +
-                $"'{studentsTest.TestSettings.TestPassword.Password}', " +
-                $"'{DateTime.Now.ToString("yyyy-MM-dd")}')");
+                $"VALUES('{_studentsTest.Name}', {courseNumber}, {userTeacherId}, " +
+                $"'{SerializeTestIntoXml(_studentsTest)}', " +
+                $"'{_studentsTest.TestSettings.TestPassword.Password}', " +
+                $"'{DateTime.Now.ToString("yyyy-MM-dd")}')"); //поменяй на CURDATE
+                //NOW(); -- You will get 2010-12-09 17:10:18
+                //CURDATE(); --You will get 2010-12-09
+        }
+
+        public void CreateCompletedTestResult(int testDBId, int userStudentId, 
+            Test completedStudentsTest, string markResult)
+        {
+            mySqlWriter.ExecuteNotReadableSqlCommand($"INSERT INTO completed_tests(" +
+                $"completed_test_number, completed_test_user_student_number, " +
+                $"completed_test_file, completed_test_date_of_completion, " +
+                $"completed_test_mark_value) " +
+                $"VALUES({testDBId}, {userStudentId}, '{SerializeTestIntoXml(completedStudentsTest)}', " +
+                $"NOW(), '{markResult}')");
         }
 
         /// <summary>
         /// Создает XML файл тестирования
         /// </summary>
         /// <returns></returns>
-        private string SerializeTestIntoXml()
+        private string SerializeTestIntoXml(Test studentsTest)
         {
             var xmlSerializer = new XmlSerializer(typeof(Test));
             var testWriter = new StringWriter();
@@ -79,8 +97,8 @@ namespace TestiriumWF
         /// </summary>
         private void SerializeWelcomeScreen()
         {
-            studentsTest.Name = _welcomeScreenPanel.GetTitleValue();
-            studentsTest.Description = new Description(_welcomeScreenPanel.GetDescriptionValue());
+            _studentsTest.Name = _welcomeScreenPanel.GetTitleValue();
+            _studentsTest.Description = new Description(_welcomeScreenPanel.GetDescriptionValue());
         }
         
         /// <summary>
@@ -94,7 +112,7 @@ namespace TestiriumWF
             SerializeSequenceAnswerQuestion();
             SerializeMatchAnswerQuestion();
 
-            studentsTest.Questions = questionsList;
+            _studentsTest.Questions = questionsList;
         }
 
         /// <summary>
@@ -158,7 +176,7 @@ namespace TestiriumWF
                 Question question = new Question();
                 question.QuestionType = TestTypes.SequenceAnswerQuestion;
                 question.QuestionText = sequenceQuestionPanel.GetQuestionText();
-                question.Answers = sequenceQuestionPanel.GetAnswers();
+                question.RightAnswers = sequenceQuestionPanel.GetAnswers();
                 questionsList.Add(question);
             }
         }
@@ -185,6 +203,7 @@ namespace TestiriumWF
             {
                 percentageValues.Add(percentageTextBox.GetPercentageValue());
             }
+            percentageValues.Reverse();
 
             var estimationParametres = new EstimationParametres();
 

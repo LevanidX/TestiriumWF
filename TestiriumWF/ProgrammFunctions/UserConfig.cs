@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestiriumWF.ProgrammWindows;
 
 namespace TestiriumWF
 {
@@ -13,8 +14,7 @@ namespace TestiriumWF
     {
         public static int UserId = 0;
         public static string Username = "user";
-        public static string PersonName = "user userov";       
         public static bool IsTeacher = false;
-        public static Form MainMenu;
+        public static TestiriumMainMenu MainMenu;
     }
 }

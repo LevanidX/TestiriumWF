@@ -9,35 +9,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
+using TestiriumWF.TestCreatingFunctions;
 using TestStructure;
 
 namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
     public partial class TestSequenceQuestionPanel : UserControl
     {
-        TestQuestionsCreating questionsCreating = new TestQuestionsCreating();
+        TestRandomiser _testRandomiser = new TestRandomiser();
+        TestQuestionsCreating _testQuestionsCreating = new TestQuestionsCreating();
+        private Question _question;
 
         public TestSequenceQuestionPanel()
         {
             InitializeComponent();
         }
-
-        public void SetQuestionText(Question question)
+        public void SetQuestion(Question question)
         {
-            lblTestTitle.Text = question.QuestionText;
+            _question = question;
         }
 
-        public void SetAnswers(Question question)
+        public void SetQuestionText()
         {
-            foreach (var _ in question.Answers)
+            lblTestTitle.Text = _question.QuestionText;
+        }
+
+        public void SetAnswers()
+        {
+            foreach (var _ in _question.RightAnswers)
             {
                 var customComboBox = new CustomComboBox()
                 {
-                    ComboItems = question.Answers.ToArray()
-            };
+                    ComboItems = _testRandomiser.MixAnswers(_question.RightAnswers).ToArray()
+                };
                 customComboBox.Size = new Size(717, 25);
 
-                questionsCreating.AddSequenceAnswerRow(customComboBox, 
+                _testQuestionsCreating.AddSequenceAnswerRow(customComboBox, 
                     answersTableLayoutPanel);
             }
         }
@@ -52,6 +59,26 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             }
 
             return userAnswers;
+        }
+
+        public void SetQuestionPanelForReview()
+        {
+            var curIndex = 0;
+
+            foreach (var CB in answersTableLayoutPanel.Controls.OfType<CustomComboBox>())
+            {
+                if (CB.TextValue == _question.RightAnswers[curIndex])
+                {
+                    CB.BackColorValue = Color.PaleGreen;
+                }
+                else
+                {
+                    CB.BackColorValue = Color.Salmon;
+                }
+                curIndex++;
+
+                CB.Enabled = false;
+            }
         }
     }
 }
