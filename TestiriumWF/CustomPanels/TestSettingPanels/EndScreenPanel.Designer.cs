@@ -63,6 +63,9 @@
             this.passwordRadioButton = new System.Windows.Forms.RadioButton();
             this.noPasswordRadioButton = new System.Windows.Forms.RadioButton();
             this.lblWelcomeScreenTitle = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.allowedTriesComboBox = new TestiriumWF.CustomControls.CustomComboBox();
             this.EndPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -72,11 +75,13 @@
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // EndPanel
             // 
             this.EndPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            this.EndPanel.Controls.Add(this.panel3);
             this.EndPanel.Controls.Add(this.btnEndTestCreation);
             this.EndPanel.Controls.Add(this.label7);
             this.EndPanel.Controls.Add(this.panel4);
@@ -93,9 +98,9 @@
             this.btnEndTestCreation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEndTestCreation.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnEndTestCreation.ForeColor = System.Drawing.Color.White;
-            this.btnEndTestCreation.Location = new System.Drawing.Point(32, 400);
+            this.btnEndTestCreation.Location = new System.Drawing.Point(32, 416);
             this.btnEndTestCreation.Name = "btnEndTestCreation";
-            this.btnEndTestCreation.Size = new System.Drawing.Size(720, 56);
+            this.btnEndTestCreation.Size = new System.Drawing.Size(720, 40);
             this.btnEndTestCreation.TabIndex = 14;
             this.btnEndTestCreation.Text = "Завершить создание тестирования";
             this.btnEndTestCreation.UseVisualStyleBackColor = false;
@@ -106,7 +111,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(32, 104);
+            this.label7.Location = new System.Drawing.Point(32, 80);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(155, 16);
             this.label7.TabIndex = 13;
@@ -117,9 +122,9 @@
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel7);
             this.panel4.Controls.Add(this.panel1);
-            this.panel4.Location = new System.Drawing.Point(32, 120);
+            this.panel4.Location = new System.Drawing.Point(32, 96);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(720, 272);
+            this.panel4.Size = new System.Drawing.Size(720, 312);
             this.panel4.TabIndex = 12;
             // 
             // panel8
@@ -132,7 +137,7 @@
             this.panel8.Controls.Add(this.markPanel);
             this.panel8.Location = new System.Drawing.Point(0, 8);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(288, 256);
+            this.panel8.Size = new System.Drawing.Size(288, 296);
             this.panel8.TabIndex = 20;
             // 
             // panel2
@@ -192,7 +197,7 @@
             this.markRadioButton.AutoSize = true;
             this.markRadioButton.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.markRadioButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.markRadioButton.Location = new System.Drawing.Point(0, 88);
+            this.markRadioButton.Location = new System.Drawing.Point(0, 128);
             this.markRadioButton.Name = "markRadioButton";
             this.markRadioButton.Size = new System.Drawing.Size(69, 20);
             this.markRadioButton.TabIndex = 8;
@@ -209,7 +214,7 @@
             this.markPanel.Controls.Add(this.satisfactoryMarkPercentageTextBox);
             this.markPanel.Controls.Add(this.label2);
             this.markPanel.Controls.Add(this.badMarkPercentageTextBox);
-            this.markPanel.Location = new System.Drawing.Point(0, 112);
+            this.markPanel.Location = new System.Drawing.Point(0, 152);
             this.markPanel.Name = "markPanel";
             this.markPanel.Size = new System.Drawing.Size(280, 136);
             this.markPanel.TabIndex = 10;
@@ -371,7 +376,7 @@
             this.panel1.Controls.Add(this.noPasswordRadioButton);
             this.panel1.Location = new System.Drawing.Point(296, 136);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 128);
+            this.panel1.Size = new System.Drawing.Size(424, 120);
             this.panel1.TabIndex = 18;
             // 
             // label9
@@ -391,12 +396,12 @@
             this.panel6.Controls.Add(this.label10);
             this.panel6.Location = new System.Drawing.Point(8, 72);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(408, 48);
+            this.panel6.Size = new System.Drawing.Size(408, 40);
             this.panel6.TabIndex = 15;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(0, 24);
+            this.passwordTextBox.Location = new System.Drawing.Point(0, 16);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(360, 23);
             this.passwordTextBox.TabIndex = 18;
@@ -449,6 +454,42 @@
             this.lblWelcomeScreenTitle.TabIndex = 0;
             this.lblWelcomeScreenTitle.Text = "Экран с результатами";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.panel3.Controls.Add(this.allowedTriesComboBox);
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Location = new System.Drawing.Point(328, 360);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(424, 40);
+            this.panel3.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Location = new System.Drawing.Point(8, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(213, 16);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Количество разрешенных попыток";
+            // 
+            // allowedTriesComboBox
+            // 
+            this.allowedTriesComboBox.BackColorValue = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.allowedTriesComboBox.ComboItems = new string[] {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"};
+            this.allowedTriesComboBox.Location = new System.Drawing.Point(224, 8);
+            this.allowedTriesComboBox.Name = "allowedTriesComboBox";
+            this.allowedTriesComboBox.Size = new System.Drawing.Size(192, 25);
+            this.allowedTriesComboBox.TabIndex = 16;
+            this.allowedTriesComboBox.TextValue = "";
+            // 
             // EndScreenPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,6 +514,8 @@
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -514,5 +557,8 @@
         private CustomControls.CustomMinuteTextBox minuteTextBox;
         private System.Windows.Forms.Button btnEndTestCreation;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label11;
+        private CustomControls.CustomComboBox allowedTriesComboBox;
     }
 }

@@ -30,6 +30,8 @@ namespace TestiriumWF
             _xmlTestFile = xmlTestFile;
         }
 
+        public TestDeserializer() { }
+
         public void CreateTest(TestWelcomeScreen testWelcomeScreen)
         {
             DeserializeTest(); //десериализация теста
@@ -57,8 +59,6 @@ namespace TestiriumWF
             }
         }
 
-        //сохранять как ответил юзер в итоге (ну это прям в идеале, по факту можно ведь)
-
         private void DeserializeTest()
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Test));
@@ -67,6 +67,18 @@ namespace TestiriumWF
             {
                 _studentsTest = (Test)xmlSerializer.Deserialize(stringReader);
             }
+        }
+
+        public Test GetDeserializedTest(string xmlFile)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Test));
+
+            using (var stringReader = new StringReader(xmlFile))
+            {
+                _studentsTest = (Test)xmlSerializer.Deserialize(stringReader);
+            }
+
+            return _studentsTest;
         }
 
         private void CreateQuestions()

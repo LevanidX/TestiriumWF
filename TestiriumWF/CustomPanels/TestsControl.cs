@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
+using TestiriumWF.CustomControls.MainMenuControls;
 using TestiriumWF.ProgrammWindows;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 
@@ -19,7 +20,7 @@ namespace TestiriumWF.CustomPanels
         {
             InitializeComponent();
 
-            testsDataGridView = new CustomDataGridView(testsPanel, this);
+            testsDataGridView = new CustomDataGridView(this);
         }
 
         private void TestsControl_Load(object sender, EventArgs e)
@@ -74,7 +75,7 @@ namespace TestiriumWF.CustomPanels
                 $"WHERE user_student_id = {UserConfig.UserId} " +
                 $"AND user_student_number = student_id " +
                 $"AND student_class = class_id " +
-                $"AND SUBSTRING(class_name, 1, 2) = class";
+                $"AND SUBSTRING(class_name, 1, 2) = class"; //сабстринг(1, 2) для 10-11 классов, в остальных случаях сабстринг(1, 1)
 
             ClearCoursesPanel();
 
@@ -164,11 +165,11 @@ namespace TestiriumWF.CustomPanels
 
             if (UserConfig.IsTeacher)
             {
-                testsDataGridView.SetFillData(sqlTeacherCommand);
+                testsDataGridView.FillData(sqlTeacherCommand);
             }
             else
             {
-                testsDataGridView.SetFillData(sqlStudentCommand);
+                testsDataGridView.FillData(sqlStudentCommand);
             }
         }
 
@@ -178,5 +179,32 @@ namespace TestiriumWF.CustomPanels
             this.Controls.Add(testCreatingControl);
             testCreatingControl.BringToFront();
         }
+
+        private void testsPanel_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            //allCoursesPanel.Show();
+        }
+
+        private void testsPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            var backControl = new BackControl();
+            this.Parent.Controls.Add(backControl);
+            backControl.BringToFront();
+            backControl.GoBack += () => BackControlAction(e, backControl);
+        }
+
+        private void BackControlAction(ControlEventArgs e, BackControl backControl)
+        {
+            e.Control.Parent.Controls.Remove(e.Control);
+            backControl.Parent.Controls.Remove(backControl);
+        }
+
+        //private void CreateBackControl()
+        //{
+        //    var backControl = new BackControl();
+        //    this.Parent.Controls.Add(backControl);
+        //    backControl.BringToFront();
+        //    backControl.GoBack += () => 
+        //}
     }
 }

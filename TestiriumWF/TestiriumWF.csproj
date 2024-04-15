@@ -151,6 +151,12 @@
     <Compile Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.Designer.cs">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\TestCompleteingControls\TestOverviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\TestCompleteingControls\TestOverviewControl.Designer.cs">
+      <DependentUpon>TestOverviewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestEndScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.resx">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\TestCompleteingControls\TestOverviewControl.resx">
+      <DependentUpon>TestOverviewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestEndScreen.resx">
       <DependentUpon>TestEndScreen.cs</DependentUpon>

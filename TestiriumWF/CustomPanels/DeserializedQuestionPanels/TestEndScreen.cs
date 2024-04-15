@@ -14,29 +14,54 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
 {
     public partial class TestEndScreen : UserControl
     {
+        private MySqlWriter _mySqlWriter = new MySqlWriter();
         private TestCreator _testCreator = new TestCreator();
         private Test _studentsTest;
         private int _testId;
         private double _overallScore;
         private Panel _allQuestionsPanel;
-        private BackControl _backControl;
 
-        public TestEndScreen(Test studentsTest, int testId, double overallScore, Panel allQuestionsPanel, BackControl backControl)
+        public TestEndScreen(Test studentsTest, int testId, double overallScore, Panel allQuestionsPanel)
         {
             InitializeComponent();
             _studentsTest = studentsTest;
             _testId = testId;
             _overallScore = overallScore;
             _allQuestionsPanel = allQuestionsPanel;
-            _backControl = backControl;
         }
 
         private void TestEndScreen_Load(object sender, EventArgs e)
         {
+            if (GetMarkForTest() == "Зачёт")
+            {
+                _studentsTest.FinalMark.MarkNumberResult = 5;
+            }
+            else if (GetMarkForTest() == "Не зачёт")
+            {
+                _studentsTest.FinalMark.MarkNumberResult = 2;
+            }
+            else
+            {
+                Console.WriteLine(GetMarkForTest());
+                _studentsTest.FinalMark.MarkNumberResult = Convert.ToInt32(GetMarkForTest());
+            }
+
+            _studentsTest.FinalMark.MarkPercentageResult = _overallScore;
+
             lblPercentageResult.Text = $"{CountRightAnsweredQuestions()} из {_studentsTest.Questions.Count} - {Math.Round(_overallScore, 2)}%";
             lblMark.Text = $"Оценка - {GetMarkForTest()}";
 
-            _testCreator.CreateCompletedTestResult(_testId, UserConfig.UserId, _studentsTest, GetMarkForTest());
+            if (!UserConfig.IsTeacher)
+            {
+                int triesCount = Convert.ToInt32(_mySqlWriter.ExecuteSelectScalarCommand(
+                $"SELECT COUNT(*) " +
+                $"FROM completed_tests " +
+                $"WHERE completed_test_user_student_number = {UserConfig.UserId} " +
+                $"AND completed_test_number = {_testId}"));
+
+
+                _testCreator.CreateCompletedTestResult(_testId, UserConfig.UserId, _studentsTest, GetMarkForTest(), triesCount + 1);
+            }
         }
 
         private int CountRightAnsweredQuestions()
@@ -95,16 +120,8 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
         {
             _allQuestionsPanel.Enabled = true;
             this.Parent.Controls.Remove(this);
-            _backControl.ShowButton(true);
         }
 
-
-        //продолжим работу с заключительного экрана
-
-        //планы
-        //сделать перелет результата в бд
-        //просмотр результата и ошибок (возможно выделение)
-        //тестирование
         //создание пользователей
         //создание отчетов (класс - тестирование)
         //создание отчетов (учащийся - тестирование)

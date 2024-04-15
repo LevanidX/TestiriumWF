@@ -15,7 +15,6 @@ namespace TestiriumWF.CustomPanels
         private TestDeserializer _testDeserializer;
         private TestCompletor _testCompletor;
         private TimeControl _timeControl;
-        private BackControl _backControl;
 
         private int _testId;
 
@@ -27,15 +26,8 @@ namespace TestiriumWF.CustomPanels
             _testId = testId;
         }
 
-        public void SetBackControl(BackControl backControl)
-        {
-            _backControl = backControl;
-        }
-
         private void btnStartTest_Click(object sender, EventArgs e)
         {
-            _backControl.ShowButton(false);
-
             questionsFlowLayoutPanel.Enabled = true;
             questionsContainerPanel.Controls.Remove(testWelcomeScreen);
             allQuestionsPanel.Controls.Remove(btnStartTest);
@@ -86,7 +78,6 @@ namespace TestiriumWF.CustomPanels
 
         private void btnExitTest_Click(object sender, EventArgs e)
         {
-            _backControl.Parent.Controls.Remove(_backControl);
             this.Parent.Controls.Remove(this);
         }
 
@@ -105,13 +96,10 @@ namespace TestiriumWF.CustomPanels
 
         private void CreateTestEndScreen()
         {
-            var testEndScreen = new TestEndScreen(_testDeserializer.GetTest(), _testId, _testCompletor.GetOverallScore(), allQuestionsPanel, _backControl);
+            var testEndScreen = new TestEndScreen(_testDeserializer.GetTest(), _testId, _testCompletor.GetOverallScore(), allQuestionsPanel);
             questionsContainerPanel.Controls.Add(testEndScreen);
             testEndScreen.Location = new Point(16, 16);
             testEndScreen.BringToFront();
         }
-
-        //результат тестирования
-        //как то по красоте результат и запомнить как он отвечал на вопросы для отчета
     }
 }

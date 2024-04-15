@@ -1,13 +1,16 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls.MainMenuControls;
+using TestiriumWF.CustomControls.TestCompleteingControls;
 using TestiriumWF.CustomPanels;
 using TestiriumWF.ProgrammWindows;
 using ZstdSharp.Unsafe;
@@ -17,20 +20,23 @@ namespace TestiriumWF.CustomControls
     public partial class CustomDataGridView : UserControl
     {
         private MySqlWriter _mySqlWriter = new MySqlWriter();
-        private int _selectedRow;
         private int _selectedTest;
-        private Panel _container;
         private TestsControl _testsControl;
+        public bool IsViewingResults;
 
-        public CustomDataGridView(Panel container, TestsControl testsControl)
+        public CustomDataGridView(TestsControl testsControl)
         {
             InitializeComponent();
 
-            _container = container;
             _testsControl = testsControl;
         }
 
-        public void SetFillData(string sqlCommand)
+        public CustomDataGridView()
+        {
+            InitializeComponent();
+        }
+
+        public void FillData(string sqlCommand)
         {
             customDataGrid.DataSource = _mySqlWriter.ExecuteFillData(sqlCommand);
             customDataGrid.Columns[0].Visible = false;
@@ -54,13 +60,13 @@ namespace TestiriumWF.CustomControls
                 $"WHERE test_id = {_selectedTest}";
             if (_mySqlWriter.ExecuteSelectScalarCommand(sqlCommand) == "0")
             {
-                dataGridMenuStrip.Items[2].Text = "Открыть для прохождения";
-                dataGridMenuStrip.Items[2].Tag = "1";
+                teachersDataGridMenuStrip.Items[2].Text = "Открыть для прохождения";
+                teachersDataGridMenuStrip.Items[2].Tag = "1";
             }
             else
             {
-                dataGridMenuStrip.Items[2].Text = "Закрыть для прохождения";
-                dataGridMenuStrip.Items[2].Tag = "0";
+                teachersDataGridMenuStrip.Items[2].Text = "Закрыть для прохождения";
+                teachersDataGridMenuStrip.Items[2].Tag = "0";
             }
         }
 
@@ -68,12 +74,13 @@ namespace TestiriumWF.CustomControls
         {
             if (e.Button == MouseButtons.Right && customDataGrid.SelectedRows.Count > 0)
             {
-                _selectedRow = e.RowIndex;
-                _selectedTest = (int)customDataGrid.Rows[_selectedRow].Cells[0].Value;
+                _selectedTest = (int)customDataGrid.Rows[e.RowIndex].Cells[0].Value;
 
-                ChangeMenuStripItemValue();
-
-                dataGridMenuStrip.Show(MousePosition);
+                if (UserConfig.IsTeacher)
+                {
+                    ChangeMenuStripItemValue();
+                    teachersDataGridMenuStrip.Show(MousePosition);
+                }
             }
         }
 
@@ -93,26 +100,8 @@ namespace TestiriumWF.CustomControls
 
             var testCompletingControl = new TestCompletingControl(xmlTestFile, Convert.ToInt32(_selectedTest));
 
-            _container.Parent.Parent.Controls.Add(testCompletingControl);
-            testCompletingControl.Location = new Point(64, 0);
+            _testsControl.GetNextControl(_testsControl, true).Controls.Add(testCompletingControl);
             testCompletingControl.BringToFront();
-
-            CreateBackControl(testCompletingControl);
-        }
-
-        private void CreateBackControl(TestCompletingControl control)
-        {
-            var backControl = new BackControl();
-            this.Parent.Parent.Parent.Parent.Controls.Add(backControl);
-            backControl.GoBack += () => BackAction(control, backControl);
-            backControl.BringToFront();
-            control.SetBackControl(backControl);
-        }
-
-        private void BackAction(UserControl control, BackControl backControl)
-        {
-            control.Parent.Controls.Remove(control);
-            backControl.Parent.Controls.Remove(backControl);
         }
 
         private void customDataGrid_LocationChanged(object sender, EventArgs e)
@@ -127,23 +116,45 @@ namespace TestiriumWF.CustomControls
 
         private void deleteTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var selectedTest = customDataGrid.Rows[_selectedRow].Cells[0].Value;
-            var sqlCommand = 
+            try
+            {
+                var sqlCommand =
                 $"DELETE FROM tests " +
-                $"WHERE test_id = {selectedTest}";
-            _mySqlWriter.ExecuteNotReadableSqlCommand(sqlCommand);
-            _testsControl.RefillPanels();
-            customDataGrid.ClearSelection();
+                $"WHERE test_id = {_selectedTest}";
+                _mySqlWriter.ExecuteNotReadableSqlCommand(sqlCommand);
+                _testsControl.RefillPanels();
+                customDataGrid.ClearSelection();
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Нельзя удалять тестирования, которые проходили учащиеся!" +
+                    "\nСначала удалите все прохождения в разделе ОТЧЁТЫ.");
+            }        
         }
 
         private void endOrOpenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var sqlCommand = 
                 $"UPDATE tests " +
-                $"SET test_is_opened = {dataGridMenuStrip.Items[2].Tag} " +
+                $"SET test_is_opened = {teachersDataGridMenuStrip.Items[2].Tag} " +
                 $"WHERE test_id = {_selectedTest}";
             _mySqlWriter.ExecuteNotReadableSqlCommand(sqlCommand);
             _testsControl.RefillPanels();
+        }
+
+        private void customDataGrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != - 1)
+            {
+                if (!UserConfig.IsTeacher && !IsViewingResults)
+                {
+                    _selectedTest = (int)customDataGrid.Rows[e.RowIndex].Cells[0].Value;
+
+                    var testOverviewControl = new TestOverviewControl(_selectedTest);
+                    _testsControl.GetNextControl(_testsControl, true).Controls.Add(testOverviewControl);
+                    testOverviewControl.BringToFront();
+                }
+            }
         }
     }
 }

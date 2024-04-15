@@ -95,12 +95,20 @@
             // 
             // gradeComboBox
             // 
+            this.gradeComboBox.BackColorValue = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.gradeComboBox.ComboItems = new string[] {
         "5",
         "6",
         "7",
         "8",
         "9",
+        "10",
+        "11",
+        "5 ",
+        "6 ",
+        "7 ",
+        "8 ",
+        "9 ",
         "10",
         "11"};
             this.gradeComboBox.Location = new System.Drawing.Point(160, 64);

@@ -10,6 +10,7 @@ namespace TestStructure
         public Description Description;
         public List<Question> Questions;
         public TestSettings TestSettings;
+        public FinalMark FinalMark;
     }
 
     public class Description
@@ -97,14 +98,16 @@ namespace TestStructure
         public EstimationMethods EstimationMethod;
         public TimeLimitedTest TimeLimitedTest;
         public TestPassword TestPassword;
+        public int AllowedTriesQuantity;
 
         public TestSettings() { }
 
-        public TestSettings(EstimationMethods estimationMethods, TimeLimitedTest timeLimitedTest, TestPassword testPassword)
+        public TestSettings(EstimationMethods estimationMethods, TimeLimitedTest timeLimitedTest, TestPassword testPassword, int allowedTriesQuantity)
         {
             EstimationMethod = estimationMethods;
             TimeLimitedTest = timeLimitedTest;
             TestPassword = testPassword;
+            AllowedTriesQuantity = allowedTriesQuantity;
         }
     }
 
@@ -172,6 +175,19 @@ namespace TestStructure
         {
             Value = value;
             Password = password;
+        }
+    }
+
+    public class FinalMark
+    {
+        public int MarkNumberResult;
+        public double MarkPercentageResult;
+        public FinalMark() { }
+
+        public FinalMark(int  markNumberResult, double markPercentageResul)
+        { 
+            MarkNumberResult = markNumberResult;
+            MarkPercentageResult = markPercentageResul;
         }
     }
 }

@@ -32,13 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.customDataGrid = new System.Windows.Forms.DataGridView();
-            this.dataGridMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.teachersDataGridMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.completeTestAsStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.endOrOpenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid)).BeginInit();
-            this.dataGridMenuStrip.SuspendLayout();
+            this.teachersDataGridMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // customDataGrid
@@ -47,6 +47,9 @@
             this.customDataGrid.AllowUserToDeleteRows = false;
             this.customDataGrid.AllowUserToResizeColumns = false;
             this.customDataGrid.AllowUserToResizeRows = false;
+            this.customDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.customDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.customDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.customDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
@@ -86,26 +89,27 @@
             this.customDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customDataGrid.Size = new System.Drawing.Size(736, 392);
             this.customDataGrid.TabIndex = 10;
+            this.customDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customDataGrid_CellMouseDoubleClick);
             this.customDataGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customDataGrid_CellMouseDown);
             this.customDataGrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.customDataGrid_CellMouseLeave);
             this.customDataGrid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customDataGrid_CellMouseMove);
             this.customDataGrid.LocationChanged += new System.EventHandler(this.customDataGrid_LocationChanged);
             // 
-            // dataGridMenuStrip
+            // teachersDataGridMenuStrip
             // 
-            this.dataGridMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.dataGridMenuStrip.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.teachersDataGridMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.teachersDataGridMenuStrip.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.teachersDataGridMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editTestToolStripMenuItem,
             this.completeTestAsStudentToolStripMenuItem,
             this.endOrOpenTestToolStripMenuItem,
             this.deleteTestToolStripMenuItem});
-            this.dataGridMenuStrip.Name = "availableTestsMenuStrip";
-            this.dataGridMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.dataGridMenuStrip.ShowImageMargin = false;
-            this.dataGridMenuStrip.Size = new System.Drawing.Size(188, 114);
-            this.dataGridMenuStrip.Text = "Настройки";
-            this.dataGridMenuStrip.Click += new System.EventHandler(this.dataGridMenuStrip_Click);
+            this.teachersDataGridMenuStrip.Name = "availableTestsMenuStrip";
+            this.teachersDataGridMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.teachersDataGridMenuStrip.ShowImageMargin = false;
+            this.teachersDataGridMenuStrip.Size = new System.Drawing.Size(188, 92);
+            this.teachersDataGridMenuStrip.Text = "Настройки";
+            this.teachersDataGridMenuStrip.Click += new System.EventHandler(this.dataGridMenuStrip_Click);
             // 
             // editTestToolStripMenuItem
             // 
@@ -146,7 +150,7 @@
             this.Name = "CustomDataGridView";
             this.Size = new System.Drawing.Size(736, 392);
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid)).EndInit();
-            this.dataGridMenuStrip.ResumeLayout(false);
+            this.teachersDataGridMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -154,7 +158,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView customDataGrid;
-        private System.Windows.Forms.ContextMenuStrip dataGridMenuStrip;
+        private System.Windows.Forms.ContextMenuStrip teachersDataGridMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem editTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem completeTestAsStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem endOrOpenTestToolStripMenuItem;

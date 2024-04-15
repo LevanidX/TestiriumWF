@@ -45,26 +45,38 @@ namespace TestiriumWF
             SerializeQuestions();
 
             _studentsTest.TestSettings = testSettings;
+            _studentsTest.FinalMark = new FinalMark();
 
-            mySqlWriter.ExecuteNotReadableSqlCommand($"INSERT INTO tests(test_name, test_course_number, " +
-                $"test_user_teacher_number, test_file, test_password, test_creation_date) " +
+            mySqlWriter.ExecuteNotReadableSqlCommand(
+                $"INSERT INTO tests(test_name, test_course_number, " +
+                $"test_user_teacher_number, test_file, test_creation_date) " +
                 $"VALUES('{_studentsTest.Name}', {courseNumber}, {userTeacherId}, " +
                 $"'{SerializeTestIntoXml(_studentsTest)}', " +
-                $"'{_studentsTest.TestSettings.TestPassword.Password}', " +
-                $"'{DateTime.Now.ToString("yyyy-MM-dd")}')"); //поменяй на CURDATE
-                //NOW(); -- You will get 2010-12-09 17:10:18
-                //CURDATE(); --You will get 2010-12-09
+                $"CURDATE())");
         }
 
         public void CreateCompletedTestResult(int testDBId, int userStudentId, 
-            Test completedStudentsTest, string markResult)
+            Test completedStudentsTest, string markResult, int tryNumber)
         {
-            mySqlWriter.ExecuteNotReadableSqlCommand($"INSERT INTO completed_tests(" +
-                $"completed_test_number, completed_test_user_student_number, " +
-                $"completed_test_file, completed_test_date_of_completion, " +
-                $"completed_test_mark_value) " +
-                $"VALUES({testDBId}, {userStudentId}, '{SerializeTestIntoXml(completedStudentsTest)}', " +
-                $"NOW(), '{markResult}')");
+            mySqlWriter.ExecuteNotReadableSqlCommand(
+                $"INSERT INTO completed_tests" +
+                $"(" +
+                    $"completed_test_number, " +
+                    $"completed_test_user_student_number, " +
+                    $"completed_test_file, " +
+                    $"completed_test_date_of_completion, " +
+                    $"completed_test_mark_value, " +
+                    $"completed_test_try_number" +
+                $") " +
+                $"VALUES" +
+                $"(" +
+                    $"{testDBId}, " +
+                    $"{userStudentId}, " +
+                    $"'{SerializeTestIntoXml(completedStudentsTest)}', " +
+                    $"NOW(), " +
+                    $"'{markResult}', " +
+                    $"'{tryNumber}'" +
+                $")");
         }
 
         /// <summary>
@@ -121,13 +133,14 @@ namespace TestiriumWF
         public TestSettings SerializeEndScreen(RadioButton markRadioButton, Panel markPanel,
             CustomPercentageTextBox nonMarkPercentageTextBox, RadioButton isTimeLimited,
             CustomMinuteTextBox timeLimitTextBox, RadioButton isPasswordActive,
-            CustomPasswordTextBox passwordTextBox)
+            CustomPasswordTextBox passwordTextBox, CustomComboBox comboTries)
         {
             var estimationMethods = GetMarkRBValue(markRadioButton, markPanel, nonMarkPercentageTextBox);
             var timeLimitedTest = GetTimeLimitRBValue(isTimeLimited, timeLimitTextBox);
             var testPassword = GetPasswordRBValue(isPasswordActive, passwordTextBox);
+            var allowedTriesQuantity = GetAllowedTriesQuantity(comboTries);
 
-            return new TestSettings(estimationMethods, timeLimitedTest, testPassword);
+            return new TestSettings(estimationMethods, timeLimitedTest, testPassword, allowedTriesQuantity);
         }
 
         private void SerializeOneAnswerQuestion()
@@ -245,6 +258,11 @@ namespace TestiriumWF
             {
                 return new TestPassword(false, string.Empty);
             }
+        }
+
+        private int GetAllowedTriesQuantity(CustomComboBox comboTries)
+        {
+            return Convert.ToInt32(comboTries.TextValue);
         }
     }
 }

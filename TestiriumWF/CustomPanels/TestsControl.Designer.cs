@@ -52,6 +52,8 @@
             this.testsPanel.Name = "testsPanel";
             this.testsPanel.Size = new System.Drawing.Size(1000, 528);
             this.testsPanel.TabIndex = 8;
+            this.testsPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.testsPanel_ControlAdded);
+            this.testsPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.testsPanel_ControlRemoved);
             // 
             // allCoursesPanel
             // 
@@ -113,6 +115,7 @@
             // 
             // btnCreateTest
             // 
+            this.btnCreateTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreateTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
             this.btnCreateTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCreateTest.FlatAppearance.BorderSize = 0;

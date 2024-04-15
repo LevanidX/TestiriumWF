@@ -32,12 +32,12 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.lblProgrammTitle = new System.Windows.Forms.Label();
             this.optionsPanel = new System.Windows.Forms.Panel();
-            this.promptsToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.containerPanel = new System.Windows.Forms.Panel();
             this.btnReviews = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnExitProgramm = new System.Windows.Forms.Button();
             this.btnTests = new System.Windows.Forms.Button();
+            this.promptsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.containerPanel = new System.Windows.Forms.Panel();
             this.userBoxPanel = new TestiriumWF.CustomPanels.UserBoxPanel();
             this.topPanel.SuspendLayout();
             this.optionsPanel.SuspendLayout();
@@ -76,15 +76,6 @@
             this.optionsPanel.Name = "optionsPanel";
             this.optionsPanel.Size = new System.Drawing.Size(64, 528);
             this.optionsPanel.TabIndex = 5;
-            // 
-            // containerPanel
-            // 
-            this.containerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.containerPanel.Controls.Add(this.optionsPanel);
-            this.containerPanel.Location = new System.Drawing.Point(0, 72);
-            this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(1064, 528);
-            this.containerPanel.TabIndex = 7;
             // 
             // btnReviews
             // 
@@ -145,6 +136,15 @@
             this.promptsToolTip.SetToolTip(this.btnTests, "Тестирования");
             this.btnTests.UseVisualStyleBackColor = false;
             this.btnTests.Click += new System.EventHandler(this.btnTests_Click);
+            // 
+            // containerPanel
+            // 
+            this.containerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.containerPanel.Controls.Add(this.optionsPanel);
+            this.containerPanel.Location = new System.Drawing.Point(0, 72);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Size = new System.Drawing.Size(1064, 528);
+            this.containerPanel.TabIndex = 7;
             // 
             // userBoxPanel
             // 

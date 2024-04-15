@@ -25,8 +25,10 @@ namespace TestiriumWF.CustomPanels
 
         private void btnEndTestCreation_Click(object sender, EventArgs e)
         {
-            _testCreator.Create(Convert.ToInt32(_currentCourse), UserConfig.UserId, _testCreator.SerializeEndScreen(markRadioButton, markPanel, nonMarkPercentageTextBox,
-                timeLimitedRadioButton, minuteTextBox, passwordRadioButton, passwordTextBox));
+            _testCreator.Create(Convert.ToInt32(_currentCourse), UserConfig.UserId, 
+                _testCreator.SerializeEndScreen(markRadioButton, markPanel, nonMarkPercentageTextBox, 
+                timeLimitedRadioButton, minuteTextBox, passwordRadioButton, passwordTextBox, 
+                allowedTriesComboBox));
         }
     }
 }
