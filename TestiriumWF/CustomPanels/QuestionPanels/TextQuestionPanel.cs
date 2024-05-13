@@ -22,7 +22,7 @@ namespace TestiriumWF.CustomPanels
             return customQuestionTextBox.GetQuestionTextValue();
         }
 
-        public List<string> GetAnswers()
+        public List<string> GetRightAnswers()
         {
             if (!caseSensitivityCheckBox.Checked)
             {
@@ -32,9 +32,14 @@ namespace TestiriumWF.CustomPanels
             return _answersGetting.GetAnswers();
         }
 
-        public CheckBox GetQuestionSettings()
+        public List<string> GetAnswers() //метод пустышка (необходимо избавиться, или использовать в своих целях)
         {
-            return caseSensitivityCheckBox;
+            return new List<string>();
+        }
+
+        public bool GetQuestionSettings()
+        {
+            return caseSensitivityCheckBox.Checked;
         }
 
         private void btnAddAnswer_Click(object sender, EventArgs e)

@@ -13,12 +13,14 @@ using TestiriumWF.CustomControls.MainMenuControls;
 using TestiriumWF.CustomControls.TestCompleteingControls;
 using TestiriumWF.CustomPanels;
 using TestiriumWF.ProgrammWindows;
+using TestiriumWF.SqlFunctions;
 using ZstdSharp.Unsafe;
 
 namespace TestiriumWF.CustomControls
 {
     public partial class CustomDataGridView : UserControl
     {
+        private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
         private MySqlWriter _mySqlWriter = new MySqlWriter();
         private int _selectedTest;
         private TestsControl _testsControl;
@@ -36,9 +38,9 @@ namespace TestiriumWF.CustomControls
             InitializeComponent();
         }
 
-        public void FillData(string sqlCommand)
+        public void FillData(DataTable dataTable)
         {
-            customDataGrid.DataSource = _mySqlWriter.ExecuteFillData(sqlCommand);
+            customDataGrid.DataSource = dataTable;
             customDataGrid.Columns[0].Visible = false;
             customDataGrid.ClearSelection();
         }
@@ -100,7 +102,7 @@ namespace TestiriumWF.CustomControls
 
             var testCompletingControl = new TestCompletingControl(xmlTestFile, Convert.ToInt32(_selectedTest));
 
-            _testsControl.GetNextControl(_testsControl, true).Controls.Add(testCompletingControl);
+            _testsControl.Controls.Add(testCompletingControl);
             testCompletingControl.BringToFront();
         }
 
@@ -151,7 +153,7 @@ namespace TestiriumWF.CustomControls
                     _selectedTest = (int)customDataGrid.Rows[e.RowIndex].Cells[0].Value;
 
                     var testOverviewControl = new TestOverviewControl(_selectedTest);
-                    _testsControl.GetNextControl(_testsControl, true).Controls.Add(testOverviewControl);
+                    _testsControl.Controls.Add(testOverviewControl);
                     testOverviewControl.BringToFront();
                 }
             }

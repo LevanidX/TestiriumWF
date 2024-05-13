@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.availableTestsPanel = new System.Windows.Forms.Panel();
-            this.lblTestTitle = new System.Windows.Forms.Label();
-            this.lblBestResult = new System.Windows.Forms.Label();
-            this.lblAvailableTries = new System.Windows.Forms.Label();
-            this.btnBeginTest = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAvailableTries = new System.Windows.Forms.Label();
+            this.lblBestResult = new System.Windows.Forms.Label();
+            this.btnBeginTest = new System.Windows.Forms.Button();
             this.customDataGridView = new TestiriumWF.CustomControls.CustomDataGridView();
+            this.lblTestTitle = new System.Windows.Forms.Label();
             this.availableTestsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,41 +51,39 @@
             this.availableTestsPanel.Size = new System.Drawing.Size(968, 496);
             this.availableTestsPanel.TabIndex = 8;
             // 
-            // lblTestTitle
+            // panel1
             // 
-            this.lblTestTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTestTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTestTitle.Location = new System.Drawing.Point(16, 16);
-            this.lblTestTitle.Name = "lblTestTitle";
-            this.lblTestTitle.Size = new System.Drawing.Size(520, 72);
-            this.lblTestTitle.TabIndex = 7;
-            this.lblTestTitle.Text = "Название тестирования";
-            this.lblTestTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblBestResult
-            // 
-            this.lblBestResult.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblBestResult.AutoSize = true;
-            this.lblBestResult.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblBestResult.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblBestResult.Location = new System.Drawing.Point(0, 24);
-            this.lblBestResult.Name = "lblBestResult";
-            this.lblBestResult.Size = new System.Drawing.Size(181, 19);
-            this.lblBestResult.TabIndex = 10;
-            this.lblBestResult.Text = "Лучший результат - 0%";
-            this.lblBestResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.lblAvailableTries);
+            this.panel1.Controls.Add(this.lblBestResult);
+            this.panel1.Location = new System.Drawing.Point(736, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(216, 48);
+            this.panel1.TabIndex = 14;
             // 
             // lblAvailableTries
             // 
             this.lblAvailableTries.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAvailableTries.AutoSize = true;
             this.lblAvailableTries.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAvailableTries.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblAvailableTries.Location = new System.Drawing.Point(0, 0);
             this.lblAvailableTries.Name = "lblAvailableTries";
-            this.lblAvailableTries.Size = new System.Drawing.Size(170, 19);
+            this.lblAvailableTries.Size = new System.Drawing.Size(216, 19);
             this.lblAvailableTries.TabIndex = 12;
             this.lblAvailableTries.Text = "Доступно попыток - 0";
+            this.lblAvailableTries.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblBestResult
+            // 
+            this.lblBestResult.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblBestResult.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblBestResult.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblBestResult.Location = new System.Drawing.Point(0, 24);
+            this.lblBestResult.Name = "lblBestResult";
+            this.lblBestResult.Size = new System.Drawing.Size(216, 19);
+            this.lblBestResult.TabIndex = 10;
+            this.lblBestResult.Text = "Лучший результат - 0%";
+            this.lblBestResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnBeginTest
             // 
@@ -104,22 +102,23 @@
             this.btnBeginTest.UseVisualStyleBackColor = false;
             this.btnBeginTest.Click += new System.EventHandler(this.btnBeginTest_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.panel1.Controls.Add(this.lblAvailableTries);
-            this.panel1.Controls.Add(this.lblBestResult);
-            this.panel1.Location = new System.Drawing.Point(752, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 48);
-            this.panel1.TabIndex = 14;
-            // 
             // customDataGridView
             // 
             this.customDataGridView.Location = new System.Drawing.Point(16, 104);
             this.customDataGridView.Name = "customDataGridView";
             this.customDataGridView.Size = new System.Drawing.Size(936, 328);
             this.customDataGridView.TabIndex = 11;
+            // 
+            // lblTestTitle
+            // 
+            this.lblTestTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTestTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTestTitle.Location = new System.Drawing.Point(16, 16);
+            this.lblTestTitle.Name = "lblTestTitle";
+            this.lblTestTitle.Size = new System.Drawing.Size(520, 72);
+            this.lblTestTitle.TabIndex = 7;
+            this.lblTestTitle.Text = "Название тестирования";
+            this.lblTestTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TestOverviewControl
             // 
@@ -132,7 +131,6 @@
             this.Load += new System.EventHandler(this.TestOverviewControl_Load);
             this.availableTestsPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -142,9 +140,9 @@
         private System.Windows.Forms.Panel availableTestsPanel;
         private System.Windows.Forms.Label lblTestTitle;
         private System.Windows.Forms.Label lblBestResult;
-        private System.Windows.Forms.Label lblAvailableTries;
         private CustomDataGridView customDataGridView;
         private System.Windows.Forms.Button btnBeginTest;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblAvailableTries;
     }
 }

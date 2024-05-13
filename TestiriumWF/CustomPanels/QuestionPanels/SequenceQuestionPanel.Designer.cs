@@ -1,6 +1,6 @@
 ﻿namespace TestiriumWF.CustomPanels
 {
-    partial class SequencingQuestionPanel
+    partial class SequenceQuestionPanel
     {
         /// <summary> 
         /// Обязательная переменная конструктора.

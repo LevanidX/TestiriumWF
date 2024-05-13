@@ -24,6 +24,7 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
         public TestEndScreen(Test studentsTest, int testId, double overallScore, Panel allQuestionsPanel)
         {
             InitializeComponent();
+
             _studentsTest = studentsTest;
             _testId = testId;
             _overallScore = overallScore;
@@ -60,7 +61,7 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                 $"AND completed_test_number = {_testId}"));
 
 
-                _testCreator.CreateCompletedTestResult(_testId, UserConfig.UserId, _studentsTest, GetMarkForTest(), triesCount + 1);
+                _testCreator.CreateCompletedTestResult(_testId, UserConfig.UserId, _studentsTest, GetMarkForTest(), triesCount + 1); //переделать в триггер mysql
             }
         }
 

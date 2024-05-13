@@ -28,12 +28,12 @@ namespace TestiriumWF.CustomPanels
             return customQuestionTextBox.GetQuestionTextValue();
         }
 
-        public List<string> GetDefinitions()
+        public List<string> GetAnswers()
         {
             return _answersGetting.GetMatchAnswers();
         }
 
-        public List<string> GetAlignments()
+        public List<string> GetRightAnswers()
         {
             return _answersGetting.GetMatchRightAnswers();
         }

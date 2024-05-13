@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using TestiriumWF.CustomControls;
@@ -80,7 +81,7 @@ namespace TestiriumWF
         }
 
         /// <summary>
-        /// Создает XML файл тестирования
+        /// Создает XML-файл тестирования
         /// </summary>
         /// <returns></returns>
         private string SerializeTestIntoXml(Test studentsTest)
@@ -118,12 +119,11 @@ namespace TestiriumWF
         /// </summary>
         private void SerializeQuestions()
         {
-            SerializeOneAnswerQuestion();
-            SerializeMultipleAnswerQuestion();
-            SerializeTextAnswerQuestion();
-            SerializeSequenceAnswerQuestion();
-            SerializeMatchAnswerQuestion();
-
+            SerializeQuestions<OneQuestionPanel>(TestTypes.OneAnswerQuestion);
+            SerializeQuestions<MultipleQuestionPanel>(TestTypes.MultipleAnswerQuestion);
+            SerializeQuestions<TextQuestionPanel>(TestTypes.TextAnswerQuestion);
+            SerializeQuestions<SequenceQuestionPanel>(TestTypes.SequenceAnswerQuestion);
+            SerializeQuestions<MatchQuestionPanel>(TestTypes.MatchAnswerQuestion);
             _studentsTest.Questions = questionsList;
         }
 
@@ -143,66 +143,29 @@ namespace TestiriumWF
             return new TestSettings(estimationMethods, timeLimitedTest, testPassword, allowedTriesQuantity);
         }
 
-        private void SerializeOneAnswerQuestion()
+        private void SerializeQuestions<QuestionPanel>(string testType)
         {
-            foreach (var oneQuestionPanel in _questionsContainerPanel.Controls.OfType<OneQuestionPanel>())
-            {
-                Question question = new Question();
-                question.QuestionType = TestTypes.OneAnswerQuestion;
-                question.QuestionText = oneQuestionPanel.GetQuestionText();
-                question.Answers = oneQuestionPanel.GetAnswers();
-                question.RightAnswers = oneQuestionPanel.GetRightAnswers();
-                questionsList.Add(question);
-            }
-        }
+            var GetQuestionTextMethod = typeof(QuestionPanel).GetMethod("GetQuestionText",
+                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+            var GetAnswersMethod = typeof(QuestionPanel).GetMethod("GetAnswers",
+                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+            var GetRightAnswersMethod = typeof(QuestionPanel).GetMethod("GetRightAnswers",
+                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+            var GetQuestionSettingsMethod = typeof(QuestionPanel).GetMethod("GetQuestionSettings",
+                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
 
-        private void SerializeMultipleAnswerQuestion()
-        {
-            foreach (var multipleQuestionPanel in _questionsContainerPanel.Controls.OfType<MultipleQuestionPanel>())
-            {
-                Question question = new Question();
-                question.QuestionType = TestTypes.MultipleAnswerQuestion;
-                question.QuestionText = multipleQuestionPanel.GetQuestionText();
-                question.Answers = multipleQuestionPanel.GetAnswers();
-                question.RightAnswers = multipleQuestionPanel.GetRightAnswers();
-                questionsList.Add(question);
-            }
-        }
 
-        private void SerializeTextAnswerQuestion()
-        {
-            foreach (var textQuestionPanel in _questionsContainerPanel.Controls.OfType<TextQuestionPanel>())
+            foreach (var qPanel in _questionsContainerPanel.Controls.OfType<QuestionPanel>())
             {
                 Question question = new Question();
-                question.QuestionType = TestTypes.TextAnswerQuestion;
-                question.QuestionText = textQuestionPanel.GetQuestionText();
-                question.Answers = textQuestionPanel.GetAnswers();
-                question.QuestionSettings = new QuestionSettings(textQuestionPanel.GetQuestionSettings().Checked);
-                questionsList.Add(question);
-            }
-        }
-
-        private void SerializeSequenceAnswerQuestion()
-        {
-            foreach (var sequenceQuestionPanel in _questionsContainerPanel.Controls.OfType<SequencingQuestionPanel>())
-            {
-                Question question = new Question();
-                question.QuestionType = TestTypes.SequenceAnswerQuestion;
-                question.QuestionText = sequenceQuestionPanel.GetQuestionText();
-                question.RightAnswers = sequenceQuestionPanel.GetAnswers();
-                questionsList.Add(question);
-            }
-        }
-
-        private void SerializeMatchAnswerQuestion()
-        {
-            foreach (var matchQuestionPanel in _questionsContainerPanel.Controls.OfType<MatchQuestionPanel>())
-            {
-                Question question = new Question();
-                question.QuestionType = TestTypes.MatchAnswerQuestion;
-                question.QuestionText = matchQuestionPanel.GetQuestionText();
-                question.Answers = matchQuestionPanel.GetDefinitions();
-                question.RightAnswers = matchQuestionPanel.GetAlignments();
+                question.QuestionType = testType;
+                question.QuestionText = GetQuestionTextMethod.Invoke(qPanel, null).ToString();
+                question.Answers = (List<string>)GetAnswersMethod.Invoke(qPanel, null);
+                question.RightAnswers = (List<string>)GetRightAnswersMethod.Invoke(qPanel, null);
+                if (testType == TestTypes.TextAnswerQuestion)
+                {
+                    question.QuestionSettings = new QuestionSettings((bool)GetQuestionSettingsMethod.Invoke(qPanel, null));
+                }
                 questionsList.Add(question);
             }
         }

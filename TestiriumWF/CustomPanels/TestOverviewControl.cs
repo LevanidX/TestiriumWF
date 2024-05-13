@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
 using TestiriumWF.CustomPanels;
+using TestiriumWF.SqlFunctions;
 using TestStructure;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace TestiriumWF.CustomControls.TestCompleteingControls
 {
     public partial class TestOverviewControl : UserControl
     {
+        private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
+
         private int _selectedTest;
         private MySqlWriter _mySqlWriter = new MySqlWriter();
         private Test _studentsTest;
@@ -22,7 +27,7 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
 
         private void TestOverviewControl_Load(object sender, EventArgs e)
         {
-            SetTest();
+            GetTest();
             FillDataGrid();
             FillLabelValues();
 
@@ -36,47 +41,46 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
         //проверить, что все сохраняется нормально и работает без ошибок
         //отчеты и создание пользователей на потом
 
-        private void SetTest() //крч это не нужно, не будем показывать оценку лучшую, ток попытки оставшиеся
+        private void GetTest()
         {
-            _studentsTest = _testDeserializer.GetDeserializedTest(_mySqlWriter.ExecuteSelectScalarCommand(
-                $"SELECT completed_test_file " +
-                $"FROM completed_tests " +
-                $"WHERE completed_test_number = {_selectedTest} " +
-                $"AND completed_test_user_student_number = {UserConfig.UserId} " +
-                $"AND ")); //
+            _studentsTest = _testDeserializer.GetDeserializedTest(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_test_file", new MySqlParameter[]
+            {
+                new MySqlParameter("user_id", UserConfig.UserId),
+                new MySqlParameter("test_num", _selectedTest)
+            }).Rows[0][0].ToString());
         }
 
         private void FillDataGrid()
         {
-            var sqlCommand =
-                    $"SELECT completed_test_id, " +
-                    $"completed_test_try_number AS 'Номер попытки', " +
-                    $"completed_test_date_of_completion AS 'Дата и время прохождения', " +
-                    $"completed_test_mark_value AS 'Оценка' " +
-                    $"FROM completed_tests " +
-                    $"WHERE completed_test_user_student_number = {UserConfig.UserId} " +
-                    $"AND completed_test_number = {_selectedTest}";
-
-            customDataGridView.FillData(sqlCommand);
+            customDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_completed_student_tests", new MySqlParameter[] 
+            {
+                new MySqlParameter("user_id", UserConfig.UserId),
+                new MySqlParameter("test_id", _selectedTest)
+            }));
             customDataGridView.IsViewingResults = true;
         }
 
         private void FillLabelValues()
         {
+            DataRow testValuesRow = _mySqlFunctions.CallProcedureWithReturnedDataTable("get_completed_student_test_values", new MySqlParameter[]
+            {
+                new MySqlParameter("user_id", UserConfig.UserId),
+                new MySqlParameter("test_id", _selectedTest)
+            }).Rows[0];
+
             lblTestTitle.Text = _studentsTest.Name;
 
-            int triesCount = Convert.ToInt32(_mySqlWriter.ExecuteSelectScalarCommand(
-                $"SELECT COUNT(*) " +
-                $"FROM completed_tests " +
-                $"WHERE completed_test_user_student_number = {UserConfig.UserId} " +
-                $"AND completed_test_number = {_selectedTest}"));
-
-            _availableTries = _studentsTest.TestSettings.AllowedTriesQuantity - triesCount;
+            _availableTries = _studentsTest.TestSettings.AllowedTriesQuantity - Convert.ToInt32(testValuesRow[0]);
             lblAvailableTries.Text = $"Доступно попыток - {_availableTries}";
 
-            var bestResult = _studentsTest.FinalMark.MarkPercentageResult;
-
-            lblBestResult.Text = $"Лучший результат - {bestResult}%";
+            if (testValuesRow[1] == DBNull.Value)
+            {
+                lblBestResult.Text = $"Прохождений не было";
+            }
+            else
+            {
+                lblBestResult.Text = $"Лучший результат - {testValuesRow[1]}%";
+            }
         }
 
         private void btnBeginTest_Click(object sender, EventArgs e)

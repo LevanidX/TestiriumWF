@@ -13,6 +13,7 @@ namespace TestiriumWF.CustomPanels
     public partial class UserBoxPanel : UserControl
     {
         private MySqlWriter _mySqlWriter = new MySqlWriter();
+        private Action _clickAction;
 
         public UserBoxPanel()
         {
@@ -35,6 +36,16 @@ namespace TestiriumWF.CustomPanels
                     $"FROM users_students, students " +
                     $"WHERE {UserConfig.UserId} = student_id");
             }
+        }
+
+        public void SetClickAction(Action clickAction)
+        {
+            _clickAction = clickAction;
+        }
+
+        private void userBoxTableLayoutPanel_Click(object sender, EventArgs e)
+        {
+            _clickAction?.Invoke();
         }
     }
 }
