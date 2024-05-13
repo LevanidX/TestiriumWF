@@ -11,12 +11,12 @@ using TestiriumWF.TestCreatingFunctions;
 
 namespace TestiriumWF.CustomPanels
 {
-    public partial class SequencingQuestionPanel : UserControl
+    public partial class SequenceQuestionPanel : UserControl
     {
         QuestionsCreating questionsCreating = new QuestionsCreating();
         AnswersGetting xmlSerialization;
 
-        public SequencingQuestionPanel()
+        public SequenceQuestionPanel()
         {
             InitializeComponent();
             xmlSerialization = new AnswersGetting(answersTableLayoutPanel);
@@ -27,7 +27,12 @@ namespace TestiriumWF.CustomPanels
             return customQuestionTextBox.GetQuestionTextValue();
         }
 
-        public List<string> GetAnswers()
+        public List<string> GetAnswers() //метод пустышка (необходимо избавиться, или использовать в своих целях)
+        {
+            return new List<string>();
+        }
+
+        public List<string> GetRightAnswers()
         {
             return xmlSerialization.GetAnswers();
         }
@@ -51,11 +56,6 @@ namespace TestiriumWF.CustomPanels
 
             CreateAnswerRow();
             CreateAnswerRow();
-        }
-
-        private void btnRowUp_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

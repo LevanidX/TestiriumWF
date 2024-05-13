@@ -85,7 +85,7 @@ namespace TestiriumWF
 
         private void btnRightOrderAnswerQuestion_Click(object sender, EventArgs e)
         {
-            var sequencingQuestionPanel = new SequencingQuestionPanel();
+            var sequencingQuestionPanel = new SequenceQuestionPanel();
             var customTestCreatingButton = new CustomTestCreatingButton(sequencingQuestionPanel, _sequencingAnswerText);
 
             CreateQuestionPanel(sequencingQuestionPanel, customTestCreatingButton);

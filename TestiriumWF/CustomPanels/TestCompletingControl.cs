@@ -13,7 +13,7 @@ namespace TestiriumWF.CustomPanels
     public partial class TestCompletingControl : UserControl
     {
         private TestDeserializer _testDeserializer;
-        private TestCompletor _testCompletor;
+        private TestChecker _testCompletor;
         private TimeControl _timeControl;
 
         private int _testId;
@@ -21,6 +21,7 @@ namespace TestiriumWF.CustomPanels
         public TestCompletingControl(string xmlTestFile, int testId)
         {
             InitializeComponent();
+
             _testDeserializer = new TestDeserializer(questionsContainerPanel, 
                 questionsFlowLayoutPanel, xmlTestFile);
             _testId = testId;
@@ -38,7 +39,7 @@ namespace TestiriumWF.CustomPanels
             _testDeserializer.CreateTest(testWelcomeScreen);
             questionsFlowLayoutPanel.Enabled = false;
 
-            _testCompletor = new TestCompletor(_testDeserializer.GetTest(), questionsContainerPanel);
+            _testCompletor = new TestChecker(_testDeserializer.GetTest(), questionsContainerPanel);
             _timeControl = new TimeControl(testWelcomeScreen.GetTime());
 
             AddTimer();
@@ -74,11 +75,6 @@ namespace TestiriumWF.CustomPanels
             {
                 SetQuestionPanelForReviewMethod.Invoke(questionPanel, null);
             }
-        }
-
-        private void btnExitTest_Click(object sender, EventArgs e)
-        {
-            this.Parent.Controls.Remove(this);
         }
 
         private void AddTimer()

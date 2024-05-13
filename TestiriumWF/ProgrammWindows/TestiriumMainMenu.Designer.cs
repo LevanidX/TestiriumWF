@@ -32,13 +32,13 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.lblProgrammTitle = new System.Windows.Forms.Label();
             this.optionsPanel = new System.Windows.Forms.Panel();
-            this.btnReviews = new System.Windows.Forms.Button();
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.btnExitProgramm = new System.Windows.Forms.Button();
-            this.btnTests = new System.Windows.Forms.Button();
             this.promptsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.containerPanel = new System.Windows.Forms.Panel();
+            this.btnReviews = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
+            this.btnTests = new System.Windows.Forms.Button();
             this.userBoxPanel = new TestiriumWF.CustomPanels.UserBoxPanel();
+            this.popUserPanel = new TestiriumWF.CustomPanels.PopUserPanel();
             this.topPanel.SuspendLayout();
             this.optionsPanel.SuspendLayout();
             this.containerPanel.SuspendLayout();
@@ -53,6 +53,7 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1064, 72);
             this.topPanel.TabIndex = 4;
+            this.topPanel.Click += new System.EventHandler(this.topPanel_Click);
             // 
             // lblProgrammTitle
             // 
@@ -70,12 +71,22 @@
             this.optionsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
             this.optionsPanel.Controls.Add(this.btnReviews);
             this.optionsPanel.Controls.Add(this.btnUsers);
-            this.optionsPanel.Controls.Add(this.btnExitProgramm);
             this.optionsPanel.Controls.Add(this.btnTests);
-            this.optionsPanel.Location = new System.Drawing.Point(0, 0);
+            this.optionsPanel.Location = new System.Drawing.Point(0, 72);
             this.optionsPanel.Name = "optionsPanel";
             this.optionsPanel.Size = new System.Drawing.Size(64, 528);
             this.optionsPanel.TabIndex = 5;
+            // 
+            // containerPanel
+            // 
+            this.containerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.containerPanel.Controls.Add(this.popUserPanel);
+            this.containerPanel.Location = new System.Drawing.Point(64, 72);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Size = new System.Drawing.Size(1000, 528);
+            this.containerPanel.TabIndex = 7;
+            this.containerPanel.Click += new System.EventHandler(this.containerPanel_Click);
+            this.containerPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.containerPanel_ControlAdded);
             // 
             // btnReviews
             // 
@@ -105,23 +116,6 @@
             this.promptsToolTip.SetToolTip(this.btnUsers, "Пользователи");
             this.btnUsers.UseVisualStyleBackColor = false;
             // 
-            // btnExitProgramm
-            // 
-            this.btnExitProgramm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExitProgramm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
-            this.btnExitProgramm.BackgroundImage = global::TestiriumWF.Properties.Resources.delete;
-            this.btnExitProgramm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnExitProgramm.FlatAppearance.BorderSize = 0;
-            this.btnExitProgramm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExitProgramm.Location = new System.Drawing.Point(8, 472);
-            this.btnExitProgramm.Name = "btnExitProgramm";
-            this.btnExitProgramm.Size = new System.Drawing.Size(48, 48);
-            this.btnExitProgramm.TabIndex = 2;
-            this.promptsToolTip.SetToolTip(this.btnExitProgramm, "Выход из программы");
-            this.btnExitProgramm.UseVisualStyleBackColor = false;
-            this.btnExitProgramm.Click += new System.EventHandler(this.btnExitProgramm_Click);
-            // 
             // btnTests
             // 
             this.btnTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
@@ -137,15 +131,6 @@
             this.btnTests.UseVisualStyleBackColor = false;
             this.btnTests.Click += new System.EventHandler(this.btnTests_Click);
             // 
-            // containerPanel
-            // 
-            this.containerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.containerPanel.Controls.Add(this.optionsPanel);
-            this.containerPanel.Location = new System.Drawing.Point(0, 72);
-            this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(1064, 528);
-            this.containerPanel.TabIndex = 7;
-            // 
             // userBoxPanel
             // 
             this.userBoxPanel.Location = new System.Drawing.Point(696, 8);
@@ -153,13 +138,23 @@
             this.userBoxPanel.Size = new System.Drawing.Size(358, 56);
             this.userBoxPanel.TabIndex = 1;
             // 
+            // popUserPanel
+            // 
+            this.popUserPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.popUserPanel.Location = new System.Drawing.Point(632, 8);
+            this.popUserPanel.Name = "popUserPanel";
+            this.popUserPanel.Size = new System.Drawing.Size(360, 144);
+            this.popUserPanel.TabIndex = 0;
+            this.popUserPanel.Visible = false;
+            // 
             // TestiriumMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 600);
-            this.Controls.Add(this.containerPanel);
+            this.Controls.Add(this.optionsPanel);
             this.Controls.Add(this.topPanel);
+            this.Controls.Add(this.containerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TestiriumMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -182,8 +177,8 @@
         private System.Windows.Forms.Panel optionsPanel;
         private System.Windows.Forms.Button btnReviews;
         private System.Windows.Forms.Button btnUsers;
-        private System.Windows.Forms.Button btnExitProgramm;
         private System.Windows.Forms.ToolTip promptsToolTip;
         private System.Windows.Forms.Panel containerPanel;
+        private CustomPanels.PopUserPanel popUserPanel;
     }
 }

@@ -55,6 +55,7 @@ namespace TestiriumWF
 
                         UserConfig.IsTeacher = true;
 
+                        UserConfig.LoginForm = this;
                         TestiriumMainMenu testiriumMainMenu = new TestiriumMainMenu();
                         testiriumMainMenu.Show();
                         this.Hide();
@@ -74,6 +75,8 @@ namespace TestiriumWF
 
                         UserConfig.IsTeacher = false;
 
+
+                        UserConfig.LoginForm = this;
                         TestiriumMainMenu testiriumMainMenu = new TestiriumMainMenu();
                         testiriumMainMenu.Show();
                         this.Hide();

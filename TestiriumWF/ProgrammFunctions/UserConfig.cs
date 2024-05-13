@@ -16,5 +16,6 @@ namespace TestiriumWF
         public static string Username = "user";
         public static bool IsTeacher = false;
         public static TestiriumMainMenu MainMenu;
+        public static LoginForm LoginForm;
     }
 }

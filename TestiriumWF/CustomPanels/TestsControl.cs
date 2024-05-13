@@ -1,18 +1,18 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
 using TestiriumWF.CustomControls.MainMenuControls;
 using TestiriumWF.ProgrammWindows;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
+using TestiriumWF.SqlFunctions;
 
 namespace TestiriumWF.CustomPanels
 {
     public partial class TestsControl : UserControl
     {
-        private MySqlWriter _mySqlWriter = new MySqlWriter();
+        private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
         private string _currentCourseId;
         CustomDataGridView testsDataGridView;
 
@@ -63,58 +63,28 @@ namespace TestiriumWF.CustomPanels
 
         public void RefillPanels()
         {
-            string selectCoursesTeacherCommand = 
-                $"SELECT course_id, " +
-                $"CONCAT(course_name, ' - ', class, ' класс') " +
-                $"FROM courses " +
-                $"WHERE course_user_teacher_number = {UserConfig.UserId}";
-
-            string selectCoursesStudentCommand = 
-                $"SELECT course_id, CONCAT(course_name, ' - ', class, ' класс') " +
-                $"FROM courses, users_students, students, classes " +
-                $"WHERE user_student_id = {UserConfig.UserId} " +
-                $"AND user_student_number = student_id " +
-                $"AND student_class = class_id " +
-                $"AND SUBSTRING(class_name, 1, 2) = class"; //сабстринг(1, 2) для 10-11 классов, в остальных случаях сабстринг(1, 1)
-
-            ClearCoursesPanel();
+            coursesFlowLayoutPanel.Controls.Clear();
 
             if (UserConfig.IsTeacher)
             {
-                FillCoursesPanel(selectCoursesTeacherCommand);
+                FillCoursesPanel(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_teacher_available_courses", new MySqlParameter[] { 
+                    new MySqlParameter("user_id", UserConfig.UserId) }));
             }
             else
             {
-                FillCoursesPanel(selectCoursesStudentCommand);
+                FillCoursesPanel(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_student_available_courses", new MySqlParameter[] {
+                    new MySqlParameter("user_id", UserConfig.UserId) }));
             }
-            
+
             FillDataGridWithTests(_currentCourseId);
         }
 
-        private void FillCoursesPanel(string sqlCommand)
+        private void FillCoursesPanel(DataTable dataTable)
         {
-            var courses = _mySqlWriter.ExecuteSelectCommand(sqlCommand, GetValue);
-
-            foreach (var course in courses)
+            foreach (DataRow dt in dataTable.Rows)
             {
-                CreateCustomLinkLabel(course[0], course[1]);
+                CreateCustomLinkLabel(dt[0].ToString(), dt[1].ToString());
             }
-        }
-
-        private void ClearCoursesPanel()
-        {
-            coursesFlowLayoutPanel.Controls.Clear();
-        }
-
-        private List<string> GetValue(MySqlDataReader dataReader)
-        {
-            List<string> items = new List<string>
-            {
-                dataReader.GetInt32(0).ToString(),
-                dataReader.GetString(1)
-            };
-
-            return items;
         }
 
         private void CreateCustomLinkLabel(string courseId, string courseName)
@@ -139,37 +109,15 @@ namespace TestiriumWF.CustomPanels
 
         private void FillDataGridWithTests(string courseId)
         {
-            string sqlTeacherCommand = 
-                "SELECT test_id," +
-                "test_name AS 'Название', " +
-                "CONCAT(teacher_surname, ' ', " +
-                "SUBSTRING(teacher_name, 1, 1), '.', " +
-                "SUBSTRING(teacher_patronymic, 1, 1), '.') AS 'Автор', " +
-                "test_creation_date AS 'Дата создания', " +
-                "CASE test_is_opened WHEN 1 THEN 'Да' WHEN 0 THEN 'Нет' END AS 'Открыт' " +
-                "FROM tests, users_teachers, teachers " +
-                "WHERE test_user_teacher_number = user_teacher_id " +
-                "AND user_teacher_number = teacher_id " +
-                $"AND test_course_number = {Convert.ToInt32(courseId)}";
-
-            string sqlStudentCommand =
-                $"SELECT test_id, test_name AS 'Название', " +
-                $"CONCAT(teacher_surname, ' ', " +
-                $"SUBSTRING(teacher_name, 1, 1), '.', " +
-                $"SUBSTRING(teacher_patronymic, 1, 1), '.') AS 'Автор' " +
-                $"FROM tests, users_teachers, teachers " +
-                $"WHERE test_user_teacher_number = user_teacher_id " +
-                $"AND user_teacher_number = teacher_id " +
-                $"AND test_is_opened = 1 " +
-                $"AND test_course_number = {Convert.ToInt32(courseId)}";
-
             if (UserConfig.IsTeacher)
             {
-                testsDataGridView.FillData(sqlTeacherCommand);
+                testsDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_teacher_tests", new MySqlParameter[] {
+                    new MySqlParameter("course_id", Convert.ToInt32(courseId)) }));
             }
             else
             {
-                testsDataGridView.FillData(sqlStudentCommand);
+                testsDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_student_tests", new MySqlParameter[] {
+                    new MySqlParameter("course_id", Convert.ToInt32(courseId)) }));
             }
         }
 
@@ -180,31 +128,10 @@ namespace TestiriumWF.CustomPanels
             testCreatingControl.BringToFront();
         }
 
-        private void testsPanel_ControlRemoved(object sender, ControlEventArgs e)
+        private void TestsControl_ControlAdded(object sender, ControlEventArgs e)
         {
-            //allCoursesPanel.Show();
+            var backControl = new BackControl(e.Control, this);
+            backControl.InitializeBackControlFromTestsControl();
         }
-
-        private void testsPanel_ControlAdded(object sender, ControlEventArgs e)
-        {
-            var backControl = new BackControl();
-            this.Parent.Controls.Add(backControl);
-            backControl.BringToFront();
-            backControl.GoBack += () => BackControlAction(e, backControl);
-        }
-
-        private void BackControlAction(ControlEventArgs e, BackControl backControl)
-        {
-            e.Control.Parent.Controls.Remove(e.Control);
-            backControl.Parent.Controls.Remove(backControl);
-        }
-
-        //private void CreateBackControl()
-        //{
-        //    var backControl = new BackControl();
-        //    this.Parent.Controls.Add(backControl);
-        //    backControl.BringToFront();
-        //    backControl.GoBack += () => 
-        //}
     }
 }

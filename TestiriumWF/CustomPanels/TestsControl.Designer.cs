@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.testsPanel = new System.Windows.Forms.Panel();
             this.allCoursesPanel = new System.Windows.Forms.Panel();
             this.btnAddCourse = new System.Windows.Forms.Button();
             this.coursesFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -38,22 +37,9 @@
             this.lblCurrentCourse = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.testsPanel.SuspendLayout();
             this.allCoursesPanel.SuspendLayout();
             this.availableTestsPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // testsPanel
-            // 
-            this.testsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.testsPanel.Controls.Add(this.allCoursesPanel);
-            this.testsPanel.Controls.Add(this.availableTestsPanel);
-            this.testsPanel.Location = new System.Drawing.Point(0, 0);
-            this.testsPanel.Name = "testsPanel";
-            this.testsPanel.Size = new System.Drawing.Size(1000, 528);
-            this.testsPanel.TabIndex = 8;
-            this.testsPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.testsPanel_ControlAdded);
-            this.testsPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.testsPanel_ControlRemoved);
             // 
             // allCoursesPanel
             // 
@@ -167,11 +153,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.testsPanel);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.Controls.Add(this.availableTestsPanel);
+            this.Controls.Add(this.allCoursesPanel);
             this.Name = "TestsControl";
             this.Size = new System.Drawing.Size(1000, 528);
             this.Load += new System.EventHandler(this.TestsControl_Load);
-            this.testsPanel.ResumeLayout(false);
+            this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.TestsControl_ControlAdded);
             this.allCoursesPanel.ResumeLayout(false);
             this.allCoursesPanel.PerformLayout();
             this.availableTestsPanel.ResumeLayout(false);
@@ -181,8 +169,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel testsPanel;
         private System.Windows.Forms.Panel availableTestsPanel;
         private System.Windows.Forms.Button btnCreateTest;
         private System.Windows.Forms.Label lblCurrentCourse;

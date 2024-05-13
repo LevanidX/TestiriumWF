@@ -63,11 +63,12 @@
             this.userBoxTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.userBoxTableLayoutPanel.Size = new System.Drawing.Size(360, 56);
             this.userBoxTableLayoutPanel.TabIndex = 2;
+            this.userBoxTableLayoutPanel.Click += new System.EventHandler(this.userBoxTableLayoutPanel_Click);
             // 
             // userImage
             // 
             this.userImage.BackColor = System.Drawing.Color.Gainsboro;
-            this.userImage.Image = global::TestiriumWF.Properties.Resources.person;
+            this.userImage.Image = global::TestiriumWF.Properties.Resources.user_account;
             this.userImage.Location = new System.Drawing.Point(307, 3);
             this.userImage.Name = "userImage";
             this.userImage.Size = new System.Drawing.Size(50, 50);

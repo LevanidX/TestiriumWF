@@ -139,6 +139,12 @@
     <Compile Include="CustomControls\CustomControlsForRefactor\CustomPercentageTextBox.Designer.cs">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CustomOverrideControls\CustomTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomOverrideControls\CustomTextBox.Designer.cs">
+      <DependentUpon>CustomTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\MainMenuControls\BackControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,16 +157,22 @@
     <Compile Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.Designer.cs">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\TestCompleteingControls\TestOverviewControl.cs">
+    <Compile Include="CustomPanels\EditUserProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\TestCompleteingControls\TestOverviewControl.Designer.cs">
+    <Compile Include="CustomPanels\EditUserProfile.Designer.cs">
+      <DependentUpon>EditUserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\TestOverviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\TestOverviewControl.Designer.cs">
       <DependentUpon>TestOverviewControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestEndScreen.cs">
+    <Compile Include="CustomPanels\DeserializedTestSettingPanel\TestEndScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestEndScreen.Designer.cs">
+    <Compile Include="CustomPanels\DeserializedTestSettingPanel\TestEndScreen.Designer.cs">
       <DependentUpon>TestEndScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.cs">
@@ -193,10 +205,10 @@
     <Compile Include="CustomPanels\DeserializedQuestionPanels\TestTextQuestionPanel.Designer.cs">
       <DependentUpon>TestTextQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.cs">
+    <Compile Include="CustomPanels\DeserializedTestSettingPanel\TestWelcomeScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.Designer.cs">
+    <Compile Include="CustomPanels\DeserializedTestSettingPanel\TestWelcomeScreen.Designer.cs">
       <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\TestCompletingControl.cs">
@@ -229,11 +241,11 @@
     <Compile Include="CustomPanels\QuestionPanels\MatchQuestionPanel.Designer.cs">
       <DependentUpon>MatchQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\SequencingQuestionPanel.cs">
+    <Compile Include="CustomPanels\QuestionPanels\SequenceQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\SequencingQuestionPanel.Designer.cs">
-      <DependentUpon>SequencingQuestionPanel.cs</DependentUpon>
+    <Compile Include="CustomPanels\QuestionPanels\SequenceQuestionPanel.Designer.cs">
+      <DependentUpon>SequenceQuestionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\QuestionPanels\TextQuestionPanel.cs">
       <SubType>UserControl</SubType>
@@ -253,8 +265,15 @@
     <Compile Include="CustomPanels\UserBoxPanel.Designer.cs">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomPanels\PopUserPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\PopUserPanel.Designer.cs">
+      <DependentUpon>PopUserPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProgrammFunctions\FormsMessages.cs" />
     <Compile Include="ProgrammFunctions\TestTypes.cs" />
+    <Compile Include="SqlFunctions\MySqlFunctions.cs" />
     <Compile Include="SqlFunctions\MySqlWriter.cs" />
     <Compile Include="ProgrammWindows\ChooseQuestionType.cs">
       <SubType>Form</SubType>
@@ -318,7 +337,7 @@
     <Compile Include="ProgrammWindows\TestiriumMainMenu.Designer.cs">
       <DependentUpon>TestiriumMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestCompletingFunctions\TestCompletor.cs" />
+    <Compile Include="TestCompletingFunctions\TestChecker.cs" />
     <Compile Include="TestCreatingFunctions\TestRandomiser.cs" />
     <Compile Include="TestCreatingFunctions\TestCreatingMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -355,16 +374,25 @@
     <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomPercentageTextBox.resx">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomTextBox.resx">
+      <DependentUpon>CustomTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\MainMenuControls\BackControl.resx">
       <DependentUpon>BackControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.resx">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\TestCompleteingControls\TestOverviewControl.resx">
+    <EmbeddedResource Include="CustomPanels\EditUserProfile.resx">
+      <DependentUpon>EditUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\PopUserPanel.resx">
+      <DependentUpon>PopUserPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\TestOverviewControl.resx">
       <DependentUpon>TestOverviewControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestEndScreen.resx">
+    <EmbeddedResource Include="CustomPanels\DeserializedTestSettingPanel\TestEndScreen.resx">
       <DependentUpon>TestEndScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.resx">
@@ -382,7 +410,7 @@
     <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestTextQuestionPanel.resx">
       <DependentUpon>TestTextQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestWelcomeScreen.resx">
+    <EmbeddedResource Include="CustomPanels\DeserializedTestSettingPanel\TestWelcomeScreen.resx">
       <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\TestCompletingControl.resx">
@@ -400,8 +428,8 @@
     <EmbeddedResource Include="CustomPanels\QuestionPanels\MatchQuestionPanel.resx">
       <DependentUpon>MatchQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\QuestionPanels\SequencingQuestionPanel.resx">
-      <DependentUpon>SequencingQuestionPanel.cs</DependentUpon>
+    <EmbeddedResource Include="CustomPanels\QuestionPanels\SequenceQuestionPanel.resx">
+      <DependentUpon>SequenceQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\QuestionPanels\TextQuestionPanel.resx">
       <DependentUpon>TextQuestionPanel.cs</DependentUpon>
@@ -500,6 +528,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-account.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

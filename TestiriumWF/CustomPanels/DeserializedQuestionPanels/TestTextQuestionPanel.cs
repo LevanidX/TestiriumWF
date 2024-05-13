@@ -51,7 +51,7 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
                 answerTextBox.Text = answerTextBox.Text.ToLower();
             }
 
-            if (_question.Answers.Contains(answerTextBox.Text))
+            if (_question.RightAnswers.Contains(answerTextBox.Text))
             {
                 answerTextBox.BackColor = Color.PaleGreen;
                 answerTextBox.ForeColor = Color.ForestGreen;

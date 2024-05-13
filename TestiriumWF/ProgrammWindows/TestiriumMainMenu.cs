@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Drawing;
 using TestiriumWF.CustomPanels;
+using TestiriumWF.CustomControls.MainMenuControls;
 
 namespace TestiriumWF.ProgrammWindows
 {
@@ -17,7 +18,6 @@ namespace TestiriumWF.ProgrammWindows
         private void btnTests_Click(object sender, EventArgs e)
         {
             containerPanel.Controls.Add(testsControl);
-            testsControl.Location = new Point(64, 0);
             testsControl.BringToFront();
         }
 
@@ -30,6 +30,29 @@ namespace TestiriumWF.ProgrammWindows
         {
             UserConfig.MainMenu = this;
             userBoxPanel.SetValues();
+            userBoxPanel.SetClickAction(UserBoxPanelClick);
+        }
+
+        private void UserBoxPanelClick()
+        {
+            popUserPanel.Visible = true;
+            popUserPanel.BringToFront();
+        }
+
+        private void containerPanel_Click(object sender, EventArgs e)
+        {
+            popUserPanel.Visible = false;
+        }
+
+        private void topPanel_Click(object sender, EventArgs e)
+        {
+            popUserPanel.Visible = false;
+        }
+
+        private void containerPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            var backControl = new BackControl(e.Control, this);
+            backControl.InitializeBackControlFromMainMenu();
         }
     }
 }
