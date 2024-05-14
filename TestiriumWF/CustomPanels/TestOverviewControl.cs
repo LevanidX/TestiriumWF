@@ -11,43 +11,31 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
     public partial class TestOverviewControl : UserControl
     {
         private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
-
-        private int _selectedTest;
-        private MySqlWriter _mySqlWriter = new MySqlWriter();
+        private TestDeserializer _testDeserializer = new TestDeserializer();
         private Test _studentsTest;
-        TestDeserializer _testDeserializer = new TestDeserializer();
+
+        private int _studentsTestNumber;
         private int _availableTries;
 
-        public TestOverviewControl(int selectedTest)
+        public TestOverviewControl(int studentsTestNumber)
         {
             InitializeComponent();
 
-            _selectedTest = selectedTest;
+            _studentsTestNumber = studentsTestNumber;
         }
 
         private void TestOverviewControl_Load(object sender, EventArgs e)
         {
-            GetTest();
+            SetAndGetTest();
             FillDataGrid();
             FillLabelValues();
 
-            if (_availableTries == 0)
-            {
-                btnBeginTest.Enabled = false;
-            }
+            btnBeginTest.Enabled = _availableTries == 0 ? false : true; //попробовать упрощение позже
         }
 
-        //итак, осталось сделать норм навигацию
-        //проверить, что все сохраняется нормально и работает без ошибок
-        //отчеты и создание пользователей на потом
-
-        private void GetTest()
+        private void SetAndGetTest()
         {
-            _studentsTest = _testDeserializer.GetDeserializedTest(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_test_file", new MySqlParameter[]
-            {
-                new MySqlParameter("user_id", UserConfig.UserId),
-                new MySqlParameter("test_num", _selectedTest)
-            }).Rows[0][0].ToString());
+            _studentsTest = _testDeserializer.GetDeserializedTest(_studentsTestNumber);
         }
 
         private void FillDataGrid()
@@ -55,7 +43,7 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
             customDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_completed_student_tests", new MySqlParameter[] 
             {
                 new MySqlParameter("user_id", UserConfig.UserId),
-                new MySqlParameter("test_id", _selectedTest)
+                new MySqlParameter("test_id", _studentsTestNumber)
             }));
             customDataGridView.IsViewingResults = true;
         }
@@ -65,7 +53,7 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
             DataRow testValuesRow = _mySqlFunctions.CallProcedureWithReturnedDataTable("get_completed_student_test_values", new MySqlParameter[]
             {
                 new MySqlParameter("user_id", UserConfig.UserId),
-                new MySqlParameter("test_id", _selectedTest)
+                new MySqlParameter("test_id", _studentsTestNumber)
             }).Rows[0];
 
             lblTestTitle.Text = _studentsTest.Name;
@@ -73,24 +61,12 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
             _availableTries = _studentsTest.TestSettings.AllowedTriesQuantity - Convert.ToInt32(testValuesRow[0]);
             lblAvailableTries.Text = $"Доступно попыток - {_availableTries}";
 
-            if (testValuesRow[1] == DBNull.Value)
-            {
-                lblBestResult.Text = $"Прохождений не было";
-            }
-            else
-            {
-                lblBestResult.Text = $"Лучший результат - {testValuesRow[1]}%";
-            }
+            lblBestResult.Text = (testValuesRow[1] == DBNull.Value) ? "Прохождений не было" : $"Лучший результат - {testValuesRow[1]}%";
         }
 
         private void btnBeginTest_Click(object sender, EventArgs e)
         {
-            string xmlFile = _mySqlWriter.ExecuteSelectScalarCommand(
-                $"SELECT test_file " +
-                $"FROM tests " +
-                $"WHERE test_id = {_selectedTest}");
-
-            var testCompletingControl = new TestCompletingControl(xmlFile, _selectedTest);
+            var testCompletingControl = new TestCompletingControl(_studentsTestNumber, (_studentsTest.TestSettings.AllowedTriesQuantity - _availableTries) + 1);
             this.Parent.Controls.Add(testCompletingControl);
             testCompletingControl.BringToFront();
         }

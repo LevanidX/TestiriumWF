@@ -30,13 +30,13 @@
         {
             this.questionsContainerPanel = new System.Windows.Forms.Panel();
             this.testWelcomeScreen = new TestiriumWF.CustomPanels.DeserializedQuestionPanels.TestWelcomeScreen();
-            this.allQuestionsPanel = new System.Windows.Forms.Panel();
-            this.questionsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.testControllerPanel = new System.Windows.Forms.Panel();
+            this.questionButtonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTests = new System.Windows.Forms.Label();
             this.btnStartTest = new System.Windows.Forms.Button();
             this.btnEndTest = new System.Windows.Forms.Button();
             this.questionsContainerPanel.SuspendLayout();
-            this.allQuestionsPanel.SuspendLayout();
+            this.testControllerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // questionsContainerPanel
@@ -61,25 +61,25 @@
             this.testWelcomeScreen.Size = new System.Drawing.Size(784, 496);
             this.testWelcomeScreen.TabIndex = 0;
             // 
-            // allQuestionsPanel
+            // testControllerPanel
             // 
-            this.allQuestionsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
-            this.allQuestionsPanel.Controls.Add(this.questionsFlowLayoutPanel);
-            this.allQuestionsPanel.Controls.Add(this.lblTests);
-            this.allQuestionsPanel.Controls.Add(this.btnStartTest);
-            this.allQuestionsPanel.Controls.Add(this.btnEndTest);
-            this.allQuestionsPanel.Location = new System.Drawing.Point(0, 0);
-            this.allQuestionsPanel.Name = "allQuestionsPanel";
-            this.allQuestionsPanel.Size = new System.Drawing.Size(184, 528);
-            this.allQuestionsPanel.TabIndex = 9;
+            this.testControllerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.testControllerPanel.Controls.Add(this.questionButtonsPanel);
+            this.testControllerPanel.Controls.Add(this.lblTests);
+            this.testControllerPanel.Controls.Add(this.btnStartTest);
+            this.testControllerPanel.Controls.Add(this.btnEndTest);
+            this.testControllerPanel.Location = new System.Drawing.Point(0, 0);
+            this.testControllerPanel.Name = "testControllerPanel";
+            this.testControllerPanel.Size = new System.Drawing.Size(184, 528);
+            this.testControllerPanel.TabIndex = 9;
             // 
-            // questionsFlowLayoutPanel
+            // questionButtonsPanel
             // 
-            this.questionsFlowLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.questionsFlowLayoutPanel.Location = new System.Drawing.Point(8, 40);
-            this.questionsFlowLayoutPanel.Name = "questionsFlowLayoutPanel";
-            this.questionsFlowLayoutPanel.Size = new System.Drawing.Size(168, 264);
-            this.questionsFlowLayoutPanel.TabIndex = 1;
+            this.questionButtonsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.questionButtonsPanel.Location = new System.Drawing.Point(8, 40);
+            this.questionButtonsPanel.Name = "questionButtonsPanel";
+            this.questionButtonsPanel.Size = new System.Drawing.Size(168, 264);
+            this.questionButtonsPanel.TabIndex = 1;
             // 
             // lblTests
             // 
@@ -128,14 +128,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.allQuestionsPanel);
+            this.Controls.Add(this.testControllerPanel);
             this.Controls.Add(this.questionsContainerPanel);
             this.Name = "TestCompletingControl";
             this.Size = new System.Drawing.Size(1000, 528);
             this.Load += new System.EventHandler(this.TestCompletingControl_Load);
             this.questionsContainerPanel.ResumeLayout(false);
-            this.allQuestionsPanel.ResumeLayout(false);
-            this.allQuestionsPanel.PerformLayout();
+            this.testControllerPanel.ResumeLayout(false);
+            this.testControllerPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -144,9 +144,9 @@
 
         private System.Windows.Forms.Panel questionsContainerPanel;
         private DeserializedQuestionPanels.TestWelcomeScreen testWelcomeScreen;
-        private System.Windows.Forms.Panel allQuestionsPanel;
+        private System.Windows.Forms.Panel testControllerPanel;
         private System.Windows.Forms.Button btnStartTest;
-        private System.Windows.Forms.FlowLayoutPanel questionsFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel questionButtonsPanel;
         private System.Windows.Forms.Label lblTests;
         private System.Windows.Forms.Button btnEndTest;
     }

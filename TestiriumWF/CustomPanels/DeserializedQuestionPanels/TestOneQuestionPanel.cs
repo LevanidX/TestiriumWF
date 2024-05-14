@@ -16,7 +16,7 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
     public partial class TestOneQuestionPanel : UserControl
     {
         TestRandomiser _testRandomiser = new TestRandomiser();
-        private TestQuestionsCreating _testQuestionsCreating = new TestQuestionsCreating();
+        private TestQuestionsCreator _testQuestionsCreating = new TestQuestionsCreator();
         private Question _question;
 
         public TestOneQuestionPanel()

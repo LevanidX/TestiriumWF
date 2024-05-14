@@ -93,14 +93,7 @@ namespace TestiriumWF.CustomControls
 
         private void completeTestAsStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var sqlCommand = 
-                $"SELECT test_file " +
-                $"FROM tests " +
-                $"WHERE test_id = {_selectedTest}";
-
-            var xmlTestFile = _mySqlWriter.ExecuteSelectScalarCommand(sqlCommand);
-
-            var testCompletingControl = new TestCompletingControl(xmlTestFile, Convert.ToInt32(_selectedTest));
+            var testCompletingControl = new TestCompletingControl(Convert.ToInt32(_selectedTest));
 
             _testsControl.Controls.Add(testCompletingControl);
             testCompletingControl.BringToFront();

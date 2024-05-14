@@ -1,12 +1,5 @@
 ﻿using System;
-using TestStructure;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Linq;
-using System.Collections.Generic;
-using System.IO;
-using Mysqlx.Crud;
 
 namespace TestiriumWF.CustomPanels
 {
@@ -25,10 +18,19 @@ namespace TestiriumWF.CustomPanels
 
         private void btnEndTestCreation_Click(object sender, EventArgs e)
         {
-            _testCreator.Create(Convert.ToInt32(_currentCourse), UserConfig.UserId, 
+
+
+            _testCreator.CreateNewTest(Convert.ToInt32(_currentCourse), 
                 _testCreator.SerializeEndScreen(markRadioButton, markPanel, nonMarkPercentageTextBox, 
-                timeLimitedRadioButton, minuteTextBox, passwordRadioButton, passwordTextBox, 
-                allowedTriesComboBox));
+                timeLimitedRadioButton, minuteTextBox, passwordRadioButton, passwordTextBox, allowedTriesComboBox));
         }
+
+        //private void CheckValues()
+        //{
+        //    if (nonMarkRadioButton.Checked && nonMarkPercentageTextBox == string.Empty)
+        //    {
+                
+        //    }
+        //}
     }
 }

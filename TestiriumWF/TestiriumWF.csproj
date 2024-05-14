@@ -338,6 +338,10 @@
       <DependentUpon>TestiriumMainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="TestCompletingFunctions\TestChecker.cs" />
+    <Compile Include="TestCompletingFunctions\TestCompleteSaver.cs" />
+    <Compile Include="TestCompletingFunctions\TestCompleteStarter.cs" />
+    <Compile Include="TestCompletingFunctions\TestResulter.cs" />
+    <Compile Include="TestCompletingFunctions\TestReviewer.cs" />
     <Compile Include="TestCreatingFunctions\TestRandomiser.cs" />
     <Compile Include="TestCreatingFunctions\TestCreatingMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -351,8 +355,9 @@
     <Compile Include="TestCreatingFunctions\AnswersGetting.cs" />
     <Compile Include="TestCreatingFunctions\TestCreator.cs" />
     <Compile Include="TestCompletingFunctions\TestDeserializer.cs" />
-    <Compile Include="TestCompletingFunctions\TestQuestionsCreating.cs" />
+    <Compile Include="TestCompletingFunctions\TestQuestionsCreator.cs" />
     <Compile Include="ProgrammFunctions\UserConfig.cs" />
+    <Compile Include="TestCreatingFunctions\TestSerializer.cs" />
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomComboBox.resx">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </EmbeddedResource>

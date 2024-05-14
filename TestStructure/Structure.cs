@@ -10,7 +10,7 @@ namespace TestStructure
         public Description Description;
         public List<Question> Questions;
         public TestSettings TestSettings;
-        public FinalMark FinalMark;
+        public OverallResult OverallResult;
     }
 
     public class Description
@@ -178,16 +178,19 @@ namespace TestStructure
         }
     }
 
-    public class FinalMark
+    public class OverallResult
     {
-        public int MarkNumberResult;
-        public double MarkPercentageResult;
-        public FinalMark() { }
+        public string OverallMarkScore;
+        public double OverallPercentageScore;
+        public int AnsweredCorrectlyQuestionsCounter;
 
-        public FinalMark(int  markNumberResult, double markPercentageResul)
+        public OverallResult() { }
+
+        public OverallResult(string markNumberResult, double markPercentageResult, int answeredCorrectlyQuestionsCounter)
         { 
-            MarkNumberResult = markNumberResult;
-            MarkPercentageResult = markPercentageResul;
+            OverallMarkScore = markNumberResult;
+            OverallPercentageScore = markPercentageResult;
+            AnsweredCorrectlyQuestionsCounter = answeredCorrectlyQuestionsCounter;
         }
     }
 }

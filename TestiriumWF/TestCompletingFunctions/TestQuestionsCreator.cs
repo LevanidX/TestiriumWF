@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TestiriumWF
 {
-    internal class TestQuestionsCreating
+    internal class TestQuestionsCreator
     {
         public void AddTickAnswerRow(Control tickControl, UserControl label, TableLayoutPanel answersPanel)
         {

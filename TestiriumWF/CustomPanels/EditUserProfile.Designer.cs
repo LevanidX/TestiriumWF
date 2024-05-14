@@ -34,16 +34,16 @@
             this.lblSurname = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.newPasswordTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.initialPasswordTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.userPictureBox = new System.Windows.Forms.PictureBox();
-            this.newPasswordTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
-            this.initialPasswordTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.availableTestsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -76,12 +76,13 @@
             this.btnSaveEdits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveEdits.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSaveEdits.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSaveEdits.Location = new System.Drawing.Point(16, 424);
+            this.btnSaveEdits.Location = new System.Drawing.Point(16, 432);
             this.btnSaveEdits.Name = "btnSaveEdits";
-            this.btnSaveEdits.Size = new System.Drawing.Size(904, 48);
+            this.btnSaveEdits.Size = new System.Drawing.Size(936, 48);
             this.btnSaveEdits.TabIndex = 22;
             this.btnSaveEdits.Text = "Сохранить изменения";
             this.btnSaveEdits.UseVisualStyleBackColor = false;
+            this.btnSaveEdits.Click += new System.EventHandler(this.btnSaveEdits_Click);
             // 
             // lblPatronymic
             // 
@@ -127,6 +128,14 @@
             this.panel1.Size = new System.Drawing.Size(400, 120);
             this.panel1.TabIndex = 18;
             // 
+            // newPasswordTextBox
+            // 
+            this.newPasswordTextBox.Location = new System.Drawing.Point(8, 88);
+            this.newPasswordTextBox.Name = "newPasswordTextBox";
+            this.newPasswordTextBox.Size = new System.Drawing.Size(384, 24);
+            this.newPasswordTextBox.TabIndex = 10;
+            this.newPasswordTextBox.TextValue = "";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -148,6 +157,14 @@
             this.label6.Size = new System.Drawing.Size(103, 18);
             this.label6.TabIndex = 8;
             this.label6.Text = "Текущий пароль";
+            // 
+            // initialPasswordTextBox
+            // 
+            this.initialPasswordTextBox.Location = new System.Drawing.Point(8, 32);
+            this.initialPasswordTextBox.Name = "initialPasswordTextBox";
+            this.initialPasswordTextBox.Size = new System.Drawing.Size(384, 24);
+            this.initialPasswordTextBox.TabIndex = 3;
+            this.initialPasswordTextBox.TextValue = "";
             // 
             // label5
             // 
@@ -214,22 +231,6 @@
             this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userPictureBox.TabIndex = 12;
             this.userPictureBox.TabStop = false;
-            // 
-            // newPasswordTextBox
-            // 
-            this.newPasswordTextBox.Location = new System.Drawing.Point(8, 88);
-            this.newPasswordTextBox.Name = "newPasswordTextBox";
-            this.newPasswordTextBox.Size = new System.Drawing.Size(384, 24);
-            this.newPasswordTextBox.TabIndex = 10;
-            this.newPasswordTextBox.TextValue = "";
-            // 
-            // initialPasswordTextBox
-            // 
-            this.initialPasswordTextBox.Location = new System.Drawing.Point(8, 32);
-            this.initialPasswordTextBox.Name = "initialPasswordTextBox";
-            this.initialPasswordTextBox.Size = new System.Drawing.Size(384, 24);
-            this.initialPasswordTextBox.TabIndex = 3;
-            this.initialPasswordTextBox.TextValue = "";
             // 
             // EditUserProfile
             // 

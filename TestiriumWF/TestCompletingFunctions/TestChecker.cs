@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TestiriumWF.CustomPanels;
 using TestiriumWF.CustomPanels.DeserializedQuestionPanels;
 using TestiriumWF.ProgrammFunctions;
+using TestiriumWF.SqlFunctions;
 using TestStructure;
-using ZstdSharp.Unsafe;
+using MySql.Data.MySqlClient;
 
 namespace TestiriumWF.TestCompletingFunctions
 {
@@ -24,13 +22,14 @@ namespace TestiriumWF.TestCompletingFunctions
         private List<List<string>> _userSequenceAnswers = new List<List<string>>();
         private List<List<string>> _userMatchAnswers = new List<List<string>>();
 
-        private double _overallScore = 0;
-        private double _scoreSummer; //изменяемое значение получаемое путем деления 100 на кол во вопросов
+        private int _tryNumber;
 
-        public TestChecker(Test studentsTest, Panel testQuestionPanels) 
+        public TestChecker(Test studentsTest, int tryNumber, Panel testQuestionPanels) 
         {
             _studentsTest = studentsTest;
             _testQuestionPanels = testQuestionPanels;
+
+            _tryNumber = tryNumber;
         }
 
         /// <summary>
@@ -43,21 +42,13 @@ namespace TestiriumWF.TestCompletingFunctions
             _testQuestionPanels.Controls.AddRange(newQuestionPanel);
         }
 
-        private void DefineScoreSummer()
-        {
-            _scoreSummer = 100 / (double)_studentsTest.Questions.Count;
-        }
-
+        /// <summary>
+        /// Завершает тестирование
+        /// </summary>
         public void EndTest()
         {
             MakeQuestionPanelsSorted();
-            DefineScoreSummer();
             CheckAndSaveTestAnswers();
-        }
-
-        public double GetOverallScore()
-        { 
-            return _overallScore;
         }
 
         /// <summary>
@@ -75,6 +66,9 @@ namespace TestiriumWF.TestCompletingFunctions
             }
         }
 
+        /// <summary>
+        /// Проверяет и сохраняет ответы на тестирование
+        /// </summary>
         private void CheckAndSaveTestAnswers()
         {
             SaveUserTestAnswers<TestOneQuestionPanel>(_userOneQuestionAnswers);
@@ -123,6 +117,12 @@ namespace TestiriumWF.TestCompletingFunctions
             }
         }
 
+        /// <summary>
+        /// Проверят ответы пользователя на вопросы
+        /// </summary>
+        /// <param name="question">Вопрос</param>
+        /// <param name="currentAnswerNumber">Текущий номер вопроса</param>
+        /// <param name="userQuestionAnswers">Ответы пользователя на вопросы</param>
         private void CheckUserQuestionAnswers(Question question, int currentAnswerNumber, List<List<string>> userQuestionAnswers)
         {
             question.UserAnswers = userQuestionAnswers[currentAnswerNumber];
@@ -140,6 +140,12 @@ namespace TestiriumWF.TestCompletingFunctions
             }
         }
 
+        /// <summary>
+        /// Делает текст невосприимчивым к регистру
+        /// </summary>
+        /// <param name="question">Вопрос</param>
+        /// <param name="currentAnswerNumber">Текущий номер вопроса</param>
+        /// <param name="userQuestionAnswers">Ответы пользователя на вопросы</param>
         private void MakeTextAnswerLower(Question question, int currentAnswerNumber, List<List<string>> userQuestionAnswers)
         {
             if (question.QuestionType == TestTypes.TextAnswerQuestion)
@@ -151,6 +157,13 @@ namespace TestiriumWF.TestCompletingFunctions
             }
         }
 
+        /// <summary>
+        /// Проверяет вопросы с одним, несколькими и текстовыми ответами
+        /// </summary>
+        /// <param name="question">Вопрос</param>
+        /// <param name="currentAnswerNumber">Текущий номер вопроса</param>
+        /// <param name="userQuestionAnswers">Ответы пользователя на вопросы</param>
+        /// <returns>Количество правильных ответов</returns>
         private int SimpleQuestionCheckWithReturnedCounter(Question question, int currentAnswerNumber, List<List<string>> userQuestionAnswers)
         {
             var rightAnswersCounter = 0;
@@ -166,13 +179,20 @@ namespace TestiriumWF.TestCompletingFunctions
             return rightAnswersCounter;
         }
 
+        /// <summary>
+        /// Проверяет вопросы на последовательность и сопоставление
+        /// </summary>
+        /// <param name="question">Вопрос</param>
+        /// <param name="currentListNumber">Текущий номер вопроса из списка</param>
+        /// <param name="userQuestionAnswers">Ответы пользователя на вопросы</param>
+        /// <returns>Количество правильных ответов</returns>
         private int DifficultQuestionCheckWithReturnedCounter(Question question, int currentListNumber, List<List<string>> userQuestionAnswers)
         {
             var currentAnswerNumber = 0; // Используется также в качестве счетчика правильных ответов
 
             foreach (var answer in question.RightAnswers)
             {
-                if (question.RightAnswers.Count != userQuestionAnswers[currentListNumber].Count) return currentAnswerNumber;
+                if (question.RightAnswers.Count != userQuestionAnswers[currentListNumber].Count) return currentAnswerNumber; //нужно ли?
 
                 if (answer == userQuestionAnswers[currentListNumber][currentAnswerNumber])
                 {
@@ -187,11 +207,15 @@ namespace TestiriumWF.TestCompletingFunctions
             return currentAnswerNumber;
         }
 
+        /// <summary>
+        /// Сравнивает количество правильных ответов
+        /// </summary>
+        /// <param name="question">Вопрос</param>
+        /// <param name="rightAnswersCounter">Количество правильных ответов</param>
         private void CompareRightAnswers(Question question, int rightAnswersCounter)
         {
             if (rightAnswersCounter == question.RightAnswers.Count)
             {
-                _overallScore += _scoreSummer;
                 question.HasAnsweredCorrectly = true;
             }
         }

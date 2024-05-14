@@ -18,14 +18,14 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
             InitializeComponent();
         }
 
-        public void SetWelcomeScreenValues(Test test)
+        public void SetWelcomeScreenValues(Test studentsTest)
         {
-            lblTestTitle.Text = test.Name;
-            lblTestDescription.Text = test.Description.Text;
+            lblTestTitle.Text = studentsTest.Name;
+            lblTestDescription.Text = studentsTest.Description.Text;
 
-            if (test.TestSettings.TimeLimitedTest.Value)
+            if (studentsTest.TestSettings.TimeLimitedTest.Value)
             {
-                lblTestTimeLimit.Text = test.TestSettings.TimeLimitedTest.TimeLimit.ToString();
+                lblTestTimeLimit.Text = studentsTest.TestSettings.TimeLimitedTest.TimeLimit.ToString();
             }
             else
             {

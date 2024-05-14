@@ -7,95 +7,106 @@ using TestiriumWF.CustomControls.MainMenuControls;
 using System.Linq;
 using TestiriumWF.CustomControls;
 using System.Reflection;
+using TestStructure;
 
 namespace TestiriumWF.CustomPanels
 {
     public partial class TestCompletingControl : UserControl
     {
-        private TestDeserializer _testDeserializer;
-        private TestChecker _testCompletor;
-        private TimeControl _timeControl;
+        private TestDeserializer _testDeserializer = new TestDeserializer();
+        private TestCompleteSaver _testCompleteSaver = new TestCompleteSaver();
 
-        private int _testId;
+        private TestCompleteStarter _testCompleteStarter;
+        private TestChecker _testCheckerAndSaver;
+        private TestReviewer _testReviewer;
+        private TestResulter _testResulter;
 
-        public TestCompletingControl(string xmlTestFile, int testId)
+        //private TimeControl _timeControl;
+
+        private Test _studentsTest;
+
+        private int _studentsTestNumber;
+        private int _tryNumber;
+
+        public TestCompletingControl(int studentsTestNumber, int tryNumber)
         {
             InitializeComponent();
 
-            _testDeserializer = new TestDeserializer(questionsContainerPanel, 
-                questionsFlowLayoutPanel, xmlTestFile);
-            _testId = testId;
+            _studentsTestNumber = studentsTestNumber;
+            _tryNumber = tryNumber;
         }
 
-        private void btnStartTest_Click(object sender, EventArgs e)
+        public TestCompletingControl(int studentsTestNumber)
         {
-            questionsFlowLayoutPanel.Enabled = true;
-            questionsContainerPanel.Controls.Remove(testWelcomeScreen);
-            allQuestionsPanel.Controls.Remove(btnStartTest);
+            InitializeComponent();
+
+            _studentsTestNumber = studentsTestNumber;
         }
 
         private void TestCompletingControl_Load(object sender, EventArgs e)
         {
-            _testDeserializer.CreateTest(testWelcomeScreen);
-            questionsFlowLayoutPanel.Enabled = false;
+            _studentsTest = _testDeserializer.GetDeserializedTest(_studentsTestNumber);
 
-            _testCompletor = new TestChecker(_testDeserializer.GetTest(), questionsContainerPanel);
-            _timeControl = new TimeControl(testWelcomeScreen.GetTime());
+            _testCompleteStarter = new TestCompleteStarter(questionsContainerPanel, questionButtonsPanel);
+            _testCheckerAndSaver = new TestChecker(_studentsTest, _tryNumber, questionsContainerPanel);
+            _testReviewer = new TestReviewer(questionsContainerPanel);
+            _testResulter = new TestResulter(_studentsTest);
 
-            AddTimer();
+            testWelcomeScreen.SetWelcomeScreenValues(_studentsTest);
+            _testCompleteStarter.CreateTest(_studentsTest);
+
+            questionButtonsPanel.Enabled = false;
+
+            //_timeControl = new TimeControl(testWelcomeScreen.GetTime());
+            //AddTimer();
+        }
+
+        private void btnStartTest_Click(object sender, EventArgs e)
+        {
+            questionButtonsPanel.Enabled = true;
+            questionsContainerPanel.Controls.Remove(testWelcomeScreen);
+            testControllerPanel.Controls.Remove(btnStartTest);
         }
 
         private void btnEndTest_Click(object sender, EventArgs e)
         {
-            _testCompletor.EndTest();
+            _testCheckerAndSaver.EndTest();
+
+            testControllerPanel.Enabled = false;
+            testControllerPanel.Controls.Remove(btnEndTest);
+
+            questionButtonsPanel.Controls.OfType<CustomTestButtonControl>().ToList().ForEach(button => button.SetColor());
+
+            _testReviewer.ReviewPanels();
+            _studentsTest.OverallResult = _testResulter.GetResult();
+
+            if (!UserConfig.IsTeacher)
+            {
+                _testCompleteSaver.SaveTestInDatabase(_studentsTestNumber, _studentsTest, _tryNumber);
+            }
 
             CreateTestEndScreen();
-
-            allQuestionsPanel.Enabled = false;
-            allQuestionsPanel.Controls.Remove(btnEndTest);
-
-            foreach(var button in questionsFlowLayoutPanel.Controls.OfType<CustomTestButtonControl>())
-            {
-                button.SetColor();
-            }
-
-            SetQuestionPanelsForReview<TestOneQuestionPanel>();
-            SetQuestionPanelsForReview<TestMultipleQuestionPanel>();
-            SetQuestionPanelsForReview<TestTextQuestionPanel>();
-            SetQuestionPanelsForReview<TestSequenceQuestionPanel>();
-            SetQuestionPanelsForReview<TestMatchQuestionPanel>();
-        }
-
-        private void SetQuestionPanelsForReview<TestQuestionPanel>()
-        {
-            var SetQuestionPanelForReviewMethod = typeof(TestQuestionPanel).GetMethod("SetQuestionPanelForReview",
-                    BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
-
-            foreach (var questionPanel in questionsContainerPanel.Controls.OfType<TestQuestionPanel>())
-            {
-                SetQuestionPanelForReviewMethod.Invoke(questionPanel, null);
-            }
-        }
-
-        private void AddTimer()
-        {
-            if (_testDeserializer.GetTest().TestSettings.TimeLimitedTest.Value)
-            {
-                allQuestionsPanel.Controls.Add(_timeControl);
-                _timeControl.Location = new Point(8, 312);
-            }
-            else
-            {
-                questionsFlowLayoutPanel.Size = new Size(168, 424);
-            }
         }
 
         private void CreateTestEndScreen()
         {
-            var testEndScreen = new TestEndScreen(_testDeserializer.GetTest(), _testId, _testCompletor.GetOverallScore(), allQuestionsPanel);
+            var testEndScreen = new TestEndScreen(_studentsTest, testControllerPanel);
             questionsContainerPanel.Controls.Add(testEndScreen);
             testEndScreen.Location = new Point(16, 16);
             testEndScreen.BringToFront();
         }
+
+        //private void AddTimer()
+        //{
+        //    if (_studentsTest.TestSettings.TimeLimitedTest.Value)
+        //    {
+        //        testControllerPanel.Controls.Add(_timeControl);
+        //        _timeControl.Location = new Point(8, 312);
+        //    }
+        //    else
+        //    {
+        //        questionButtonsPanel.Size = new Size(168, 424);
+        //    }
+        //}
     }
 }
