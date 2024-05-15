@@ -33,13 +33,13 @@
             this.btnExitProgramm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.studentRB = new System.Windows.Forms.RadioButton();
+            this.teacherRB = new System.Windows.Forms.RadioButton();
             this.isTeacherCheckBox = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.teacherRB = new System.Windows.Forms.RadioButton();
-            this.studentRB = new System.Windows.Forms.RadioButton();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +112,32 @@
             this.panel1.Size = new System.Drawing.Size(376, 256);
             this.panel1.TabIndex = 7;
             // 
+            // studentRB
+            // 
+            this.studentRB.AutoSize = true;
+            this.studentRB.Checked = true;
+            this.studentRB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.studentRB.Location = new System.Drawing.Point(224, 8);
+            this.studentRB.Name = "studentRB";
+            this.studentRB.Size = new System.Drawing.Size(46, 17);
+            this.studentRB.TabIndex = 16;
+            this.studentRB.TabStop = true;
+            this.studentRB.Text = "gera";
+            this.studentRB.UseVisualStyleBackColor = true;
+            this.studentRB.CheckedChanged += new System.EventHandler(this.studentRB_CheckedChanged);
+            // 
+            // teacherRB
+            // 
+            this.teacherRB.AutoSize = true;
+            this.teacherRB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.teacherRB.Location = new System.Drawing.Point(136, 8);
+            this.teacherRB.Name = "teacherRB";
+            this.teacherRB.Size = new System.Drawing.Size(68, 17);
+            this.teacherRB.TabIndex = 15;
+            this.teacherRB.Text = "levashka";
+            this.teacherRB.UseVisualStyleBackColor = true;
+            this.teacherRB.CheckedChanged += new System.EventHandler(this.teacherRB_CheckedChanged);
+            // 
             // isTeacherCheckBox
             // 
             this.isTeacherCheckBox.AutoSize = true;
@@ -171,32 +197,6 @@
             this.passwordTextBox.TabIndex = 10;
             this.passwordTextBox.Text = "Jorik981";
             // 
-            // teacherRB
-            // 
-            this.teacherRB.AutoSize = true;
-            this.teacherRB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.teacherRB.Location = new System.Drawing.Point(136, 8);
-            this.teacherRB.Name = "teacherRB";
-            this.teacherRB.Size = new System.Drawing.Size(68, 17);
-            this.teacherRB.TabIndex = 15;
-            this.teacherRB.Text = "levashka";
-            this.teacherRB.UseVisualStyleBackColor = true;
-            this.teacherRB.CheckedChanged += new System.EventHandler(this.teacherRB_CheckedChanged);
-            // 
-            // studentRB
-            // 
-            this.studentRB.AutoSize = true;
-            this.studentRB.Checked = true;
-            this.studentRB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.studentRB.Location = new System.Drawing.Point(224, 8);
-            this.studentRB.Name = "studentRB";
-            this.studentRB.Size = new System.Drawing.Size(46, 17);
-            this.studentRB.TabIndex = 16;
-            this.studentRB.TabStop = true;
-            this.studentRB.Text = "gera";
-            this.studentRB.UseVisualStyleBackColor = true;
-            this.studentRB.CheckedChanged += new System.EventHandler(this.studentRB_CheckedChanged);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +208,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);

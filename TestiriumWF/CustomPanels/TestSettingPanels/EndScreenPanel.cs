@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
+using TestiriumWF.CustomControls.CustomOverrideControls;
 
 namespace TestiriumWF.CustomPanels
 {
@@ -18,19 +20,30 @@ namespace TestiriumWF.CustomPanels
 
         private void btnEndTestCreation_Click(object sender, EventArgs e)
         {
-
-
-            _testCreator.CreateNewTest(Convert.ToInt32(_currentCourse), 
-                _testCreator.SerializeEndScreen(markRadioButton, markPanel, nonMarkPercentageTextBox, 
+            if (CheckValues())
+            {
+                _testCreator.CreateNewTest(Convert.ToInt32(_currentCourse),
+                _testCreator.SerializeEndScreen(markRadioButton, markPanel, nonMarkPercentageTextBox,
                 timeLimitedRadioButton, minuteTextBox, passwordRadioButton, passwordTextBox, allowedTriesComboBox));
+            }
+            else
+            {
+                MessageBox.Show("Все поля должны быть заполнены!");
+            }
         }
 
-        //private void CheckValues()
-        //{
-        //    if (nonMarkRadioButton.Checked && nonMarkPercentageTextBox == string.Empty)
-        //    {
-                
-        //    }
-        //}
+        private bool CheckValues()
+        {
+            if ((nonMarkRadioButton.Checked && nonMarkPercentageTextBox.TextValue == string.Empty) ||
+                (markRadioButton.Checked && markPanel.Controls.OfType<CustomNumericTextBox>().Any(nTextBox => nTextBox.TextValue == string.Empty)) ||
+                (timeLimitedRadioButton.Checked && minuteTextBox.TextValue == string.Empty) ||
+                (passwordRadioButton.Checked && passwordTextBox.TextValue == string.Empty) ||
+                (allowedTriesComboBox.TextValue == string.Empty))
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

@@ -34,11 +34,13 @@
             // 
             // showPasswordCheckBox
             // 
+            this.showPasswordCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.showPasswordCheckBox.AutoSize = true;
             this.showPasswordCheckBox.Enabled = false;
             this.showPasswordCheckBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.showPasswordCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.showPasswordCheckBox.Location = new System.Drawing.Point(279, 2);
+            this.showPasswordCheckBox.Location = new System.Drawing.Point(252, 2);
             this.showPasswordCheckBox.Name = "showPasswordCheckBox";
             this.showPasswordCheckBox.Size = new System.Drawing.Size(83, 20);
             this.showPasswordCheckBox.TabIndex = 9;
@@ -48,17 +50,17 @@
             // 
             // passwordTextBox
             // 
+            this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
             this.passwordTextBox.Location = new System.Drawing.Point(0, 0);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(272, 23);
+            this.passwordTextBox.Size = new System.Drawing.Size(245, 23);
             this.passwordTextBox.TabIndex = 8;
-            this.passwordTextBox.Text = "Введите пароль";
-            this.passwordTextBox.Click += new System.EventHandler(this.passwordTextBox_Click);
-            this.passwordTextBox.Leave += new System.EventHandler(this.passwordTextBox_Leave);
             // 
             // CustomPasswordTextBox
             // 
@@ -67,8 +69,7 @@
             this.Controls.Add(this.showPasswordCheckBox);
             this.Controls.Add(this.passwordTextBox);
             this.Name = "CustomPasswordTextBox";
-            this.Size = new System.Drawing.Size(368, 23);
-            this.Load += new System.EventHandler(this.CustomPasswordTextBox_Load);
+            this.Size = new System.Drawing.Size(341, 23);
             this.ResumeLayout(false);
             this.PerformLayout();
 

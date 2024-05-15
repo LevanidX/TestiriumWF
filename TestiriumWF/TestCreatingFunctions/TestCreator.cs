@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using TestiriumWF.CustomControls;
+using TestiriumWF.CustomControls.CustomOverrideControls;
 using TestiriumWF.CustomPanels;
 using TestiriumWF.ProgrammFunctions;
 using TestiriumWF.SqlFunctions;
@@ -83,8 +84,8 @@ namespace TestiriumWF
         /// Сериализует заключительный экран
         /// </summary>
         public TestSettings SerializeEndScreen(RadioButton markRadioButton, Panel markPanel,
-            CustomPercentageTextBox nonMarkPercentageTextBox, RadioButton isTimeLimited,
-            CustomMinuteTextBox timeLimitTextBox, RadioButton isPasswordActive,
+            CustomNumericTextBox nonMarkPercentageTextBox, RadioButton isTimeLimited,
+            CustomNumericTextBox timeLimitTextBox, RadioButton isPasswordActive,
             CustomPasswordTextBox passwordTextBox, CustomComboBox comboTries)
         {
             var estimationMethods = GetMarkRBValue(markRadioButton, markPanel, nonMarkPercentageTextBox);
@@ -125,32 +126,35 @@ namespace TestiriumWF
         }
 
         private EstimationMethods GetMarkRBValue(RadioButton markRadioButton, Panel markPanel, 
-            CustomPercentageTextBox nonMarkPercentageTextBox)
+            CustomNumericTextBox nonMarkPercentageTextBox)
         {
             var percentageValues = new List<int>();
 
-            markPanel.Controls.OfType<CustomPercentageTextBox>().ToList().ForEach(
-                percentageTextBox => percentageValues.Add(percentageTextBox.GetPercentageValue()));
+            if (markRadioButton.Checked) 
+            {
+                markPanel.Controls.OfType<CustomNumericTextBox>().ToList().ForEach(
+                percentageTextBox => percentageValues.Add(Convert.ToInt32(percentageTextBox.TextValue)));
+            }
 
             percentageValues.Reverse();
 
             return markRadioButton.Checked
                 ? new EstimationMethods("MARK", new EstimationParametres(
                     percentageValues[0], percentageValues[1], percentageValues[2], percentageValues[3]))
-                : new EstimationMethods("NON_MARK", new EstimationParametres(nonMarkPercentageTextBox.GetPercentageValue()));
+                : new EstimationMethods("NON_MARK", new EstimationParametres(Convert.ToInt32(nonMarkPercentageTextBox.TextValue)));
         }
 
-        private TimeLimitedTest GetTimeLimitRBValue(RadioButton isTimeLimited, CustomMinuteTextBox timeLimitTextBox)
+        private TimeLimitedTest GetTimeLimitRBValue(RadioButton isTimeLimited, CustomNumericTextBox timeLimitTextBox)
         {
             return isTimeLimited.Checked
-                ? new TimeLimitedTest(true, timeLimitTextBox.GetMinuteValue())
+                ? new TimeLimitedTest(true, Convert.ToInt32(timeLimitTextBox.TextValue))
                 : new TimeLimitedTest(false, 0);
         }
 
         private TestPassword GetPasswordRBValue(RadioButton isPasswordActive, CustomPasswordTextBox passwordTextBox)
         {
             return isPasswordActive.Checked 
-                ? new TestPassword(true, passwordTextBox.GetPasswordValue()) 
+                ? new TestPassword(true, passwordTextBox.TextValue) 
                 : new TestPassword(false, string.Empty);
         }
 

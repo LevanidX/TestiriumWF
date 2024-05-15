@@ -127,10 +127,10 @@
     <Compile Include="CustomControls\CustomControlsForRefactor\CustomMinuteTextBox.Designer.cs">
       <DependentUpon>CustomMinuteTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CustomControlsForRefactor\CustomPasswordTextBox.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomPasswordTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomControlsForRefactor\CustomPasswordTextBox.Designer.cs">
+    <Compile Include="CustomControls\CustomOverrideControls\CustomPasswordTextBox.Designer.cs">
       <DependentUpon>CustomPasswordTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\CustomControlsForRefactor\CustomPercentageTextBox.cs">
@@ -138,6 +138,12 @@
     </Compile>
     <Compile Include="CustomControls\CustomControlsForRefactor\CustomPercentageTextBox.Designer.cs">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\CustomOverrideControls\CustomNumericTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomOverrideControls\CustomNumericTextBox.Designer.cs">
+      <DependentUpon>CustomNumericTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\CustomOverrideControls\CustomTextBox.cs">
       <SubType>UserControl</SubType>
@@ -373,11 +379,14 @@
     <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomMinuteTextBox.resx">
       <DependentUpon>CustomMinuteTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomPasswordTextBox.resx">
+    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomPasswordTextBox.resx">
       <DependentUpon>CustomPasswordTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomPercentageTextBox.resx">
       <DependentUpon>CustomPercentageTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomNumericTextBox.resx">
+      <DependentUpon>CustomNumericTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomTextBox.resx">
       <DependentUpon>CustomTextBox.cs</DependentUpon>

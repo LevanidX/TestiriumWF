@@ -29,21 +29,24 @@
         private void InitializeComponent()
         {
             this.availableTestsPanel = new System.Windows.Forms.Panel();
-            this.btnSaveEdits = new System.Windows.Forms.Button();
             this.lblPatronymic = new System.Windows.Forms.Label();
             this.lblSurname = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.newPasswordTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.initialPasswordTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.userPictureBox = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblBirthDate = new System.Windows.Forms.Label();
+            this.newPasswordTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
+            this.initialPasswordTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
+            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.btnSaveEdits = new System.Windows.Forms.Button();
             this.availableTestsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -52,6 +55,8 @@
             // availableTestsPanel
             // 
             this.availableTestsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.availableTestsPanel.Controls.Add(this.lblBirthDate);
+            this.availableTestsPanel.Controls.Add(this.label8);
             this.availableTestsPanel.Controls.Add(this.btnSaveEdits);
             this.availableTestsPanel.Controls.Add(this.lblPatronymic);
             this.availableTestsPanel.Controls.Add(this.lblSurname);
@@ -68,73 +73,51 @@
             this.availableTestsPanel.Size = new System.Drawing.Size(968, 496);
             this.availableTestsPanel.TabIndex = 12;
             // 
-            // btnSaveEdits
-            // 
-            this.btnSaveEdits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
-            this.btnSaveEdits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSaveEdits.FlatAppearance.BorderSize = 0;
-            this.btnSaveEdits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveEdits.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSaveEdits.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSaveEdits.Location = new System.Drawing.Point(16, 432);
-            this.btnSaveEdits.Name = "btnSaveEdits";
-            this.btnSaveEdits.Size = new System.Drawing.Size(936, 48);
-            this.btnSaveEdits.TabIndex = 22;
-            this.btnSaveEdits.Text = "Сохранить изменения";
-            this.btnSaveEdits.UseVisualStyleBackColor = false;
-            this.btnSaveEdits.Click += new System.EventHandler(this.btnSaveEdits_Click);
-            // 
             // lblPatronymic
             // 
             this.lblPatronymic.AutoSize = true;
-            this.lblPatronymic.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPatronymic.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblPatronymic.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPatronymic.Location = new System.Drawing.Point(280, 104);
+            this.lblPatronymic.Location = new System.Drawing.Point(400, 136);
             this.lblPatronymic.Name = "lblPatronymic";
-            this.lblPatronymic.Size = new System.Drawing.Size(71, 19);
+            this.lblPatronymic.Size = new System.Drawing.Size(118, 33);
             this.lblPatronymic.TabIndex = 21;
             this.lblPatronymic.Text = "Иванович";
             // 
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
-            this.lblSurname.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSurname.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblSurname.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSurname.Location = new System.Drawing.Point(280, 72);
+            this.lblSurname.Location = new System.Drawing.Point(400, 88);
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(55, 19);
+            this.lblSurname.Size = new System.Drawing.Size(92, 33);
             this.lblSurname.TabIndex = 20;
             this.lblSurname.Text = "Иванов";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblName.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblName.Location = new System.Drawing.Point(280, 40);
+            this.lblName.Location = new System.Drawing.Point(400, 40);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(41, 19);
+            this.lblName.Size = new System.Drawing.Size(68, 33);
             this.lblName.TabIndex = 19;
             this.lblName.Text = "Иван";
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.btnChangePassword);
             this.panel1.Controls.Add(this.newPasswordTextBox);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.initialPasswordTextBox);
             this.panel1.Location = new System.Drawing.Point(16, 256);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 120);
+            this.panel1.Size = new System.Drawing.Size(400, 160);
             this.panel1.TabIndex = 18;
-            // 
-            // newPasswordTextBox
-            // 
-            this.newPasswordTextBox.Location = new System.Drawing.Point(8, 88);
-            this.newPasswordTextBox.Name = "newPasswordTextBox";
-            this.newPasswordTextBox.Size = new System.Drawing.Size(384, 24);
-            this.newPasswordTextBox.TabIndex = 10;
-            this.newPasswordTextBox.TextValue = "";
             // 
             // label7
             // 
@@ -158,44 +141,36 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Текущий пароль";
             // 
-            // initialPasswordTextBox
-            // 
-            this.initialPasswordTextBox.Location = new System.Drawing.Point(8, 32);
-            this.initialPasswordTextBox.Name = "initialPasswordTextBox";
-            this.initialPasswordTextBox.Size = new System.Drawing.Size(384, 24);
-            this.initialPasswordTextBox.TabIndex = 3;
-            this.initialPasswordTextBox.TextValue = "";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(208, 104);
+            this.label5.Location = new System.Drawing.Point(208, 136);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 19);
+            this.label5.Size = new System.Drawing.Size(123, 33);
             this.label5.TabIndex = 17;
             this.label5.Text = "Отчество: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(208, 72);
+            this.label4.Location = new System.Drawing.Point(208, 88);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
+            this.label4.Size = new System.Drawing.Size(117, 33);
             this.label4.TabIndex = 16;
             this.label4.Text = "Фамилия:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(208, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 19);
+            this.label3.Size = new System.Drawing.Size(68, 33);
             this.label3.TabIndex = 15;
             this.label3.Text = "Имя: ";
             // 
@@ -232,6 +207,75 @@
             this.userPictureBox.TabIndex = 12;
             this.userPictureBox.TabStop = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(208, 184);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(187, 33);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Дата рождения:";
+            // 
+            // lblBirthDate
+            // 
+            this.lblBirthDate.AutoSize = true;
+            this.lblBirthDate.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblBirthDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblBirthDate.Location = new System.Drawing.Point(400, 184);
+            this.lblBirthDate.Name = "lblBirthDate";
+            this.lblBirthDate.Size = new System.Drawing.Size(120, 33);
+            this.lblBirthDate.TabIndex = 24;
+            this.lblBirthDate.Text = "00.00.0000";
+            // 
+            // newPasswordTextBox
+            // 
+            this.newPasswordTextBox.Location = new System.Drawing.Point(8, 88);
+            this.newPasswordTextBox.Name = "newPasswordTextBox";
+            this.newPasswordTextBox.Size = new System.Drawing.Size(384, 24);
+            this.newPasswordTextBox.TabIndex = 10;
+            this.newPasswordTextBox.TextValue = "";
+            // 
+            // initialPasswordTextBox
+            // 
+            this.initialPasswordTextBox.Location = new System.Drawing.Point(8, 32);
+            this.initialPasswordTextBox.Name = "initialPasswordTextBox";
+            this.initialPasswordTextBox.Size = new System.Drawing.Size(384, 24);
+            this.initialPasswordTextBox.TabIndex = 3;
+            this.initialPasswordTextBox.TextValue = "";
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            this.btnChangePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnChangePassword.FlatAppearance.BorderSize = 0;
+            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePassword.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangePassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChangePassword.Location = new System.Drawing.Point(8, 120);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(384, 32);
+            this.btnChangePassword.TabIndex = 25;
+            this.btnChangePassword.Text = "Сменить пароль";
+            this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
+            // btnSaveEdits
+            // 
+            this.btnSaveEdits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
+            this.btnSaveEdits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSaveEdits.FlatAppearance.BorderSize = 0;
+            this.btnSaveEdits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveEdits.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveEdits.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSaveEdits.Location = new System.Drawing.Point(16, 432);
+            this.btnSaveEdits.Name = "btnSaveEdits";
+            this.btnSaveEdits.Size = new System.Drawing.Size(936, 48);
+            this.btnSaveEdits.TabIndex = 22;
+            this.btnSaveEdits.Text = "Сохранить изменения";
+            this.btnSaveEdits.UseVisualStyleBackColor = false;
+            // 
             // EditUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +284,7 @@
             this.Controls.Add(this.availableTestsPanel);
             this.Name = "EditUserProfile";
             this.Size = new System.Drawing.Size(1000, 528);
+            this.Load += new System.EventHandler(this.EditUserProfile_Load);
             this.availableTestsPanel.ResumeLayout(false);
             this.availableTestsPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -251,7 +296,6 @@
 
         #endregion
         private System.Windows.Forms.Panel availableTestsPanel;
-        private System.Windows.Forms.Button btnSaveEdits;
         private System.Windows.Forms.Label lblPatronymic;
         private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.Label lblName;
@@ -266,5 +310,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox userPictureBox;
+        private System.Windows.Forms.Label lblBirthDate;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnChangePassword;
+        private System.Windows.Forms.Button btnSaveEdits;
     }
 }

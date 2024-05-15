@@ -12,10 +12,12 @@ namespace TestiriumWF
 {
     internal class UserConfig
     {
-        public static int UserId = 0;
-        public static string Username = "user";
-        public static bool IsTeacher = false;
+        private const int USER_DATA_SIZE = 4;
+
+        public static int UserId;
+        public static bool IsTeacher;
         public static TestiriumMainMenu MainMenu;
         public static LoginForm LoginForm;
+        public static object[] UserData = new object[USER_DATA_SIZE];
     }
 }

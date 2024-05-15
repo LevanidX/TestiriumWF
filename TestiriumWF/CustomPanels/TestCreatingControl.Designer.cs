@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDeleteQuestion = new System.Windows.Forms.Button();
             this.btnEndCreation = new System.Windows.Forms.Button();
+            this.btnDeleteQuestion = new System.Windows.Forms.Button();
             this.buttonsContainerPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnWelcomeScreen = new System.Windows.Forms.Button();
             this.btnCreateQuestion = new System.Windows.Forms.Button();
@@ -53,6 +53,22 @@
             this.panel1.Size = new System.Drawing.Size(184, 528);
             this.panel1.TabIndex = 3;
             // 
+            // btnEndCreation
+            // 
+            this.btnEndCreation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnEndCreation.FlatAppearance.BorderSize = 0;
+            this.btnEndCreation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndCreation.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEndCreation.ForeColor = System.Drawing.Color.White;
+            this.btnEndCreation.Location = new System.Drawing.Point(8, 480);
+            this.btnEndCreation.Name = "btnEndCreation";
+            this.btnEndCreation.Size = new System.Drawing.Size(168, 40);
+            this.btnEndCreation.TabIndex = 3;
+            this.btnEndCreation.Tag = "0";
+            this.btnEndCreation.Text = "Завершить создание";
+            this.btnEndCreation.UseVisualStyleBackColor = false;
+            this.btnEndCreation.Click += new System.EventHandler(this.btnEndCreation_Click);
+            // 
             // btnDeleteQuestion
             // 
             this.btnDeleteQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -67,21 +83,6 @@
             this.btnDeleteQuestion.Text = "Удалить вопрос";
             this.btnDeleteQuestion.UseVisualStyleBackColor = false;
             this.btnDeleteQuestion.Click += new System.EventHandler(this.btnDeleteQuestion_Click);
-            // 
-            // btnEndCreation
-            // 
-            this.btnEndCreation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.btnEndCreation.FlatAppearance.BorderSize = 0;
-            this.btnEndCreation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEndCreation.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnEndCreation.ForeColor = System.Drawing.Color.White;
-            this.btnEndCreation.Location = new System.Drawing.Point(8, 480);
-            this.btnEndCreation.Name = "btnEndCreation";
-            this.btnEndCreation.Size = new System.Drawing.Size(168, 40);
-            this.btnEndCreation.TabIndex = 3;
-            this.btnEndCreation.Text = "Завершить создание";
-            this.btnEndCreation.UseVisualStyleBackColor = false;
-            this.btnEndCreation.Click += new System.EventHandler(this.btnEndCreation_Click);
             // 
             // buttonsContainerPanel
             // 

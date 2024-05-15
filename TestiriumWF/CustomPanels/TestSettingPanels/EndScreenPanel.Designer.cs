@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.EndPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnEndTestCreation = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,27 +52,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.noTimeLimitedRadioButton = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.passwordRadioButton = new System.Windows.Forms.RadioButton();
             this.noPasswordRadioButton = new System.Windows.Forms.RadioButton();
             this.lblWelcomeScreenTitle = new System.Windows.Forms.Label();
-            this.lblWarnMark = new System.Windows.Forms.Label();
-            this.lblWarnNonMark = new System.Windows.Forms.Label();
-            this.lblWarnTime = new System.Windows.Forms.Label();
-            this.lblWarnPassword = new System.Windows.Forms.Label();
             this.allowedTriesComboBox = new TestiriumWF.CustomControls.CustomComboBox();
-            this.nonMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomPercentageTextBox();
-            this.excellentMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomPercentageTextBox();
-            this.normalMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomPercentageTextBox();
-            this.satisfactoryMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomPercentageTextBox();
-            this.badMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomPercentageTextBox();
-            this.minuteTextBox = new TestiriumWF.CustomControls.CustomMinuteTextBox();
+            this.nonMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomNumericTextBox();
+            this.excellentMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomNumericTextBox();
+            this.normalMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomNumericTextBox();
+            this.satisfactoryMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomNumericTextBox();
+            this.badMarkPercentageTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomNumericTextBox();
+            this.minuteTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomNumericTextBox();
             this.passwordTextBox = new TestiriumWF.CustomControls.CustomPasswordTextBox();
-            this.lblWarnAvailableTries = new System.Windows.Forms.Label();
             this.EndPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.markPanel.SuspendLayout();
@@ -93,10 +88,46 @@
             this.EndPanel.Size = new System.Drawing.Size(784, 496);
             this.EndPanel.TabIndex = 6;
             // 
+            // btnEndTestCreation
+            // 
+            this.btnEndTestCreation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
+            this.btnEndTestCreation.FlatAppearance.BorderSize = 0;
+            this.btnEndTestCreation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndTestCreation.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEndTestCreation.ForeColor = System.Drawing.Color.White;
+            this.btnEndTestCreation.Location = new System.Drawing.Point(32, 424);
+            this.btnEndTestCreation.Name = "btnEndTestCreation";
+            this.btnEndTestCreation.Size = new System.Drawing.Size(720, 40);
+            this.btnEndTestCreation.TabIndex = 14;
+            this.btnEndTestCreation.Text = "Завершить создание тестирования";
+            this.btnEndTestCreation.UseVisualStyleBackColor = false;
+            this.btnEndTestCreation.Click += new System.EventHandler(this.btnEndTestCreation_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.Location = new System.Drawing.Point(32, 80);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(215, 16);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Выберите настройки тестирования";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel3);
+            this.panel4.Controls.Add(this.panel8);
+            this.panel4.Controls.Add(this.panel7);
+            this.panel4.Controls.Add(this.panel1);
+            this.panel4.Location = new System.Drawing.Point(32, 96);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(720, 312);
+            this.panel4.TabIndex = 12;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.panel3.Controls.Add(this.lblWarnAvailableTries);
             this.panel3.Controls.Add(this.allowedTriesComboBox);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Location = new System.Drawing.Point(296, 240);
@@ -115,48 +146,9 @@
             this.label11.TabIndex = 15;
             this.label11.Text = "Количество разрешенных попыток";
             // 
-            // btnEndTestCreation
-            // 
-            this.btnEndTestCreation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
-            this.btnEndTestCreation.FlatAppearance.BorderSize = 0;
-            this.btnEndTestCreation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEndTestCreation.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnEndTestCreation.ForeColor = System.Drawing.Color.White;
-            this.btnEndTestCreation.Location = new System.Drawing.Point(32, 416);
-            this.btnEndTestCreation.Name = "btnEndTestCreation";
-            this.btnEndTestCreation.Size = new System.Drawing.Size(720, 40);
-            this.btnEndTestCreation.TabIndex = 14;
-            this.btnEndTestCreation.Text = "Завершить создание тестирования";
-            this.btnEndTestCreation.UseVisualStyleBackColor = false;
-            this.btnEndTestCreation.Click += new System.EventHandler(this.btnEndTestCreation_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(32, 80);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(155, 16);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Настройки тестирования";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Controls.Add(this.panel8);
-            this.panel4.Controls.Add(this.panel7);
-            this.panel4.Controls.Add(this.panel1);
-            this.panel4.Location = new System.Drawing.Point(32, 96);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(720, 312);
-            this.panel4.TabIndex = 12;
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.panel8.Controls.Add(this.lblWarnNonMark);
-            this.panel8.Controls.Add(this.lblWarnMark);
             this.panel8.Controls.Add(this.panel2);
             this.panel8.Controls.Add(this.nonMarkRadioButton);
             this.panel8.Controls.Add(this.lblTestTitle);
@@ -169,8 +161,9 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.panel2.Controls.Add(this.nonMarkPercentageTextBox);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(8, 56);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(272, 40);
@@ -226,14 +219,15 @@
             // 
             // markPanel
             // 
-            this.markPanel.Controls.Add(this.label5);
+            this.markPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.markPanel.Controls.Add(this.excellentMarkPercentageTextBox);
-            this.markPanel.Controls.Add(this.label4);
             this.markPanel.Controls.Add(this.normalMarkPercentageTextBox);
-            this.markPanel.Controls.Add(this.label3);
             this.markPanel.Controls.Add(this.satisfactoryMarkPercentageTextBox);
-            this.markPanel.Controls.Add(this.label2);
             this.markPanel.Controls.Add(this.badMarkPercentageTextBox);
+            this.markPanel.Controls.Add(this.label5);
+            this.markPanel.Controls.Add(this.label4);
+            this.markPanel.Controls.Add(this.label3);
+            this.markPanel.Controls.Add(this.label2);
             this.markPanel.Location = new System.Drawing.Point(8, 160);
             this.markPanel.Name = "markPanel";
             this.markPanel.Size = new System.Drawing.Size(272, 136);
@@ -286,7 +280,6 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.panel7.Controls.Add(this.lblWarnTime);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.timeLimitedRadioButton);
             this.panel7.Controls.Add(this.panel5);
@@ -321,6 +314,7 @@
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.panel5.Controls.Add(this.minuteTextBox);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Location = new System.Drawing.Point(8, 80);
@@ -357,7 +351,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.panel1.Controls.Add(this.passwordTextBox);
-            this.panel1.Controls.Add(this.lblWarnPassword);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.passwordRadioButton);
@@ -366,17 +359,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(424, 96);
             this.panel1.TabIndex = 18;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(8, 8);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 16);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Вход по паролю";
             // 
             // label10
             // 
@@ -388,6 +370,17 @@
             this.label10.Size = new System.Drawing.Size(103, 16);
             this.label10.TabIndex = 11;
             this.label10.Text = "Введите пароль";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(8, 8);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(102, 16);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Вход по паролю";
             // 
             // passwordRadioButton
             // 
@@ -422,53 +415,9 @@
             this.lblWelcomeScreenTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblWelcomeScreenTitle.Location = new System.Drawing.Point(32, 40);
             this.lblWelcomeScreenTitle.Name = "lblWelcomeScreenTitle";
-            this.lblWelcomeScreenTitle.Size = new System.Drawing.Size(195, 25);
+            this.lblWelcomeScreenTitle.Size = new System.Drawing.Size(220, 25);
             this.lblWelcomeScreenTitle.TabIndex = 0;
-            this.lblWelcomeScreenTitle.Text = "Экран с результатами";
-            // 
-            // lblWarnMark
-            // 
-            this.lblWarnMark.AutoSize = true;
-            this.lblWarnMark.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWarnMark.ForeColor = System.Drawing.Color.Red;
-            this.lblWarnMark.Location = new System.Drawing.Point(176, 144);
-            this.lblWarnMark.Name = "lblWarnMark";
-            this.lblWarnMark.Size = new System.Drawing.Size(102, 16);
-            this.lblWarnMark.TabIndex = 8;
-            this.lblWarnMark.Text = "Заполните поля";
-            // 
-            // lblWarnNonMark
-            // 
-            this.lblWarnNonMark.AutoSize = true;
-            this.lblWarnNonMark.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWarnNonMark.ForeColor = System.Drawing.Color.Red;
-            this.lblWarnNonMark.Location = new System.Drawing.Point(176, 40);
-            this.lblWarnNonMark.Name = "lblWarnNonMark";
-            this.lblWarnNonMark.Size = new System.Drawing.Size(102, 16);
-            this.lblWarnNonMark.TabIndex = 11;
-            this.lblWarnNonMark.Text = "Заполните поле";
-            // 
-            // lblWarnTime
-            // 
-            this.lblWarnTime.AutoSize = true;
-            this.lblWarnTime.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWarnTime.ForeColor = System.Drawing.Color.Red;
-            this.lblWarnTime.Location = new System.Drawing.Point(312, 64);
-            this.lblWarnTime.Name = "lblWarnTime";
-            this.lblWarnTime.Size = new System.Drawing.Size(102, 16);
-            this.lblWarnTime.TabIndex = 12;
-            this.lblWarnTime.Text = "Заполните поле";
-            // 
-            // lblWarnPassword
-            // 
-            this.lblWarnPassword.AutoSize = true;
-            this.lblWarnPassword.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWarnPassword.ForeColor = System.Drawing.Color.Red;
-            this.lblWarnPassword.Location = new System.Drawing.Point(312, 40);
-            this.lblWarnPassword.Name = "lblWarnPassword";
-            this.lblWarnPassword.Size = new System.Drawing.Size(102, 16);
-            this.lblWarnPassword.TabIndex = 15;
-            this.lblWarnPassword.Text = "Заполните поле";
+            this.lblWelcomeScreenTitle.Text = "Настройки тестирования";
             // 
             // allowedTriesComboBox
             // 
@@ -499,43 +448,49 @@
             // 
             this.nonMarkPercentageTextBox.Location = new System.Drawing.Point(208, 8);
             this.nonMarkPercentageTextBox.Name = "nonMarkPercentageTextBox";
-            this.nonMarkPercentageTextBox.Size = new System.Drawing.Size(56, 23);
-            this.nonMarkPercentageTextBox.TabIndex = 0;
+            this.nonMarkPercentageTextBox.Size = new System.Drawing.Size(56, 24);
+            this.nonMarkPercentageTextBox.TabIndex = 2;
+            this.nonMarkPercentageTextBox.TextValue = "";
             // 
             // excellentMarkPercentageTextBox
             // 
             this.excellentMarkPercentageTextBox.Location = new System.Drawing.Point(216, 104);
             this.excellentMarkPercentageTextBox.Name = "excellentMarkPercentageTextBox";
-            this.excellentMarkPercentageTextBox.Size = new System.Drawing.Size(48, 23);
-            this.excellentMarkPercentageTextBox.TabIndex = 6;
+            this.excellentMarkPercentageTextBox.Size = new System.Drawing.Size(48, 24);
+            this.excellentMarkPercentageTextBox.TabIndex = 10;
+            this.excellentMarkPercentageTextBox.TextValue = "";
             // 
             // normalMarkPercentageTextBox
             // 
             this.normalMarkPercentageTextBox.Location = new System.Drawing.Point(216, 72);
             this.normalMarkPercentageTextBox.Name = "normalMarkPercentageTextBox";
-            this.normalMarkPercentageTextBox.Size = new System.Drawing.Size(48, 23);
-            this.normalMarkPercentageTextBox.TabIndex = 4;
+            this.normalMarkPercentageTextBox.Size = new System.Drawing.Size(48, 24);
+            this.normalMarkPercentageTextBox.TabIndex = 9;
+            this.normalMarkPercentageTextBox.TextValue = "";
             // 
             // satisfactoryMarkPercentageTextBox
             // 
             this.satisfactoryMarkPercentageTextBox.Location = new System.Drawing.Point(216, 40);
             this.satisfactoryMarkPercentageTextBox.Name = "satisfactoryMarkPercentageTextBox";
-            this.satisfactoryMarkPercentageTextBox.Size = new System.Drawing.Size(48, 23);
-            this.satisfactoryMarkPercentageTextBox.TabIndex = 2;
+            this.satisfactoryMarkPercentageTextBox.Size = new System.Drawing.Size(48, 24);
+            this.satisfactoryMarkPercentageTextBox.TabIndex = 8;
+            this.satisfactoryMarkPercentageTextBox.TextValue = "";
             // 
             // badMarkPercentageTextBox
             // 
             this.badMarkPercentageTextBox.Location = new System.Drawing.Point(216, 8);
             this.badMarkPercentageTextBox.Name = "badMarkPercentageTextBox";
-            this.badMarkPercentageTextBox.Size = new System.Drawing.Size(48, 23);
-            this.badMarkPercentageTextBox.TabIndex = 0;
+            this.badMarkPercentageTextBox.Size = new System.Drawing.Size(48, 24);
+            this.badMarkPercentageTextBox.TabIndex = 3;
+            this.badMarkPercentageTextBox.TextValue = "";
             // 
             // minuteTextBox
             // 
             this.minuteTextBox.Location = new System.Drawing.Point(264, 8);
             this.minuteTextBox.Name = "minuteTextBox";
-            this.minuteTextBox.Size = new System.Drawing.Size(56, 24);
-            this.minuteTextBox.TabIndex = 12;
+            this.minuteTextBox.Size = new System.Drawing.Size(72, 24);
+            this.minuteTextBox.TabIndex = 3;
+            this.minuteTextBox.TextValue = "";
             // 
             // passwordTextBox
             // 
@@ -543,17 +498,6 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(408, 23);
             this.passwordTextBox.TabIndex = 18;
-            // 
-            // lblWarnAvailableTries
-            // 
-            this.lblWarnAvailableTries.AutoSize = true;
-            this.lblWarnAvailableTries.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWarnAvailableTries.ForeColor = System.Drawing.Color.Red;
-            this.lblWarnAvailableTries.Location = new System.Drawing.Point(312, 16);
-            this.lblWarnAvailableTries.Name = "lblWarnAvailableTries";
-            this.lblWarnAvailableTries.Size = new System.Drawing.Size(102, 16);
-            this.lblWarnAvailableTries.TabIndex = 19;
-            this.lblWarnAvailableTries.Text = "Заполните поле";
             // 
             // EndScreenPanel
             // 
@@ -564,9 +508,9 @@
             this.Size = new System.Drawing.Size(784, 496);
             this.EndPanel.ResumeLayout(false);
             this.EndPanel.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -591,18 +535,13 @@
         private System.Windows.Forms.RadioButton markRadioButton;
         private System.Windows.Forms.RadioButton nonMarkRadioButton;
         private System.Windows.Forms.Panel panel2;
-        private CustomControls.CustomPercentageTextBox nonMarkPercentageTextBox;
         private System.Windows.Forms.Panel markPanel;
         private System.Windows.Forms.Label label2;
-        private CustomControls.CustomPercentageTextBox badMarkPercentageTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private CustomControls.CustomPercentageTextBox excellentMarkPercentageTextBox;
         private System.Windows.Forms.Label label4;
-        private CustomControls.CustomPercentageTextBox normalMarkPercentageTextBox;
         private System.Windows.Forms.Label label3;
-        private CustomControls.CustomPercentageTextBox satisfactoryMarkPercentageTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.RadioButton noTimeLimitedRadioButton;
@@ -612,20 +551,20 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton passwordRadioButton;
         private System.Windows.Forms.Panel panel5;
-        private CustomControls.CustomPasswordTextBox passwordTextBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
-        private CustomControls.CustomMinuteTextBox minuteTextBox;
         private System.Windows.Forms.Button btnEndTestCreation;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label11;
         private CustomControls.CustomComboBox allowedTriesComboBox;
-        private System.Windows.Forms.Label lblWarnNonMark;
-        private System.Windows.Forms.Label lblWarnMark;
-        private System.Windows.Forms.Label lblWarnTime;
-        private System.Windows.Forms.Label lblWarnPassword;
-        private System.Windows.Forms.Label lblWarnAvailableTries;
+        private CustomControls.CustomOverrideControls.CustomNumericTextBox nonMarkPercentageTextBox;
+        private CustomControls.CustomOverrideControls.CustomNumericTextBox badMarkPercentageTextBox;
+        private CustomControls.CustomOverrideControls.CustomNumericTextBox excellentMarkPercentageTextBox;
+        private CustomControls.CustomOverrideControls.CustomNumericTextBox normalMarkPercentageTextBox;
+        private CustomControls.CustomOverrideControls.CustomNumericTextBox satisfactoryMarkPercentageTextBox;
+        private CustomControls.CustomOverrideControls.CustomNumericTextBox minuteTextBox;
+        private CustomControls.CustomPasswordTextBox passwordTextBox;
     }
 }

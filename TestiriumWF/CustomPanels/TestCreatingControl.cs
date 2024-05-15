@@ -6,6 +6,7 @@ namespace TestiriumWF.CustomPanels
 {
     public partial class TestCreatingControl : UserControl
     {
+        private EndScreenPanel _endScreenPanel;
         private string _currentCourse;
 
         public TestCreatingControl(string currentCourse)
@@ -14,17 +15,9 @@ namespace TestiriumWF.CustomPanels
             _currentCourse = currentCourse;
         }
 
-        private void btnCreateQuestion_Click(object sender, EventArgs e)
-        {
-            var chooseQuestionType = new ChooseQuestionType(questionsContainerPanel, buttonsContainerPanel);
+        private void btnCreateQuestion_Click(object sender, EventArgs e) => new ChooseQuestionType(questionsContainerPanel, buttonsContainerPanel).Show();
 
-            chooseQuestionType.Show();
-        }
-
-        private void btnWelcomeScreen_Click(object sender, EventArgs e)
-        {
-            welcomeScreenPanel.BringToFront();
-        }
+        private void btnWelcomeScreen_Click(object sender, EventArgs e) => welcomeScreenPanel.BringToFront();
 
         private void btnDeleteQuestion_Click(object sender, EventArgs e)
         {
@@ -34,13 +27,38 @@ namespace TestiriumWF.CustomPanels
 
         private void btnEndCreation_Click(object sender, EventArgs e)
         {
-            EndScreenPanel endScreenPanel = new EndScreenPanel(questionsContainerPanel, welcomeScreenPanel, _currentCourse);
-            questionsContainerPanel.Controls.Add(endScreenPanel);
-            endScreenPanel.Location = new Point(16, 16);
-            endScreenPanel.BringToFront();
-            btnCreateQuestion.Enabled = false;
-            btnDeleteQuestion.Enabled = false;
-            buttonsContainerPanel.Enabled = false;
+            if (btnEndCreation.Tag.ToString() == "0")
+            {
+                ShowEndScreenPanel(true);
+                btnEndCreation.Text = "Продолжить создание";
+                btnEndCreation.Tag = "1";
+            }
+            else
+            {
+                ShowEndScreenPanel(false);
+                btnEndCreation.Text = "Завершить создание";
+                btnEndCreation.Tag = "0";
+            }
+        }
+
+        private void ShowEndScreenPanel(bool isShow)
+        {
+            if (isShow)
+            {
+                _endScreenPanel = new EndScreenPanel(questionsContainerPanel, welcomeScreenPanel, _currentCourse);
+                questionsContainerPanel.Controls.Add(_endScreenPanel);
+
+                _endScreenPanel.Location = new Point(16, 16);
+                _endScreenPanel.BringToFront();
+            }
+            else
+            {
+                questionsContainerPanel.Controls.Remove(_endScreenPanel);
+            }
+
+            btnCreateQuestion.Enabled = !isShow;
+            btnDeleteQuestion.Enabled = !isShow;
+            buttonsContainerPanel.Enabled = !isShow;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Drawing;
 using TestiriumWF.CustomPanels;
 using TestiriumWF.CustomControls.MainMenuControls;
 
@@ -10,10 +9,7 @@ namespace TestiriumWF.ProgrammWindows
     {
         TestsControl testsControl = new TestsControl();
 
-        public TestiriumMainMenu()
-        {
-            InitializeComponent();
-        }
+        public TestiriumMainMenu() => InitializeComponent();
 
         private void btnTests_Click(object sender, EventArgs e)
         {
@@ -21,15 +17,10 @@ namespace TestiriumWF.ProgrammWindows
             testsControl.BringToFront();
         }
 
-        private void btnExitProgramm_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void TestiriumMainMenu_Load(object sender, EventArgs e)
         {
             UserConfig.MainMenu = this;
-            userBoxPanel.SetValues();
+            userBoxPanel.Instantiate();
             userBoxPanel.SetClickAction(UserBoxPanelClick);
         }
 
@@ -39,15 +30,9 @@ namespace TestiriumWF.ProgrammWindows
             popUserPanel.BringToFront();
         }
 
-        private void containerPanel_Click(object sender, EventArgs e)
-        {
-            popUserPanel.Visible = false;
-        }
+        private void containerPanel_Click(object sender, EventArgs e) => popUserPanel.Visible = false;
 
-        private void topPanel_Click(object sender, EventArgs e)
-        {
-            popUserPanel.Visible = false;
-        }
+        private void topPanel_Click(object sender, EventArgs e) => popUserPanel.Visible = false;
 
         private void containerPanel_ControlAdded(object sender, ControlEventArgs e)
         {

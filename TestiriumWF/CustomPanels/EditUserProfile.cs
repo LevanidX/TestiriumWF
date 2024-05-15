@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TestiriumWF.SqlFunctions;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace TestiriumWF.CustomPanels
 {
@@ -9,21 +10,17 @@ namespace TestiriumWF.CustomPanels
     {
         MySqlFunctions _mySqlFunctions = new MySqlFunctions();
 
-        public EditUserProfile()
-        {
-            InitializeComponent();
-        }
+        public EditUserProfile() => InitializeComponent();
 
         private void btnSaveEdits_Click(object sender, EventArgs e)
         {
-            if (UserConfig.IsTeacher)
-            {
-                CheckAndChangePassword("check_user_teacher_password", "change_user_teacher_password");
-            }
-            else
-            {
-                CheckAndChangePassword("check_user_student_password", "change_user_student_password");
-            }
+            
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            CheckAndChangePassword(UserConfig.IsTeacher ? "check_user_teacher_password" : "check_user_student_password",
+                UserConfig.IsTeacher ? "change_user_teacher_password" : "change_user_student_password");
         }
 
         private void CheckAndChangePassword(string checkProcedureName, string changeProcedureName)
@@ -46,6 +43,16 @@ namespace TestiriumWF.CustomPanels
             {
                 MessageBox.Show("Изначальный пароль неверный!");
             }
+        }
+
+        private void EditUserProfile_Load(object sender, EventArgs e)
+        {
+            lblName.Text = UserConfig.UserData[0].ToString();
+            lblSurname.Text = UserConfig.UserData[1].ToString();
+            lblPatronymic.Text = UserConfig.UserData[2].ToString();
+
+            lblBirthDate.Text = UserConfig.UserData[3].ToString(); //формат даты не тот, сейчас (мм.дд.гггг), а надо (дд.мм.гггг)
+            lblBirthDate.Text = lblBirthDate.Text.Substring(0, 10);
         }
     }
 }
