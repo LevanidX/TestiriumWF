@@ -7,14 +7,15 @@ namespace TestiriumWF.ProgrammWindows
 {
     public partial class TestiriumMainMenu : Form
     {
-        TestsControl testsControl = new TestsControl();
+        private TestsControl _testsControl = new TestsControl();
+        private UsersControl _usersControl = new UsersControl();
 
         public TestiriumMainMenu() => InitializeComponent();
 
         private void btnTests_Click(object sender, EventArgs e)
         {
-            containerPanel.Controls.Add(testsControl);
-            testsControl.BringToFront();
+            containerPanel.Controls.Add(_testsControl);
+            _testsControl.BringToFront();
         }
 
         private void TestiriumMainMenu_Load(object sender, EventArgs e)
@@ -38,6 +39,12 @@ namespace TestiriumWF.ProgrammWindows
         {
             var backControl = new BackControl(e.Control, this);
             backControl.InitializeBackControlFromMainMenu();
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            containerPanel.Controls.Add(_usersControl);
+            _usersControl.BringToFront();
         }
     }
 }

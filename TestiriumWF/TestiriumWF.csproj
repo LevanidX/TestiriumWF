@@ -277,8 +277,20 @@
     <Compile Include="CustomPanels\PopUserPanel.Designer.cs">
       <DependentUpon>PopUserPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomPanels\UsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\UsersControl.Designer.cs">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProgrammFunctions\FormsMessages.cs" />
     <Compile Include="ProgrammFunctions\TestTypes.cs" />
+    <Compile Include="ProgrammWindows\UserEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgrammWindows\UserEditor.Designer.cs">
+      <DependentUpon>UserEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlFunctions\MySqlFunctions.cs" />
     <Compile Include="SqlFunctions\MySqlWriter.cs" />
     <Compile Include="ProgrammWindows\ChooseQuestionType.cs">
@@ -364,6 +376,7 @@
     <Compile Include="TestCompletingFunctions\TestQuestionsCreator.cs" />
     <Compile Include="ProgrammFunctions\UserConfig.cs" />
     <Compile Include="TestCreatingFunctions\TestSerializer.cs" />
+    <Compile Include="TestEditorFunctions\TestEditorStarter.cs" />
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomComboBox.resx">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +467,9 @@
     <EmbeddedResource Include="CustomPanels\UserBoxPanel.resx">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\UsersControl.resx">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\ChooseQuestionType.resx">
       <DependentUpon>ChooseQuestionType.cs</DependentUpon>
     </EmbeddedResource>
@@ -483,6 +499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\TestiriumMainMenu.resx">
       <DependentUpon>TestiriumMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgrammWindows\UserEditor.resx">
+      <DependentUpon>UserEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

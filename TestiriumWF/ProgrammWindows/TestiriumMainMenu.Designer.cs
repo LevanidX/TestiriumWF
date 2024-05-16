@@ -115,6 +115,7 @@
             this.btnUsers.TabIndex = 3;
             this.promptsToolTip.SetToolTip(this.btnUsers, "Пользователи");
             this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnTests
             // 
