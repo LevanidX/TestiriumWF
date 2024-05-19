@@ -28,17 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.allCoursesPanel = new System.Windows.Forms.Panel();
             this.btnAddCourse = new System.Windows.Forms.Button();
             this.coursesFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTests = new System.Windows.Forms.Label();
             this.availableTestsPanel = new System.Windows.Forms.Panel();
+            this.testsDataGridView = new TestiriumWF.CustomControls.CustomDataGridView();
             this.btnCreateTest = new System.Windows.Forms.Button();
             this.lblCurrentCourse = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.teachersDataGridMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.completeTestAsStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.endOrOpenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createReviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allCoursesPanel.SuspendLayout();
             this.availableTestsPanel.SuspendLayout();
+            this.teachersDataGridMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // allCoursesPanel
@@ -54,7 +63,7 @@
             // 
             // btnAddCourse
             // 
-            this.btnAddCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.btnAddCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnAddCourse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAddCourse.FlatAppearance.BorderSize = 0;
             this.btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -90,6 +99,7 @@
             // availableTestsPanel
             // 
             this.availableTestsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.availableTestsPanel.Controls.Add(this.testsDataGridView);
             this.availableTestsPanel.Controls.Add(this.btnCreateTest);
             this.availableTestsPanel.Controls.Add(this.lblCurrentCourse);
             this.availableTestsPanel.Controls.Add(this.label2);
@@ -99,11 +109,19 @@
             this.availableTestsPanel.Size = new System.Drawing.Size(768, 496);
             this.availableTestsPanel.TabIndex = 7;
             // 
+            // testsDataGridView
+            // 
+            this.testsDataGridView.Location = new System.Drawing.Point(16, 88);
+            this.testsDataGridView.Name = "testsDataGridView";
+            this.testsDataGridView.Size = new System.Drawing.Size(736, 392);
+            this.testsDataGridView.TabIndex = 9;
+            // 
             // btnCreateTest
             // 
             this.btnCreateTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreateTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
             this.btnCreateTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCreateTest.Enabled = false;
             this.btnCreateTest.FlatAppearance.BorderSize = 0;
             this.btnCreateTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -149,6 +167,61 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Доступные тестирования";
             // 
+            // teachersDataGridMenuStrip
+            // 
+            this.teachersDataGridMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.teachersDataGridMenuStrip.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.teachersDataGridMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.completeTestAsStudentToolStripMenuItem,
+            this.endOrOpenTestToolStripMenuItem,
+            this.deleteTestToolStripMenuItem,
+            this.createReviewToolStripMenuItem,
+            this.printTestToolStripMenuItem});
+            this.teachersDataGridMenuStrip.Name = "availableTestsMenuStrip";
+            this.teachersDataGridMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.teachersDataGridMenuStrip.ShowImageMargin = false;
+            this.teachersDataGridMenuStrip.Size = new System.Drawing.Size(188, 114);
+            this.teachersDataGridMenuStrip.Text = "Настройки";
+            this.teachersDataGridMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.teachersDataGridMenuStrip_Opening);
+            // 
+            // completeTestAsStudentToolStripMenuItem
+            // 
+            this.completeTestAsStudentToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.completeTestAsStudentToolStripMenuItem.Name = "completeTestAsStudentToolStripMenuItem";
+            this.completeTestAsStudentToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.completeTestAsStudentToolStripMenuItem.Text = "Пройти как студент";
+            this.completeTestAsStudentToolStripMenuItem.Click += new System.EventHandler(this.completeTestAsStudentToolStripMenuItem_Click);
+            // 
+            // endOrOpenTestToolStripMenuItem
+            // 
+            this.endOrOpenTestToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.endOrOpenTestToolStripMenuItem.Name = "endOrOpenTestToolStripMenuItem";
+            this.endOrOpenTestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.endOrOpenTestToolStripMenuItem.Text = "Закрыть для прохождения";
+            this.endOrOpenTestToolStripMenuItem.Click += new System.EventHandler(this.endOrOpenTestToolStripMenuItem_Click);
+            // 
+            // deleteTestToolStripMenuItem
+            // 
+            this.deleteTestToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.deleteTestToolStripMenuItem.Name = "deleteTestToolStripMenuItem";
+            this.deleteTestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.deleteTestToolStripMenuItem.Text = "Удалить тестирование";
+            this.deleteTestToolStripMenuItem.Click += new System.EventHandler(this.deleteTestToolStripMenuItem_Click);
+            // 
+            // createReviewToolStripMenuItem
+            // 
+            this.createReviewToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.createReviewToolStripMenuItem.Name = "createReviewToolStripMenuItem";
+            this.createReviewToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.createReviewToolStripMenuItem.Text = "Сформировать отчет";
+            // 
+            // printTestToolStripMenuItem
+            // 
+            this.printTestToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.printTestToolStripMenuItem.Name = "printTestToolStripMenuItem";
+            this.printTestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.printTestToolStripMenuItem.Text = "Печать тестирования";
+            // 
             // TestsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +237,7 @@
             this.allCoursesPanel.PerformLayout();
             this.availableTestsPanel.ResumeLayout(false);
             this.availableTestsPanel.PerformLayout();
+            this.teachersDataGridMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -178,5 +252,12 @@
         private System.Windows.Forms.Button btnAddCourse;
         private System.Windows.Forms.FlowLayoutPanel coursesFlowLayoutPanel;
         private System.Windows.Forms.Label lblTests;
+        private System.Windows.Forms.ContextMenuStrip teachersDataGridMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem completeTestAsStudentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem endOrOpenTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteTestToolStripMenuItem;
+        private CustomControls.CustomDataGridView testsDataGridView;
+        private System.Windows.Forms.ToolStripMenuItem createReviewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printTestToolStripMenuItem;
     }
 }

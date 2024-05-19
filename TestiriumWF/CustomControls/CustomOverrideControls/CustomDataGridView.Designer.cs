@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.customDataGrid = new System.Windows.Forms.DataGridView();
-            this.teachersDataGridMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.completeTestAsStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.endOrOpenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid)).BeginInit();
-            this.teachersDataGridMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // customDataGrid
@@ -93,54 +86,6 @@
             this.customDataGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customDataGrid_CellMouseDown);
             this.customDataGrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.customDataGrid_CellMouseLeave);
             this.customDataGrid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customDataGrid_CellMouseMove);
-            this.customDataGrid.LocationChanged += new System.EventHandler(this.customDataGrid_LocationChanged);
-            // 
-            // teachersDataGridMenuStrip
-            // 
-            this.teachersDataGridMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.teachersDataGridMenuStrip.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.teachersDataGridMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editTestToolStripMenuItem,
-            this.completeTestAsStudentToolStripMenuItem,
-            this.endOrOpenTestToolStripMenuItem,
-            this.deleteTestToolStripMenuItem});
-            this.teachersDataGridMenuStrip.Name = "availableTestsMenuStrip";
-            this.teachersDataGridMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.teachersDataGridMenuStrip.ShowImageMargin = false;
-            this.teachersDataGridMenuStrip.Size = new System.Drawing.Size(188, 92);
-            this.teachersDataGridMenuStrip.Text = "Настройки";
-            this.teachersDataGridMenuStrip.Click += new System.EventHandler(this.dataGridMenuStrip_Click);
-            // 
-            // editTestToolStripMenuItem
-            // 
-            this.editTestToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.editTestToolStripMenuItem.Name = "editTestToolStripMenuItem";
-            this.editTestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.editTestToolStripMenuItem.Text = "Редактировать";
-            // 
-            // completeTestAsStudentToolStripMenuItem
-            // 
-            this.completeTestAsStudentToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.completeTestAsStudentToolStripMenuItem.Name = "completeTestAsStudentToolStripMenuItem";
-            this.completeTestAsStudentToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.completeTestAsStudentToolStripMenuItem.Text = "Пройти как студент";
-            this.completeTestAsStudentToolStripMenuItem.Click += new System.EventHandler(this.completeTestAsStudentToolStripMenuItem_Click);
-            // 
-            // endOrOpenTestToolStripMenuItem
-            // 
-            this.endOrOpenTestToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.endOrOpenTestToolStripMenuItem.Name = "endOrOpenTestToolStripMenuItem";
-            this.endOrOpenTestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.endOrOpenTestToolStripMenuItem.Text = "Закрыть для прохождения";
-            this.endOrOpenTestToolStripMenuItem.Click += new System.EventHandler(this.endOrOpenTestToolStripMenuItem_Click);
-            // 
-            // deleteTestToolStripMenuItem
-            // 
-            this.deleteTestToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.deleteTestToolStripMenuItem.Name = "deleteTestToolStripMenuItem";
-            this.deleteTestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.deleteTestToolStripMenuItem.Text = "Удалить тестирование";
-            this.deleteTestToolStripMenuItem.Click += new System.EventHandler(this.deleteTestToolStripMenuItem_Click);
             // 
             // CustomDataGridView
             // 
@@ -150,7 +95,6 @@
             this.Name = "CustomDataGridView";
             this.Size = new System.Drawing.Size(736, 392);
             ((System.ComponentModel.ISupportInitialize)(this.customDataGrid)).EndInit();
-            this.teachersDataGridMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -158,10 +102,5 @@
         #endregion
 
         private System.Windows.Forms.DataGridView customDataGrid;
-        private System.Windows.Forms.ContextMenuStrip teachersDataGridMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem editTestToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem completeTestAsStudentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem endOrOpenTestToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteTestToolStripMenuItem;
     }
 }

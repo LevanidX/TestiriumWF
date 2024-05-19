@@ -19,14 +19,16 @@ namespace TestiriumWF
             try
             {
                 UserConfig.IsTeacher = isTeacher;
-                UserConfig.UserId = (int)_mySqlFunctions.CallProcedureWithReturnedDataTable(procedureName, new MySqlParameter[]
+                var dataRow = _mySqlFunctions.CallProcedureWithReturnedDataTable(procedureName, new MySqlParameter[]
                 {
                     new MySqlParameter("user_login", loginTextBox.Text),
                     new MySqlParameter("user_password", passwordTextBox.Text)
-                }).Rows[0][0];
+                }).Rows[0];
 
-                var testiriumMainMenu = new TestiriumMainMenu();
-                testiriumMainMenu.Show();
+                UserConfig.UserId = (int)dataRow[0];
+                UserConfig.IsAdmin = isTeacher ? (bool)dataRow[1] : false;
+
+                new TestiriumMainMenu().Show();
                 this.Hide();
             }
             catch (Exception ex)

@@ -12,11 +12,6 @@ namespace TestiriumWF.CustomPanels
 
         public EditUserProfile() => InitializeComponent();
 
-        private void btnSaveEdits_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             CheckAndChangePassword(UserConfig.IsTeacher ? "check_user_teacher_password" : "check_user_student_password",
@@ -38,6 +33,8 @@ namespace TestiriumWF.CustomPanels
                         new MySqlParameter("new_password", newPasswordTextBox.TextValue),
                         new MySqlParameter("user_id", UserConfig.UserId)
                 });
+
+                MessageBox.Show("Пароль был успешно изменён.");
             }
             catch (IndexOutOfRangeException)
             {

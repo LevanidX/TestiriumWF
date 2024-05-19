@@ -1,56 +1,45 @@
 ﻿using System;
 using System.Windows.Forms;
 using TestiriumWF.CustomPanels;
+using TestiriumWF.SqlFunctions;
+using MySql.Data.MySqlClient;
 
 namespace TestiriumWF.ProgrammWindows
 {
     public partial class CourseAdding : Form
     {
-        MySqlWriter _mySqlWriter = new MySqlWriter();
+        private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
         FormsMessages messages = new FormsMessages();
-        private TestsControl _testsControl;
 
-        public CourseAdding(TestsControl testsControl)
+        public CourseAdding()
         {
             InitializeComponent();
-            _testsControl = testsControl;
+            TopMost = true;
         }
 
-        private void btnSaveCourse_Click(object sender, EventArgs e)
+        private void btnExitWindow_Click(object sender, EventArgs e)
+        {
+            UserConfig.MainMenu.Enabled = true;
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                _mySqlWriter.ExecuteNotReadableSqlCommand($"" +
-                    $"INSERT INTO courses(course_name, course_user_teacher_number, class) " +
-                    $"VALUES('{courseNameTextBox.Text}', " +
-                    $"{UserConfig.UserId}, " +
-                    $"{Convert.ToInt32(gradeComboBox.TextValue)})");
+                _mySqlFunctions.CallProcedure("push_new_course", new MySqlParameter[]
+                {
+                    new MySqlParameter("c_name", courseNameTextBox.TextValue),
+                    new MySqlParameter("c_user_id", UserConfig.UserId),
+                    new MySqlParameter("c_class", classComboBox.TextValue)
+                });
 
-                if (messages.ShowOneMoreCourseAddingMessage() == DialogResult.Yes)
-                {
-                    courseNameTextBox.Text = string.Empty;
-                    gradeComboBox.TextValue = string.Empty;
-                }
-                else
-                {
-                    ExitThisForm();
-                }
+                MessageBox.Show("Добавление нового курса было произведено успешно!");
             }
             catch (FormatException)
             {
                 messages.ShowWarningNoNullAllowedMessage();
             }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            ExitThisForm();
-        }
-
-        private void ExitThisForm()
-        {
-            this.Close();
-            _testsControl.RefillPanels();
         }
     }
 }

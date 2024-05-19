@@ -30,7 +30,6 @@
         {
             this.isAdminCheckBox = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.isAdminPanel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSaveUserInfo = new System.Windows.Forms.Button();
@@ -40,14 +39,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.userBirthdateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.userPictureBox = new System.Windows.Forms.PictureBox();
-            this.userBirthdateTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.userLoginTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.userPasswordTextBox = new TestiriumWF.CustomControls.CustomPasswordTextBox();
             this.userPatronymicTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.userSurnameTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.userNameTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
-            this.customComboBox1 = new TestiriumWF.CustomControls.CustomComboBox();
+            this.btnExitWindow = new System.Windows.Forms.Button();
             this.isAdminPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -75,22 +74,11 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "Имеет права администратора";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(16, 368);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 19);
-            this.label7.TabIndex = 47;
-            this.label7.Text = "Роль";
-            // 
             // isAdminPanel
             // 
             this.isAdminPanel.Controls.Add(this.isAdminCheckBox);
             this.isAdminPanel.Controls.Add(this.label10);
-            this.isAdminPanel.Location = new System.Drawing.Point(16, 432);
+            this.isAdminPanel.Location = new System.Drawing.Point(16, 368);
             this.isAdminPanel.Name = "isAdminPanel";
             this.isAdminPanel.Size = new System.Drawing.Size(408, 48);
             this.isAdminPanel.TabIndex = 50;
@@ -104,18 +92,18 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(193, 19);
             this.label9.TabIndex = 49;
-            this.label9.Text = "Дата рождения (00.00.0000)";
+            this.label9.Text = "Дата рождения (гггг/мм/дд)";
             // 
             // btnSaveUserInfo
             // 
-            this.btnSaveUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveUserInfo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSaveUserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
             this.btnSaveUserInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSaveUserInfo.FlatAppearance.BorderSize = 0;
             this.btnSaveUserInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveUserInfo.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSaveUserInfo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSaveUserInfo.Location = new System.Drawing.Point(16, 488);
+            this.btnSaveUserInfo.Location = new System.Drawing.Point(16, 424);
             this.btnSaveUserInfo.Name = "btnSaveUserInfo";
             this.btnSaveUserInfo.Size = new System.Drawing.Size(408, 48);
             this.btnSaveUserInfo.TabIndex = 46;
@@ -189,6 +177,19 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Фото профиля";
             // 
+            // userBirthdateTextBox
+            // 
+            this.userBirthdateTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.userBirthdateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userBirthdateTextBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.userBirthdateTextBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.userBirthdateTextBox.Location = new System.Drawing.Point(16, 224);
+            this.userBirthdateTextBox.Mask = "0000/00/00";
+            this.userBirthdateTextBox.Name = "userBirthdateTextBox";
+            this.userBirthdateTextBox.Size = new System.Drawing.Size(408, 23);
+            this.userBirthdateTextBox.TabIndex = 53;
+            this.userBirthdateTextBox.ValidatingType = typeof(System.DateTime);
+            // 
             // userPictureBox
             // 
             this.userPictureBox.BackColor = System.Drawing.Color.Gainsboro;
@@ -199,14 +200,6 @@
             this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userPictureBox.TabIndex = 34;
             this.userPictureBox.TabStop = false;
-            // 
-            // userBirthdateTextBox
-            // 
-            this.userBirthdateTextBox.Location = new System.Drawing.Point(16, 224);
-            this.userBirthdateTextBox.Name = "userBirthdateTextBox";
-            this.userBirthdateTextBox.Size = new System.Drawing.Size(240, 24);
-            this.userBirthdateTextBox.TabIndex = 51;
-            this.userBirthdateTextBox.TextValue = "";
             // 
             // userLoginTextBox
             // 
@@ -248,29 +241,31 @@
             this.userNameTextBox.TabIndex = 37;
             this.userNameTextBox.TextValue = "";
             // 
-            // customComboBox1
+            // btnExitWindow
             // 
-            this.customComboBox1.BackColorValue = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.customComboBox1.ComboItems = new string[] {
-        "Преподаватель",
-        "Учащийся"};
-            this.customComboBox1.Location = new System.Drawing.Point(16, 392);
-            this.customComboBox1.Name = "customComboBox1";
-            this.customComboBox1.Size = new System.Drawing.Size(408, 25);
-            this.customComboBox1.TabIndex = 52;
-            this.customComboBox1.TextValue = "";
+            this.btnExitWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.btnExitWindow.BackgroundImage = global::TestiriumWF.Properties.Resources.back;
+            this.btnExitWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExitWindow.FlatAppearance.BorderSize = 0;
+            this.btnExitWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExitWindow.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExitWindow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExitWindow.Location = new System.Drawing.Point(416, 0);
+            this.btnExitWindow.Name = "btnExitWindow";
+            this.btnExitWindow.Size = new System.Drawing.Size(24, 24);
+            this.btnExitWindow.TabIndex = 54;
+            this.btnExitWindow.UseVisualStyleBackColor = false;
+            this.btnExitWindow.Click += new System.EventHandler(this.btnExitWindow_Click);
             // 
             // UserEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.ClientSize = new System.Drawing.Size(440, 552);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.ClientSize = new System.Drawing.Size(440, 480);
             this.ControlBox = false;
-            this.Controls.Add(this.customComboBox1);
+            this.Controls.Add(this.btnExitWindow);
             this.Controls.Add(this.userBirthdateTextBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.isAdminPanel);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnSaveUserInfo);
             this.Controls.Add(this.userLoginTextBox);
@@ -285,10 +280,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.userPictureBox);
+            this.Controls.Add(this.isAdminPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserEditor";
+            this.Load += new System.EventHandler(this.UserEditor_Load);
             this.isAdminPanel.ResumeLayout(false);
             this.isAdminPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
@@ -298,11 +295,8 @@
         }
 
         #endregion
-
-        private CustomControls.CustomOverrideControls.CustomTextBox userBirthdateTextBox;
         private System.Windows.Forms.CheckBox isAdminCheckBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel isAdminPanel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSaveUserInfo;
@@ -318,6 +312,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox userPictureBox;
-        private CustomControls.CustomComboBox customComboBox1;
+        private System.Windows.Forms.MaskedTextBox userBirthdateTextBox;
+        private System.Windows.Forms.Button btnExitWindow;
     }
 }

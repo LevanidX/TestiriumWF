@@ -1,13 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using TestiriumWF.CustomControls;
 using TestiriumWF.CustomControls.CustomOverrideControls;
 using TestiriumWF.CustomPanels;
@@ -63,8 +59,16 @@ namespace TestiriumWF
         /// </summary>
         private void SerializeWelcomeScreen()
         {
-            _studentsTest.Name = _welcomeScreenPanel.GetTitleValue();
-            _studentsTest.Description = new Description(_welcomeScreenPanel.GetDescriptionValue());
+            if (_welcomeScreenPanel.GetTitleValue() != string.Empty || _welcomeScreenPanel.GetDescriptionValue() != string.Empty)
+            {
+                _studentsTest.Name = _welcomeScreenPanel.GetTitleValue();
+                _studentsTest.Description = new Description(_welcomeScreenPanel.GetDescriptionValue());
+            }
+            else
+            {
+                MessageBox.Show("Не все поля на начальном экране были заполнены");
+                throw new Exception();
+            }
         }
         
         /// <summary>
@@ -72,11 +76,11 @@ namespace TestiriumWF
         /// </summary>
         private void SerializeQuestions()
         {
-            SerializeQuestions<OneQuestionPanel>(TestTypes.OneAnswerQuestion);
-            SerializeQuestions<MultipleQuestionPanel>(TestTypes.MultipleAnswerQuestion);
-            SerializeQuestions<TextQuestionPanel>(TestTypes.TextAnswerQuestion);
-            SerializeQuestions<SequenceQuestionPanel>(TestTypes.SequenceAnswerQuestion);
-            SerializeQuestions<MatchQuestionPanel>(TestTypes.MatchAnswerQuestion);
+            SerializeQuestion<OneQuestionPanel>(TestTypes.OneAnswerQuestion);
+            SerializeQuestion<MultipleQuestionPanel>(TestTypes.MultipleAnswerQuestion);
+            SerializeQuestion<TextQuestionPanel>(TestTypes.TextAnswerQuestion);
+            SerializeQuestion<SequenceQuestionPanel>(TestTypes.SequenceAnswerQuestion);
+            SerializeQuestion<MatchQuestionPanel>(TestTypes.MatchAnswerQuestion);
             _studentsTest.Questions = _questionsList;
         }
 
@@ -96,7 +100,7 @@ namespace TestiriumWF
             return new TestSettings(estimationMethods, timeLimitedTest, testPassword, allowedTriesQuantity);
         }
 
-        private void SerializeQuestions<QuestionPanel>(string testType)
+        private void SerializeQuestion<QuestionPanel>(string testType)
         {
             var GetQuestionTextMethod = typeof(QuestionPanel).GetMethod("GetQuestionText",
                 BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);

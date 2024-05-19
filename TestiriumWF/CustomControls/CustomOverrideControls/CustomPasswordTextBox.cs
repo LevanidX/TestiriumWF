@@ -8,11 +8,6 @@ namespace TestiriumWF.CustomControls
 {
     public partial class CustomPasswordTextBox : UserControl
     {
-        CustomControlsFunctions functions = new CustomControlsFunctions();
-        private string _returningValue;
-        private string _passwordChar;
-        private string _passwordValue;
-
         public CustomPasswordTextBox()
         {
             InitializeComponent();
@@ -27,7 +22,7 @@ namespace TestiriumWF.CustomControls
 
         private void showPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            functions.ShowPasswordInTextBox(passwordTextBox, _passwordChar, showPasswordCheckBox);
+            passwordTextBox.PasswordChar = showPasswordCheckBox.Checked ? '\0' : '*';
         }
     }
 }

@@ -109,6 +109,12 @@
     <Compile Include="CustomControls\CustomOverrideControls\CustomDataGridView.Designer.cs">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CustomOverrideControls\CustomDateTimePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomOverrideControls\CustomDateTimePicker.Designer.cs">
+      <DependentUpon>CustomDateTimePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CustomOverrideControls\CustomLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -163,10 +169,10 @@
     <Compile Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.Designer.cs">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\EditUserProfile.cs">
+    <Compile Include="CustomPanels\UsersPanel\EditUserProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\EditUserProfile.Designer.cs">
+    <Compile Include="CustomPanels\UsersPanel\EditUserProfile.Designer.cs">
       <DependentUpon>EditUserProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\TestOverviewControl.cs">
@@ -265,26 +271,38 @@
     <Compile Include="CustomPanels\TimeControl.Designer.cs">
       <DependentUpon>TimeControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\UserBoxPanel.cs">
+    <Compile Include="CustomPanels\UsersPanel\UserBoxPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\UserBoxPanel.Designer.cs">
+    <Compile Include="CustomPanels\UsersPanel\UserBoxPanel.Designer.cs">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\PopUserPanel.cs">
+    <Compile Include="CustomPanels\UsersPanel\PopUserPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\PopUserPanel.Designer.cs">
+    <Compile Include="CustomPanels\UsersPanel\PopUserPanel.Designer.cs">
       <DependentUpon>PopUserPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\UsersControl.cs">
+    <Compile Include="CustomPanels\UsersPanel\UsersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\UsersControl.Designer.cs">
+    <Compile Include="CustomPanels\UsersPanel\UsersControl.Designer.cs">
       <DependentUpon>UsersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ProgrammFunctions\FormsMessages.cs" />
     <Compile Include="ProgrammFunctions\TestTypes.cs" />
+    <Compile Include="ProgrammWindows\CreateNewClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgrammWindows\CreateNewClass.Designer.cs">
+      <DependentUpon>CreateNewClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgrammWindows\CreateNewSpeciality.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgrammWindows\CreateNewSpeciality.Designer.cs">
+      <DependentUpon>CreateNewSpeciality.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProgrammWindows\UserEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +401,9 @@
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomDataGridView.resx">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomDateTimePicker.resx">
+      <DependentUpon>CustomDateTimePicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomLabel.resx">
       <DependentUpon>CustomLabel.cs</DependentUpon>
     </EmbeddedResource>
@@ -410,10 +431,10 @@
     <EmbeddedResource Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.resx">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\EditUserProfile.resx">
+    <EmbeddedResource Include="CustomPanels\UsersPanel\EditUserProfile.resx">
       <DependentUpon>EditUserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\PopUserPanel.resx">
+    <EmbeddedResource Include="CustomPanels\UsersPanel\PopUserPanel.resx">
       <DependentUpon>PopUserPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\TestOverviewControl.resx">
@@ -464,10 +485,10 @@
     <EmbeddedResource Include="CustomPanels\TimeControl.resx">
       <DependentUpon>TimeControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\UserBoxPanel.resx">
+    <EmbeddedResource Include="CustomPanels\UsersPanel\UserBoxPanel.resx">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\UsersControl.resx">
+    <EmbeddedResource Include="CustomPanels\UsersPanel\UsersControl.resx">
       <DependentUpon>UsersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\ChooseQuestionType.resx">
@@ -487,6 +508,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\CourseAdding.resx">
       <DependentUpon>CourseAdding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgrammWindows\CreateNewClass.resx">
+      <DependentUpon>CreateNewClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgrammWindows\CreateNewSpeciality.resx">
+      <DependentUpon>CreateNewSpeciality.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -564,6 +591,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

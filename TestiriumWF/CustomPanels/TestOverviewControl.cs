@@ -30,7 +30,7 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
             FillDataGrid();
             FillLabelValues();
 
-            btnBeginTest.Enabled = _availableTries == 0 ? false : true; //попробовать упрощение позже
+            btnBeginTest.Enabled = _availableTries == 0 ? false : true;
         }
 
         private void SetAndGetTest()

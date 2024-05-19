@@ -16,8 +16,11 @@ namespace TestiriumWF
 
         public static int UserId;
         public static bool IsTeacher;
+        public static bool IsAdmin;
+
+        public static object[] UserData = new object[USER_DATA_SIZE];
+
         public static TestiriumMainMenu MainMenu;
         public static LoginForm LoginForm;
-        public static object[] UserData = new object[USER_DATA_SIZE];
     }
 }

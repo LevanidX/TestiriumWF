@@ -25,6 +25,8 @@ namespace TestiriumWF.CustomPanels
                 _testCreator.CreateNewTest(Convert.ToInt32(_currentCourse),
                 _testCreator.SerializeEndScreen(markRadioButton, markPanel, nonMarkPercentageTextBox,
                 timeLimitedRadioButton, minuteTextBox, passwordRadioButton, passwordTextBox, allowedTriesComboBox));
+
+                MessageBox.Show("Тестирование было успешно создано!");
             }
             else
             {

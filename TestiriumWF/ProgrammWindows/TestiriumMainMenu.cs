@@ -21,8 +21,15 @@ namespace TestiriumWF.ProgrammWindows
         private void TestiriumMainMenu_Load(object sender, EventArgs e)
         {
             UserConfig.MainMenu = this;
+
             userBoxPanel.Instantiate();
             userBoxPanel.SetClickAction(UserBoxPanelClick);
+
+            if (!UserConfig.IsAdmin)
+            {
+                btnReviews.Visible = false;
+                btnUsers.Visible = false;
+            }
         }
 
         private void UserBoxPanelClick()
