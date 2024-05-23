@@ -26,7 +26,6 @@ namespace TestiriumWF.CustomControls
             set 
             { 
                 linkLabel.Text = value;
-                SetLabelFitToText();
             }
         }
 
@@ -35,13 +34,6 @@ namespace TestiriumWF.CustomControls
         {
             get => linkLabel.Tag.ToString();
             set => linkLabel.Tag = value;
-        }
-
-        private void SetLabelFitToText()
-        {
-            linkLabel.AutoSize = true;
-            this.AutoSize = true;
-            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         public void AddEventClick(EventHandler<EventArgs> action)

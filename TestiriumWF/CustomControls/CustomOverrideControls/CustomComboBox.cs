@@ -16,15 +16,9 @@ namespace TestiriumWF.CustomControls
 {
     public partial class CustomComboBox : UserControl
     {
-        public CustomComboBox()
-        {
-            InitializeComponent();
-        }
+        public CustomComboBox() => InitializeComponent();
 
-        public void SetDataSource(BindingSource bindingSource)
-        {
-            comboBox.DataSource = bindingSource;
-        }
+        public void SetDataSource(BindingSource bindingSource) => comboBox.DataSource = bindingSource;
 
         [Description("Sets collection"), Category("Data")]
         public string[] ComboItems

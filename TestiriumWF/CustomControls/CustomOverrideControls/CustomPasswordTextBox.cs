@@ -8,10 +8,7 @@ namespace TestiriumWF.CustomControls
 {
     public partial class CustomPasswordTextBox : UserControl
     {
-        public CustomPasswordTextBox()
-        {
-            InitializeComponent();
-        }
+        public CustomPasswordTextBox() => InitializeComponent();
 
         [Description("Sets text"), Category("Data")]
         public string TextValue
