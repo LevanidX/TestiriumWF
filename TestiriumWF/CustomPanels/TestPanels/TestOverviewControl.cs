@@ -5,6 +5,7 @@ using TestiriumWF.SqlFunctions;
 using TestStructure;
 using MySql.Data.MySqlClient;
 using System.Data;
+using TestiriumWF.CustomPanels.TestPanels;
 
 namespace TestiriumWF.CustomControls.TestCompleteingControls
 {
@@ -65,6 +66,19 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
         }
 
         private void btnBeginTest_Click(object sender, EventArgs e)
+        {
+            if (_studentsTest.TestSettings.TestPassword.Value)
+            {
+                UserConfig.MainMenu.Enabled = false;
+                new PasswordChecker(AddTestCompletingControl, _studentsTest.TestSettings.TestPassword.Password).Show();
+            }
+            else
+            {
+                AddTestCompletingControl();
+            }
+        }
+
+        private void AddTestCompletingControl()
         {
             var testCompletingControl = new TestCompletingControl(_studentsTestNumber, (_studentsTest.TestSettings.AllowedTriesQuantity - _availableTries) + 1);
             this.Parent.Controls.Add(testCompletingControl);

@@ -225,6 +225,12 @@
     <Compile Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.Designer.cs">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomPanels\TestPanels\PasswordChecker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\TestPanels\PasswordChecker.Designer.cs">
+      <DependentUpon>PasswordChecker.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomPanels\TestReviewPanels\ReviewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -291,16 +297,16 @@
     <Compile Include="CustomPanels\TestCompletePanels\DeserializedTestPanels\TestWelcomeScreen.Designer.cs">
       <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCompletingControl.cs">
+    <Compile Include="CustomPanels\TestPanels\TestCompletingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCompletingControl.Designer.cs">
+    <Compile Include="CustomPanels\TestPanels\TestCompletingControl.Designer.cs">
       <DependentUpon>TestCompletingControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCreatingControl.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\TestCreatingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCreatingControl.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\TestCreatingControl.Designer.cs">
       <DependentUpon>TestCreatingControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\TestPanels\TestsControl.cs">
@@ -377,8 +383,7 @@
     <Compile Include="CustomPanels\UserPanels\UserEditor.Designer.cs">
       <DependentUpon>UserEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="SqlFunctions\MySqlFunctions.cs" />
-    <Compile Include="SqlFunctions\MySqlWriter.cs" />
+    <Compile Include="ProgrammFunctions\MySqlFunctions.cs" />
     <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\ChooseQuestionType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,6 +502,9 @@
     <EmbeddedResource Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.resx">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\TestPanels\PasswordChecker.resx">
+      <DependentUpon>PasswordChecker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\TestReviewPanels\ReviewControl.resx">
       <DependentUpon>ReviewControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -533,10 +541,10 @@
     <EmbeddedResource Include="CustomPanels\TestCompletePanels\DeserializedTestPanels\TestWelcomeScreen.resx">
       <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCompletingControl.resx">
+    <EmbeddedResource Include="CustomPanels\TestPanels\TestCompletingControl.resx">
       <DependentUpon>TestCompletingControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCreatingControl.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\TestSettingPanels\TestCreatingControl.resx">
       <DependentUpon>TestCreatingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\TestPanels\TestsControl.resx">

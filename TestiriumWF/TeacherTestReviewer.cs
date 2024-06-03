@@ -1,6 +1,10 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using TestStructure;
 
 namespace TestiriumWF
@@ -53,6 +57,38 @@ namespace TestiriumWF
             }
 
             return studentDataTableResult;
+        }
+
+        public void ExportDataTableToXlsx(DataTable dataTable, string sheetName, 
+            string fileName, int startHideColumn, int endHideColumn)
+        {
+            try
+            {
+                Stream myStream;
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+                saveFileDialog.Filter = "(*.xlsx)|*.xlsx";
+                saveFileDialog.FilterIndex = 2;
+                saveFileDialog.RestoreDirectory = true;
+                saveFileDialog.FileName = fileName;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if ((myStream = saveFileDialog.OpenFile()) != null)
+                    {
+                        XLWorkbook wb = new XLWorkbook();
+                        var ws = wb.Worksheets.Add(dataTable, sheetName);
+                        ws.Columns().AdjustToContents();
+                        ws.Columns(startHideColumn, endHideColumn).Delete();
+                        wb.SaveAs(myStream);
+                        myStream.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

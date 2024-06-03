@@ -60,9 +60,7 @@
             this.Controls.Add(this.comboBox);
             this.Name = "CustomComboBox";
             this.Size = new System.Drawing.Size(86, 25);
-            this.Load += new System.EventHandler(this.CustomComboBox_Load);
             this.ResumeLayout(false);
-
         }
 
         #endregion

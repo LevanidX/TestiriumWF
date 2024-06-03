@@ -63,12 +63,37 @@ namespace TestiriumWF.CustomPanels
 
         private void btnStartTest_Click(object sender, EventArgs e)
         {
-            questionButtonsPanel.Enabled = true;
-            questionsContainerPanel.Controls.Remove(testWelcomeScreen);
-            testControllerPanel.Controls.Remove(btnStartTest);
+            var dialogResut = MessageBox.Show(
+                "Вы уверены, что хотите начать тестирование?",
+                "Тестириум",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (dialogResut == DialogResult.Yes)
+            {
+                questionButtonsPanel.Enabled = true;
+                questionsContainerPanel.Controls.Remove(testWelcomeScreen);
+                testControllerPanel.Controls.Remove(btnStartTest);
+                UserConfig.IsTestStarted = true;
+                UserConfig.SaveTestResultAction += () => EndTest();
+            }
         }
 
         private void btnEndTest_Click(object sender, EventArgs e)
+        {
+            var dialogResult = MessageBox.Show(
+                "Вы действительно хотите завершить тестирование?",
+                "Тестириум",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                EndTest();
+            }
+        }
+
+        private void EndTest()
         {
             _testCheckerAndSaver.EndTest();
 
@@ -86,6 +111,8 @@ namespace TestiriumWF.CustomPanels
             }
 
             CreateTestEndScreen();
+
+            UserConfig.IsTestStarted = false;
         }
 
         private void CreateTestEndScreen()

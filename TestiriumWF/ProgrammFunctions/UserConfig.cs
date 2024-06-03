@@ -1,4 +1,6 @@
-﻿using TestiriumWF.ProgrammWindows;
+﻿using System;
+using TestiriumWF.ProgrammWindows;
+using TestiriumWF.TestCompletingFunctions;
 
 namespace TestiriumWF
 {
@@ -9,6 +11,9 @@ namespace TestiriumWF
         public static int UserId;
         public static bool IsTeacher;
         public static bool IsAdmin;
+
+        public static bool IsTestStarted;
+        public static Action SaveTestResultAction;
 
         public static object[] UserData = new object[USER_DATA_SIZE];
 

@@ -33,7 +33,7 @@
             this.lblTests = new System.Windows.Forms.Label();
             this.availableTestsPanel = new System.Windows.Forms.Panel();
             this.resultsDataGridView = new TestiriumWF.CustomControls.CustomDataGridView();
-            this.btnCreateTest = new System.Windows.Forms.Button();
+            this.btnExportToXlsx = new System.Windows.Forms.Button();
             this.lblCurrentClass = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             // 
             this.availableTestsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
             this.availableTestsPanel.Controls.Add(this.resultsDataGridView);
-            this.availableTestsPanel.Controls.Add(this.btnCreateTest);
+            this.availableTestsPanel.Controls.Add(this.btnExportToXlsx);
             this.availableTestsPanel.Controls.Add(this.lblCurrentClass);
             this.availableTestsPanel.Controls.Add(this.label2);
             this.availableTestsPanel.Controls.Add(this.label1);
@@ -90,22 +90,23 @@
             this.resultsDataGridView.Size = new System.Drawing.Size(736, 392);
             this.resultsDataGridView.TabIndex = 9;
             // 
-            // btnCreateTest
+            // btnExportToXlsx
             // 
-            this.btnCreateTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
-            this.btnCreateTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCreateTest.Enabled = false;
-            this.btnCreateTest.FlatAppearance.BorderSize = 0;
-            this.btnCreateTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCreateTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCreateTest.Location = new System.Drawing.Point(536, 16);
-            this.btnCreateTest.Name = "btnCreateTest";
-            this.btnCreateTest.Size = new System.Drawing.Size(216, 56);
-            this.btnCreateTest.TabIndex = 6;
-            this.btnCreateTest.Text = "Экспорт в Excel";
-            this.btnCreateTest.UseVisualStyleBackColor = false;
+            this.btnExportToXlsx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportToXlsx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
+            this.btnExportToXlsx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExportToXlsx.Enabled = false;
+            this.btnExportToXlsx.FlatAppearance.BorderSize = 0;
+            this.btnExportToXlsx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportToXlsx.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExportToXlsx.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExportToXlsx.Location = new System.Drawing.Point(536, 16);
+            this.btnExportToXlsx.Name = "btnExportToXlsx";
+            this.btnExportToXlsx.Size = new System.Drawing.Size(216, 56);
+            this.btnExportToXlsx.TabIndex = 6;
+            this.btnExportToXlsx.Text = "Экспорт в Excel";
+            this.btnExportToXlsx.UseVisualStyleBackColor = false;
+            this.btnExportToXlsx.Click += new System.EventHandler(this.btnExportToXlsx_Click);
             // 
             // lblCurrentClass
             // 
@@ -165,7 +166,7 @@
         private System.Windows.Forms.Label lblTests;
         private System.Windows.Forms.Panel availableTestsPanel;
         private CustomControls.CustomDataGridView resultsDataGridView;
-        private System.Windows.Forms.Button btnCreateTest;
+        private System.Windows.Forms.Button btnExportToXlsx;
         private System.Windows.Forms.Label lblCurrentClass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

@@ -102,30 +102,37 @@ namespace TestiriumWF
 
         private void SerializeQuestion<QuestionPanel>(string testType)
         {
-            var GetQuestionTextMethod = typeof(QuestionPanel).GetMethod("GetQuestionText",
-                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
-            var GetAnswersMethod = typeof(QuestionPanel).GetMethod("GetAnswers",
-                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
-            var GetRightAnswersMethod = typeof(QuestionPanel).GetMethod("GetRightAnswers",
-                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
-            var GetQuestionSettingsMethod = typeof(QuestionPanel).GetMethod("GetQuestionSettings",
-                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
-
-
-            foreach (var questionPanel in _questionsContainerPanel.Controls.OfType<QuestionPanel>())
+            try
             {
-                Question question = new Question();
-                question.QuestionType = testType;
-                question.QuestionText = GetQuestionTextMethod.Invoke(questionPanel, null).ToString();
-                question.Answers = (List<string>)GetAnswersMethod.Invoke(questionPanel, null);
-                question.RightAnswers = (List<string>)GetRightAnswersMethod.Invoke(questionPanel, null);
+                var GetQuestionTextMethod = typeof(QuestionPanel).GetMethod("GetQuestionText",
+                BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+                var GetAnswersMethod = typeof(QuestionPanel).GetMethod("GetAnswers",
+                    BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+                var GetRightAnswersMethod = typeof(QuestionPanel).GetMethod("GetRightAnswers",
+                    BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+                var GetQuestionSettingsMethod = typeof(QuestionPanel).GetMethod("GetQuestionSettings",
+                    BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
 
-                if (testType == TestTypes.TextAnswerQuestion)
+
+                foreach (var questionPanel in _questionsContainerPanel.Controls.OfType<QuestionPanel>())
                 {
-                    question.QuestionSettings = new QuestionSettings((bool)GetQuestionSettingsMethod.Invoke(questionPanel, null));
-                }
+                    Question question = new Question();
+                    question.QuestionType = testType;
+                    question.QuestionText = GetQuestionTextMethod.Invoke(questionPanel, null).ToString();
+                    question.Answers = (List<string>)GetAnswersMethod.Invoke(questionPanel, null);
+                    question.RightAnswers = (List<string>)GetRightAnswersMethod.Invoke(questionPanel, null);
 
-                _questionsList.Add(question);
+                    if (testType == TestTypes.TextAnswerQuestion)
+                    {
+                        question.QuestionSettings = new QuestionSettings((bool)GetQuestionSettingsMethod.Invoke(questionPanel, null));
+                    }
+
+                    _questionsList.Add(question);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -162,9 +169,6 @@ namespace TestiriumWF
                 : new TestPassword(false, string.Empty);
         }
 
-        private int GetAllowedTriesQuantity(CustomComboBox comboTries)
-        {
-            return Convert.ToInt32(comboTries.TextValue);
-        }
+        private int GetAllowedTriesQuantity(CustomComboBox comboTries) => Convert.ToInt32(comboTries.TextValue);
     }
 }

@@ -18,8 +18,6 @@ namespace TestiriumWF.CustomControls
     {
         public CustomComboBox() => InitializeComponent();
 
-        public void SetDataSource(BindingSource bindingSource) => comboBox.DataSource = bindingSource;
-
         [Description("Sets collection"), Category("Data")]
         public string[] ComboItems
         {
@@ -41,9 +39,10 @@ namespace TestiriumWF.CustomControls
             set { comboBox.BackColor = value; }
         }
 
-        private void CustomComboBox_Load(object sender, EventArgs e)
+        public object SelectedID
         {
-
+            get { return comboBox.SelectedValue; }
+            set { comboBox.SelectedValue = value; }
         }
 
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -129,6 +129,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CourseAdding";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.CourseAdding_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,7 +13,7 @@ namespace TestiriumWF.CustomPanels
 {
     public partial class ReviewOverviewControl : UserControl
     {
-        private TeacherTestReviewer _testReviewer = new TeacherTestReviewer();
+        private TeacherTestReviewer _teacherTestReviewer = new TeacherTestReviewer();
         private Test _studentsTest;
 
         private string _studentsFullName;
@@ -32,7 +32,14 @@ namespace TestiriumWF.CustomPanels
             lblPercentageResult.Text = "Оценка - " + _studentsTest.OverallResult.OverallMarkScore;
             lblStudentName.Text = "Обучающийся: " + _studentsFullName;
 
-            studentResultDataGridView.FillData(_testReviewer.GetDataTableResults(_studentsTest));
+            studentResultDataGridView.FillData(_teacherTestReviewer.GetDataTableResults(_studentsTest));
+        }
+
+        private void btnExportToXlsx_Click(object sender, EventArgs e)
+        {
+            _teacherTestReviewer.ExportDataTableToXlsx(_teacherTestReviewer.GetDataTableResults(_studentsTest),
+                _studentsFullName, $"Отчет по тестированию «{_studentsTest.Name}» " +
+                $"для обучающегося {_studentsFullName} от {DateTime.Today:dd.MM.yyyy}", 1, 1);
         }
     }
 }

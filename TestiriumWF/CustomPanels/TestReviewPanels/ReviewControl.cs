@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
 using TestiriumWF.SqlFunctions;
@@ -17,13 +12,17 @@ namespace TestiriumWF.CustomPanels
     {
         private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
         private TestDeserializer _testDeserializer = new TestDeserializer();
+        TeacherTestReviewer _teacherTestReviewer = new TeacherTestReviewer();
 
         private string _classNumber;
         private int _testId;
 
+        private string _currentClassId;
+
         public ReviewControl(string classNumber, int testId)
         {
             InitializeComponent();
+
             _classNumber = classNumber;
             _testId = testId;
         }
@@ -49,15 +48,19 @@ namespace TestiriumWF.CustomPanels
             reviewOverviewControl.BringToFront();
         }
 
-        private void FillDataGridWithResults(string currentClassId)
+        private void FillDataGridWithResults()
         {
-            resultsDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_test_results", new MySqlParameter[]
-            {
-                new MySqlParameter("class_id", currentClassId),
-                new MySqlParameter("test_id", _testId)
-            }));
-
+            resultsDataGridView.FillData(GetResultDataTable());
             resultsDataGridView.HideColumns(new List<int> { 1 });
+        }
+
+        private DataTable GetResultDataTable()
+        {
+            return _mySqlFunctions.CallProcedureWithReturnedDataTable("get_test_results", new MySqlParameter[]
+            {
+                new MySqlParameter("class_id", _currentClassId),
+                new MySqlParameter("test_id", _testId)
+            });
         }
 
         private void FillClassesPanel(DataTable dataTable)
@@ -75,18 +78,23 @@ namespace TestiriumWF.CustomPanels
             customLinkLabel.TagValue = courseId;
             customLinkLabel.TextValue = courseName;
 
-            customLinkLabel.AddEventClick(LinkLabelClick);
+            customLinkLabel.LeftMouseClickAction = () => LinkLabelClick(customLinkLabel);
 
             classesFlowLayoutPanel.Controls.Add(customLinkLabel);
         }
 
-        private void LinkLabelClick(object sender, EventArgs e)
+        private void LinkLabelClick(CustomLinkLabel customLinkLabel)
         {
-            var linkLabel = sender as LinkLabel;
-            var currentClassId = linkLabel.Tag.ToString();
-            FillDataGridWithResults(currentClassId);
-            btnCreateTest.Enabled = true;
-            lblCurrentClass.Text = linkLabel.Text;
+            _currentClassId = customLinkLabel.TagValue.ToString();
+            FillDataGridWithResults();
+            btnExportToXlsx.Enabled = true;
+            lblCurrentClass.Text = customLinkLabel.TextValue;
+        }
+
+        private void btnExportToXlsx_Click(object sender, EventArgs e)
+        {
+            _teacherTestReviewer.ExportDataTableToXlsx(GetResultDataTable(), lblCurrentClass.Text.Replace('/', '-'),
+                $"Отчет по тестированию от {DateTime.Today:dd.MM.yyyy}", 1, 2);
         }
     }
 }

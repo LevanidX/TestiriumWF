@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.linkLabel = new System.Windows.Forms.LinkLabel();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // linkLabel
             // 
             this.linkLabel.ActiveLinkColor = System.Drawing.Color.Gainsboro;
             this.linkLabel.AutoSize = true;
+            this.linkLabel.ContextMenuStrip = this.contextMenuStrip;
             this.linkLabel.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.linkLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.linkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
@@ -47,6 +53,36 @@
             this.linkLabel.TabStop = true;
             this.linkLabel.Text = "Имя предмета";
             this.linkLabel.VisitedLinkColor = System.Drawing.Color.White;
+            this.linkLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.linkLabel_MouseClick);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.contextMenuStrip.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditToolStripMenuItem,
+            this.DeleteToolStripMenuItem});
+            this.contextMenuStrip.Name = "availableTestsMenuStrip";
+            this.contextMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.contextMenuStrip.ShowImageMargin = false;
+            this.contextMenuStrip.Size = new System.Drawing.Size(156, 70);
+            this.contextMenuStrip.Text = "Настройки";
+            // 
+            // EditToolStripMenuItem
+            // 
+            this.EditToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.EditToolStripMenuItem.Text = "Редактировать";
+            this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
+            // 
+            // DeleteToolStripMenuItem
+            // 
+            this.DeleteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.DeleteToolStripMenuItem.Text = "Удалить";
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // CustomLinkLabel
             // 
@@ -56,7 +92,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.linkLabel);
             this.Name = "CustomLinkLabel";
-            this.Size = new System.Drawing.Size(103, 19);
+            this.Size = new System.Drawing.Size(103, 24);
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -65,5 +102,8 @@
         #endregion
 
         private System.Windows.Forms.LinkLabel linkLabel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
     }
 }

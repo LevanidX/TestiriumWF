@@ -14,6 +14,10 @@ namespace TestiriumWF.CustomControls
 {
     public partial class CustomLinkLabel : UserControl
     {
+        public Action LeftMouseClickAction { get; set; }
+        public Action EditAction { get; set; }
+        public Action DeleteAction { get; set; }
+
         public CustomLinkLabel()
         {
             InitializeComponent();
@@ -36,9 +40,20 @@ namespace TestiriumWF.CustomControls
             set => linkLabel.Tag = value;
         }
 
-        public void AddEventClick(EventHandler<EventArgs> action)
+        private void EditToolStripMenuItem_Click(object sender, EventArgs e) => EditAction();
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e) => DeleteAction();
+
+        private void linkLabel_MouseClick(object sender, MouseEventArgs e)
         {
-            linkLabel.Click += new EventHandler(action);
+            if (e.Button == MouseButtons.Left)
+            {
+                LeftMouseClickAction();
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                contextMenuStrip.Show(MousePosition);
+            }
         }
     }
 }

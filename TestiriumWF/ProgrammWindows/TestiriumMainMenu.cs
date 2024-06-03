@@ -27,7 +27,6 @@ namespace TestiriumWF.ProgrammWindows
 
             if (!UserConfig.IsAdmin)
             {
-                btnReviews.Visible = false;
                 btnUsers.Visible = false;
             }
         }
@@ -52,6 +51,14 @@ namespace TestiriumWF.ProgrammWindows
         {
             containerPanel.Controls.Add(_usersControl);
             _usersControl.BringToFront();
+        }
+
+        private void TestiriumMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (UserConfig.IsTestStarted)
+            {
+                UserConfig.SaveTestResultAction?.Invoke();
+            }
         }
     }
 }

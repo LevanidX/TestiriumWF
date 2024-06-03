@@ -25,19 +25,35 @@ namespace TestiriumWF.CustomPanels
             questionsContainerPanel.Controls.Remove(QuestionsCreating.CurrentPanel);
         }
 
-        private void btnEndCreation_Click(object sender, EventArgs e)
+        private bool AllValuesInserted()
         {
-            if (btnEndCreation.Tag.ToString() == "0")
+            if (welcomeScreenPanel.GetTitleValue() != null)
             {
-                ShowEndScreenPanel(true);
-                btnEndCreation.Text = "Продолжить создание";
-                btnEndCreation.Tag = "1";
+                return true;
             }
             else
             {
-                ShowEndScreenPanel(false);
-                btnEndCreation.Text = "Завершить создание";
-                btnEndCreation.Tag = "0";
+                MessageBox.Show("Отсутствует название тестирования!");
+                return false;
+            }
+        }
+
+        private void btnEndCreation_Click(object sender, EventArgs e)
+        {
+            if (AllValuesInserted())
+            {
+                if (btnEndCreation.Tag.ToString() == "0")
+                {
+                    ShowEndScreenPanel(true);
+                    btnEndCreation.Text = "Продолжить создание";
+                    btnEndCreation.Tag = "1";
+                }
+                else
+                {
+                    ShowEndScreenPanel(false);
+                    btnEndCreation.Text = "Завершить создание";
+                    btnEndCreation.Tag = "0";
+                }
             }
         }
 

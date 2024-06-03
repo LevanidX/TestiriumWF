@@ -1,9 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI;
 using System;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
 using TestiriumWF.CustomControls.MainMenuControls;
@@ -31,82 +28,27 @@ namespace TestiriumWF.CustomPanels
             {
                 allCoursesPanel.Controls.Remove(btnAddCourse);
                 availableTestsPanel.Controls.Remove(btnCreateTest);
-                testsDataGridView.DoubleClickAction += CreateTestOverviewByID;
+                testsDataGridView.DoubleClickAction += () => CreateTestOverviewByID();
             }
 
+            LoadForm();
             RefillPanels();
-        }
-
-        private void CreateTestOverviewByID()
-        {
-            var testOverviewControl = new TestOverviewControl(testsDataGridView.GetSelectedId());
-            this.Controls.Add(testOverviewControl);
-            testOverviewControl.BringToFront();
         }
 
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
             UserConfig.MainMenu.Enabled = false;
-            new CourseAdding().Show();
+            new CourseAdding(LoadForm).Show();
         }
 
-        public void RefillPanels()
+        private void btnCreateTest_Click(object sender, EventArgs e) =>
+            this.Controls.Add(new TestCreatingControl(_currentCourseId));
+
+        private void TestsControl_ControlAdded(object sender, ControlEventArgs e)
         {
-            coursesFlowLayoutPanel.Controls.Clear();
-
-            FillCoursesPanel(_mySqlFunctions.CallProcedureWithReturnedDataTable(UserConfig.IsTeacher ? 
-               "get_teacher_available_courses" : "get_student_available_courses", new MySqlParameter[] { 
-                    new MySqlParameter("user_id", UserConfig.UserId) }));
-
-            FillDataGridWithTests(_currentCourseId);
-        }
-
-        private void FillCoursesPanel(DataTable dataTable)
-        {
-            foreach (DataRow row in dataTable.Rows)
-            {
-                CreateCustomLinkLabel(row[0].ToString(), row[1].ToString());
-            }
-        }
-
-        private void CreateCustomLinkLabel(string courseId, string courseName)
-        {
-            var customLinkLabel = new CustomLinkLabel();
-
-            customLinkLabel.TagValue = courseId;
-            customLinkLabel.TextValue = courseName;
-            customLinkLabel.AddEventClick(LinkLabelClick);
-
-            coursesFlowLayoutPanel.Controls.Add(customLinkLabel);
-        }
-
-        private void LinkLabelClick(object sender, EventArgs e)
-        {
-            var linkLabel = sender as LinkLabel;
-            _currentCourseId = linkLabel.Tag.ToString();
-            FillDataGridWithTests(_currentCourseId);
-            btnCreateTest.Enabled = true;
-            lblCurrentCourse.Text = linkLabel.Text;
-        }
-
-        private void FillDataGridWithTests(string courseId)
-        {
-            testsDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable(UserConfig.IsTeacher ? 
-                "get_teacher_tests" : "get_student_tests", new MySqlParameter[] 
-                {
-                    new MySqlParameter("course_id", Convert.ToInt32(courseId)) 
-                }));
-        }
-
-        private void btnCreateTest_Click(object sender, EventArgs e)
-        {
-            var testCreatingControl = new TestCreatingControl(_currentCourseId);
-            this.Controls.Add(testCreatingControl);
-            testCreatingControl.BringToFront();
-        }
-
-        private void TestsControl_ControlAdded(object sender, ControlEventArgs e) =>
             new BackControl(e.Control, this).InitializeBackControlFromTestsControl();
+            e.Control.BringToFront();
+        }
 
         private void endOrOpenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -115,17 +57,12 @@ namespace TestiriumWF.CustomPanels
                 new MySqlParameter("is_open", teachersDataGridMenuStrip.Items[2].Tag),
                 new MySqlParameter("test_num", testsDataGridView.GetSelectedId())
             });
-            
+
             RefillPanels();
-        }  
-
-        private void completeTestAsStudentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var testCompletingControl = new TestCompletingControl(testsDataGridView.GetSelectedId());
-
-            this.Controls.Add(testCompletingControl);
-            testCompletingControl.BringToFront();
         }
+
+        private void completeTestAsStudentToolStripMenuItem_Click(object sender, EventArgs e) =>
+            this.Controls.Add(new TestCompletingControl(testsDataGridView.GetSelectedId()));
 
         private void deleteTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -140,11 +77,13 @@ namespace TestiriumWF.CustomPanels
                 {
                         new MySqlParameter("test_num", testsDataGridView.GetSelectedId())
                 });
+
                 RefillPanels();
             }
         }
 
-        private void teachersDataGridMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e) => ChangeMenuStripItemValue();
+        private void teachersDataGridMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e) =>
+            ChangeMenuStripItemValue();
 
         private void ChangeMenuStripItemValue()
         {
@@ -164,9 +103,97 @@ namespace TestiriumWF.CustomPanels
                 new MySqlParameter("test_id", testsDataGridView.GetSelectedId())
             }).Rows[0][0];
 
-            var reviewControl = new ReviewControl(classNumber.ToString(), testsDataGridView.GetSelectedId());
-            this.Controls.Add(reviewControl);
-            reviewControl.BringToFront();
+            this.Controls.Add(new ReviewControl(classNumber.ToString(), testsDataGridView.GetSelectedId()));
+        }
+
+        private void RefillPanels()
+        {
+            FillCoursesPanel();
+            FillDataGridWithTests(_currentCourseId);
+        }
+
+        private void LoadForm()
+        {
+            btnCreateTest.Enabled = false;
+            lblCurrentCourse.Text = "Не выбран";
+            FillCoursesPanel();
+            FillDataGridWithTests("0");
+        }
+
+        private void CreateTestOverviewByID() =>
+            this.Controls.Add(new TestOverviewControl(testsDataGridView.GetSelectedId()));
+
+        private void FillCoursesPanel() 
+        {
+            coursesFlowLayoutPanel.Controls.Clear();
+
+            var coursesTable = _mySqlFunctions.CallProcedureWithReturnedDataTable(UserConfig.IsTeacher ?
+               "get_teacher_available_courses" : "get_student_available_courses", new MySqlParameter[] {
+                    new MySqlParameter("user_id", UserConfig.UserId) });
+
+            foreach (DataRow course in coursesTable.Rows)
+                CreateCustomLinkLabel(course[0].ToString(), course[1].ToString());
+        }
+
+        private void CreateCustomLinkLabel(string courseId, string courseName)
+        {
+            var customLinkLabel = new CustomLinkLabel
+            {
+                TagValue = courseId,
+                TextValue = courseName
+            };
+
+            customLinkLabel.LeftMouseClickAction = () => LinkLabelClick(customLinkLabel);
+            customLinkLabel.DeleteAction = () => DeleteCourse(customLinkLabel);
+            customLinkLabel.EditAction = () => EditCourse(customLinkLabel);
+
+            coursesFlowLayoutPanel.Controls.Add(customLinkLabel);
+        }
+
+        private void DeleteCourse(CustomLinkLabel customLinkLabel)
+        {
+            try
+            {
+                var dialogResult = MessageBox.Show(
+                    "ВНИМАНИЕ: Удаление предмета приведёт к удалению всех тестировочных материалов и отчётов!" +
+                    "\nВы хотите продолжить?",
+                    "Тестириум",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    _mySqlFunctions.CallProcedure("delete_course",
+                        new MySqlParameter[] { new MySqlParameter("c_id", customLinkLabel.TagValue) });
+
+                    LoadForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void EditCourse(CustomLinkLabel customLinkLabel)
+        {
+            UserConfig.MainMenu.Enabled = false;
+            new CourseAdding(customLinkLabel.TagValue, LoadForm).Show();
+        }
+
+        private void LinkLabelClick(CustomLinkLabel customLinkLabel)
+        {
+            _currentCourseId = customLinkLabel.TagValue.ToString();
+            FillDataGridWithTests(_currentCourseId);
+            btnCreateTest.Enabled = true;
+            lblCurrentCourse.Text = customLinkLabel.TextValue;
+        }
+
+        private void FillDataGridWithTests(string courseId)
+        {
+            testsDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable(UserConfig.IsTeacher ? 
+                "get_teacher_tests" : "get_student_tests", new MySqlParameter[] {
+                    new MySqlParameter("course_id", Convert.ToInt32(courseId)) }));
         }
     }
 }

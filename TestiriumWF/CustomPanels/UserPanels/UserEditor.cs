@@ -19,10 +19,10 @@ namespace TestiriumWF.ProgrammWindows
         private bool _isEditing;
         private bool _isTeacher;
 
-        private int _personId;
-        private int _catalogId;
+        private string _personId;
+        private string _catalogId;
 
-        public UserEditor(bool isTeacher, int catalogId)
+        public UserEditor(bool isTeacher, string catalogId)
         {
             InitializeComponent();
             TopMost = true;
@@ -33,7 +33,7 @@ namespace TestiriumWF.ProgrammWindows
             _catalogId = catalogId;
         }
 
-        public UserEditor(bool isTeacher, int personId, int catalogId)
+        public UserEditor(bool isTeacher, string personId, string catalogId)
         {
             InitializeComponent();
             TopMost = true;

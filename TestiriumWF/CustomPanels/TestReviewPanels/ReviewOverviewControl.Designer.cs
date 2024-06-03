@@ -34,6 +34,7 @@
             this.lblPercentageResult = new System.Windows.Forms.Label();
             this.lblMarkResult = new System.Windows.Forms.Label();
             this.availableTestsPanel = new System.Windows.Forms.Panel();
+            this.btnExportToXlsx = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.availableTestsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             this.studentResultDataGridView.Location = new System.Drawing.Point(16, 104);
             this.studentResultDataGridView.Name = "studentResultDataGridView";
-            this.studentResultDataGridView.Size = new System.Drawing.Size(936, 376);
+            this.studentResultDataGridView.Size = new System.Drawing.Size(936, 336);
             this.studentResultDataGridView.TabIndex = 11;
             // 
             // lblTestTitle
@@ -95,6 +96,7 @@
             // availableTestsPanel
             // 
             this.availableTestsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.availableTestsPanel.Controls.Add(this.btnExportToXlsx);
             this.availableTestsPanel.Controls.Add(this.lblStudentName);
             this.availableTestsPanel.Controls.Add(this.panel1);
             this.availableTestsPanel.Controls.Add(this.studentResultDataGridView);
@@ -103,6 +105,23 @@
             this.availableTestsPanel.Name = "availableTestsPanel";
             this.availableTestsPanel.Size = new System.Drawing.Size(968, 496);
             this.availableTestsPanel.TabIndex = 9;
+            // 
+            // btnExportToXlsx
+            // 
+            this.btnExportToXlsx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportToXlsx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
+            this.btnExportToXlsx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExportToXlsx.FlatAppearance.BorderSize = 0;
+            this.btnExportToXlsx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportToXlsx.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExportToXlsx.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExportToXlsx.Location = new System.Drawing.Point(16, 448);
+            this.btnExportToXlsx.Name = "btnExportToXlsx";
+            this.btnExportToXlsx.Size = new System.Drawing.Size(936, 32);
+            this.btnExportToXlsx.TabIndex = 16;
+            this.btnExportToXlsx.Text = "Экспорт в Excel";
+            this.btnExportToXlsx.UseVisualStyleBackColor = false;
+            this.btnExportToXlsx.Click += new System.EventHandler(this.btnExportToXlsx_Click);
             // 
             // panel1
             // 
@@ -138,5 +157,6 @@
         private System.Windows.Forms.Label lblMarkResult;
         private System.Windows.Forms.Panel availableTestsPanel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnExportToXlsx;
     }
 }

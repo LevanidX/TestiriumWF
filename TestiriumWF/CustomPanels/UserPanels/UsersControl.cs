@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestiriumWF.CustomControls;
 using TestiriumWF.ProgrammWindows;
@@ -21,7 +14,7 @@ namespace TestiriumWF.CustomPanels
 
         private bool _isTeacher;
 
-        private int _selectedCatalogId;
+        private string _selectedCatalogId;
 
         public UsersControl() => InitializeComponent();
 
@@ -50,7 +43,7 @@ namespace TestiriumWF.CustomPanels
                 classesFlowLayoutPanel, "get_available_classes");
         }
 
-        private void FillDataGridWithUsers(int currentCatalog, string procedureName, string parameterName)
+        private void FillDataGridWithUsers(string currentCatalog, string procedureName, string parameterName)
         {
             usersDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable(procedureName, new MySqlParameter[]
             {
@@ -73,7 +66,7 @@ namespace TestiriumWF.CustomPanels
                 CreateCustomLinkLabel(row[0].ToString(), row[1].ToString(), flowLayoutPanel);
             }
 
-            FillDataGridWithUsers(0, _isTeacher ? "get_teachers_from_speciality" : "get_students_from_class",
+            FillDataGridWithUsers("0", _isTeacher ? "get_teachers_from_speciality" : "get_students_from_class",
                _isTeacher ? "speciality_id" : "class_id");
 
             lblChoicedClass.Text = "Не выбран";
@@ -87,26 +80,25 @@ namespace TestiriumWF.CustomPanels
 
             customLinkLabel.TagValue = catalogId;
             customLinkLabel.TextValue = catalogName;
-            customLinkLabel.AddEventClick(LinkLabelClick);
+            customLinkLabel.LeftMouseClickAction = () => LinkLabelClick(customLinkLabel);
 
             containerPanel.Controls.Add(customLinkLabel);
         }
 
-        private void LinkLabelClick(object sender, EventArgs e)
+        private void LinkLabelClick(CustomLinkLabel customLinkLabel)
         {
-            var linkLabel = sender as LinkLabel;
-            _selectedCatalogId = Convert.ToInt32(linkLabel.Tag);
+            _selectedCatalogId = customLinkLabel.TagValue;
             FillDataGridWithUsers(_selectedCatalogId, 
                 _isTeacher ? "get_teachers_from_speciality" : "get_students_from_class",
                 _isTeacher ? "speciality_id" : "class_id");
             btnCreateUser.Enabled = true;
-            lblChoicedSpeciality.Text = linkLabel.Text;
-            lblChoicedClass.Text = linkLabel.Text;
+            lblChoicedSpeciality.Text = customLinkLabel.TextValue;
+            lblChoicedClass.Text = customLinkLabel.TextValue;
         }
 
         private void editUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new UserEditor(_isTeacher, usersDataGridView.GetSelectedId(), _selectedCatalogId).Show();
+            new UserEditor(_isTeacher, usersDataGridView.GetSelectedId().ToString(), _selectedCatalogId).Show();
             UserConfig.MainMenu.Enabled = false;
         }
 

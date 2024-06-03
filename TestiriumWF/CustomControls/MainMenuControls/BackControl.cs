@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TestiriumWF.CustomControls.MainMenuControls
@@ -38,6 +32,29 @@ namespace TestiriumWF.CustomControls.MainMenuControls
         }
 
         private void btnGoBack_Click(object sender, EventArgs e)
+        {
+            if (UserConfig.IsTestStarted)
+            {
+                var dialogResult = MessageBox.Show(
+                    "При выходе с тестирования результат текущего прохождения сохранится!\n" +
+                    "Вы действительно хотите продолжить?",
+                    "Тестириум",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    UserConfig.SaveTestResultAction?.Invoke();
+                    GoingBack();
+                }
+            }
+            else
+            {
+                GoingBack();
+            }
+        }
+
+        private void GoingBack()
         {
             _removableControl.Parent.Controls.Remove(_removableControl);
             this.Parent.Controls.Remove(this);
