@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace TestiriumWF.CustomControls.CustomOverrideControls
 {
@@ -10,8 +11,8 @@ namespace TestiriumWF.CustomControls.CustomOverrideControls
         [Description("Sets text"), Category("Data")]
         public string TextValue
         {
-            get { return textBox.Text; }
-            set { textBox.Text = value; }
+            get => textBox.Text = string.Empty;
+            set => textBox.Text = value;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace TestiriumWF.CustomPanels
             _studentsTestNumber = studentsTestNumber;
             _tryNumber = tryNumber;
         }
-
+        
         public TestCompletingControl(int studentsTestNumber)
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace TestiriumWF.CustomPanels
 
         private void TestCompletingControl_Load(object sender, EventArgs e)
         {
-            _studentsTest = _testDeserializer.GetDeserializedTest(_studentsTestNumber);
+            _studentsTest = _testDeserializer.GetDeserializedTestById(_studentsTestNumber);
 
             _testCompleteStarter = new TestCompleteStarter(questionsContainerPanel, questionButtonsPanel);
             _testCheckerAndSaver = new TestChecker(_studentsTest, _tryNumber, questionsContainerPanel);

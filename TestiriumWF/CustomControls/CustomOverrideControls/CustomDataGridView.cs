@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -6,15 +7,26 @@ namespace TestiriumWF.CustomControls
 {
     public partial class CustomDataGridView : UserControl
     {
-        public Action DataGridDoubleClick = () => { };
-        public Action DataGridRightClick = () => { };
+        public Action DoubleClickAction = () => { };
+        public Action RightClickAction = () => { };
 
         private int _selectedTest;
         public bool IsViewingResults;
 
+        private int _selectedRow;
+
         public CustomDataGridView() => InitializeComponent();
 
         public int GetSelectedId() => _selectedTest;
+        public string GetExactValue(int column, int row) => customDataGrid[column, row].Value.ToString();
+
+        public void HideColumns(List<int> columns) =>
+            columns.ForEach(column => customDataGrid.Columns[column].Visible = false);
+
+        public void ShowColumns(List<int> columns) =>
+            columns.ForEach(column => customDataGrid.Columns[column].Visible = true);
+
+        public int GetSelectedRow() => _selectedRow;
 
         public void FillData(DataTable dataTable)
         {
@@ -27,6 +39,7 @@ namespace TestiriumWF.CustomControls
         {
             if (e.RowIndex > -1)
             {
+                _selectedRow = e.RowIndex;
                 customDataGrid.Rows[e.RowIndex].Selected = true;
                 _selectedTest = (int)customDataGrid.Rows[e.RowIndex].Cells[0].Value;
             }
@@ -36,17 +49,18 @@ namespace TestiriumWF.CustomControls
         {
             if (e.Button == MouseButtons.Right && customDataGrid.SelectedRows.Count > 0) 
             {
-                DataGridRightClick();
+                RightClickAction();
             }
         }
 
-        private void customDataGrid_CellMouseLeave(object sender, DataGridViewCellEventArgs e) => customDataGrid.ClearSelection();
+        private void customDataGrid_CellMouseLeave(object sender, DataGridViewCellEventArgs e) => 
+            customDataGrid.ClearSelection();
 
         private void customDataGrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != - 1)
             {
-                DataGridDoubleClick();
+                DoubleClickAction();
             }
         }
     }

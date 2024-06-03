@@ -33,13 +33,16 @@
             // 
             // answerTextBox
             // 
+            this.answerTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.answerTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.answerTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.answerTextBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.answerTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
             this.answerTextBox.Location = new System.Drawing.Point(0, 0);
             this.answerTextBox.Name = "answerTextBox";
-            this.answerTextBox.Size = new System.Drawing.Size(688, 23);
+            this.answerTextBox.Size = new System.Drawing.Size(672, 23);
             this.answerTextBox.TabIndex = 5;
             this.answerTextBox.Text = "Введите вариант ответа";
             this.answerTextBox.Click += new System.EventHandler(this.answerTextBox_Click);
@@ -51,7 +54,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.answerTextBox);
             this.Name = "CustomAnswerTextBox";
-            this.Size = new System.Drawing.Size(688, 23);
+            this.Size = new System.Drawing.Size(672, 23);
             this.Load += new System.EventHandler(this.CustomAnswerTextBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

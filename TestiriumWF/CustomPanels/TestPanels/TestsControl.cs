@@ -25,19 +25,19 @@ namespace TestiriumWF.CustomPanels
         {
             if (UserConfig.IsTeacher)
             {
-                testsDataGridView.DataGridRightClick += () => teachersDataGridMenuStrip.Show(MousePosition);
+                testsDataGridView.RightClickAction += () => teachersDataGridMenuStrip.Show(MousePosition);
             }
             else
             {
                 allCoursesPanel.Controls.Remove(btnAddCourse);
                 availableTestsPanel.Controls.Remove(btnCreateTest);
-                testsDataGridView.DataGridDoubleClick += DoubleClickAction;
+                testsDataGridView.DoubleClickAction += CreateTestOverviewByID;
             }
 
             RefillPanels();
         }
 
-        private void DoubleClickAction()
+        private void CreateTestOverviewByID()
         {
             var testOverviewControl = new TestOverviewControl(testsDataGridView.GetSelectedId());
             this.Controls.Add(testOverviewControl);
@@ -50,7 +50,7 @@ namespace TestiriumWF.CustomPanels
             new CourseAdding().Show();
         }
 
-            public void RefillPanels()
+        public void RefillPanels()
         {
             coursesFlowLayoutPanel.Controls.Clear();
 
@@ -105,7 +105,8 @@ namespace TestiriumWF.CustomPanels
             testCreatingControl.BringToFront();
         }
 
-        private void TestsControl_ControlAdded(object sender, ControlEventArgs e) => new BackControl(e.Control, this).InitializeBackControlFromTestsControl();
+        private void TestsControl_ControlAdded(object sender, ControlEventArgs e) =>
+            new BackControl(e.Control, this).InitializeBackControlFromTestsControl();
 
         private void endOrOpenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -116,9 +117,7 @@ namespace TestiriumWF.CustomPanels
             });
             
             RefillPanels();
-        }
-
-        
+        }  
 
         private void completeTestAsStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -156,6 +155,18 @@ namespace TestiriumWF.CustomPanels
 
             teachersDataGridMenuStrip.Items[2].Text = isOpened ? "Закрыть для прохождения" : "Открыть для прохождения";
             teachersDataGridMenuStrip.Items[2].Tag = isOpened ? "0" : "1";
+        }
+
+        private void createReviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var classNumber = _mySqlFunctions.CallProcedureWithReturnedDataTable("get_class_number", new MySqlParameter[]
+            {
+                new MySqlParameter("test_id", testsDataGridView.GetSelectedId())
+            }).Rows[0][0];
+
+            var reviewControl = new ReviewControl(classNumber.ToString(), testsDataGridView.GetSelectedId());
+            this.Controls.Add(reviewControl);
+            reviewControl.BringToFront();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace TestiriumWF.CustomPanels
 
         private void UsersControl_Load(object sender, EventArgs e)
         {
-            usersDataGridView.DataGridRightClick += () => usersDataGridMenuStrip.Show(MousePosition);
+            usersDataGridView.RightClickAction += () => usersDataGridMenuStrip.Show(MousePosition);
 
             FillUsersValues(true, teachersPanel, teachersCatalogPanel,
                 specialitiesFlowLayoutPanel, "get_available_specialities");
@@ -110,23 +110,32 @@ namespace TestiriumWF.CustomPanels
             UserConfig.MainMenu.Enabled = false;
         }
 
-            private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var dialog = MessageBox.Show(
                 "Вы уверены, что хотите удалить данного пользователя?",
                 "Тестириум",
                 MessageBoxButtons.YesNo);
 
-            if (dialog == DialogResult.Yes)
+            try
             {
-                _mySqlFunctions.CallProcedure(_isTeacher ? "delete_user_teacher" : "delete_user_student", new MySqlParameter[]
+                if (dialog == DialogResult.Yes)
                 {
-                    new MySqlParameter("person_id", usersDataGridView.GetSelectedId())
-                });
+                    _mySqlFunctions.CallProcedure(_isTeacher ? "delete_user_teacher" : "delete_user_student", new MySqlParameter[]
+                    {
+                        new MySqlParameter("person_id", usersDataGridView.GetSelectedId())
+                    });
 
-                FillDataGridWithUsers(_selectedCatalogId, _isTeacher ? "get_teachers_from_speciality" : "get_students_from_class",
-                    _isTeacher ? "speciality_id" : "class_id");
+                    FillDataGridWithUsers(_selectedCatalogId, _isTeacher ? "get_teachers_from_speciality" : "get_students_from_class",
+                        _isTeacher ? "speciality_id" : "class_id");
+                }
             }
+            catch
+            {
+                MessageBox.Show("Данный пользователь задействован в результатах тестирований. " +
+                    "\nСначала произведите удаление резульатов по тестированиям для этого пользователя");
+            }
+            
         }
 
         private void btnAddNewSpeciality_Click(object sender, EventArgs e)

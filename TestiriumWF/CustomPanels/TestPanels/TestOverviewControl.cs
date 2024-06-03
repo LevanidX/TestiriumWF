@@ -35,7 +35,7 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
 
         private void SetAndGetTest()
         {
-            _studentsTest = _testDeserializer.GetDeserializedTest(_studentsTestNumber);
+            _studentsTest = _testDeserializer.GetDeserializedTestById(_studentsTestNumber);
         }
 
         private void FillDataGrid()

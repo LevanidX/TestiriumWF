@@ -37,6 +37,18 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
+    <Reference Include="ClosedXML, Version=0.102.2.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.102.2\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.16.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <HintPath>..\packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -52,10 +64,14 @@
     <Reference Include="MySql.Data, Version=8.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.3.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
@@ -65,6 +81,14 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -72,12 +96,47 @@
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -89,9 +148,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="XLParser, Version=1.5.2.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\XLParser.1.5.2\lib\net461\XLParser.dll</HintPath>
+    </Reference>
     <Reference Include="ZstdSharp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
     </Reference>
@@ -108,12 +170,6 @@
     </Compile>
     <Compile Include="CustomControls\CustomOverrideControls\CustomDataGridView.Designer.cs">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControls\CustomOverrideControls\CustomDateTimePicker.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomControls\CustomOverrideControls\CustomDateTimePicker.Designer.cs">
-      <DependentUpon>CustomDateTimePicker.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\CustomOverrideControls\CustomLabel.cs">
       <SubType>UserControl</SubType>
@@ -169,152 +225,164 @@
     <Compile Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.Designer.cs">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\UsersPanel\EditUserProfile.cs">
+    <Compile Include="CustomPanels\TestReviewPanels\ReviewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\UsersPanel\EditUserProfile.Designer.cs">
+    <Compile Include="CustomPanels\TestReviewPanels\ReviewControl.Designer.cs">
+      <DependentUpon>ReviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\TestReviewPanels\ReviewOverviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\TestReviewPanels\ReviewOverviewControl.Designer.cs">
+      <DependentUpon>ReviewOverviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPanels\UserPanels\EditUserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\UserPanels\EditUserProfile.Designer.cs">
       <DependentUpon>EditUserProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TestOverviewControl.cs">
+    <Compile Include="CustomPanels\TestPanels\TestOverviewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestOverviewControl.Designer.cs">
+    <Compile Include="CustomPanels\TestPanels\TestOverviewControl.Designer.cs">
       <DependentUpon>TestOverviewControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedTestSettingPanel\TestEndScreen.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedTestPanels\TestEndScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedTestSettingPanel\TestEndScreen.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedTestPanels\TestEndScreen.Designer.cs">
       <DependentUpon>TestEndScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestMatchQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestMatchQuestionPanel.Designer.cs">
       <DependentUpon>TestMatchQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.Designer.cs">
       <DependentUpon>TestMultipleQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestOneQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestOneQuestionPanel.Designer.cs">
       <DependentUpon>TestOneQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.Designer.cs">
       <DependentUpon>TestSequenceQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestTextQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestTextQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedQuestionPanels\TestTextQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestTextQuestionPanel.Designer.cs">
       <DependentUpon>TestTextQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedTestSettingPanel\TestWelcomeScreen.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedTestPanels\TestWelcomeScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\DeserializedTestSettingPanel\TestWelcomeScreen.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\DeserializedTestPanels\TestWelcomeScreen.Designer.cs">
       <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TestCompletingControl.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCompletingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestCompletingControl.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCompletingControl.Designer.cs">
       <DependentUpon>TestCompletingControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TestCreatingControl.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCreatingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestCreatingControl.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCreatingControl.Designer.cs">
       <DependentUpon>TestCreatingControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TestsControl.cs">
+    <Compile Include="CustomPanels\TestPanels\TestsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestsControl.Designer.cs">
+    <Compile Include="CustomPanels\TestPanels\TestsControl.Designer.cs">
       <DependentUpon>TestsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TestSettingPanels\EndScreenPanel.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\EndScreenPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestSettingPanels\EndScreenPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\EndScreenPanel.Designer.cs">
       <DependentUpon>EndScreenPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\MatchQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\MatchQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\MatchQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\MatchQuestionPanel.Designer.cs">
       <DependentUpon>MatchQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\SequenceQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\SequenceQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\SequenceQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\SequenceQuestionPanel.Designer.cs">
       <DependentUpon>SequenceQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\TextQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\TextQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\TextQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\TextQuestionPanel.Designer.cs">
       <DependentUpon>TextQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TimeControl.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TimeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TimeControl.Designer.cs">
+    <Compile Include="CustomPanels\TestCompletePanels\TestSetPanels\TimeControl.Designer.cs">
       <DependentUpon>TimeControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\UsersPanel\UserBoxPanel.cs">
+    <Compile Include="CustomPanels\UserPanels\UserBoxPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\UsersPanel\UserBoxPanel.Designer.cs">
+    <Compile Include="CustomPanels\UserPanels\UserBoxPanel.Designer.cs">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\UsersPanel\PopUserPanel.cs">
+    <Compile Include="CustomPanels\UserPanels\PopUserPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\UsersPanel\PopUserPanel.Designer.cs">
+    <Compile Include="CustomPanels\UserPanels\PopUserPanel.Designer.cs">
       <DependentUpon>PopUserPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\UsersPanel\UsersControl.cs">
+    <Compile Include="CustomPanels\UserPanels\UsersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\UsersPanel\UsersControl.Designer.cs">
+    <Compile Include="CustomPanels\UserPanels\UsersControl.Designer.cs">
       <DependentUpon>UsersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ProgrammFunctions\FormsMessages.cs" />
     <Compile Include="ProgrammFunctions\TestTypes.cs" />
-    <Compile Include="ProgrammWindows\CreateNewClass.cs">
+    <Compile Include="CustomPanels\UserPanels\CreateNewClass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgrammWindows\CreateNewClass.Designer.cs">
+    <Compile Include="CustomPanels\UserPanels\CreateNewClass.Designer.cs">
       <DependentUpon>CreateNewClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProgrammWindows\CreateNewSpeciality.cs">
+    <Compile Include="CustomPanels\UserPanels\CreateNewSpeciality.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgrammWindows\CreateNewSpeciality.Designer.cs">
+    <Compile Include="CustomPanels\UserPanels\CreateNewSpeciality.Designer.cs">
       <DependentUpon>CreateNewSpeciality.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProgrammWindows\UserEditor.cs">
+    <Compile Include="CustomPanels\UserPanels\UserEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgrammWindows\UserEditor.Designer.cs">
+    <Compile Include="CustomPanels\UserPanels\UserEditor.Designer.cs">
       <DependentUpon>UserEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlFunctions\MySqlFunctions.cs" />
     <Compile Include="SqlFunctions\MySqlWriter.cs" />
-    <Compile Include="ProgrammWindows\ChooseQuestionType.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\ChooseQuestionType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgrammWindows\ChooseQuestionType.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\ChooseQuestionType.Designer.cs">
       <DependentUpon>ChooseQuestionType.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\CustomControlsForRefactor\CustomAnswerTextBox.cs">
@@ -342,10 +410,10 @@
     <Compile Include="CustomControls\TestControls\CustomTestCreatingButton.Designer.cs">
       <DependentUpon>CustomTestCreatingButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProgrammWindows\CourseAdding.cs">
+    <Compile Include="CustomPanels\TestPanels\CourseAdding.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgrammWindows\CourseAdding.Designer.cs">
+    <Compile Include="CustomPanels\TestPanels\CourseAdding.Designer.cs">
       <DependentUpon>CourseAdding.cs</DependentUpon>
     </Compile>
     <Compile Include="ProgrammWindows\LoginForm.cs">
@@ -354,16 +422,16 @@
     <Compile Include="ProgrammWindows\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\MultipleQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\MultipleQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\MultipleQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\MultipleQuestionPanel.Designer.cs">
       <DependentUpon>MultipleQuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\OneQuestionPanel.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\OneQuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\QuestionPanels\OneQuestionPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\QuestionPanels\OneQuestionPanel.Designer.cs">
       <DependentUpon>OneQuestionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -382,10 +450,10 @@
     <Compile Include="TestCreatingFunctions\TestCreatingMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCreatingFunctions\QuestionsCreating.cs" />
-    <Compile Include="CustomPanels\TestSettingPanels\WelcomeScreenPanel.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\WelcomeScreenPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestSettingPanels\WelcomeScreenPanel.Designer.cs">
+    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\WelcomeScreenPanel.Designer.cs">
       <DependentUpon>WelcomeScreenPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="TestCreatingFunctions\AnswersGetting.cs" />
@@ -395,14 +463,12 @@
     <Compile Include="ProgrammFunctions\UserConfig.cs" />
     <Compile Include="TestCreatingFunctions\TestSerializer.cs" />
     <Compile Include="TestEditorFunctions\TestEditorStarter.cs" />
+    <Compile Include="TeacherTestReviewer.cs" />
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomComboBox.resx">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomDataGridView.resx">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomDateTimePicker.resx">
-      <DependentUpon>CustomDateTimePicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomLabel.resx">
       <DependentUpon>CustomLabel.cs</DependentUpon>
@@ -431,67 +497,73 @@
     <EmbeddedResource Include="CustomControls\TestCompleteingControls\CustomTestButtonControl.resx">
       <DependentUpon>CustomTestButtonControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\UsersPanel\EditUserProfile.resx">
+    <EmbeddedResource Include="CustomPanels\TestReviewPanels\ReviewControl.resx">
+      <DependentUpon>ReviewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\TestReviewPanels\ReviewOverviewControl.resx">
+      <DependentUpon>ReviewOverviewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPanels\UserPanels\EditUserProfile.resx">
       <DependentUpon>EditUserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\UsersPanel\PopUserPanel.resx">
+    <EmbeddedResource Include="CustomPanels\UserPanels\PopUserPanel.resx">
       <DependentUpon>PopUserPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TestOverviewControl.resx">
+    <EmbeddedResource Include="CustomPanels\TestPanels\TestOverviewControl.resx">
       <DependentUpon>TestOverviewControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedTestSettingPanel\TestEndScreen.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\DeserializedTestPanels\TestEndScreen.resx">
       <DependentUpon>TestEndScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestMatchQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestMatchQuestionPanel.resx">
       <DependentUpon>TestMatchQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestMultipleQuestionPanel.resx">
       <DependentUpon>TestMultipleQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestOneQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestOneQuestionPanel.resx">
       <DependentUpon>TestOneQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestSequenceQuestionPanel.resx">
       <DependentUpon>TestSequenceQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedQuestionPanels\TestTextQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\DeserializedQuestionPanels\TestTextQuestionPanel.resx">
       <DependentUpon>TestTextQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\DeserializedTestSettingPanel\TestWelcomeScreen.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\DeserializedTestPanels\TestWelcomeScreen.resx">
       <DependentUpon>TestWelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TestCompletingControl.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCompletingControl.resx">
       <DependentUpon>TestCompletingControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TestCreatingControl.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\TestSetPanels\TestCreatingControl.resx">
       <DependentUpon>TestCreatingControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TestsControl.resx">
+    <EmbeddedResource Include="CustomPanels\TestPanels\TestsControl.resx">
       <DependentUpon>TestsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TestSettingPanels\EndScreenPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\TestSettingPanels\EndScreenPanel.resx">
       <DependentUpon>EndScreenPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\QuestionPanels\MatchQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\QuestionPanels\MatchQuestionPanel.resx">
       <DependentUpon>MatchQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\QuestionPanels\SequenceQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\QuestionPanels\SequenceQuestionPanel.resx">
       <DependentUpon>SequenceQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\QuestionPanels\TextQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\QuestionPanels\TextQuestionPanel.resx">
       <DependentUpon>TextQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TimeControl.resx">
+    <EmbeddedResource Include="CustomPanels\TestCompletePanels\TestSetPanels\TimeControl.resx">
       <DependentUpon>TimeControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\UsersPanel\UserBoxPanel.resx">
+    <EmbeddedResource Include="CustomPanels\UserPanels\UserBoxPanel.resx">
       <DependentUpon>UserBoxPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\UsersPanel\UsersControl.resx">
+    <EmbeddedResource Include="CustomPanels\UserPanels\UsersControl.resx">
       <DependentUpon>UsersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgrammWindows\ChooseQuestionType.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\TestSettingPanels\ChooseQuestionType.resx">
       <DependentUpon>ChooseQuestionType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomControlsForRefactor\CustomAnswerTextBox.resx">
@@ -506,28 +578,28 @@
     <EmbeddedResource Include="CustomControls\TestControls\CustomTestCreatingButton.resx">
       <DependentUpon>CustomTestCreatingButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgrammWindows\CourseAdding.resx">
+    <EmbeddedResource Include="CustomPanels\TestPanels\CourseAdding.resx">
       <DependentUpon>CourseAdding.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgrammWindows\CreateNewClass.resx">
+    <EmbeddedResource Include="CustomPanels\UserPanels\CreateNewClass.resx">
       <DependentUpon>CreateNewClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgrammWindows\CreateNewSpeciality.resx">
+    <EmbeddedResource Include="CustomPanels\UserPanels\CreateNewSpeciality.resx">
       <DependentUpon>CreateNewSpeciality.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\QuestionPanels\MultipleQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\QuestionPanels\MultipleQuestionPanel.resx">
       <DependentUpon>MultipleQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\QuestionPanels\OneQuestionPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\QuestionPanels\OneQuestionPanel.resx">
       <DependentUpon>OneQuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgrammWindows\TestiriumMainMenu.resx">
       <DependentUpon>TestiriumMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgrammWindows\UserEditor.resx">
+    <EmbeddedResource Include="CustomPanels\UserPanels\UserEditor.resx">
       <DependentUpon>UserEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -540,7 +612,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="CustomPanels\TestSettingPanels\WelcomeScreenPanel.resx">
+    <EmbeddedResource Include="CustomPanels\TestCreatePanels\TestSettingPanels\WelcomeScreenPanel.resx">
       <DependentUpon>WelcomeScreenPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

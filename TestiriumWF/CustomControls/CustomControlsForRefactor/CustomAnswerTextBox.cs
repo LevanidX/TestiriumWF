@@ -10,20 +10,12 @@ namespace TestiriumWF
         private string _returningValue;
         private string _answerText;
 
-        public CustomAnswerTextBox()
-        {
-            InitializeComponent();
-        }
+        public CustomAnswerTextBox() => InitializeComponent();
 
-        public string GetAnswerText()
-        {
-            return _answerText;
-        }
+        public string GetAnswerText() => _answerText;
 
-        private void answerTextBox_Click(object sender, EventArgs e)
-        {
+        private void answerTextBox_Click(object sender, EventArgs e) =>
             functions.ChangeTextBoxOnClick(answerTextBox, _returningValue);
-        }
 
         private void CustomAnswerTextBox_Load(object sender, EventArgs e)
         {

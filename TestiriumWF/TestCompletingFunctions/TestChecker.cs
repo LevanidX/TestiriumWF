@@ -5,9 +5,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using TestiriumWF.CustomPanels.DeserializedQuestionPanels;
 using TestiriumWF.ProgrammFunctions;
-using TestiriumWF.SqlFunctions;
 using TestStructure;
-using MySql.Data.MySqlClient;
 
 namespace TestiriumWF.TestCompletingFunctions
 {

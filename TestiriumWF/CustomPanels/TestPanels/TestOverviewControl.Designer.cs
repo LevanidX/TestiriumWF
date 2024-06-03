@@ -32,9 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAvailableTries = new System.Windows.Forms.Label();
             this.lblBestResult = new System.Windows.Forms.Label();
-            this.btnBeginTest = new System.Windows.Forms.Button();
             this.customDataGridView = new TestiriumWF.CustomControls.CustomDataGridView();
             this.lblTestTitle = new System.Windows.Forms.Label();
+            this.btnBeginTest = new System.Windows.Forms.Button();
             this.availableTestsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,23 +85,6 @@
             this.lblBestResult.Text = "Лучший результат - 0%";
             this.lblBestResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnBeginTest
-            // 
-            this.btnBeginTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBeginTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
-            this.btnBeginTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnBeginTest.FlatAppearance.BorderSize = 0;
-            this.btnBeginTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBeginTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnBeginTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBeginTest.Location = new System.Drawing.Point(16, 440);
-            this.btnBeginTest.Name = "btnBeginTest";
-            this.btnBeginTest.Size = new System.Drawing.Size(936, 40);
-            this.btnBeginTest.TabIndex = 13;
-            this.btnBeginTest.Text = "Пройти тестирование";
-            this.btnBeginTest.UseVisualStyleBackColor = false;
-            this.btnBeginTest.Click += new System.EventHandler(this.btnBeginTest_Click);
-            // 
             // customDataGridView
             // 
             this.customDataGridView.Location = new System.Drawing.Point(16, 104);
@@ -119,6 +102,23 @@
             this.lblTestTitle.TabIndex = 7;
             this.lblTestTitle.Text = "Название тестирования";
             this.lblTestTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnBeginTest
+            // 
+            this.btnBeginTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBeginTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
+            this.btnBeginTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBeginTest.FlatAppearance.BorderSize = 0;
+            this.btnBeginTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBeginTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnBeginTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBeginTest.Location = new System.Drawing.Point(16, 440);
+            this.btnBeginTest.Name = "btnBeginTest";
+            this.btnBeginTest.Size = new System.Drawing.Size(936, 40);
+            this.btnBeginTest.TabIndex = 13;
+            this.btnBeginTest.Text = "Пройти тестирование";
+            this.btnBeginTest.UseVisualStyleBackColor = false;
+            this.btnBeginTest.Click += new System.EventHandler(this.btnBeginTest_Click);
             // 
             // TestOverviewControl
             // 
@@ -141,8 +141,8 @@
         private System.Windows.Forms.Label lblTestTitle;
         private System.Windows.Forms.Label lblBestResult;
         private CustomDataGridView customDataGridView;
-        private System.Windows.Forms.Button btnBeginTest;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblAvailableTries;
+        private System.Windows.Forms.Button btnBeginTest;
     }
 }

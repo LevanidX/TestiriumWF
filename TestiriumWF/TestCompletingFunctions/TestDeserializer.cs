@@ -10,7 +10,7 @@ namespace TestiriumWF
     {
         private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
 
-        public Test GetDeserializedTest(int studentsTestNumber)
+        public Test GetDeserializedTestById(int studentsTestNumber)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Test));
 
@@ -20,6 +20,12 @@ namespace TestiriumWF
                 new MySqlParameter("test_num", studentsTestNumber)
             }).Rows[0][0].ToString();
 
+            return (Test)xmlSerializer.Deserialize(new StringReader(xmlFile));
+        }
+
+        public Test GetDeserializedTestByFile(string xmlFile)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Test));
             return (Test)xmlSerializer.Deserialize(new StringReader(xmlFile));
         }
     }
