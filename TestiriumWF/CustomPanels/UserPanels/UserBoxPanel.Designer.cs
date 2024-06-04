@@ -30,9 +30,9 @@
         {
             this.lblUserName = new System.Windows.Forms.Label();
             this.userBoxTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.userImage = new System.Windows.Forms.PictureBox();
+            this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.userBoxTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUserName
@@ -56,7 +56,7 @@
             this.userBoxTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.51913F));
             this.userBoxTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.48086F));
             this.userBoxTableLayoutPanel.Controls.Add(this.lblUserName, 0, 0);
-            this.userBoxTableLayoutPanel.Controls.Add(this.userImage, 1, 0);
+            this.userBoxTableLayoutPanel.Controls.Add(this.userPictureBox, 1, 0);
             this.userBoxTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.userBoxTableLayoutPanel.Name = "userBoxTableLayoutPanel";
             this.userBoxTableLayoutPanel.RowCount = 1;
@@ -65,16 +65,16 @@
             this.userBoxTableLayoutPanel.TabIndex = 2;
             this.userBoxTableLayoutPanel.Click += new System.EventHandler(this.userBoxTableLayoutPanel_Click);
             // 
-            // userImage
+            // userPictureBox
             // 
-            this.userImage.BackColor = System.Drawing.Color.Gainsboro;
-            this.userImage.Image = global::TestiriumWF.Properties.Resources.user_account;
-            this.userImage.Location = new System.Drawing.Point(307, 3);
-            this.userImage.Name = "userImage";
-            this.userImage.Size = new System.Drawing.Size(50, 50);
-            this.userImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.userImage.TabIndex = 1;
-            this.userImage.TabStop = false;
+            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.userPictureBox.Image = global::TestiriumWF.Properties.Resources.user_default_img;
+            this.userPictureBox.Location = new System.Drawing.Point(307, 3);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Size = new System.Drawing.Size(50, 50);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.userPictureBox.TabIndex = 1;
+            this.userPictureBox.TabStop = false;
             // 
             // UserBoxPanel
             // 
@@ -85,7 +85,7 @@
             this.Size = new System.Drawing.Size(358, 56);
             this.userBoxTableLayoutPanel.ResumeLayout(false);
             this.userBoxTableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -93,6 +93,6 @@
         #endregion
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.TableLayoutPanel userBoxTableLayoutPanel;
-        private System.Windows.Forms.PictureBox userImage;
+        private System.Windows.Forms.PictureBox userPictureBox;
     }
 }

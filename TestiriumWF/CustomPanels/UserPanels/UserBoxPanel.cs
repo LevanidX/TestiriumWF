@@ -2,14 +2,14 @@
 using System.Windows.Forms;
 using TestiriumWF.SqlFunctions;
 using MySql.Data.MySqlClient;
-using System.Data;
-using System.Linq;
+using TestiriumWF.ProgrammFunctions;
 
 namespace TestiriumWF.CustomPanels
 {
     public partial class UserBoxPanel : UserControl
     {
         private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
+        private ImageFunctions _imageFunctions = new ImageFunctions();
         private Action _clickAction;
 
         public UserBoxPanel() => InitializeComponent();
@@ -24,6 +24,15 @@ namespace TestiriumWF.CustomPanels
             }).Rows[0].ItemArray.CopyTo(UserConfig.UserData, 0);
 
             lblUserName.Text = $"{UserConfig.UserData[1]} {UserConfig.UserData[0]} {UserConfig.UserData[2]}";
+
+            if (UserConfig.UserData[4] == DBNull.Value)
+            {
+                userPictureBox.Image = Properties.Resources.user_default_img;
+            }
+            else
+            {
+                userPictureBox.Image = _imageFunctions.ConvertBytesIntoImage((byte[])UserConfig.UserData[4]);
+            }
         }
 
         public void SetClickAction(Action clickAction) => _clickAction = clickAction;

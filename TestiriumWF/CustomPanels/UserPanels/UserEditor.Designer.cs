@@ -41,12 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.userBirthdateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.userPictureBox = new System.Windows.Forms.PictureBox();
+            this.btnExitWindow = new System.Windows.Forms.Button();
             this.userLoginTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.userPasswordTextBox = new TestiriumWF.CustomControls.CustomPasswordTextBox();
             this.userPatronymicTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.userSurnameTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
             this.userNameTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
-            this.btnExitWindow = new System.Windows.Forms.Button();
             this.isAdminPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -192,14 +192,31 @@
             // 
             // userPictureBox
             // 
-            this.userPictureBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.userPictureBox.Image = global::TestiriumWF.Properties.Resources.user_account;
+            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.userPictureBox.Image = global::TestiriumWF.Properties.Resources.user_default_img;
             this.userPictureBox.Location = new System.Drawing.Point(16, 32);
             this.userPictureBox.Name = "userPictureBox";
             this.userPictureBox.Size = new System.Drawing.Size(152, 160);
             this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userPictureBox.TabIndex = 34;
             this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.userPictureBox_Click);
+            // 
+            // btnExitWindow
+            // 
+            this.btnExitWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.btnExitWindow.BackgroundImage = global::TestiriumWF.Properties.Resources.back;
+            this.btnExitWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExitWindow.FlatAppearance.BorderSize = 0;
+            this.btnExitWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExitWindow.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExitWindow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExitWindow.Location = new System.Drawing.Point(408, 8);
+            this.btnExitWindow.Name = "btnExitWindow";
+            this.btnExitWindow.Size = new System.Drawing.Size(24, 24);
+            this.btnExitWindow.TabIndex = 54;
+            this.btnExitWindow.UseVisualStyleBackColor = false;
+            this.btnExitWindow.Click += new System.EventHandler(this.btnExitWindow_Click);
             // 
             // userLoginTextBox
             // 
@@ -240,22 +257,6 @@
             this.userNameTextBox.Size = new System.Drawing.Size(248, 24);
             this.userNameTextBox.TabIndex = 37;
             this.userNameTextBox.TextValue = "";
-            // 
-            // btnExitWindow
-            // 
-            this.btnExitWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
-            this.btnExitWindow.BackgroundImage = global::TestiriumWF.Properties.Resources.back;
-            this.btnExitWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnExitWindow.FlatAppearance.BorderSize = 0;
-            this.btnExitWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExitWindow.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnExitWindow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnExitWindow.Location = new System.Drawing.Point(416, 0);
-            this.btnExitWindow.Name = "btnExitWindow";
-            this.btnExitWindow.Size = new System.Drawing.Size(24, 24);
-            this.btnExitWindow.TabIndex = 54;
-            this.btnExitWindow.UseVisualStyleBackColor = false;
-            this.btnExitWindow.Click += new System.EventHandler(this.btnExitWindow_Click);
             // 
             // UserEditor
             // 

@@ -21,6 +21,7 @@ namespace TestiriumWF.ProgrammWindows
         private void TestiriumMainMenu_Load(object sender, EventArgs e)
         {
             UserConfig.MainMenu = this;
+            UserConfig.UserBoxPanel = userBoxPanel;
 
             userBoxPanel.Instantiate();
             userBoxPanel.SetClickAction(UserBoxPanelClick);

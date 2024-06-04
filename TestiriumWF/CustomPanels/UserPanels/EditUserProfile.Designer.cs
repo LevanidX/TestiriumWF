@@ -250,14 +250,15 @@
             // 
             // userPictureBox
             // 
-            this.userPictureBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.userPictureBox.Image = global::TestiriumWF.Properties.Resources.user_account;
+            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.userPictureBox.Image = global::TestiriumWF.Properties.Resources.user_default_img;
             this.userPictureBox.Location = new System.Drawing.Point(16, 40);
             this.userPictureBox.Name = "userPictureBox";
             this.userPictureBox.Size = new System.Drawing.Size(176, 176);
             this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userPictureBox.TabIndex = 12;
             this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.userPictureBox_Click);
             // 
             // EditUserProfile
             // 

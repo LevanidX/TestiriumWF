@@ -1,12 +1,12 @@
 ﻿using System;
+using TestiriumWF.CustomPanels;
 using TestiriumWF.ProgrammWindows;
-using TestiriumWF.TestCompletingFunctions;
 
 namespace TestiriumWF
 {
     internal class UserConfig
     {
-        private const int USER_DATA_SIZE = 4;
+        private const int USER_DATA_SIZE = 5;
 
         public static int UserId;
         public static bool IsTeacher;
@@ -19,5 +19,6 @@ namespace TestiriumWF
 
         public static TestiriumMainMenu MainMenu;
         public static LoginForm LoginForm;
+        public static UserBoxPanel UserBoxPanel;
     }
 }

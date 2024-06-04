@@ -3,12 +3,14 @@ using System.Windows.Forms;
 using TestiriumWF.SqlFunctions;
 using MySql.Data.MySqlClient;
 using System.Globalization;
+using TestiriumWF.ProgrammFunctions;
 
 namespace TestiriumWF.CustomPanels
 {
     public partial class EditUserProfile : UserControl
     {
         MySqlFunctions _mySqlFunctions = new MySqlFunctions();
+        ImageFunctions _imageFunctions = new ImageFunctions();
 
         public EditUserProfile() => InitializeComponent();
 
@@ -48,8 +50,33 @@ namespace TestiriumWF.CustomPanels
             lblSurname.Text = UserConfig.UserData[1].ToString();
             lblPatronymic.Text = UserConfig.UserData[2].ToString();
 
-            lblBirthDate.Text = UserConfig.UserData[3].ToString(); //формат даты не тот, сейчас (мм.дд.гггг), а надо (дд.мм.гггг)
+            lblBirthDate.Text = UserConfig.UserData[3].ToString();
             lblBirthDate.Text = lblBirthDate.Text.Substring(0, 10);
+
+            if (UserConfig.UserData[4] == DBNull.Value)
+            {
+                userPictureBox.Image = Properties.Resources.user_default_img;
+            }
+            else
+            {
+                userPictureBox.Image = _imageFunctions.ConvertBytesIntoImage((byte[])UserConfig.UserData[4]);
+            }
+        }
+
+        private void userPictureBox_Click(object sender, EventArgs e)
+        {
+            var bytes = _imageFunctions.ConvertImageIntoBytes(_imageFunctions.GetImageStream());
+
+            _mySqlFunctions.CallProcedureWithReturnedDataTable(UserConfig.IsTeacher ? "update_teacher_image" : "update_student_image",
+                new MySqlParameter[] 
+                { 
+                    new MySqlParameter("u_id", UserConfig.UserId),
+                    new MySqlParameter("image_file", bytes)
+                });
+
+            userPictureBox.Image = _imageFunctions.ConvertBytesIntoImage(bytes);
+
+            UserConfig.UserBoxPanel.Instantiate();
         }
     }
 }

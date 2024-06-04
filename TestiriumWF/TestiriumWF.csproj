@@ -364,6 +364,7 @@
       <DependentUpon>UsersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ProgrammFunctions\FormsMessages.cs" />
+    <Compile Include="ProgrammFunctions\ImageFunctions.cs" />
     <Compile Include="ProgrammFunctions\TestTypes.cs" />
     <Compile Include="CustomPanels\UserPanels\CreateNewClass.cs">
       <SubType>Form</SubType>
@@ -469,6 +470,12 @@
     <Compile Include="TestCreatingFunctions\TestSerializer.cs" />
     <Compile Include="TestEditorFunctions\TestEditorStarter.cs" />
     <Compile Include="TeacherTestReviewer.cs" />
+    <Compile Include="testformsa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testformsa.Designer.cs">
+      <DependentUpon>testformsa.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomControls\CustomOverrideControls\CustomComboBox.resx">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -623,6 +630,9 @@
     <EmbeddedResource Include="CustomPanels\TestCreatePanels\TestSettingPanels\WelcomeScreenPanel.resx">
       <DependentUpon>WelcomeScreenPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="testformsa.resx">
+      <DependentUpon>testformsa.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -680,6 +690,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_default_img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
