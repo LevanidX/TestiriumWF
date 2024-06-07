@@ -33,8 +33,6 @@
             this.btnExitProgramm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.studentRB = new System.Windows.Forms.RadioButton();
-            this.teacherRB = new System.Windows.Forms.RadioButton();
             this.isTeacherCheckBox = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -99,8 +97,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.panel1.Controls.Add(this.studentRB);
-            this.panel1.Controls.Add(this.teacherRB);
             this.panel1.Controls.Add(this.isTeacherCheckBox);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -111,32 +107,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(376, 256);
             this.panel1.TabIndex = 7;
-            // 
-            // studentRB
-            // 
-            this.studentRB.AutoSize = true;
-            this.studentRB.Checked = true;
-            this.studentRB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.studentRB.Location = new System.Drawing.Point(224, 8);
-            this.studentRB.Name = "studentRB";
-            this.studentRB.Size = new System.Drawing.Size(46, 17);
-            this.studentRB.TabIndex = 16;
-            this.studentRB.TabStop = true;
-            this.studentRB.Text = "gera";
-            this.studentRB.UseVisualStyleBackColor = true;
-            this.studentRB.CheckedChanged += new System.EventHandler(this.studentRB_CheckedChanged);
-            // 
-            // teacherRB
-            // 
-            this.teacherRB.AutoSize = true;
-            this.teacherRB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.teacherRB.Location = new System.Drawing.Point(136, 8);
-            this.teacherRB.Name = "teacherRB";
-            this.teacherRB.Size = new System.Drawing.Size(68, 17);
-            this.teacherRB.TabIndex = 15;
-            this.teacherRB.Text = "levashka";
-            this.teacherRB.UseVisualStyleBackColor = true;
-            this.teacherRB.CheckedChanged += new System.EventHandler(this.teacherRB_CheckedChanged);
             // 
             // isTeacherCheckBox
             // 
@@ -182,7 +152,6 @@
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(344, 40);
             this.loginTextBox.TabIndex = 11;
-            this.loginTextBox.Text = "gera45";
             // 
             // passwordTextBox
             // 
@@ -195,7 +164,6 @@
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(344, 40);
             this.passwordTextBox.TabIndex = 10;
-            this.passwordTextBox.Text = "Jorik981";
             // 
             // LoginForm
             // 
@@ -229,8 +197,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox isTeacherCheckBox;
         private System.Windows.Forms.Button btnExitProgramm;
-        private System.Windows.Forms.RadioButton studentRB;
-        private System.Windows.Forms.RadioButton teacherRB;
     }
 }
 

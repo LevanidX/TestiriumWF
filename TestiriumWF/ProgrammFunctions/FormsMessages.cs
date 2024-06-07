@@ -29,5 +29,14 @@ namespace TestiriumWF
 
             return dialog;
         }
+
+        public void ShowIncorrectPasswordOrLoginErrorMessage()
+        {
+            MessageBox.Show(
+                "Логин или пароль были введены неверно!\nПовторите попытку.",
+                ConfigurationManager.AppSettings.Get("ProgrammName"),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
     }
 }

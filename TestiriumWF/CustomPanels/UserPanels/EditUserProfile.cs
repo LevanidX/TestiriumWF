@@ -65,18 +65,25 @@ namespace TestiriumWF.CustomPanels
 
         private void userPictureBox_Click(object sender, EventArgs e)
         {
-            var bytes = _imageFunctions.ConvertImageIntoBytes(_imageFunctions.GetImageStream());
+            try
+            {
+                var bytes = _imageFunctions.ConvertImageIntoBytes(_imageFunctions.GetImageStream());
 
-            _mySqlFunctions.CallProcedureWithReturnedDataTable(UserConfig.IsTeacher ? "update_teacher_image" : "update_student_image",
-                new MySqlParameter[] 
-                { 
+                _mySqlFunctions.CallProcedureWithReturnedDataTable(UserConfig.IsTeacher ? "update_teacher_image" : "update_student_image",
+                    new MySqlParameter[]
+                    {
                     new MySqlParameter("u_id", UserConfig.UserId),
                     new MySqlParameter("image_file", bytes)
-                });
+                    });
 
-            userPictureBox.Image = _imageFunctions.ConvertBytesIntoImage(bytes);
+                userPictureBox.Image = _imageFunctions.ConvertBytesIntoImage(bytes);
 
-            UserConfig.UserBoxPanel.Instantiate();
+                UserConfig.UserBoxPanel.Instantiate();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

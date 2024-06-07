@@ -41,8 +41,11 @@ namespace TestiriumWF.CustomPanels
             new CourseAdding(LoadForm).Show();
         }
 
-        private void btnCreateTest_Click(object sender, EventArgs e) =>
+        private void btnCreateTest_Click(object sender, EventArgs e)
+        {
             this.Controls.Add(new TestCreatingControl(_currentCourseId));
+            UserConfig.IsTestCreatingStarted = true;
+        }
 
         private void TestsControl_ControlAdded(object sender, ControlEventArgs e)
         {

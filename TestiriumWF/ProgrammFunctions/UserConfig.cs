@@ -12,6 +12,8 @@ namespace TestiriumWF
         public static bool IsTeacher;
         public static bool IsAdmin;
 
+        public static bool IsTestCreatingStarted;
+
         public static bool IsTestStarted;
         public static Action SaveTestResultAction;
 

@@ -31,9 +31,13 @@ namespace TestiriumWF
                 new TestiriumMainMenu().Show();
                 this.Hide();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message + "\nВведен неверный логин или пароль");
+                MessageBox.Show(
+                    "Логин или пароль были введены неверно!\nПовторите попытку.",
+                    "Тестириум",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error );
             }
         }
 
@@ -41,19 +45,5 @@ namespace TestiriumWF
             ? "check_teacher_login" : "check_student_login", isTeacherCheckBox.Checked);
 
         private void btnExitProgramm_Click(object sender, EventArgs e) => Application.Exit();
-
-        private void teacherRB_CheckedChanged(object sender, EventArgs e)
-        {
-            loginTextBox.Text = "levashka";
-            passwordTextBox.Text = "Rurik123";
-            isTeacherCheckBox.Checked = true;
-        }
-
-        private void studentRB_CheckedChanged(object sender, EventArgs e)
-        {
-            loginTextBox.Text = "gera45";
-            passwordTextBox.Text = "Jorik981";
-            isTeacherCheckBox.Checked = false;
-        }
     }
 }

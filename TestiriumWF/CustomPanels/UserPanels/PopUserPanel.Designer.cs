@@ -62,7 +62,7 @@
             this.btnExitUser.Name = "btnExitUser";
             this.btnExitUser.Size = new System.Drawing.Size(360, 48);
             this.btnExitUser.TabIndex = 7;
-            this.btnExitUser.Text = "Выход из пользователя";
+            this.btnExitUser.Text = "Смена пользователя";
             this.btnExitUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExitUser.UseVisualStyleBackColor = false;
             this.btnExitUser.Click += new System.EventHandler(this.btnExitUser_Click);

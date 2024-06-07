@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.endScreenPanel = new System.Windows.Forms.Panel();
+            this.btnViewResults = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblMark = new System.Windows.Forms.Label();
             this.lblPercentageResult = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnViewResults = new System.Windows.Forms.Button();
             this.endScreenPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +48,22 @@
             this.endScreenPanel.Name = "endScreenPanel";
             this.endScreenPanel.Size = new System.Drawing.Size(784, 496);
             this.endScreenPanel.TabIndex = 8;
+            // 
+            // btnViewResults
+            // 
+            this.btnViewResults.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnViewResults.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnViewResults.FlatAppearance.BorderSize = 0;
+            this.btnViewResults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewResults.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnViewResults.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnViewResults.Location = new System.Drawing.Point(160, 392);
+            this.btnViewResults.Name = "btnViewResults";
+            this.btnViewResults.Size = new System.Drawing.Size(472, 32);
+            this.btnViewResults.TabIndex = 6;
+            this.btnViewResults.Text = "Просмотреть результаты";
+            this.btnViewResults.UseVisualStyleBackColor = false;
+            this.btnViewResults.Click += new System.EventHandler(this.btnViewResults_Click);
             // 
             // panel1
             // 
@@ -71,6 +87,7 @@
             this.lblTime.TabIndex = 3;
             this.lblTime.Text = "Времени затрачено - 00:00";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTime.Visible = false;
             // 
             // lblMark
             // 
@@ -104,22 +121,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ваш результат";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnViewResults
-            // 
-            this.btnViewResults.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnViewResults.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnViewResults.FlatAppearance.BorderSize = 0;
-            this.btnViewResults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewResults.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnViewResults.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnViewResults.Location = new System.Drawing.Point(160, 392);
-            this.btnViewResults.Name = "btnViewResults";
-            this.btnViewResults.Size = new System.Drawing.Size(472, 32);
-            this.btnViewResults.TabIndex = 6;
-            this.btnViewResults.Text = "Просмотреть результаты";
-            this.btnViewResults.UseVisualStyleBackColor = false;
-            this.btnViewResults.Click += new System.EventHandler(this.btnViewResults_Click);
             // 
             // TestEndScreen
             // 

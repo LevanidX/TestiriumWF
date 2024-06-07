@@ -64,6 +64,7 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Время \r\nтестирования";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Visible = false;
             // 
             // lblTestDescription
             // 
@@ -101,6 +102,7 @@
             this.lblTestTimeLimit.TabIndex = 4;
             this.lblTestTimeLimit.Text = "∞";
             this.lblTestTimeLimit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTestTimeLimit.Visible = false;
             // 
             // label4
             // 
@@ -112,6 +114,7 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "минут";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Visible = false;
             // 
             // TestWelcomeScreen
             // 

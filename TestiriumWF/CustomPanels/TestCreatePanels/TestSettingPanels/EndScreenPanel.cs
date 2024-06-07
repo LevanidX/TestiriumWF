@@ -27,6 +27,8 @@ namespace TestiriumWF.CustomPanels
                 timeLimitedRadioButton, minuteTextBox, passwordRadioButton, passwordTextBox, allowedTriesComboBox));
 
                 MessageBox.Show("Тестирование было успешно создано!");
+
+                UserConfig.IsTestCreatingStarted = false;
             }
             else
             {

@@ -48,6 +48,21 @@ namespace TestiriumWF.CustomControls.MainMenuControls
                     GoingBack();
                 }
             }
+            else if (UserConfig.IsTestCreatingStarted)
+            {
+                var dialogResult = MessageBox.Show(
+                    "При выходе с создания тестирования, оно не сохранится!\n" +
+                    "Вы действительно хотите продолжить?",
+                    "Тестириум",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    UserConfig.IsTestCreatingStarted = false;
+                    GoingBack();
+                }
+            }
             else
             {
                 GoingBack();
