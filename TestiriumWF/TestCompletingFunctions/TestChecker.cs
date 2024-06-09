@@ -123,18 +123,25 @@ namespace TestiriumWF.TestCompletingFunctions
         /// <param name="userQuestionAnswers">Ответы пользователя на вопросы</param>
         private void CheckUserQuestionAnswers(Question question, int currentAnswerNumber, List<List<string>> userQuestionAnswers)
         {
-            question.UserAnswers = userQuestionAnswers[currentAnswerNumber];
-            if (question.RightAnswers.Count != userQuestionAnswers[currentAnswerNumber].Count) return;
-
-            MakeTextAnswerLower(question, currentAnswerNumber, userQuestionAnswers);
-
-            if (question.QuestionType != TestTypes.SequenceAnswerQuestion && question.QuestionType != TestTypes.MatchAnswerQuestion)
+            try
             {
-                CompareRightAnswers(question, SimpleQuestionCheckWithReturnedCounter(question, currentAnswerNumber, userQuestionAnswers));
+                question.UserAnswers = userQuestionAnswers[currentAnswerNumber];
+                if (question.RightAnswers.Count != userQuestionAnswers[currentAnswerNumber].Count) return;
+
+                MakeTextAnswerLower(question, currentAnswerNumber, userQuestionAnswers);
+
+                if (question.QuestionType != TestTypes.SequenceAnswerQuestion && question.QuestionType != TestTypes.MatchAnswerQuestion)
+                {
+                    CompareRightAnswers(question, SimpleQuestionCheckWithReturnedCounter(question, currentAnswerNumber, userQuestionAnswers));
+                }
+                else
+                {
+                    CompareRightAnswers(question, DifficultQuestionCheckWithReturnedCounter(question, currentAnswerNumber, userQuestionAnswers));
+                }
             }
-            else
+            catch
             {
-                CompareRightAnswers(question, DifficultQuestionCheckWithReturnedCounter(question, currentAnswerNumber, userQuestionAnswers));
+                return;
             }
         }
 

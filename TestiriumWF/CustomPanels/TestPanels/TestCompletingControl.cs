@@ -75,7 +75,7 @@ namespace TestiriumWF.CustomPanels
                 questionsContainerPanel.Controls.Remove(testWelcomeScreen);
                 testControllerPanel.Controls.Remove(btnStartTest);
                 UserConfig.IsTestStarted = true;
-                UserConfig.SaveTestResultAction += () => EndTest();
+                UserConfig.SaveTestResultAction = EndTest;
             }
         }
 

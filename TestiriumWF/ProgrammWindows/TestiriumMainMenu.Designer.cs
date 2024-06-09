@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestiriumMainMenu));
             this.topPanel = new System.Windows.Forms.Panel();
             this.userBoxPanel = new TestiriumWF.CustomPanels.UserBoxPanel();
             this.lblProgrammTitle = new System.Windows.Forms.Label();
@@ -141,6 +142,7 @@
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.containerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TestiriumMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";

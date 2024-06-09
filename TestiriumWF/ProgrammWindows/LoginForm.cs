@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
+using TestiriumWF.ProgrammFunctions;
 using TestiriumWF.ProgrammWindows;
 using TestiriumWF.SqlFunctions;
 
@@ -8,41 +9,31 @@ namespace TestiriumWF
 {
     public partial class LoginForm : Form
     {
-        private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
+        private UserFunctions _userFunctions = new UserFunctions();
 
         public LoginForm() => InitializeComponent();
 
         private void LoginForm_Load(object sender, EventArgs e) => UserConfig.LoginForm = this;
 
-        private void CheckLogin(string procedureName, bool isTeacher)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            UserConfig.IsTeacher = isTeacherCheckBox.Checked;
+
+            var hasConfirmedLogin = _userFunctions.UserLogin(UserConfig.IsTeacher ?
+                "check_teacher_login" :
+                "check_student_login",
+                loginTextBox.Text, passwordTextBox.Text);
+
+            if (hasConfirmedLogin)
             {
-                UserConfig.IsTeacher = isTeacher;
-                var dataRow = _mySqlFunctions.CallProcedureWithReturnedDataTable(procedureName, new MySqlParameter[]
-                {
-                    new MySqlParameter("user_login", loginTextBox.Text),
-                    new MySqlParameter("user_password", passwordTextBox.Text)
-                }).Rows[0];
-
-                UserConfig.UserId = (int)dataRow[0];
-                UserConfig.IsAdmin = isTeacher ? (bool)dataRow[1] : false;
-
-                new TestiriumMainMenu().Show();
                 this.Hide();
+                new TestiriumMainMenu().Show();
             }
-            catch
+            else
             {
-                MessageBox.Show(
-                    "Логин или пароль были введены неверно!\nПовторите попытку.",
-                    "Тестириум",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error );
+                UserMessages.ShowWrongLoginOrPasswordMessage();
             }
         }
-
-        private void btnLogin_Click(object sender, EventArgs e) => CheckLogin(isTeacherCheckBox.Checked 
-            ? "check_teacher_login" : "check_student_login", isTeacherCheckBox.Checked);
 
         private void btnExitProgramm_Click(object sender, EventArgs e) => Application.Exit();
     }

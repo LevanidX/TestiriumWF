@@ -11,7 +11,6 @@ namespace TestiriumWF.CustomControls
         public Action RightClickAction = () => { };
 
         private int _selectedTest;
-        public bool IsViewingResults;
 
         private int _selectedRow;
 

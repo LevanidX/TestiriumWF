@@ -9,30 +9,43 @@ namespace TestiriumWF.CustomPanels
 {
     public partial class EditUserProfile : UserControl
     {
-        MySqlFunctions _mySqlFunctions = new MySqlFunctions();
-        ImageFunctions _imageFunctions = new ImageFunctions();
+        private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
+        private ImageFunctions _imageFunctions = new ImageFunctions();
+        private SHA256Hash _sha256Hash = new SHA256Hash();
 
         public EditUserProfile() => InitializeComponent();
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            CheckAndChangePassword(UserConfig.IsTeacher ? "check_user_teacher_password" : "check_user_student_password",
-                UserConfig.IsTeacher ? "change_user_teacher_password" : "change_user_student_password");
+            CheckAndChangePassword(
+                UserConfig.IsTeacher ?
+                    "get_teacher_login_by_id" :
+                    "get_student_login_by_id",
+                UserConfig.IsTeacher ? 
+                    "check_user_teacher_password" : 
+                    "check_user_student_password",
+                UserConfig.IsTeacher ? 
+                    "change_user_teacher_password" : 
+                    "change_user_student_password");
         }
 
-        private void CheckAndChangePassword(string checkProcedureName, string changeProcedureName)
+        private void CheckAndChangePassword(string getLoginProcedureName, string checkProcedureName, 
+            string changeProcedureName)
         {
             try
             {
+                var login = _mySqlFunctions.CallProcedureWithReturnedDataTable(getLoginProcedureName, 
+                    new MySqlParameter[] { new MySqlParameter("u_id", UserConfig.UserId) }).Rows[0][0].ToString();
+
                 var value = _mySqlFunctions.CallProcedureWithReturnedDataTable(checkProcedureName, new MySqlParameter[]
                 {
-                    new MySqlParameter("initial_password", initialPasswordTextBox.TextValue),
+                    new MySqlParameter("initial_password", _sha256Hash.HashPassword(login, initialPasswordTextBox.TextValue)),
                     new MySqlParameter("user_id", UserConfig.UserId)
                 }).Rows[0][0];
 
                 _mySqlFunctions.CallProcedure(changeProcedureName, new MySqlParameter[]
                 {
-                        new MySqlParameter("new_password", newPasswordTextBox.TextValue),
+                        new MySqlParameter("new_password", _sha256Hash.HashPassword(login, newPasswordTextBox.TextValue)),
                         new MySqlParameter("user_id", UserConfig.UserId)
                 });
 

@@ -80,6 +80,7 @@ namespace TestiriumWF
 
         private void EndChoosing()
         {
+            UserConfig.MainMenu.Enabled = true;
             this.Close();
         }
 

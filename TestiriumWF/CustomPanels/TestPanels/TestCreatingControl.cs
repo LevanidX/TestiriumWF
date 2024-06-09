@@ -15,7 +15,11 @@ namespace TestiriumWF.CustomPanels
             _currentCourse = currentCourse;
         }
 
-        private void btnCreateQuestion_Click(object sender, EventArgs e) => new ChooseQuestionType(questionsContainerPanel, buttonsContainerPanel).Show();
+        private void btnCreateQuestion_Click(object sender, EventArgs e)
+        {
+            UserConfig.MainMenu.Enabled = false;
+            new ChooseQuestionType(questionsContainerPanel, buttonsContainerPanel).Show();
+        }
 
         private void btnWelcomeScreen_Click(object sender, EventArgs e) => welcomeScreenPanel.BringToFront();
 

@@ -195,8 +195,9 @@ namespace TestiriumWF.CustomPanels
         private void FillDataGridWithTests(string courseId)
         {
             testsDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable(UserConfig.IsTeacher ? 
-                "get_teacher_tests" : "get_student_tests", new MySqlParameter[] {
-                    new MySqlParameter("course_id", Convert.ToInt32(courseId)) }));
+                "get_teacher_tests" : 
+                "get_student_tests", 
+                new MySqlParameter[] { new MySqlParameter("course_id", courseId) }));
         }
     }
 }

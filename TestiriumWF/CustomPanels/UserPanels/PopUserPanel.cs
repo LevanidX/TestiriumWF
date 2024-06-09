@@ -30,7 +30,6 @@ namespace TestiriumWF.CustomPanels
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    UserConfig.SaveTestResultAction?.Invoke();
                     Application.Exit();
                 }
             }
@@ -95,7 +94,6 @@ namespace TestiriumWF.CustomPanels
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    UserConfig.SaveTestResultAction?.Invoke();
                     UserConfig.MainMenu.Close();
                     UserConfig.LoginForm.Show();
                 }

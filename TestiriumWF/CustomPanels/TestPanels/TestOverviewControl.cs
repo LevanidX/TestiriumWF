@@ -46,7 +46,6 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
                 new MySqlParameter("user_id", UserConfig.UserId),
                 new MySqlParameter("test_id", _studentsTestNumber)
             }));
-            customDataGridView.IsViewingResults = true;
         }
 
         private void FillLabelValues()

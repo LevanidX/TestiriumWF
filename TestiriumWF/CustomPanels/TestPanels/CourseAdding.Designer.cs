@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CourseAdding));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.courseNameTextBox = new TestiriumWF.CustomControls.CustomOverrideControls.CustomTextBox();
@@ -110,6 +111,7 @@
         "11"};
             this.classComboBox.Location = new System.Drawing.Point(16, 112);
             this.classComboBox.Name = "classComboBox";
+            this.classComboBox.SelectedID = null;
             this.classComboBox.Size = new System.Drawing.Size(400, 25);
             this.classComboBox.TabIndex = 24;
             this.classComboBox.TextValue = "";
@@ -127,6 +129,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CourseAdding";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.CourseAdding_Load);

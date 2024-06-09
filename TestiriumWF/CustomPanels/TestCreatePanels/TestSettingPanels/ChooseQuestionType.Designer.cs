@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseQuestionType));
             this.btnMatchAnswerQuestion = new System.Windows.Forms.Button();
             this.btnRightOrderAnswerQuestion = new System.Windows.Forms.Button();
             this.btnTextAnswerQuestion = new System.Windows.Forms.Button();
@@ -138,6 +139,7 @@
             this.Controls.Add(this.btnMultipleAnswerQuestion);
             this.Controls.Add(this.btnOneAnswerQuestion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChooseQuestionType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChooseQuestionType";

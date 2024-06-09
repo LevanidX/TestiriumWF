@@ -303,10 +303,10 @@
     <Compile Include="CustomPanels\TestPanels\TestCompletingControl.Designer.cs">
       <DependentUpon>TestCompletingControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\TestCreatingControl.cs">
+    <Compile Include="CustomPanels\TestPanels\TestCreatingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomPanels\TestCreatePanels\TestSettingPanels\TestCreatingControl.Designer.cs">
+    <Compile Include="CustomPanels\TestPanels\TestCreatingControl.Designer.cs">
       <DependentUpon>TestCreatingControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomPanels\TestPanels\TestsControl.cs">
@@ -363,8 +363,10 @@
     <Compile Include="CustomPanels\UserPanels\UsersControl.Designer.cs">
       <DependentUpon>UsersControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProgrammFunctions\UserFunctions.cs" />
     <Compile Include="ProgrammFunctions\FormsMessages.cs" />
     <Compile Include="ProgrammFunctions\ImageFunctions.cs" />
+    <Compile Include="ProgrammFunctions\SHA256Hash.cs" />
     <Compile Include="ProgrammFunctions\TestTypes.cs" />
     <Compile Include="CustomPanels\UserPanels\CreateNewClass.cs">
       <SubType>Form</SubType>
@@ -422,6 +424,7 @@
     <Compile Include="CustomPanels\TestPanels\CourseAdding.Designer.cs">
       <DependentUpon>CourseAdding.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProgrammFunctions\UserMessages.cs" />
     <Compile Include="ProgrammWindows\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,7 +455,7 @@
     <Compile Include="TestCompletingFunctions\TestCompleteStarter.cs" />
     <Compile Include="TestCompletingFunctions\TestResulter.cs" />
     <Compile Include="TestCompletingFunctions\TestReviewer.cs" />
-    <Compile Include="TestCreatingFunctions\TestRandomiser.cs" />
+    <Compile Include="TestCompletingFunctions\TestRandomiser.cs" />
     <Compile Include="TestCreatingFunctions\TestCreatingMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCreatingFunctions\QuestionsCreating.cs" />
@@ -469,7 +472,7 @@
     <Compile Include="ProgrammFunctions\UserConfig.cs" />
     <Compile Include="TestCreatingFunctions\TestSerializer.cs" />
     <Compile Include="TestEditorFunctions\TestEditorStarter.cs" />
-    <Compile Include="TeacherTestReviewer.cs" />
+    <Compile Include="ProgrammFunctions\TeacherTestReviewer.cs" />
     <Compile Include="testformsa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -551,7 +554,7 @@
     <EmbeddedResource Include="CustomPanels\TestPanels\TestCompletingControl.resx">
       <DependentUpon>TestCompletingControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomPanels\TestCreatePanels\TestSettingPanels\TestCreatingControl.resx">
+    <EmbeddedResource Include="CustomPanels\TestPanels\TestCreatingControl.resx">
       <DependentUpon>TestCreatingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPanels\TestPanels\TestsControl.resx">

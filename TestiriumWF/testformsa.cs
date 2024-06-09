@@ -47,5 +47,12 @@ namespace TestiriumWF
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SHA256Hash sHA256Hash = new SHA256Hash();
+
+            textBox4.Text = sHA256Hash.HashPassword(login.Text, password.Text);
+        }
     }
 }
