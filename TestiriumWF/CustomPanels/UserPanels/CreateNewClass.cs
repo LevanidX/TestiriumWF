@@ -16,7 +16,41 @@ namespace TestiriumWF.ProgrammWindows
     {
         private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
 
-        public CreateNewClass() => InitializeComponent();
+        private Action _updateAction;
+        private string _classId;
+
+        private bool _isEditing;
+
+
+        public CreateNewClass(Action updateAction)
+        {
+            InitializeComponent();
+
+            _updateAction = updateAction;
+        }
+
+        public CreateNewClass(string classId, Action updateAction)
+        {
+            InitializeComponent();
+
+            _updateAction = updateAction;
+            _classId = classId;
+
+            _isEditing = true;
+        }
+
+        private void CreateNewClass_Load(object sender, EventArgs e)
+        {
+            if (_isEditing)
+            {
+                var classData = _mySqlFunctions.CallProcedureWithReturnedDataTable("get_class_data",
+                    new MySqlParameter[] { new MySqlParameter("c_id", _classId) }).Rows[0];
+
+                btnSave.Text = "Сохранить изменения";
+                classNameTextBox.TextValue = classData[0].ToString();
+                classYearTextBox.Text = classData[1].ToString();
+            }
+        }
 
         private void btnExitWindow_Click(object sender, EventArgs e)
         {
@@ -28,6 +62,8 @@ namespace TestiriumWF.ProgrammWindows
         {
             try
             {
+                if (_isEditing) throw new IndexOutOfRangeException();
+
                 var dataTable = (object)_mySqlFunctions.CallProcedureWithReturnedDataTable("check_class_exists", new MySqlParameter[]
                 {
                     new MySqlParameter("c_name", classNameTextBox.TextValue),
@@ -40,13 +76,18 @@ namespace TestiriumWF.ProgrammWindows
             {
                 if (classNameTextBox.TextValue != string.Empty || classYearTextBox.Text != string.Empty)
                 {
-                    _mySqlFunctions.CallProcedure("push_new_class", new MySqlParameter[]
+                    _mySqlFunctions.CallProcedure(_isEditing ? "update_class" : "push_new_class", new MySqlParameter[]
                     {
+                        _isEditing ? new MySqlParameter("c_id", _classId) : new MySqlParameter(),
                         new MySqlParameter("c_name", classNameTextBox.TextValue),
                         new MySqlParameter("c_year", classYearTextBox.Text)
                     });
 
-                    MessageBox.Show("Добавление нового класса было произведено успешно!");
+                    _updateAction?.Invoke();
+
+                    MessageBox.Show(_isEditing ?
+                        "Редактирование класса было произведено успешно!" :
+                        "Добавление нового класса было произведено успешно!");
                 }
                 else
                 {

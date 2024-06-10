@@ -13,7 +13,7 @@ namespace TestiriumWF
         /// <summary>
         /// Показывает сообщение с предупреждением об удалении крайних двух ответов
         /// </summary>
-        public void ShowWarningDeleteAnswersMessage()
+        public static void ShowWarningDeleteAnswersMessage()
         {
             MessageBox.Show(ConfigurationManager.AppSettings.Get("WarningDeleteAnswersMessage"),
                 ConfigurationManager.AppSettings.Get("ProgrammName"),
@@ -21,12 +21,12 @@ namespace TestiriumWF
                 MessageBoxIcon.Warning);
         }
 
-        public void ShowWarningAddingMoreDefinitions()
+        public static void ShowFutureUpdateMessage()
         {
-            MessageBox.Show(ConfigurationManager.AppSettings.Get("WarningAddingMoreDefinitions"),
+            MessageBox.Show("Функционал добавления изображений и видеороликов планируется добавить в будущем обновлении!",
                 ConfigurationManager.AppSettings.Get("ProgrammName"),
                 MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
+                MessageBoxIcon.Information);
         }
     }
 }

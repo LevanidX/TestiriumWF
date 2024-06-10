@@ -100,6 +100,7 @@
             this.Name = "CreateNewSpeciality";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateNewSpeciality";
+            this.Load += new System.EventHandler(this.CreateNewSpeciality_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

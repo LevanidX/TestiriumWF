@@ -18,6 +18,8 @@ namespace TestiriumWF.CustomControls
         public Action EditAction { get; set; }
         public Action DeleteAction { get; set; }
 
+        public bool IsContextMenuEnabled { get; set; }
+
         public CustomLinkLabel()
         {
             InitializeComponent();
@@ -46,11 +48,11 @@ namespace TestiriumWF.CustomControls
 
         private void linkLabel_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && LeftMouseClickAction != null)
             {
                 LeftMouseClickAction();
             }
-            else if (e.Button == MouseButtons.Right)
+            else if (e.Button == MouseButtons.Right && UserConfig.IsTeacher)
             {
                 contextMenuStrip.Show(MousePosition);
             }

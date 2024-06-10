@@ -129,6 +129,7 @@
             this.Name = "CreateNewClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateNewClass";
+            this.Load += new System.EventHandler(this.CreateNewClass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

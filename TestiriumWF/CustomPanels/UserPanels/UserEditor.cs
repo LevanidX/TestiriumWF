@@ -52,7 +52,7 @@ namespace TestiriumWF.ProgrammWindows
         {
             try
             {
-                if (_imageBytes == null && _isEditing)
+                if (_imageBytes == null && _isEditing && (byte[])_userDataTable.Rows[0][4] != null)
                 {
                     _imageBytes = (byte[])_userDataTable.Rows[0][4];
                 }

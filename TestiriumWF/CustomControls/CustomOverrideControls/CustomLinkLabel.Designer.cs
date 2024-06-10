@@ -40,7 +40,6 @@
             // 
             this.linkLabel.ActiveLinkColor = System.Drawing.Color.Gainsboro;
             this.linkLabel.AutoSize = true;
-            this.linkLabel.ContextMenuStrip = this.contextMenuStrip;
             this.linkLabel.Font = new System.Drawing.Font("Bahnschrift SemiLight SemiConde", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.linkLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.linkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
@@ -65,14 +64,14 @@
             this.contextMenuStrip.Name = "availableTestsMenuStrip";
             this.contextMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.contextMenuStrip.ShowImageMargin = false;
-            this.contextMenuStrip.Size = new System.Drawing.Size(156, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(128, 48);
             this.contextMenuStrip.Text = "Настройки";
             // 
             // EditToolStripMenuItem
             // 
             this.EditToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            this.EditToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.EditToolStripMenuItem.Text = "Редактировать";
             this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
@@ -80,7 +79,7 @@
             // 
             this.DeleteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.DeleteToolStripMenuItem.Text = "Удалить";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
@@ -92,7 +91,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.linkLabel);
             this.Name = "CustomLinkLabel";
-            this.Size = new System.Drawing.Size(103, 24);
+            this.Size = new System.Drawing.Size(103, 19);
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

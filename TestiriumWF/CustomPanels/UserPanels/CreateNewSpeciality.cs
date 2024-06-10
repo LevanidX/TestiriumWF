@@ -9,11 +9,38 @@ namespace TestiriumWF.ProgrammWindows
     {
         MySqlFunctions _mySqlFunctions = new MySqlFunctions();
 
-        public CreateNewSpeciality()
+        private Action _updateAction;
+        private string _specialityId;
+
+        private bool _isEditing;
+
+        public CreateNewSpeciality(Action updateAction)
         {
             InitializeComponent();
 
-            TopMost = true;
+            _updateAction = updateAction;
+        }
+
+        public CreateNewSpeciality(string specialityId, Action updateAction)
+        {
+            InitializeComponent();
+
+            _updateAction = updateAction;
+            _specialityId = specialityId;
+
+            _isEditing = true;
+        }
+
+        private void CreateNewSpeciality_Load(object sender, EventArgs e)
+        {
+            if (_isEditing)
+            {
+                var specialityData = _mySqlFunctions.CallProcedureWithReturnedDataTable("get_speciality_data",
+                    new MySqlParameter[] { new MySqlParameter("s_id", _specialityId) }).Rows[0];
+
+                btnSave.Text = "Сохранить изменения";
+                specialityTextBox.TextValue = specialityData[0].ToString();
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -22,11 +49,17 @@ namespace TestiriumWF.ProgrammWindows
             {
                 if (specialityTextBox.TextValue != string.Empty)
                 {
-                    _mySqlFunctions.CallProcedure("push_new_speciality", new MySqlParameter[]
+                    _mySqlFunctions.CallProcedure(_isEditing ? "update_speciality" : "push_new_speciality", new MySqlParameter[]
                     {
+                        _isEditing ? new MySqlParameter("s_id", _specialityId) : new MySqlParameter(),
                         new MySqlParameter("s_name", specialityTextBox.TextValue)
                     });
-                    MessageBox.Show("Добавление новой специальности было произведено успешно!");
+
+                    _updateAction?.Invoke();
+
+                    MessageBox.Show(_isEditing ?
+                        "Редактирование специальности было произведено успешно!" :
+                        "Добавление новой специальности было произведено успешно!");
                 }
                 else
                 {

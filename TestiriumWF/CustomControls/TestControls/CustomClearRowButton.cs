@@ -6,7 +6,6 @@ namespace TestiriumWF
 {
     public partial class CustomClearRowButton : UserControl
     {
-        TestCreatingMessages programmMessages = new TestCreatingMessages();
         QuestionsCreating questionsCreating = new QuestionsCreating();
 
         private TableLayoutPanel _answersPanel = new TableLayoutPanel();
@@ -44,7 +43,7 @@ namespace TestiriumWF
             }
             else
             {
-                programmMessages.ShowWarningDeleteAnswersMessage();
+                TestCreatingMessages.ShowWarningDeleteAnswersMessage();
             }
         }
 

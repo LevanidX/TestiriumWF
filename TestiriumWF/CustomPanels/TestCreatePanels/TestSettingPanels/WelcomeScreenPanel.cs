@@ -57,5 +57,10 @@ namespace TestiriumWF
             functions.ChangeTextBoxOnLeave(descriptionTestTxtBox, _descriptionReturningValue);
             _descriptionValue = descriptionTestTxtBox.Text; 
         }
+
+        private void btnAddPhotoVideo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            TestCreatingMessages.ShowFutureUpdateMessage();
+        }
     }
 }

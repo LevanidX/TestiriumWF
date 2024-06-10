@@ -28,8 +28,7 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
         private void TestOverviewControl_Load(object sender, EventArgs e)
         {
             SetAndGetTest();
-            FillDataGrid();
-            FillLabelValues();
+            UpdateValues();
 
             btnBeginTest.Enabled = _availableTries == 0 ? false : true;
         }
@@ -39,16 +38,7 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
             _studentsTest = _testDeserializer.GetDeserializedTestById(_studentsTestNumber);
         }
 
-        private void FillDataGrid()
-        {
-            customDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_completed_student_tests", new MySqlParameter[] 
-            {
-                new MySqlParameter("user_id", UserConfig.UserId),
-                new MySqlParameter("test_id", _studentsTestNumber)
-            }));
-        }
-
-        private void FillLabelValues()
+        private void UpdateValues()
         {
             DataRow testValuesRow = _mySqlFunctions.CallProcedureWithReturnedDataTable("get_completed_student_test_values", new MySqlParameter[]
             {
@@ -61,7 +51,15 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
             _availableTries = _studentsTest.TestSettings.AllowedTriesQuantity - Convert.ToInt32(testValuesRow[0]);
             lblAvailableTries.Text = $"Доступно попыток - {_availableTries}";
 
-            lblBestResult.Text = (testValuesRow[1] == DBNull.Value) ? "Прохождений не было" : $"Лучший результат - {testValuesRow[1]}%";
+            lblBestResult.Text = (testValuesRow[1] == null) ? 
+                "Прохождений не было" : 
+                "Лучший результат - " + testValuesRow[1] + "%";
+
+            customDataGridView.FillData(_mySqlFunctions.CallProcedureWithReturnedDataTable("get_completed_student_tests", new MySqlParameter[]
+            {
+                new MySqlParameter("user_id", UserConfig.UserId),
+                new MySqlParameter("test_id", _studentsTestNumber)
+            }));
         }
 
         private void btnBeginTest_Click(object sender, EventArgs e)
@@ -79,7 +77,8 @@ namespace TestiriumWF.CustomControls.TestCompleteingControls
 
         private void AddTestCompletingControl()
         {
-            var testCompletingControl = new TestCompletingControl(_studentsTestNumber, (_studentsTest.TestSettings.AllowedTriesQuantity - _availableTries) + 1);
+            var testCompletingControl = new TestCompletingControl(_studentsTestNumber, 
+                (_studentsTest.TestSettings.AllowedTriesQuantity - _availableTries) + 1, UpdateValues);
             this.Parent.Controls.Add(testCompletingControl);
             testCompletingControl.BringToFront();
         }

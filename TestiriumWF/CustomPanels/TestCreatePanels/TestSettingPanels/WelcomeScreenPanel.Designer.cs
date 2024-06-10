@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAddPhotoVideo = new System.Windows.Forms.LinkLabel();
             this.descriptionTestTxtBox = new System.Windows.Forms.TextBox();
             this.lblTestDescription = new System.Windows.Forms.Label();
             this.testTitleTxtBox = new System.Windows.Forms.TextBox();
             this.lblTestTitle = new System.Windows.Forms.Label();
             this.lblWelcomeScreenTitle = new System.Windows.Forms.Label();
+            this.btnAddPhotoVideo = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,20 +51,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 496);
             this.panel1.TabIndex = 5;
-            // 
-            // btnAddPhotoVideo
-            // 
-            this.btnAddPhotoVideo.ActiveLinkColor = System.Drawing.Color.White;
-            this.btnAddPhotoVideo.AutoSize = true;
-            this.btnAddPhotoVideo.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddPhotoVideo.LinkColor = System.Drawing.Color.White;
-            this.btnAddPhotoVideo.Location = new System.Drawing.Point(32, 425);
-            this.btnAddPhotoVideo.Name = "btnAddPhotoVideo";
-            this.btnAddPhotoVideo.Size = new System.Drawing.Size(176, 14);
-            this.btnAddPhotoVideo.TabIndex = 6;
-            this.btnAddPhotoVideo.TabStop = true;
-            this.btnAddPhotoVideo.Text = "Добавить картинку или видео";
-            this.btnAddPhotoVideo.VisitedLinkColor = System.Drawing.Color.White;
             // 
             // descriptionTestTxtBox
             // 
@@ -129,6 +115,21 @@
             this.lblWelcomeScreenTitle.TabIndex = 0;
             this.lblWelcomeScreenTitle.Text = "Титульный экран";
             // 
+            // btnAddPhotoVideo
+            // 
+            this.btnAddPhotoVideo.ActiveLinkColor = System.Drawing.Color.White;
+            this.btnAddPhotoVideo.AutoSize = true;
+            this.btnAddPhotoVideo.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddPhotoVideo.LinkColor = System.Drawing.Color.White;
+            this.btnAddPhotoVideo.Location = new System.Drawing.Point(32, 425);
+            this.btnAddPhotoVideo.Name = "btnAddPhotoVideo";
+            this.btnAddPhotoVideo.Size = new System.Drawing.Size(176, 14);
+            this.btnAddPhotoVideo.TabIndex = 6;
+            this.btnAddPhotoVideo.TabStop = true;
+            this.btnAddPhotoVideo.Text = "Добавить картинку или видео";
+            this.btnAddPhotoVideo.VisitedLinkColor = System.Drawing.Color.White;
+            this.btnAddPhotoVideo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnAddPhotoVideo_LinkClicked);
+            // 
             // WelcomeScreenPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,11 +147,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel btnAddPhotoVideo;
         private System.Windows.Forms.TextBox descriptionTestTxtBox;
         private System.Windows.Forms.Label lblTestDescription;
         private System.Windows.Forms.TextBox testTitleTxtBox;
         private System.Windows.Forms.Label lblTestTitle;
         private System.Windows.Forms.Label lblWelcomeScreenTitle;
+        private System.Windows.Forms.LinkLabel btnAddPhotoVideo;
     }
 }

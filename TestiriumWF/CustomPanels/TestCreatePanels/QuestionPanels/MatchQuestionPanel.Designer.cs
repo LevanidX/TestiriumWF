@@ -33,21 +33,21 @@
             this.definitionsAndAlignmentsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.customQuestionTextBox = new TestiriumWF.CustomQuestionTextBox();
             this.btnAddDefinitionAndAlignments = new System.Windows.Forms.Button();
-            this.btnAddPhotoVideo = new System.Windows.Forms.LinkLabel();
             this.lblQuestionAnswerVariants = new System.Windows.Forms.Label();
             this.lblQuestionTitle = new System.Windows.Forms.Label();
             this.lblSequencingQuestionTitle = new System.Windows.Forms.Label();
+            this.btnAddPhotoVideo = new System.Windows.Forms.LinkLabel();
             this.matchQuestionScreenPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // matchQuestionScreenPanel
             // 
             this.matchQuestionScreenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            this.matchQuestionScreenPanel.Controls.Add(this.btnAddPhotoVideo);
             this.matchQuestionScreenPanel.Controls.Add(this.label1);
             this.matchQuestionScreenPanel.Controls.Add(this.definitionsAndAlignmentsTableLayoutPanel);
             this.matchQuestionScreenPanel.Controls.Add(this.customQuestionTextBox);
             this.matchQuestionScreenPanel.Controls.Add(this.btnAddDefinitionAndAlignments);
-            this.matchQuestionScreenPanel.Controls.Add(this.btnAddPhotoVideo);
             this.matchQuestionScreenPanel.Controls.Add(this.lblQuestionAnswerVariants);
             this.matchQuestionScreenPanel.Controls.Add(this.lblQuestionTitle);
             this.matchQuestionScreenPanel.Controls.Add(this.lblSequencingQuestionTitle);
@@ -111,20 +111,6 @@
             this.btnAddDefinitionAndAlignments.UseVisualStyleBackColor = false;
             this.btnAddDefinitionAndAlignments.Click += new System.EventHandler(this.btnAddDefinitionAndAlignments_Click);
             // 
-            // btnAddPhotoVideo
-            // 
-            this.btnAddPhotoVideo.ActiveLinkColor = System.Drawing.Color.White;
-            this.btnAddPhotoVideo.AutoSize = true;
-            this.btnAddPhotoVideo.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddPhotoVideo.LinkColor = System.Drawing.Color.White;
-            this.btnAddPhotoVideo.Location = new System.Drawing.Point(576, 176);
-            this.btnAddPhotoVideo.Name = "btnAddPhotoVideo";
-            this.btnAddPhotoVideo.Size = new System.Drawing.Size(176, 14);
-            this.btnAddPhotoVideo.TabIndex = 6;
-            this.btnAddPhotoVideo.TabStop = true;
-            this.btnAddPhotoVideo.Text = "Добавить картинку или видео";
-            this.btnAddPhotoVideo.VisitedLinkColor = System.Drawing.Color.White;
-            // 
             // lblQuestionAnswerVariants
             // 
             this.lblQuestionAnswerVariants.AutoSize = true;
@@ -158,6 +144,21 @@
             this.lblSequencingQuestionTitle.TabIndex = 0;
             this.lblSequencingQuestionTitle.Text = "Вопрос на соответствие";
             // 
+            // btnAddPhotoVideo
+            // 
+            this.btnAddPhotoVideo.ActiveLinkColor = System.Drawing.Color.White;
+            this.btnAddPhotoVideo.AutoSize = true;
+            this.btnAddPhotoVideo.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddPhotoVideo.LinkColor = System.Drawing.Color.White;
+            this.btnAddPhotoVideo.Location = new System.Drawing.Point(576, 176);
+            this.btnAddPhotoVideo.Name = "btnAddPhotoVideo";
+            this.btnAddPhotoVideo.Size = new System.Drawing.Size(176, 14);
+            this.btnAddPhotoVideo.TabIndex = 14;
+            this.btnAddPhotoVideo.TabStop = true;
+            this.btnAddPhotoVideo.Text = "Добавить картинку или видео";
+            this.btnAddPhotoVideo.VisitedLinkColor = System.Drawing.Color.White;
+            this.btnAddPhotoVideo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnAddPhotoVideo_LinkClicked);
+            // 
             // MatchQuestionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,10 +179,10 @@
         private System.Windows.Forms.TableLayoutPanel definitionsAndAlignmentsTableLayoutPanel;
         private CustomQuestionTextBox customQuestionTextBox;
         private System.Windows.Forms.Button btnAddDefinitionAndAlignments;
-        private System.Windows.Forms.LinkLabel btnAddPhotoVideo;
         private System.Windows.Forms.Label lblQuestionAnswerVariants;
         private System.Windows.Forms.Label lblQuestionTitle;
         private System.Windows.Forms.Label lblSequencingQuestionTitle;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel btnAddPhotoVideo;
     }
 }

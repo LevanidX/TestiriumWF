@@ -37,6 +37,24 @@ namespace TestiriumWF.ProgrammFunctions
                 MessageBoxIcon.Information);
         }
 
+        public static DialogResult ShowWarningDeleteSpecialityMessage()
+        {
+            return MessageBox.Show(
+                "ВНИМАНИЕ: Удаление специальности приведёт к удалению всех связанных пользователей!" +
+                "\nВы хотите продолжить?",
+                ConfigurationManager.AppSettings.Get("ProgrammName"),
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+        }
 
+        public static DialogResult ShowWarningDeleteClassMessage()
+        {
+            return MessageBox.Show(
+                "ВНИМАНИЕ: Удаление класса приведёт к удалению всех связанных пользователей!" +
+                "\nВы хотите продолжить?",
+                ConfigurationManager.AppSettings.Get("ProgrammName"),
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+        }
     }
 }

@@ -5,6 +5,7 @@ using TestiriumWF.CustomControls;
 using TestiriumWF.ProgrammWindows;
 using TestiriumWF.SqlFunctions;
 using MySql.Data.MySqlClient;
+using TestiriumWF.ProgrammFunctions;
 
 namespace TestiriumWF.CustomPanels
 {
@@ -82,6 +83,20 @@ namespace TestiriumWF.CustomPanels
             customLinkLabel.TextValue = catalogName;
             customLinkLabel.LeftMouseClickAction = () => LinkLabelClick(customLinkLabel);
 
+            if (containerPanel == specialitiesFlowLayoutPanel)
+            {
+                customLinkLabel.EditAction = () => ShowSpecialitiesEdit(customLinkLabel.TagValue);
+                customLinkLabel.DeleteAction = () => DeleteSpeciality(customLinkLabel.TagValue, 
+                    UserMessages.ShowWarningDeleteSpecialityMessage());
+            }
+            else
+            {
+                customLinkLabel.EditAction = () => ShowClassesEdit(customLinkLabel.TagValue);
+                customLinkLabel.DeleteAction = () => DeleteClass(customLinkLabel.TagValue,
+                    UserMessages.ShowWarningDeleteClassMessage());
+            }
+                
+
             containerPanel.Controls.Add(customLinkLabel);
         }
 
@@ -94,6 +109,44 @@ namespace TestiriumWF.CustomPanels
             btnCreateUser.Enabled = true;
             lblChoicedSpeciality.Text = customLinkLabel.TextValue;
             lblChoicedClass.Text = customLinkLabel.TextValue;
+        }
+
+        private void DeleteSpeciality(string id, DialogResult dialogResult)
+        {
+            try
+            {
+                if (dialogResult == DialogResult.Yes)
+                {
+                    _mySqlFunctions.CallProcedure("delete_speciality",
+                        new MySqlParameter[] { new MySqlParameter("s_id", id) });
+
+                    FillUsersValues(true, teachersPanel, teachersCatalogPanel,
+                        specialitiesFlowLayoutPanel, "get_available_specialities");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DeleteClass(string id, DialogResult dialogResult)
+        {
+            try
+            {
+                if (dialogResult == DialogResult.Yes)
+                {
+                    _mySqlFunctions.CallProcedure("delete_class",
+                        new MySqlParameter[] { new MySqlParameter("c_id", id) });
+
+                    FillUsersValues(false, studentsPanel, studentsCatalogPanel,
+                        classesFlowLayoutPanel, "get_available_classes");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void editUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -127,18 +180,33 @@ namespace TestiriumWF.CustomPanels
                 MessageBox.Show("Данный пользователь задействован в результатах тестирований. " +
                     "\nСначала произведите удаление резульатов по тестированиям для этого пользователя");
             }
-            
         }
 
         private void btnAddNewSpeciality_Click(object sender, EventArgs e)
         {
-            new CreateNewSpeciality().Show();
+            new CreateNewSpeciality(() => FillUsersValues(true, teachersPanel, teachersCatalogPanel,
+                specialitiesFlowLayoutPanel, "get_available_specialities")).Show();
+            UserConfig.MainMenu.Enabled = false;
+        }
+
+        private void ShowSpecialitiesEdit(string id)
+        {
+            new CreateNewSpeciality(id, () => FillUsersValues(true, teachersPanel, teachersCatalogPanel,
+                specialitiesFlowLayoutPanel, "get_available_specialities")).Show();
+            UserConfig.MainMenu.Enabled = false;
+        }
+
+        private void ShowClassesEdit(string id)
+        {
+            new CreateNewClass(id, () => FillUsersValues(false, studentsPanel, studentsCatalogPanel,
+                classesFlowLayoutPanel, "get_available_classes")).Show();
             UserConfig.MainMenu.Enabled = false;
         }
 
         private void btnAddNewClass_Click(object sender, EventArgs e)
         {
-            new CreateNewClass().Show();
+            new CreateNewClass(() => FillUsersValues(false, studentsPanel, studentsCatalogPanel,
+                classesFlowLayoutPanel, "get_available_classes")).Show();
             UserConfig.MainMenu.Enabled = false;
         }
     }

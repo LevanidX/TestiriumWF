@@ -22,15 +22,6 @@ namespace TestiriumWF.CustomPanels.DeserializedQuestionPanels
         {
             lblTestTitle.Text = studentsTest.Name;
             lblTestDescription.Text = studentsTest.Description.Text;
-
-            if (studentsTest.TestSettings.TimeLimitedTest.Value)
-            {
-                lblTestTimeLimit.Text = studentsTest.TestSettings.TimeLimitedTest.TimeLimit.ToString();
-            }
-            else
-            {
-                lblTestTimeLimit.Text = "∞";
-            }
         }
 
         public string GetTime()

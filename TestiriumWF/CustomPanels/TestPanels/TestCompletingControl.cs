@@ -28,12 +28,15 @@ namespace TestiriumWF.CustomPanels
         private int _studentsTestNumber;
         private int _tryNumber;
 
-        public TestCompletingControl(int studentsTestNumber, int tryNumber)
+        private Action _updateDataGrid;
+
+        public TestCompletingControl(int studentsTestNumber, int tryNumber, Action UpdateDataGrid)
         {
             InitializeComponent();
 
             _studentsTestNumber = studentsTestNumber;
             _tryNumber = tryNumber;
+            _updateDataGrid = UpdateDataGrid;
         }
         
         public TestCompletingControl(int studentsTestNumber)
@@ -113,6 +116,7 @@ namespace TestiriumWF.CustomPanels
             CreateTestEndScreen();
 
             UserConfig.IsTestStarted = false;
+            _updateDataGrid();
         }
 
         private void CreateTestEndScreen()

@@ -65,5 +65,10 @@ namespace TestiriumWF.CustomPanels
         {
             CreateRow(definitionsAndAlignmentsTableLayoutPanel);
         }
+
+        private void btnAddPhotoVideo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            TestCreatingMessages.ShowFutureUpdateMessage();
+        }
     }
 }

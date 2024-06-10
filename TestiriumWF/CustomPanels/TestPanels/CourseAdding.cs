@@ -11,7 +11,7 @@ namespace TestiriumWF.ProgrammWindows
         private MySqlFunctions _mySqlFunctions = new MySqlFunctions();
         FormsMessages messages = new FormsMessages();
 
-        private bool _isEdit;
+        private bool _isEditing;
         private string _courseId;
 
         private Action _updateAction;
@@ -30,12 +30,12 @@ namespace TestiriumWF.ProgrammWindows
             _courseId = courseId;
             _updateAction = updateAction;
 
-            _isEdit = true;
+            _isEditing = true;
         }
 
         private void CourseAdding_Load(object sender, EventArgs e)
         {
-            if (_isEdit)
+            if (_isEditing)
             {
                 var courseData = _mySqlFunctions.CallProcedureWithReturnedDataTable("get_course_data", 
                     new MySqlParameter[] { new MySqlParameter("c_id", _courseId) }).Rows[0];
@@ -56,9 +56,9 @@ namespace TestiriumWF.ProgrammWindows
         {
             try
             {
-                _mySqlFunctions.CallProcedure(_isEdit ? "update_course" : "push_new_course", new MySqlParameter[]
+                _mySqlFunctions.CallProcedure(_isEditing ? "update_course" : "push_new_course", new MySqlParameter[]
                 {
-                    _isEdit ? new MySqlParameter("c_id", _courseId) : new MySqlParameter(),
+                    _isEditing ? new MySqlParameter("c_id", _courseId) : new MySqlParameter(),
                     new MySqlParameter("c_name", courseNameTextBox.TextValue),
                     new MySqlParameter("c_user_id", UserConfig.UserId),
                     new MySqlParameter("c_class", classComboBox.TextValue)
@@ -66,7 +66,7 @@ namespace TestiriumWF.ProgrammWindows
 
                 _updateAction?.Invoke();
 
-                if (_isEdit)
+                if (_isEditing)
                 {
                     MessageBox.Show("Редактирование курса было произведено успешно!");
                 }

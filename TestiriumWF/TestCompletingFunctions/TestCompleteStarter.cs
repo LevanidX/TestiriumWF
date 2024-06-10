@@ -81,9 +81,9 @@ namespace TestiriumWF.TestCompletingFunctions
             var SetAnswersMethod = typeof(TestQuestionPanel).GetMethod("SetAnswers",
                     BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
 
-            SetQuestionMethod.Invoke(questionPanel, new object[] { question });
-            SetQuestionTextMethod.Invoke(questionPanel, null);
-            SetAnswersMethod.Invoke(questionPanel, null);
+            SetQuestionMethod?.Invoke(questionPanel, new object[] { question });
+            SetQuestionTextMethod?.Invoke(questionPanel, null);
+            SetAnswersMethod?.Invoke(questionPanel, null);
 
             AddQuestionButtonToPanel(questionPanel, question);
         }
@@ -112,11 +112,6 @@ namespace TestiriumWF.TestCompletingFunctions
                 userControl.Tag = counter;
                 counter++;
             }
-        }
-
-        private void RandomiseQuestionPanels() //на потом сделать рандомизацию вопросов
-        {
-
         }
     }
 }

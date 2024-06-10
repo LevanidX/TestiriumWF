@@ -32,9 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAvailableTries = new System.Windows.Forms.Label();
             this.lblBestResult = new System.Windows.Forms.Label();
+            this.btnBeginTest = new System.Windows.Forms.Button();
             this.customDataGridView = new TestiriumWF.CustomControls.CustomDataGridView();
             this.lblTestTitle = new System.Windows.Forms.Label();
-            this.btnBeginTest = new System.Windows.Forms.Button();
             this.availableTestsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +56,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.panel1.Controls.Add(this.lblAvailableTries);
             this.panel1.Controls.Add(this.lblBestResult);
-            this.panel1.Location = new System.Drawing.Point(736, 16);
+            this.panel1.Location = new System.Drawing.Point(704, 16);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 48);
+            this.panel1.Size = new System.Drawing.Size(248, 48);
             this.panel1.TabIndex = 14;
             // 
             // lblAvailableTries
@@ -68,22 +68,39 @@
             this.lblAvailableTries.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblAvailableTries.Location = new System.Drawing.Point(0, 0);
             this.lblAvailableTries.Name = "lblAvailableTries";
-            this.lblAvailableTries.Size = new System.Drawing.Size(216, 19);
+            this.lblAvailableTries.Size = new System.Drawing.Size(248, 19);
             this.lblAvailableTries.TabIndex = 12;
             this.lblAvailableTries.Text = "Доступно попыток - 0";
             this.lblAvailableTries.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblBestResult
             // 
-            this.lblBestResult.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblBestResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBestResult.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblBestResult.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblBestResult.Location = new System.Drawing.Point(0, 24);
             this.lblBestResult.Name = "lblBestResult";
-            this.lblBestResult.Size = new System.Drawing.Size(216, 19);
+            this.lblBestResult.Size = new System.Drawing.Size(248, 19);
             this.lblBestResult.TabIndex = 10;
             this.lblBestResult.Text = "Лучший результат - 0%";
             this.lblBestResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnBeginTest
+            // 
+            this.btnBeginTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBeginTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
+            this.btnBeginTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBeginTest.FlatAppearance.BorderSize = 0;
+            this.btnBeginTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBeginTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnBeginTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBeginTest.Location = new System.Drawing.Point(16, 440);
+            this.btnBeginTest.Name = "btnBeginTest";
+            this.btnBeginTest.Size = new System.Drawing.Size(936, 40);
+            this.btnBeginTest.TabIndex = 13;
+            this.btnBeginTest.Text = "Пройти тестирование";
+            this.btnBeginTest.UseVisualStyleBackColor = false;
+            this.btnBeginTest.Click += new System.EventHandler(this.btnBeginTest_Click);
             // 
             // customDataGridView
             // 
@@ -102,23 +119,6 @@
             this.lblTestTitle.TabIndex = 7;
             this.lblTestTitle.Text = "Название тестирования";
             this.lblTestTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnBeginTest
-            // 
-            this.btnBeginTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBeginTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(129)))));
-            this.btnBeginTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnBeginTest.FlatAppearance.BorderSize = 0;
-            this.btnBeginTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBeginTest.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnBeginTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBeginTest.Location = new System.Drawing.Point(16, 440);
-            this.btnBeginTest.Name = "btnBeginTest";
-            this.btnBeginTest.Size = new System.Drawing.Size(936, 40);
-            this.btnBeginTest.TabIndex = 13;
-            this.btnBeginTest.Text = "Пройти тестирование";
-            this.btnBeginTest.UseVisualStyleBackColor = false;
-            this.btnBeginTest.Click += new System.EventHandler(this.btnBeginTest_Click);
             // 
             // TestOverviewControl
             // 
